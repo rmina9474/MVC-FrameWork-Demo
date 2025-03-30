@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Reina.MacCredy.Models.Product>
+
+<h2 class="text-center my-4">Products</h2>
+
+<!-- Nút "Add" -->
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+    <!-- Form tìm kiếm -->
+    <form method="get" class="d-flex">
+        <input type="text" name="searchQuery" class="form-control me-2"
+               placeholder="🔍 Search products..." value="@ViewBag.SearchQuery" style="max-width: 250px;">
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-search"></i> Search</button>
+    </form>
+
+    <!-- Bộ lọc sắp xếp giá -->
+    <div class="btn-group">
+        <a asp-action="Index" asp-route-sortOrder="asc" class="btn btn-outline-secondary">
+            ⬆ Price Low to High
+        </a>
+        <a asp-action="Index" asp-route-sortOrder="desc" class="btn btn-outline-secondary">
+            ⬇ Price High to Low
+        </a>
+    </div>
+
+    <!-- Các nút thao tác -->
+    <div class="d-flex gap-2">
+        <a asp-action="Add" class="btn btn-success">
+            <i class="fa-solid fa-plus"></i> Add Item
+        </a>
+        <a asp-controller="Category" asp-action="Index" class="btn btn-success">
+            <i class="fa-solid fa-folder-plus"></i> View Category
+        </a>
+    </div>
+</div>
+
+
+
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th class="text-center">Actions</th>
+        </tr>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price.ToString("#,##0") Vnđ</td> <!-- Hiển thị giá theo định dạng tiền tệ -->
+                <td>@product.Description</td>
+                <td>@(product.Category?.Name ?? "No Category")</td> <!-- Kiểm tra nếu không có Category -->
+                <td class="text-center">
+                    <a asp-action="Display" asp-route-id="@product.Id" class="btn btn-info btn-sm">View</a>
+                    @if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+                    {
+                        <a asp-action="Update" asp-route-id="@product.Id" class="btn btn-warning btn-sm">Edit</a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger btn-sm"
+                               onclick="return confirm('Are you sure you want to delete this product?');">
+                                Delete
+                            </a>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

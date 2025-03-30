@@ -1,0 +1,76 @@
+﻿@model Reina.MacCredy.Models.Product
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 class="text-center my-4">Edit Product</h2>
+
+<div class="container">
+    <div class="card shadow-lg p-4">
+        <form asp-action="Update" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+
+            <!-- Name -->
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label fw-bold"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <!-- Price -->
+            <div class="mb-3">
+                <label asp-for="Price" class="form-label fw-bold"></label>
+                <input asp-for="Price" type="number" step="0.01" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <!-- Description -->
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label fw-bold"></label>
+                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <!-- Category -->
+            <div class="mb-3">
+                <label asp-for="CategoryId" class="form-label fw-bold">Category</label>
+                <select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-select">
+                    <option value="">-- Select Category --</option>
+                </select>
+            </div>
+
+            <!-- Image Upload -->
+            <div class="mb-3">
+                <label asp-for="ImageUrl" class="form-label fw-bold">Product Image</label>
+                <input type="file" asp-for="ImageUrl" class="form-control" id="imageInput" />
+            </div>
+
+            <!-- Image Preview -->
+            <div class="text-center">
+                <img src="@Model.ImageUrl" id="previewImage" class="img-thumbnail shadow-sm"
+                     alt="Product Image" style="max-width: 250px; display: @(string.IsNullOrEmpty(Model.ImageUrl) ? "none" : "block");" />
+            </div>
+
+            <!-- Buttons -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary px-4">Update</button>
+                <a asp-action="Index" class="btn btn-secondary px-4 ms-2">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('imageInput').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const img = document.getElementById("previewImage");
+                img.src = e.target.result;
+                img.style.display = "block";
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>

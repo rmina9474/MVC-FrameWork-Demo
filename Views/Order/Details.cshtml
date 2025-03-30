@@ -1,0 +1,192 @@
+@model Reina.MacCredy.Models.Order
+
+@{
+    ViewData["Title"] = "Order Details";
+}
+
+<div class="container py-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h2 class="mb-0">
+                <i class="bi bi-receipt-cutoff"></i> Order #@Model.Id
+            </h2>
+            <span class="badge bg-light text-primary fs-5">@Model.OrderDate.ToString("MMM dd, yyyy HH:mm")</span>
+        </div>
+
+        <div class="card-body">
+            <!-- Order Information -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary mb-3">
+                                <i class="bi bi-box-seam"></i> Order Information
+                            </h4>
+                            <div class="ms-4">
+                                <p class="mb-2">
+                                    <i class="bi bi-tag"></i>
+                                    <strong>Order ID:</strong> #@Model.Id
+                                </p>
+                                <p class="mb-2">
+                                    <i class="bi bi-calendar"></i>
+                                    <strong>Order Date:</strong> @Model.OrderDate.ToString("MMM dd, yyyy HH:mm")
+                                </p>
+                                <p class="mb-2">
+                                    <i class="bi bi-cash"></i>
+                                    <strong>Total Amount:</strong> @Model.TotalPrice.ToString("#,##0") VND
+                                </p>
+                                <p class="mb-2">
+                                    <i class="bi bi-check-circle"></i>
+                                    <strong>Status:</strong> <span class="badge bg-success">Completed</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary mb-3">
+                                <i class="bi bi-geo-alt"></i> Shipping Information
+                            </h4>
+                            <div class="ms-4">
+                                <p class="mb-2">
+                                    <i class="bi bi-house"></i>
+                                    <strong>Address:</strong> @Model.ShippingAddress
+                                </p>
+                                <p class="mb-2">
+                                    <i class="bi bi-chat-left-text"></i>
+                                    <strong>Notes:</strong> @(string.IsNullOrEmpty(Model.Notes) ? "No notes provided" : Model.Notes)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Items -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="card-title text-primary mb-3">
+                        <i class="bi bi-cart3"></i> Order Items
+                    </h4>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Product ID</th>
+                                    <th>Product Name</th>
+                                    <th class="text-center">Quantity</th>
+                                    <th class="text-end">Unit Price</th>
+                                    <th class="text-end">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.OrderDetails)
+                                {
+                                    <tr>
+                                        <td>@item.ProductId</td>
+                                        <td>
+                                            <a href="@Url.Action("Display", "Product", new { id = item.ProductId })" class="text-decoration-none">
+                                                @item.Product.Name
+                                            </a>
+                                        </td>
+                                        <td class="text-center">@item.Quantity</td>
+                                        <td class="text-end">@item.Price.ToString("#,##0") VND</td>
+                                        <td class="text-end">@((item.Price * item.Quantity).ToString("#,##0")) VND</td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot class="table-light">
+                                <tr>
+                                    <td colspan="4" class="text-end">
+                                        <strong>Total Amount:</strong>
+                                    </td>
+                                    <td class="text-end">
+                                        <strong>@Model.TotalPrice.ToString("#,##0") VND</strong>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Timeline -->
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title text-primary mb-3">
+                        <i class="bi bi-clock-history"></i> Order Timeline
+                    </h4>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-point bg-success">
+                                <i class="bi bi-check-lg"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h5>Order Placed</h5>
+                                <p class="text-muted">@Model.OrderDate.ToString("MMM dd, yyyy HH:mm")</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer text-center py-3">
+            <a asp-action="Index" class="btn btn-secondary me-2">
+                <i class="bi bi-arrow-left"></i> Back to Orders
+            </a>
+            <button class="btn btn-primary" onclick="window.print()">
+                <i class="bi bi-printer"></i> Print Order
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Timeline Styles */
+    .timeline {
+        position: relative;
+        padding-left: 50px;
+    }
+
+    .timeline-item {
+        position: relative;
+        padding-bottom: 1.5rem;
+    }
+
+    .timeline-point {
+        position: absolute;
+        left: -35px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+
+    .timeline-content {
+        padding-left: 15px;
+        border-left: 2px solid #e9ecef;
+    }
+
+    /* Print Styles */
+    @@media print {
+        .btn, .navbar, .footer {
+            display: none !important;
+        }
+        
+        .card {
+            box-shadow: none !important;
+            border: none !important;
+        }
+        
+        .card-header {
+            background-color: #f8f9fa !important;
+            color: #000 !important;
+        }
+    }
+</style> 

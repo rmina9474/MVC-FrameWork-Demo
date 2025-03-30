@@ -1,0 +1,204 @@
+@model IEnumerable<Reina.MacCredy.Models.Product>
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/dashboard.css" />
+}
+
+<div class="container-fluid p-4">
+    <div class="row mb-4">
+        <div class="col">
+            <h1 class="mb-4">Admin Dashboard</h1>
+            <p class="text-muted">Manage your store products, categories, and orders</p>
+        </div>
+        <div class="col-auto align-self-center">
+            <a asp-area="Admin" asp-controller="Admin" asp-action="Add" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Add New Product
+            </a>
+        </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="row">
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Total Products</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@(ViewBag.TotalProducts ?? Model.Count())</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="bi bi-box fs-2 text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Total Categories</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@(ViewBag.TotalCategories ?? 0)</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="bi bi-folder fs-2 text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                Total Orders
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@(ViewBag.TotalOrders ?? 0)</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="bi bi-receipt fs-2 text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                Revenue</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@(ViewBag.TotalRevenue ?? "$0.00")</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="bi bi-currency-dollar fs-2 text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-header py-3">
+            <h2 class="card-title m-0 font-weight-bold text-primary">Products</h2>
+        </div>
+        <div class="card-body">
+            @if (Model.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var product in Model)
+                            {
+                                <tr>
+                                    <td style="width: 80px;">
+                                        <img src="@product.ImageUrl" alt="@product.Name" class="img-thumbnail" style="max-width: 60px;" />
+                                    </td>
+                                    <td>
+                                        <strong>@product.Name</strong>
+                                        <div class="small text-muted text-truncate" style="max-width: 300px;">@product.Description</div>
+                                    </td>
+                                    <td>@product.Price.ToString("#,##0") VND</td>
+                                    <td>@product.Category?.Name</td>
+                                    <td class="text-center">
+                                        <div class="btn-group">
+                                            <a asp-area="Admin" asp-controller="Admin" asp-action="Update" asp-route-id="@product.Id" class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-pencil"></i> Edit
+                                            </a>
+                                            <a asp-area="Admin" asp-controller="Admin" asp-action="Delete" asp-route-id="@product.Id" class="btn btn-sm btn-outline-danger">
+                                                <i class="bi bi-trash"></i> Delete
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info">
+                    <i class="bi bi-info-circle"></i> No products found. <a asp-area="Admin" asp-controller="Admin" asp-action="Add">Add your first product</a>.
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Quick Actions</h6>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a asp-area="Admin" asp-controller="Admin" asp-action="Add" class="btn btn-primary mb-2">
+                            <i class="bi bi-plus-circle"></i> Add New Product
+                        </a>
+                        <a asp-area="Admin" asp-controller="Category" asp-action="Index" class="btn btn-success mb-2">
+                            <i class="bi bi-folder"></i> Manage Categories
+                        </a>
+                        <a asp-area="Admin" asp-controller="Order" asp-action="Index" class="btn btn-info">
+                            <i class="bi bi-list"></i> View All Orders
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- System Info -->
+        <div class="col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">System Information</h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-2">
+                        <strong>.NET Version:</strong> @Environment.Version
+                    </div>
+                    <div class="mb-2">
+                        <strong>OS:</strong> @Environment.OSVersion
+                    </div>
+                    <div class="mb-2">
+                        <strong>Server Time:</strong> @DateTime.Now
+                    </div>
+                    <div class="mb-2">
+                        <strong>Application Path:</strong> @Environment.CurrentDirectory
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // You can add custom JavaScript for the dashboard here
+    </script>
+}

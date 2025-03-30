@@ -1,0 +1,58 @@
+﻿@model Reina.MacCredy.Models.ShoppingCart
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h2 class="mb-0">Giỏ Hàng Của Bạn</h2>
+        </div>
+        <div class="card-body">
+            @if (Model.Items.Any())
+            {
+                <table class="table table-bordered text-center align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Sản Phẩm</th>
+                            <th scope="col">Số Lượng</th>
+                            <th scope="col">Giá</th>
+                            <th scope="col">Tổng</th>
+                            <th scope="col">Hành Động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <td class="fw-bold">@item.Name</td>
+                                <td>
+                                    <input type="number" value="@item.Quantity" class="form-control text-center" style="width: 80px;" readonly>
+                                </td>
+                                <td class="text-success fw-bold">@item.Price.ToString("#,##0") Vnđ</td>
+                                <td class="text-danger fw-bold">@($"{item.Price * item.Quantity:#,##0}") Vnđ</td>
+
+                                <td>
+                                    <a asp-action="RemoveFromCart" asp-route-productId="@item.ProductId" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?');">
+                                        <i class="bi bi-trash"></i> Xóa
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="text-end mt-3">
+                    <a asp-action="Checkout" class="btn btn-success btn-lg px-4">Thanh Toán</a>
+                </div>
+            }
+            else
+            {
+                <p class="text-center text-muted">Giỏ hàng của bạn đang trống.</p>
+                <div class="text-center">
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-primary btn-lg px-4">Tiếp Tục Mua Sắm</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
