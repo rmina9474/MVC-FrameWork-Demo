@@ -203,9 +203,6 @@ The development of this project followed these key steps:
   - User account management
   - Sales data and analytics access
 
-## 📸 Screenshots
-
-*(Placeholder for screenshots of the application)*
 
 ## ⚙️ Setup and Installation
 
