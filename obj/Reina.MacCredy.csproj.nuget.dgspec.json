@@ -1,30 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/Volumes/rmina/04. Code/C#dotNET/Reina.MacCredy/Reina.MacCredy.csproj": {}
+    "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/Reina.MacCredy.csproj": {}
   },
   "projects": {
-    "/Volumes/rmina/04. Code/C#dotNET/Reina.MacCredy/Reina.MacCredy.csproj": {
+    "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/Reina.MacCredy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Volumes/rmina/04. Code/C#dotNET/Reina.MacCredy/Reina.MacCredy.csproj",
+        "projectUniqueName": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/Reina.MacCredy.csproj",
         "projectName": "Reina.MacCredy",
-        "projectPath": "/Volumes/rmina/04. Code/C#dotNET/Reina.MacCredy/Reina.MacCredy.csproj",
+        "projectPath": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/Reina.MacCredy.csproj",
         "packagesPath": "/Users/maccredyreina/.nuget/packages/",
-        "outputPath": "/Volumes/rmina/04. Code/C#dotNET/Reina.MacCredy/obj/",
+        "outputPath": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/maccredyreina/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net9.0"
+          "net8.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -41,30 +41,30 @@
         "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.0.3, )"
+              "version": "[8.0.2, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[9.0.3, )"
+              "version": "[8.0.2, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.0.3, )"
+              "version": "[8.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.3, )"
+              "version": "[8.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[9.0.3, )"
+              "version": "[8.0.2, )"
             }
           },
           "imports": [
@@ -78,6 +78,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.14, 8.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[8.0.14, 8.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.14, 8.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"

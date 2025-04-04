@@ -10,79 +10,146 @@
         <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
         @RenderSection("Styles", required: false)
     </head>
-    <body>
+    <body data-is-admin="@User.IsInRole("Admin").ToString().ToLower()">
        <div class="wrapper">
-       <header>
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                        <i class="bi bi-shop"></i>
-                        Reina.MacCredy Shop
+       <header class="sticky-top shadow-sm">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container">
+                    <a class="navbar-brand d-flex align-items-center" asp-area="" asp-controller="Home" asp-action="Index">
+                        <i class="bi bi-shop text-primary fs-3 me-2"></i>
+                        <span class="fw-bold">Reina.MacCredy</span>
+                        <span class="ms-1 text-primary">Shop</span>
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
-                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    
+                    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" 
+                            data-bs-target="#navbarContent" aria-controls="navbarContent" 
+                            aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                        <ul class="navbar-nav flex-grow-1">
-                            @if (User.IsInRole("Admin"))
-                            {
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="#" id="manageDropdown" role="button" 
-                                       data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-gear"></i>
-                                        Manage
+                    <div class="collapse navbar-collapse" id="navbarContent">
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item mx-2">
+                                    <a class="nav-link d-flex align-items-center" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
+                                        <i class="bi bi-speedometer2 me-2"></i>
+                                        <span>Dashboard</span>
                                     </a>
-                                    <ul class="dropdown-menu" aria-labelledby="manageDropdown">
+                                </li>
+                                <li class="nav-item dropdown mx-2">
+                                    <a class="nav-link d-flex align-items-center" href="#" id="manageDropdown" 
+                                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-gear me-2"></i>
+                                        <span>Manage</span>
+                                        <i class="bi bi-chevron-down ms-1 small"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm" aria-labelledby="manageDropdown">
                                         <li>
-                                            <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="Index">
-                                                <i class="bi bi-box"></i>
-                                                View Products
+                                            <a class="dropdown-item d-flex align-items-center py-2" 
+                                               asp-area="" asp-controller="Product" asp-action="AdminIndex">
+                                                <i class="bi bi-box me-2 text-primary"></i>
+                                                <span>Products</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="Index">
-                                                <i class="bi bi-folder"></i>
-                                                View Categories
+                                            <a class="dropdown-item d-flex align-items-center py-2" 
+                                               asp-area="" asp-controller="Category" asp-action="Index">
+                                                <i class="bi bi-folder me-2 text-primary"></i>
+                                                <span>Categories</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" asp-area="Admin" asp-controller="Order" asp-action="Index">
-                                        <i class="bi bi-receipt"></i>
-                                        Orders
-                                    </a>
+                            </ul>
+                        }
+                        else
+                        {
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item mx-2">
+                                    <a class="nav-link fw-semibold" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                                 </li>
-                                
-                                <li class="nav-item">
-                                    <a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
-                                        <i class="bi bi-speedometer2"></i>
-                                        Dashboard
-                                    </a>
+                                <li class="nav-item mx-2">
+                                    <a class="nav-link fw-semibold" asp-area="" asp-controller="Product" asp-action="Browse">Products</a>
                                 </li>
-                            }
-                        </ul>
+                                <li require-admin="true" class="nav-item mx-2">
+                                    <a class="nav-link fw-semibold" asp-area="" asp-controller="Category" asp-action="Index">Categories</a>
+                                </li>
+                            </ul>
+                        }
 
-                        <partial name="_LoginPartial" />
-                        <div class="d-flex align-items-center gap-3">
+                        <div class="d-flex align-items-center">
                             @if (User.Identity.IsAuthenticated)
                             {
-                                <a asp-area="" asp-controller="Order" asp-action="Index" class="nav-link">
-                                    <i class="bi bi-receipt"></i>
-                                    My Orders
+                                <div class="dropdown">
+                                    <a class="btn btn-outline-primary rounded-pill me-3 d-flex align-items-center" 
+                                       href="#" role="button" id="accountDropdown" 
+                                       data-bs-toggle="dropdown" aria-expanded="false">
+                                        @{
+                                            var userManager = (Microsoft.AspNetCore.Identity.UserManager<Reina.MacCredy.Models.ApplicationUser>)Context.RequestServices.GetService(typeof(Microsoft.AspNetCore.Identity.UserManager<Reina.MacCredy.Models.ApplicationUser>));
+                                            var currentUser = userManager.GetUserAsync(User).Result;
+                                            var avatarUrl = string.IsNullOrEmpty(currentUser?.AvatarUrl) ? "/images/default-avatar.png" : currentUser.AvatarUrl;
+                                        }
+                                        <img src="@avatarUrl" alt="Profile" class="user-avatar-header me-2" />
+                                        <span>Hello @User.Identity.Name.Split('@')[0]!</span>
+                                        <i class="bi bi-chevron-down ms-2 small"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm" aria-labelledby="accountDropdown">
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center py-2" 
+                                               asp-area="" asp-controller="Account" asp-action="Profile">
+                                                <i class="bi bi-gear me-2 text-primary"></i>
+                                                <span>Settings</span>
+                                            </a>
+                                        </li>
+                                        @if (!User.IsInRole("Admin"))
+                                        {
+                                            <li>
+                                                <a class="dropdown-item d-flex align-items-center py-2" 
+                                                   asp-area="" asp-controller="Order" asp-action="Index">
+                                                    <i class="bi bi-receipt me-2 text-primary"></i>
+                                                    <span>My Orders</span>
+                                                </a>
+                                            </li>
+                                        }
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li>
+                                            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" 
+                                                  asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                                <button type="submit" class="dropdown-item d-flex align-items-center py-2 text-danger">
+                                                    <i class="bi bi-box-arrow-right me-2"></i>
+                                                    <span>Logout</span>
+                                                </button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                            }
+                            else
+                            {
+                                <a class="btn btn-outline-primary rounded-pill me-2" asp-area="Identity" asp-page="/Account/Login">
+                                    <i class="bi bi-person"></i> Login
+                                </a>
+                                <a class="btn btn-primary rounded-pill" asp-area="Identity" asp-page="/Account/Register">
+                                    Register
                                 </a>
                             }
-                            <div class="cart-icon">
-                                <a asp-controller="ShoppingCart" asp-action="Index" class="position-relative">
-                                    <i class="bi bi-cart fs-5"></i>
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count">
-                                        0
-                                    </span>
-                                </a>
-                            </div>
+                            
+                            @if (!User.IsInRole("Admin"))
+                            {
+                                <div class="cart-icon ms-3">
+                                    <a asp-controller="ShoppingCart" asp-action="Index" 
+                                       class="cart-btn position-relative">
+                                        <div class="cart-btn-inner">
+                                            <i class="bi bi-cart3"></i>
+                                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count">
+                                                0
+                                            </span>
+                                        </div>
+                                        <span class="cart-label d-none d-md-inline">Cart</span>
+                                    </a>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
@@ -114,12 +181,9 @@
                         <h4 class="footer-title">Shop</h4>
                         <ul class="list-unstyled">
                             <li><a asp-controller="Home" asp-action="Index" class="footer-link">Home</a></li>
-                            @if (User.IsInRole("Admin"))
-                            {
-                                <li><a asp-controller="Product" asp-action="Index" class="footer-link">Products</a></li>
-                                <li><a asp-controller="Category" asp-action="Index" class="footer-link">Categories</a></li>
-                            }
-                            <li><a asp-controller="ShoppingCart" asp-action="Index" class="footer-link">Shopping Cart</a></li>
+                            <li><a asp-controller="Product" asp-action="Browse" class="footer-link">Products</a></li>
+                            <li require-admin="true"><a asp-controller="Category" asp-action="Index" class="footer-link">Categories</a></li>
+                            <li hide-for-admin="true"><a asp-controller="ShoppingCart" asp-action="Index" class="footer-link">Shopping Cart</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-2 col-md-6">
@@ -130,9 +194,13 @@
                                 <li><a asp-area="Identity" asp-page="/Account/Login" class="footer-link">Sign In</a></li>
                                 <li><a asp-area="Identity" asp-page="/Account/Register" class="footer-link">Register</a></li>
                             }
-                            else
+                            else if (!User.IsInRole("Admin"))
                             {
                                 <li><a asp-controller="Order" asp-action="Index" class="footer-link">My Orders</a></li>
+                                <li><a asp-area="Identity" asp-page="/Account/Manage/Index" class="footer-link">Profile</a></li>
+                            }
+                            else
+                            {
                                 <li><a asp-area="Identity" asp-page="/Account/Manage/Index" class="footer-link">Profile</a></li>
                             }
                         </ul>

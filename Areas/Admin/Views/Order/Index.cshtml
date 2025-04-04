@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Reina.MacCredy.Models.Order>
+﻿@model IEnumerable<Reina.MacCredy.Areas.Admin.Controllers.OrderViewModel>
 
 @{  
     ViewData["Title"] = "Order Management";
@@ -50,7 +50,7 @@
                     <tbody>
                         @if (Model.Any())
                         {
-                            @foreach (var order in Model.OrderByDescending(o => o.OrderDate))
+                            @foreach (var order in Model)
                             {
                                 <tr>
                                     <td>
@@ -59,7 +59,7 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <i class="bi bi-person-circle text-muted me-2"></i>
-                                            @order.ApplicationUser.FullName
+                                            @order.UserName
                                         </div>
                                     </td>
                                     <td>

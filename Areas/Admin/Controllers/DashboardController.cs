@@ -5,6 +5,7 @@ using Reina.MacCredy.Models;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Reina.MacCredy.Areas.Admin.Controllers
 {
@@ -33,19 +34,64 @@ namespace Reina.MacCredy.Areas.Admin.Controllers
                 .Where(o => o.OrderDate.Month == currentMonth && o.OrderDate.Year == currentYear)
                 .SumAsync(o => o.TotalPrice);
             
-            var recentOrders = await _context.Orders
-                .Include(o => o.ApplicationUser)
+            // Modified query to safely get recent orders without using new columns
+            var recentOrderIds = await _context.Orders
                 .OrderByDescending(o => o.OrderDate)
                 .Take(5)
+                .Select(o => o.Id)
                 .ToListAsync();
+            // Now get the full order objects safely
+            var recentOrders = new List<OrderDisplayModel>();
+            foreach (var orderId in recentOrderIds)
+            {
+                // Execute raw SQL to get only existing columns
+                var order = await _context.Orders
+                    .Where(o => o.Id == orderId)
+                    .Select(o => new OrderDisplayModel
+                    {
+                        Id = o.Id,
+                        OrderDate = o.OrderDate,
+                        TotalPrice = o.TotalPrice,
+                        ShippingAddress = o.ShippingAddress,
+                        Notes = o.Notes,
+                        UserId = o.UserId
+                    })
+                    .FirstOrDefaultAsync();    
+                if (order != null)
+                {
+                    // Get the username if UserId exists
+                    if (!string.IsNullOrEmpty(order.UserId))
+                    {
+                        var user = await _context.Users.FindAsync(order.UserId);
+                        order.UserName = user?.UserName ?? "Unknown";
+                    }
+                    else
+                    {
+                        order.UserName = "Guest";
+                    }
+                    recentOrders.Add(order);
+                }
+            }
 
             ViewBag.TotalProducts = totalProducts;
             ViewBag.TotalCategories = totalCategories;
             ViewBag.TotalOrders = totalOrders;
-            ViewBag.MonthlyRevenue = monthlyRevenue; // Store the actual decimal value, not a formatted string
+            ViewBag.MonthlyRevenue = monthlyRevenue;
             ViewBag.RecentOrders = recentOrders;
 
             return View();
         }
+    }
+
+    // Simple model to hold only the fields we need for display
+    public class OrderDisplayModel
+    {
+        public int Id { get; set; }
+        public DateTime OrderDate { get; set; }
+        public decimal TotalPrice { get; set; }
+        public string ShippingAddress { get; set; }
+        public string Notes { get; set; }
+        public string UserId { get; set; }
+        public string UserName { get; set; }
     }
 }

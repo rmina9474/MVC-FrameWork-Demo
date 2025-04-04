@@ -15,6 +15,7 @@ namespace Reina.MacCredy.Repositories
             // return await _context.Products.ToListAsync();
             return await _context.Products
             .Include(p => p.Category) // Include thông tin về category
+            .Include(p => p.Reviews) // Include reviews for displaying ratings
             .ToListAsync();
         }
         public async Task<Product> GetByIdAsync(int id)

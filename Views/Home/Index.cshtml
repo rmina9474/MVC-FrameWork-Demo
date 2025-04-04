@@ -2,9 +2,42 @@
 @using Microsoft.EntityFrameworkCore
 
 @{
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "Home Page";
     int numOfQuantity = 1;
 }
+
+<div class="jumbotron text-center bg-light rounded-3 p-5 mb-5">
+    <h1 class="display-4">Welcome to Reina.MacCredy Shop</h1>
+    <p class="lead">Discover amazing products at great prices</p>
+    
+    <hr class="my-4">
+    
+    <div class="d-flex justify-content-center gap-3">
+        <a asp-controller="Product" asp-action="Browse" class="btn btn-primary btn-lg">
+            <i class="bi bi-shop me-2"></i> Explore Products
+        </a>
+
+        <!-- Example using CSS classes -->
+        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="btn btn-success btn-lg admin-only">
+            <i class="bi bi-speedometer2 me-2"></i> Admin Dashboard
+        </a>
+        
+        <!-- Example using tag helper -->
+        <a require-admin="true" asp-area="Admin" asp-controller="Order" asp-action="Index" class="btn btn-info btn-lg text-white">
+            <i class="bi bi-receipt me-2"></i> Manage Orders
+        </a>
+        
+        <!-- Example for regular users only -->
+        <a hide-for-admin="true" asp-controller="ShoppingCart" asp-action="Index" class="btn btn-warning btn-lg text-white">
+            <i class="bi bi-cart3 me-2"></i> My Cart
+        </a>
+        
+        <!-- Example requiring a specific permission -->
+        <a require-permission="ManageProducts" asp-controller="Product" asp-action="Add" class="btn btn-secondary btn-lg">
+            <i class="bi bi-plus-circle me-2"></i> Add Product
+        </a>
+    </div>
+</div>
 
 <div class="container section-padding">
     <div class="text-center mb-5">
@@ -75,7 +108,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body p-4">
-                            <div class="row">
+                            <div class="row g-3">
                                 <div class="col-md-6 mb-4 mb-md-0">
                                     <img src="@item.ImageUrl" class="img-fluid rounded-3" alt="@item.Name">
                                 </div>
@@ -102,17 +135,17 @@
                                     </div>
                                     <div class="fs-4 text-primary fw-bold mb-4">@item.Price.ToString("#,##0") VND</div>
                                     <p class="mb-4">@(item.Description ?? "No description available")</p>
-                                    <div class="d-flex align-items-center mb-4">
-                                        <div class="quantity-control me-3">
-                                            <button class="quantity-btn decrease-btn" data-product-id="@item.Id">-</button>
-                                            <input type="number" value="1" min="1" class="quantity-input" id="modal-quantity-@item.Id">
-                                            <button class="quantity-btn increase-btn" data-product-id="@item.Id">+</button>
+                                    <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-3 mb-4">
+                                        <div class="quantity-control d-flex align-items-center mb-3 mb-sm-0">
+                                            <button class="quantity-btn decrease-btn btn btn-outline-secondary px-3" data-product-id="@item.Id">-</button>
+                                            <input type="number" value="1" min="1" class="quantity-input form-control mx-2 text-center" style="width: 60px;" id="modal-quantity-@item.Id">
+                                            <button class="quantity-btn increase-btn btn btn-outline-secondary px-3" data-product-id="@item.Id">+</button>
                                         </div>
-                                        <button class="btn btn-primary modal-add-to-cart" data-product-id="@item.Id">
+                                        <button class="btn btn-primary modal-add-to-cart w-100 w-sm-auto" data-product-id="@item.Id">
                                             <i class="bi bi-cart-plus"></i> Add to Cart
                                         </button>
                                     </div>
-                                    <a asp-controller="Product" asp-action="Display" asp-route-id="@item.Id" class="btn btn-outline-primary">
+                                    <a asp-controller="Product" asp-action="Display" asp-route-id="@item.Id" class="btn btn-outline-primary w-100">
                                         <i class="bi bi-info-circle"></i> View Full Details
                                     </a>
                                 </div>
@@ -204,6 +237,16 @@
             
             // Initialize cart count
             updateCartCount();
+
+            const isAdmin = $('body').attr('data-is-admin') === 'true';
+            
+            if (isAdmin) {
+                // Show admin-specific features
+                $('.admin-js-element').show();
+            } else {
+                // Show user-specific features
+                $('.user-js-element').show();
+            }
         });
     </script>
 }

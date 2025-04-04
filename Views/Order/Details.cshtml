@@ -1,4 +1,4 @@
-@model Reina.MacCredy.Models.Order
+@model Reina.MacCredy.Controllers.OrderViewModel
 
 @{
     ViewData["Title"] = "Order Details";
@@ -39,6 +39,10 @@
                                     <i class="bi bi-check-circle"></i>
                                     <strong>Status:</strong> <span class="badge bg-success">Completed</span>
                                 </p>
+                                <p class="mb-2">
+                                    <i class="bi bi-person"></i>
+                                    <strong>Customer:</strong> @Model.UserName
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -58,6 +62,20 @@
                                     <i class="bi bi-chat-left-text"></i>
                                     <strong>Notes:</strong> @(string.IsNullOrEmpty(Model.Notes) ? "No notes provided" : Model.Notes)
                                 </p>
+                                @if (!string.IsNullOrEmpty(Model.Email))
+                                {
+                                    <p class="mb-2">
+                                        <i class="bi bi-envelope"></i>
+                                        <strong>Email:</strong> @Model.Email
+                                    </p>
+                                }
+                                @if (!string.IsNullOrEmpty(Model.PhoneNumber))
+                                {
+                                    <p class="mb-2">
+                                        <i class="bi bi-telephone"></i>
+                                        <strong>Phone:</strong> @Model.PhoneNumber
+                                    </p>
+                                }
                             </div>
                         </div>
                     </div>

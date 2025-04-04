@@ -1,0 +1,185 @@
+@{
+    ViewData["Title"] = "Profile";
+    var user = (Reina.MacCredy.Models.ApplicationUser)ViewData["User"];
+    var avatarUrl = string.IsNullOrEmpty(user?.AvatarUrl) ? "/images/default-avatar.png" : user.AvatarUrl;
+}
+
+<h3 class="mb-4">Profile Settings</h3>
+
+@if (TempData["StatusMessage"] != null)
+{
+    <div class="alert alert-success mb-4">
+        <div class="d-flex align-items-center">
+            <i class="bi bi-check-circle fs-3 me-3"></i>
+            <div>
+                <p class="mb-0">@TempData["StatusMessage"]</p>
+            </div>
+        </div>
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger mb-4">
+        <div class="d-flex align-items-center">
+            <i class="bi bi-exclamation-triangle fs-3 me-3"></i>
+            <div>
+                <p class="mb-0">@TempData["ErrorMessage"]</p>
+            </div>
+        </div>
+    </div>
+}
+
+<form id="profile-form" class="needs-validation" method="post" action="/Account/UpdateProfile" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-md-3 mb-4 text-center">
+            <div class="avatar-upload">
+                <div class="avatar-preview">
+                    <div id="imagePreview" style="background-image: url('@avatarUrl');">
+                    </div>
+                </div>
+                <div class="avatar-edit">
+                    <input type="file" id="avatarUpload" name="avatarImage" accept=".png, .jpg, .jpeg" />
+                    <label for="avatarUpload"><i class="bi bi-camera"></i></label>
+                </div>
+            </div>
+            <div class="mt-2">
+                <span class="small text-muted">Click the camera icon to change your photo</span>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="form-floating">
+                        <input class="form-control" disabled value="@User.Identity.Name" />
+                        <label class="form-label">Username</label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="form-floating">
+                        <input name="fullName" class="form-control" value="@user.FullName" required />
+                        <label class="form-label">Full Name</label>
+                    </div>
+                </div>
+            </div>
+            
+            @if (!User.IsInRole("Admin"))
+            {
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="form-floating">
+                            <input name="phoneNumber" class="form-control" placeholder="Phone Number" value="@user.PhoneNumber" />
+                            <label class="form-label">Phone Number</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="form-floating">
+                            <input name="address" class="form-control" placeholder="Address" value="@user.Address" />
+                            <label class="form-label">Address</label>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <!-- Hidden fields to preserve data when submitting form -->
+                <input type="hidden" name="phoneNumber" value="@user.PhoneNumber" />
+                <input type="hidden" name="address" value="@user.Address" />
+            }
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary px-4">
+        <i class="bi bi-check-circle me-2"></i>Save changes
+    </button>
+</form>
+
+<div class="mt-5">
+    <h4 class="mb-3">Account Services</h4>
+    
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card account-card h-100">
+                <div class="card-body">
+                    <div class="account-card-icon">
+                        <i class="bi bi-envelope-check"></i>
+                    </div>
+                    <h5>Email</h5>
+                    <p>Update your email address and notification preferences</p>
+                    <a href="#" class="btn btn-outline-primary">Manage</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card account-card h-100">
+                <div class="card-body">
+                    <div class="account-card-icon">
+                        <i class="bi bi-shield-lock"></i>
+                    </div>
+                    <h5>Security</h5>
+                    <p>Change password and configure two-factor authentication</p>
+                    <a href="#" class="btn btn-outline-primary">Manage</a>
+                </div>
+            </div>
+        </div>
+        
+        @if (!User.IsInRole("Admin"))
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card account-card h-100">
+                    <div class="card-body">
+                        <div class="account-card-icon">
+                            <i class="bi bi-file-person"></i>
+                        </div>
+                        <h5>Personal Data</h5>
+                        <p>Download or delete your personal information</p>
+                        <a href="#" class="btn btn-outline-primary">Manage</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    
+    @if (!User.IsInRole("Admin"))
+    {
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card account-card h-100">
+                    <div class="card-body">
+                        <div class="account-card-icon">
+                            <i class="bi bi-receipt"></i>
+                        </div>
+                        <h5>My Orders</h5>
+                        <p>Review your order history and track current orders</p>
+                        <a asp-area="" asp-controller="Order" asp-action="Index" class="btn btn-outline-primary">View Orders</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Avatar image preview
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+                        $('#imagePreview').hide();
+                        $('#imagePreview').fadeIn(650);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            
+            $("#avatarUpload").change(function() {
+                readURL(this);
+            });
+        });
+    </script>
+} 

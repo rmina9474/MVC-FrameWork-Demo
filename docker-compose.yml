@@ -1,0 +1,49 @@
+services:
+  webapp:
+    container_name: reina-webapp
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+      - "8443:443"
+    depends_on:
+      - sqlserver
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=Webbanhang;User Id=sa;Password=NewPassword123!;TrustServerCertificate=True;
+    networks:
+      - reina-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  sqlserver:
+    container_name: reina-sqlserver
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    platform: linux/amd64
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=NewPassword123!
+      - MSSQL_PID=Express
+    ports:
+      - "1499:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    networks:
+      - reina-network
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P NewPassword123! -Q 'SELECT 1' || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  reina-network:
+    driver: bridge
+
+volumes:
+  sqlserver-data:

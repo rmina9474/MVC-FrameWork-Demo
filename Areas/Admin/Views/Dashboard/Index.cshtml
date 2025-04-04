@@ -1,3 +1,4 @@
+@using Reina.MacCredy.Areas.Admin.Controllers
 @{
     ViewData["Title"] = "Admin Dashboard";
     Layout = "_AdminLayout";
@@ -76,11 +77,11 @@
                         <tbody>
                             @if (ViewBag.RecentOrders != null)
                             {
-                                @foreach (var order in ViewBag.RecentOrders)
+                                @foreach (var order in ViewBag.RecentOrders as List<OrderDisplayModel>)
                                 {
                                     <tr>
                                         <td>#@order.Id</td>
-                                        <td>@order.ApplicationUser.FullName</td>
+                                        <td>@order.UserName</td>
                                         <td>@order.OrderDate.ToShortDateString()</td>
                                         <td>@(((decimal)order.TotalPrice).ToString("#,##0")) VND</td>
                                         <td>

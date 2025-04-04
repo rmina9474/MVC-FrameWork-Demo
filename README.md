@@ -17,7 +17,7 @@ This repository contains an ASP.NET Core e-commerce web application built using 
 
 ## 🔍 Project Overview
 
-This e-commerce application is a fully functional online shop with both customer-facing features and administrative tools. It follows modern ASP.NET Core MVC architecture with repository patterns, Entity Framework Core for data access, and Identity for user authentication and authorization.
+This e-commerce application is a fully functional online shop with both customer-facing features and administrative tools. It follows modern ASP.NET Core MVC architecture with repository patterns, Entity Framework Core for data access, and Identity for user authentication and authorization. The application is containerized using Docker, allowing for easy deployment and scaling.
 
 ### Key Components:
 
@@ -26,6 +26,8 @@ This e-commerce application is a fully functional online shop with both customer
 - Shopping cart and checkout process
 - Admin dashboard for managing products, categories, and orders
 - Order management and tracking
+- Containerized deployment with Docker and Docker Compose
+- Integrated health checks for monitoring
 
 ## ✨ Features
 
@@ -46,7 +48,7 @@ This e-commerce application is a fully functional online shop with both customer
 
 ## 🛠️ Technologies Used
 
-- **ASP.NET Core 9.0**: Modern web framework
+- **ASP.NET Core 8.0**: Modern web framework
 - **Entity Framework Core**: ORM for database operations
 - **ASP.NET Core Identity**: User authentication and authorization
 - **C#**: Primary programming language
@@ -56,6 +58,8 @@ This e-commerce application is a fully functional online shop with both customer
 - **MVC Pattern**: Architectural pattern
 - **Repository Pattern**: Data access abstraction
 - **Dependency Injection**: For loosely coupled design
+- **Docker & Docker Compose**: Containerization and orchestration
+- **Health Checks**: Application monitoring
 
 ## 📂 Project Structure
 
@@ -73,6 +77,8 @@ Reina.MacCredy/
 ├── Repositories/       # Data access repositories
 ├── Views/              # UI templates
 ├── wwwroot/            # Static resources (CSS, JS, images)
+├── Dockerfile          # Container definition for the web application
+├── docker-compose.yml  # Multi-container application setup
 └── Program.cs          # Application configuration and startup
 ```
 
@@ -204,11 +210,14 @@ The development of this project followed these key steps:
 ## ⚙️ Setup and Installation
 
 ### Prerequisites
-- .NET 9.0 SDK
-- SQL Server (or SQL Server Express)
-- Visual Studio 2022 or Visual Studio Code
+- .NET 9.0 SDK (for local development)
+- SQL Server (or SQL Server Express) (for local development)
+- Visual Studio 2022 or Visual Studio Code (for local development)
+- Docker and Docker Compose (for containerized deployment)
 
 ### Installation Steps
+
+#### Method 1: Local Development
 
 1. **Clone the repository**
    ```
@@ -234,6 +243,69 @@ The development of this project followed these key steps:
    ```
    dotnet run
    ```
+
+#### Method 2: Docker Deployment
+
+1. **Clone the repository**
+   ```
+   git clone https://github.com/yourusername/Reina.MacCredy.git
+   cd Reina.MacCredy
+   ```
+
+2. **Build and start the Docker containers**
+   ```
+   docker-compose build
+   docker-compose up -d
+   ```
+
+3. **Access the application**
+   - Web Application: http://localhost:8080
+   - SQL Server: localhost:1499
+     - Username: sa
+     - Password: NewPassword123!
+     - Database: Webbanhang
+
+4. **Docker management commands**
+   ```
+   # View container status
+   docker-compose ps
+   
+   # View logs
+   docker-compose logs webapp
+   docker-compose logs sqlserver
+   
+   # View logs in real-time
+   docker-compose logs -f
+   
+   # Stop the containers
+   docker-compose down
+   
+   # Restart after making changes
+   docker-compose build --no-cache
+   docker-compose up -d
+   ```
+
+5. **Container Health Checks**
+   - The application includes health check endpoints at `/health`
+   - Both the web application and SQL Server containers have configured health checks that monitor their status
+
+### Docker Configuration
+
+The application is containerized using Docker with the following components:
+
+1. **Web Application Container**
+   - Based on .NET 8.0 runtime
+   - Exposes ports 80 (HTTP) and 443 (HTTPS)
+   - Maps to host ports 8080 and 8443 respectively
+   - Includes health monitoring
+
+2. **SQL Server Container**
+   - Uses SQL Server 2022 Express
+   - Persistent data storage through Docker volumes
+   - Exposes port 1433
+   - Maps to host port 1499
+
+The complete configuration can be found in the `docker-compose.yml` and `Dockerfile` in the repository root.
 
 ## 🤝 Contributing
 

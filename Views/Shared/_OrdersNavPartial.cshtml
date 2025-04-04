@@ -1,0 +1,7 @@
+@if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
+{
+    <a asp-area="" asp-controller="Order" asp-action="Index" class="nav-link">
+        <i class="bi bi-receipt"></i>
+        My Orders
+    </a>
+} 

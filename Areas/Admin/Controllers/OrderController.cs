@@ -5,6 +5,7 @@ using Reina.MacCredy.Models;
 using System.Threading.Tasks;
 using System.Linq;
 using System;
+using System.Collections.Generic;
 
 namespace Reina.MacCredy.Areas.Admin.Controllers
 {
@@ -22,11 +23,71 @@ namespace Reina.MacCredy.Areas.Admin.Controllers
         // Hiển thị danh sách đơn hàng
         public async Task<IActionResult> Index()
         {
-            var orders = await _context.Orders
-                .Include(o => o.ApplicationUser)
-                .OrderByDescending(o => o.OrderDate)
-                .ToListAsync();
-            return View(orders);
+            try 
+            {
+                // Use a simplified query that only selects fields that exist in the database
+                var orderIds = await _context.Orders
+                    .OrderByDescending(o => o.OrderDate)
+                    .Select(o => o.Id)
+                    .ToListAsync();
+                
+                var orderList = new List<OrderViewModel>();
+                
+                foreach (var id in orderIds)
+                {
+                    var order = await _context.Orders
+                        .Where(o => o.Id == id)
+                        .Select(o => new OrderViewModel
+                        {
+                            Id = o.Id,
+                            OrderDate = o.OrderDate,
+                            TotalPrice = o.TotalPrice,
+                            ShippingAddress = o.ShippingAddress,
+                            Notes = o.Notes,
+                            UserId = o.UserId
+                        })
+                        .FirstOrDefaultAsync();
+                    
+                    if (order != null)
+                    {
+                        // Get user information separately if needed
+                        if (!string.IsNullOrEmpty(order.UserId))
+                        {
+                            var user = await _context.Users
+                                .Where(u => u.Id == order.UserId)
+                                .Select(u => new { u.UserName, u.Email })
+                                .FirstOrDefaultAsync();
+                            
+                            if (user != null)
+                            {
+                                order.UserName = user.UserName ?? "Unknown";
+                                order.Email = user.Email ?? "";
+                            }
+                        }
+                        
+                        // Get order details count
+                        order.OrderItemCount = await _context.OrderDetails
+                            .CountAsync(od => od.OrderId == id);
+                        
+                        orderList.Add(order);
+                    }
+                }
+                
+                return View(orderList);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception details
+                Console.WriteLine($"Error in Admin OrderController.Index: {ex.Message}");
+                Console.WriteLine(ex.StackTrace);
+                
+                // Return a friendly error view
+                return View("Error", new ErrorViewModel 
+                { 
+                    RequestId = System.Diagnostics.Activity.Current?.Id ?? HttpContext.TraceIdentifier,
+                    ErrorMessage = "There was an error accessing the orders. The database schema might be out of sync."
+                });
+            }
         }
 
         // Hiển thị chi tiết đơn hàng
@@ -34,21 +95,46 @@ namespace Reina.MacCredy.Areas.Admin.Controllers
         {
             try
             {
+                // Use a simplified query approach
                 var order = await _context.Orders
-                    .Include(o => o.ApplicationUser)
-                    .Include(o => o.OrderDetails)
-                        .ThenInclude(od => od.Product)
-                    .FirstOrDefaultAsync(o => o.Id == id);
+                    .Where(o => o.Id == id)
+                    .Select(o => new OrderViewModel
+                    {
+                        Id = o.Id,
+                        OrderDate = o.OrderDate,
+                        TotalPrice = o.TotalPrice,
+                        ShippingAddress = o.ShippingAddress,
+                        Notes = o.Notes,
+                        UserId = o.UserId
+                    })
+                    .FirstOrDefaultAsync();
 
                 if (order == null)
                 {
                     return NotFound();
                 }
-
-                // Log some debug information
-                Console.WriteLine($"Order found with ID: {order.Id}");
-                Console.WriteLine($"Customer: {order.ApplicationUser?.FullName ?? "Not loaded"}");
-                Console.WriteLine($"Order details count: {order.OrderDetails?.Count() ?? 0}");
+                
+                // Get user information separately
+                if (!string.IsNullOrEmpty(order.UserId))
+                {
+                    var user = await _context.Users
+                        .Where(u => u.Id == order.UserId)
+                        .Select(u => new { u.UserName, u.Email, u.PhoneNumber })
+                        .FirstOrDefaultAsync();
+                    
+                    if (user != null)
+                    {
+                        order.UserName = user.UserName ?? "Unknown";
+                        order.Email = user.Email ?? "";
+                        order.PhoneNumber = user.PhoneNumber ?? "";
+                    }
+                }
+                
+                // Get order details separately
+                order.OrderDetails = await _context.OrderDetails
+                    .Where(od => od.OrderId == id)
+                    .Include(od => od.Product)
+                    .ToListAsync();
 
                 return View(order);
             }
@@ -104,5 +190,21 @@ namespace Reina.MacCredy.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Details), new { id });
             }
         }
+    }
+    
+    // View model to match only existing database columns
+    public class OrderViewModel
+    {
+        public int Id { get; set; }
+        public DateTime OrderDate { get; set; }
+        public decimal TotalPrice { get; set; }
+        public string ShippingAddress { get; set; } = string.Empty;
+        public string Notes { get; set; } = string.Empty;
+        public string? UserId { get; set; }
+        public string UserName { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string PhoneNumber { get; set; } = string.Empty;
+        public List<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+        public int OrderItemCount { get; set; }
     }
 }

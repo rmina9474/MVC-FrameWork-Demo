@@ -29,16 +29,15 @@ namespace Reina.MacCredy.Controllers
         }
         
         // Hiển thị danh sách sản phẩm
-        [Authorize(Roles = "Admin")]
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
-            var products = await _productRepository.GetAllAsync();
-            return View(products);
+            return RedirectToAction(nameof(Browse));
         }
         
-        [Authorize(Roles = "Admin")]
-        [HttpGet]
-        public async Task<IActionResult> Index(string searchQuery, string sortOrder)
+        // Browse products for all users
+        [AllowAnonymous]
+        public async Task<IActionResult> Browse(string searchQuery, string sortOrder)
         {
             var products = await _productRepository.GetAllAsync();
 
@@ -62,6 +61,35 @@ namespace Reina.MacCredy.Controllers
 
             ViewBag.SearchQuery = searchQuery;
             return View(products);
+        }
+        
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        [ActionName("AdminIndex")]
+        public async Task<IActionResult> AdminIndex(string searchQuery, string sortOrder)
+        {
+            var products = await _productRepository.GetAllAsync();
+
+            // Lọc theo từ khóa tìm kiếm (nếu có)
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                products = products.Where(p => p.Name.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+
+            // Sắp xếp theo giá
+            ViewBag.CurrentSort = sortOrder;
+            switch (sortOrder)
+            {
+                case "asc":
+                    products = products.OrderBy(p => p.Price).ToList(); // Giá tăng dần
+                    break;
+                case "desc":
+                    products = products.OrderByDescending(p => p.Price).ToList(); // Giá giảm dần
+                    break;
+            }
+
+            ViewBag.SearchQuery = searchQuery;
+            return View("Index", products);
         }
 
         // Hiển thị form thêm sản phẩm mới

@@ -7,8 +7,7 @@ using Reina.MacCredy.Repositories;
 
 namespace Reina.MacCredy.Controllers
 {
-    [Authorize]
-        
+    // Remove class-level Authorize attribute to allow some methods to be accessed by guests
     public class ShoppingCartController : Controller
     {
         private readonly IProductRepository _productRepository;
@@ -22,23 +21,40 @@ namespace Reina.MacCredy.Controllers
             _userManager = userManager;
         }
         
+        // Remove Authorize to allow guests to access checkout page
         public async Task<IActionResult> Checkout()
         {
-            var user = await _userManager.GetUserAsync(User);
-            if (user == null)
+            // Check if cart exists and has items
+            var cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart");
+            if (cart == null || !cart.Items.Any())
             {
-                return RedirectToAction("Login", "Account", new { area = "Identity" });
+                return RedirectToAction("Index", "Home");
             }
             
-            return View(new Order
+            // For logged in users, pre-fill information
+            if (User.Identity.IsAuthenticated)
             {
-                UserId = user.Id,
-                ApplicationUser = user,
-                ShippingAddress = string.Empty,
+                var user = await _userManager.GetUserAsync(User);
+                if (user != null)
+                {
+                    return View(new Order
+                    {
+                        UserId = user.Id,
+                        ApplicationUser = user,
+                        ShippingAddress = string.Empty,
+                        OrderDetails = new List<OrderDetail>()
+                    });
+                }
+            }
+            
+            // For guest users, show a different checkout view
+            return View("GuestCheckout", new Order
+            {
                 OrderDetails = new List<OrderDetail>()
             });
         }
         
+        // Remove Authorize to allow guests to submit orders
         [HttpPost]
         public async Task<IActionResult> Checkout(Order order)
         {
@@ -49,13 +65,28 @@ namespace Reina.MacCredy.Controllers
                 return RedirectToAction("Index");
             }
             
-            var user = await _userManager.GetUserAsync(User);
-            if (user == null)
+            // For logged in users
+            if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Login", "Account", new { area = "Identity" });
+                var user = await _userManager.GetUserAsync(User);
+                if (user != null)
+                {
+                    order.UserId = user.Id;
+                }
+            }
+            else
+            {
+                // For guest users, ensure we have minimum required information
+                if (string.IsNullOrEmpty(order.ShippingAddress) || string.IsNullOrEmpty(order.Email))
+                {
+                    ModelState.AddModelError("", "Please provide shipping address and email");
+                    return View("GuestCheckout", order);
+                }
+                
+                // Set guest flag
+                order.IsGuestOrder = true;
             }
             
-            order.UserId = user.Id;
             order.OrderDate = DateTime.UtcNow;
             order.TotalPrice = cart.Items.Sum(i => i.Price * i.Quantity);
             var orderDetails = new List<OrderDetail>();
@@ -85,7 +116,6 @@ namespace Reina.MacCredy.Controllers
             HttpContext.Session.Remove("Cart");
             return View("OrderCompleted", order.Id); // Order completion confirmation page
         }
-
 
         [HttpGet]
         public async Task<IActionResult> AddToCart(int productId, int quantity = 1)
@@ -127,9 +157,15 @@ namespace Reina.MacCredy.Controllers
                 });
             }
             
+            // Check if user is authenticated before proceeding to cart
+            if (!User.Identity.IsAuthenticated)
+            {
+                // Store return URL for after login
+                return RedirectToAction("LoginPrompt", new { returnUrl = Url.Action("Index", "ShoppingCart") });
+            }
+            
             return RedirectToAction("Index");
         }
-
 
         [HttpGet("ShoppingCart/RemoveFromCart")]
         public IActionResult RemoveFromCart(int productId)
@@ -182,5 +218,30 @@ namespace Reina.MacCredy.Controllers
             return Json(new { success = false });
         }
 
+        // Add new method to prompt user to login or continue as guest
+        public IActionResult LoginPrompt(string returnUrl = null)
+        {
+            ViewBag.ReturnUrl = returnUrl ?? Url.Action("Checkout", "ShoppingCart");
+            return View();
+        }
+
+        // Add method to transfer guest cart to user cart after login
+        [Authorize]
+        public async Task<IActionResult> TransferGuestCart()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return RedirectToAction("Login", "Account", new { area = "Identity" });
+            }
+
+            // Get the guest cart from session
+            var guestCart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart") ?? new ShoppingCart();
+            
+            // If we had a user-specific cart in database, we could merge them here
+            // For now, we just keep the session cart
+
+            return RedirectToAction("Index");
+        }
     }
 }
