@@ -76,7 +76,7 @@ namespace Reina.MacCredy.Controllers
                 products = products.Where(p => p.Name.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)).ToList();
             }
 
-            // Sắp xếp theo giá
+            // Sắp xếp theo giá hoặc tên
             ViewBag.CurrentSort = sortOrder;
             switch (sortOrder)
             {
@@ -86,9 +86,22 @@ namespace Reina.MacCredy.Controllers
                 case "desc":
                     products = products.OrderByDescending(p => p.Price).ToList(); // Giá giảm dần
                     break;
+                case "name_asc":
+                    products = products.OrderBy(p => p.Name).ToList(); // Tên A-Z
+                    break;
+                case "name_desc":
+                    products = products.OrderByDescending(p => p.Name).ToList(); // Tên Z-A
+                    break;
+                case "category":
+                    products = products.OrderBy(p => p.Category != null ? p.Category.Name : "").ToList(); // Theo danh mục
+                    break;
+                default:
+                    products = products.OrderBy(p => p.Id).ToList(); // Mặc định theo ID
+                    break;
             }
 
             ViewBag.SearchQuery = searchQuery;
+            ViewBag.Title = "Product Management";
             return View("Index", products);
         }
 
@@ -104,7 +117,7 @@ namespace Reina.MacCredy.Controllers
         // Xử lý thêm sản phẩm mới
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public async Task<IActionResult> Add(Product product, IFormFile imageUrl)
+        public async Task<IActionResult> Add(Product product, IFormFile imageUrl, bool hasCustomOptions, List<string> optionNames = null, List<decimal> optionPrices = null, List<string> optionTypes = null)
         {
             if (ModelState.IsValid)
             {
@@ -113,7 +126,36 @@ namespace Reina.MacCredy.Controllers
                     // Lưu hình ảnh đại diện tham khảo bài 02 hàm SaveImage
                     product.ImageUrl = await SaveImage(imageUrl);
                 }
+                
+                // Set cafe-specific properties
+                product.IsAvailable = true;
+                product.CanCustomize = hasCustomOptions;
+                
+                // Save the product first to get an ID
                 await _productRepository.AddAsync(product);
+                
+                // Add options if this product has customizations
+                if (hasCustomOptions && optionNames != null && optionPrices != null && optionTypes != null)
+                {
+                    for (int i = 0; i < optionNames.Count; i++)
+                    {
+                        if (!string.IsNullOrEmpty(optionNames[i]))
+                        {
+                            var option = new ProductOption
+                            {
+                                Name = optionNames[i],
+                                AdditionalPrice = optionPrices.Count > i ? optionPrices[i] : 0,
+                                OptionType = optionTypes.Count > i ? optionTypes[i] : "Size",
+                                ProductId = product.Id,
+                                IsDefault = i == 0 // First option is default
+                            };
+                            
+                            _context.ProductOptions.Add(option);
+                        }
+                    }
+                    await _context.SaveChangesAsync();
+                }
+                
                 return RedirectToAction(nameof(Index));
             }
             // Nếu ModelState không hợp lệ, hiển thị form với dữ liệu đã nhập
@@ -148,7 +190,7 @@ namespace Reina.MacCredy.Controllers
                     return NotFound();
                 }
                 
-                // Try to include reviews if the table exists
+                // Include reviews if the table exists
                 try
                 {
                     product = await _context.Products
@@ -169,9 +211,26 @@ namespace Reina.MacCredy.Controllers
                 }
                 catch (Exception ex)
                 {
-                    // If there's an error loading reviews (e.g., table doesn't exist yet),
-                    // just continue with the product without reviews
+                    // If there's an error loading reviews, continue with the product without reviews
                     Console.WriteLine($"Error loading reviews: {ex.Message}");
+                }
+                
+                // Get product options for cafe items
+                try
+                {
+                    var options = await _context.ProductOptions
+                        .Where(o => o.ProductId == id)
+                        .OrderBy(o => o.OptionType)
+                        .ThenBy(o => o.AdditionalPrice)
+                        .ToListAsync();
+                        
+                    ViewBag.ProductOptions = options;
+                    ViewBag.OptionTypes = options.Select(o => o.OptionType).Distinct().ToList();
+                }
+                catch (Exception ex)
+                {
+                    // If options can't be loaded, continue without them
+                    Console.WriteLine($"Error loading product options: {ex.Message}");
                 }
                 
                 // Check if the current user has purchased this product

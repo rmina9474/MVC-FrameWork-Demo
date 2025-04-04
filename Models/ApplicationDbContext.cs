@@ -15,6 +15,7 @@ namespace Reina.MacCredy.Models
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<ProductReview> ProductReviews { get; set; }
+        public DbSet<ProductOption> ProductOptions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,6 +32,10 @@ namespace Reina.MacCredy.Models
                 
             modelBuilder.Entity<Product>()
                 .Property(p => p.Price)
+                .HasColumnType("decimal(18,2)");
+                
+            modelBuilder.Entity<ProductOption>()
+                .Property(po => po.AdditionalPrice)
                 .HasColumnType("decimal(18,2)");
                 
             // Configure Order to use UserId as ForeignKey for ApplicationUser

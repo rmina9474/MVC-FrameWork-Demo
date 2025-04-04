@@ -5,21 +5,21 @@ using Reina.MacCredy.Models;
 
 namespace Reina.MacCredy.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class UserController : ControllerBase
+    public class UserController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ILogger<UserController> _logger;
 
-        public UserController(UserManager<ApplicationUser> userManager)
+        public UserController(UserManager<ApplicationUser> userManager, ILogger<UserController> logger)
         {
             _userManager = userManager;
+            _logger = logger;
         }
 
-        [HttpGet("IsAdmin")]
+        [HttpGet("api/[controller]/IsAdmin")]
         public async Task<IActionResult> IsAdmin()
         {
-            if (!User.Identity.IsAuthenticated)
+            if (User?.Identity == null || !User.Identity.IsAuthenticated)
             {
                 return Ok(new { isAdmin = false });
             }
@@ -28,6 +28,21 @@ namespace Reina.MacCredy.Controllers
             var isAdmin = user != null && await _userManager.IsInRoleAsync(user, "Admin");
 
             return Ok(new { isAdmin });
+        }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Profile()
+        {
+            if (User?.Identity == null || !User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account", new { area = "Identity" });
+            }
+
+            return View();
         }
     }
 } 

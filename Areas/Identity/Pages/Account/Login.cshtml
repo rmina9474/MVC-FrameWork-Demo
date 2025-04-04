@@ -8,63 +8,45 @@
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="custom-form-container">
-                <h2 class="custom-form-title">Welcome Back</h2>
-                
-                <form id="account" method="post" class="mt-4">
-                    <div asp-validation-summary="ModelOnly" class="alert alert-danger mb-4" role="alert"></div>
-
-                    <div class="form-group">
-                        <label asp-for="Input.Email" class="form-label">Email Address</label>
-                        <div class="input-group">
-                            <span class="input-group-text bg-primary text-white">
-                                <i class="bi bi-envelope-fill"></i>
-                            </span>
-                            <input asp-for="Input.Email" class="form-control form-control-lg" autocomplete="username" placeholder="Enter your email" />
+            <div class="auth-form-container shadow-lg rounded-4 p-4 p-sm-5 bg-white">
+                <div class="text-center mb-4">
+                    <img src="~/images/coffee-logo.png" alt="Brew Haven Coffee Logo" height="60" class="mb-3">
+                    <h2 class="fw-bold text-coffee-dark">Welcome Back</h2>
+                    <p class="text-muted">Sign in to your account to continue</p>
+                </div>
+                <form id="account" method="post">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger mb-4 rounded-3 border-start border-danger border-4" role="alert"></div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Input.Email" class="form-label fw-semibold">Email Address</label>
+                        <div class="input-group input-group-lg auth-input-group">
+                            <span class="input-group-text bg-coffee-light text-white border-0"><i class="bi bi-envelope-fill"></i></span>
+                            <input asp-for="Input.Email" class="form-control form-control-lg border-start-0" autocomplete="username" placeholder="Enter your email" />
                         </div>
-                        <span asp-validation-for="Input.Email" class="validation-message"></span>
+                        <span asp-validation-for="Input.Email" class="text-danger small mt-1"></span>
                     </div>
-
-                    <div class="form-group">
-                        <label asp-for="Input.Password" class="form-label">Password</label>
-                        <div class="input-group">
-                            <span class="input-group-text bg-primary text-white">
-                                <i class="bi bi-shield-lock-fill"></i>
-                            </span>
-                            <input asp-for="Input.Password" type="password" class="form-control form-control-lg" autocomplete="current-password" placeholder="Enter your password" />
+                    <div class="form-group mb-3">
+                        <label asp-for="Input.Password" class="form-label fw-semibold">Password</label>
+                        <div class="input-group input-group-lg auth-input-group">
+                            <span class="input-group-text bg-coffee-light text-white border-0"><i class="bi bi-shield-lock-fill"></i></span>
+                            <input asp-for="Input.Password" type="password" class="form-control form-control-lg border-start-0" autocomplete="current-password" placeholder="Enter your password" />
                         </div>
-                        <span asp-validation-for="Input.Password" class="validation-message"></span>
+                        <span asp-validation-for="Input.Password" class="text-danger small mt-1"></span>
                     </div>
-
-                    <div class="d-flex justify-content-between align-items-center my-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
                         <div class="form-check">
                             <input class="form-check-input" asp-for="Input.RememberMe" />
-                            <label asp-for="Input.RememberMe" class="form-check-label">
-                                Remember me
-                            </label>
+                            <label asp-for="Input.RememberMe" class="form-check-label">Remember me</label>
                         </div>
                         <div>
-                            <a id="forgot-password" asp-page="./ForgotPassword" class="text-primary">
-                                Forgot password?
-                            </a>
+                            <a id="forgot-password" asp-page="./ForgotPassword" class="text-coffee">Forgot password?</a>
                         </div>
                     </div>
-
-                    <button id="login-submit" type="submit" class="btn btn-primary btn-lg w-100">
+                    <button id="login-submit" type="submit" class="btn btn-brown btn-lg w-100 py-3 rounded-3 shadow-sm">
                         <i class="bi bi-box-arrow-in-right me-2"></i> Sign In
                     </button>
-                    
                     <div class="text-center mt-4">
-                        <p class="mb-0">Don't have an account? 
-                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="text-primary fw-bold">
-                                Create Account
-                            </a>
-                        </p>
-                        <p class="mt-2">
-                            <a id="resend-confirmation" asp-page="./ResendEmailConfirmation" class="text-muted">
-                                <small>Resend email confirmation</small>
-                            </a>
-                        </p>
+                        <p class="mb-2">Don't have an account? <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="text-coffee fw-bold text-decoration-underline">Create Account</a></p>
+                        <p class="small text-muted"><a id="resend-confirmation" asp-page="./ResendEmailConfirmation" class="text-coffee">Resend email confirmation</a></p>
                     </div>
                 </form>
             </div>

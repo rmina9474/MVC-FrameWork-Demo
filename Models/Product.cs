@@ -14,6 +14,17 @@ namespace Reina.MacCredy.Models
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
         
+        // Cafe-specific properties
+        public bool IsAvailable { get; set; } = true;
+        
+        public bool CanCustomize { get; set; } = false;
+        
+        public bool HasSizeOptions { get; set; } = false;
+        
+        public string? PrepTime { get; set; }
+        
+        public bool IsFeatured { get; set; } = false;
+        
         // Add reference to product reviews
         public List<ProductReview>? Reviews { get; set; }
         

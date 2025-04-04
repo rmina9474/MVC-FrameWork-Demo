@@ -12,6 +12,8 @@ This repository contains an ASP.NET Core e-commerce web application built using 
 - [How to Use This Project](#how-to-use-this-project)
 - [Screenshots](#screenshots)
 - [Setup and Installation](#setup-and-installation)
+- [Recent Updates](#recent-updates)
+- [Known Issues](#known-issues)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -38,6 +40,7 @@ This e-commerce application is a fully functional online shop with both customer
 - **Shopping Cart**: Add items, update quantities, and manage the cart
 - **Checkout Process**: Complete orders with shipping information
 - **Order History**: View past orders and order details
+- **Quick Order**: Streamlined purchasing process for popular items
 
 ### Admin Features:
 - **Admin Dashboard**: Overview of store statistics and recent orders
@@ -46,14 +49,24 @@ This e-commerce application is a fully functional online shop with both customer
 - **Order Management**: View and process customer orders
 - **Sales Analytics**: Monitor sales trends and performance
 
+### UI/UX Improvements:
+- **Modern Interface**: Enhanced design with improved user experience
+- **Interactive Product Cards**: Hover effects and quick action buttons
+- **Visual Feedback**: Toast notifications for cart actions
+- **Animation Effects**: Subtle animations for improved user engagement
+- **Quantity Controls**: Intuitive interface for adjusting quantities in multiple locations
+
 ## 🛠️ Technologies Used
 
 - **ASP.NET Core 8.0**: Modern web framework
-- **Entity Framework Core**: ORM for database operations
+- **Entity Framework Core 9.0.3**: ORM for database operations
 - **ASP.NET Core Identity**: User authentication and authorization
-- **C#**: Primary programming language
+- **C# 12**: Primary programming language
 - **HTML/CSS/JavaScript**: Frontend development
+- **CSS Custom Properties**: Variables for consistent theming
+- **CSS Animations**: Keyframes for interactive effects
 - **Bootstrap 5**: Responsive UI framework
+- **Bootstrap Icons**: Icon library for UI elements
 - **SQL Server**: Database management
 - **MVC Pattern**: Architectural pattern
 - **Repository Pattern**: Data access abstraction
@@ -113,13 +126,19 @@ The development of this project followed these key steps:
    - Developing order management
    - Building admin dashboard and tools
 
-6. **Testing and Refinement**:
-   - Unit testing
-   - Integration testing
-   - UI/UX improvements
-   - Performance optimization
+6. **UI Modernization**:
+   - Enhancing home page design
+   - Implementing interactive product cards
+   - Adding visual feedback mechanisms
+   - Creating streamlined ordering experience
 
-7. **Deployment**:
+7. **Bug Fixing and Stability**:
+   - Fixing controller inheritance issues
+   - Resolving CSS syntax errors
+   - Implementing proper error handling
+   - Adding null checks for critical objects
+
+8. **Deployment**:
    - Configuration for production environment
    - Database migration in production
    - Final testing
@@ -134,21 +153,27 @@ The development of this project followed these key steps:
    - Use the search function to find specific products by name or description
    - Click on any product to view its details, pricing, and customer reviews
 
-2. **Account Management**
+2. **Quick Ordering**
+   - Use the dedicated "Quick Order" section on the home page for faster purchasing of popular items
+   - Adjust quantities directly on product cards
+   - Add items to cart with a single click
+   - Receive visual confirmation through toast notifications
+
+3. **Account Management**
    - Register for a new account by clicking on "Register" in the navigation menu
    - Log in to your existing account from the "Login" page
    - Update your profile information from the account settings
    - View your order history under "My Orders" in your account dashboard
 
-3. **Shopping Process**
-   - Add products to your cart by clicking the "Add to Cart" button
+4. **Shopping Process**
+   - Add products to your cart by clicking the "Add to Cart" button on product cards or detail pages
    - Adjust quantities or remove items from your cart on the Shopping Cart page
    - Proceed to checkout by clicking the "Checkout" button
    - Fill in your shipping details and select a payment method
    - Review your order and complete the purchase
    - View the order confirmation and receipt
 
-4. **Product Reviews**
+5. **Product Reviews**
    - Leave reviews for products you've purchased
    - Rate products on a scale of 1-5 stars
    - Read other customers' reviews to help with purchasing decisions
@@ -202,7 +227,6 @@ The development of this project followed these key steps:
   - Order processing and management
   - User account management
   - Sales data and analytics access
-
 
 ## ⚙️ Setup and Installation
 
@@ -303,6 +327,33 @@ The application is containerized using Docker with the following components:
    - Maps to host port 1499
 
 The complete configuration can be found in the `docker-compose.yml` and `Dockerfile` in the repository root.
+
+## 🆕 Recent Updates
+
+### Fixes and Improvements
+- Fixed UserController inheritance issues by properly inheriting from Controller class
+- Resolved CSS syntax errors with @keyframes in the home page
+- Fixed type comparison issues in the home page (string vs int comparison)
+- Implemented enhanced product cards with hover effects and quick action buttons
+- Added direct "Add to Cart" functionality from multiple locations
+- Improved quantity selection UI for better user experience
+- Added visual feedback with toast notifications for cart actions
+- Added animation effects to improve user engagement
+- Fixed null reference exceptions in _Layout.cshtml by adding proper null checks
+- Added null-conditional operators for ViewContext.RouteData.Values to prevent crashes
+- Implemented better error handling for cart count display
+
+### New Features
+- Added a dedicated "Quick Order" section for faster purchasing
+- Added new coffee-themed product catalog
+- Enhanced product cards with on-hover quick actions
+- Added toast notifications for cart actions
+
+## ⚠️ Known Issues
+- Some views may still have inadequate null checking
+- Database migrations need careful management to prevent data loss
+- Product search performance could be optimized for larger catalogs
+- Some admin pages need UI improvements for smaller screens
 
 ## 🤝 Contributing
 

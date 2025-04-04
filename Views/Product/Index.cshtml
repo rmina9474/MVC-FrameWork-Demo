@@ -1,73 +1,219 @@
 ﻿@model IEnumerable<Reina.MacCredy.Models.Product>
 
-<h2 class="text-center my-4">Products</h2>
+<div class="admin-page-header mb-4">
+    <h2 class="text-coffee d-flex align-items-center">
+        <i class="bi bi-box me-2"></i>Products Management
+    </h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Product" asp-action="AdminIndex">Admin</a></li>
+            <li class="breadcrumb-item active">Products</li>
+        </ol>
+    </nav>
+</div>
 
-<!-- Nút "Add" -->
-<div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
-    <!-- Form tìm kiếm -->
-    <form method="get" class="d-flex">
-        <input type="text" name="searchQuery" class="form-control me-2"
-               placeholder="🔍 Search products..." value="@ViewBag.SearchQuery" style="max-width: 250px;">
-        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-search"></i> Search</button>
-    </form>
+<!-- Admin Controls -->
+<div class="card mb-4 shadow-sm">
+    <div class="card-body">
+        <div class="row g-3">
+            <!-- Form tìm kiếm -->
+            <div class="col-md-5">
+                <form method="get" class="d-flex">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0">
+                            <i class="bi bi-search text-muted"></i>
+                        </span>
+                        <input type="text" name="searchQuery" class="form-control border-start-0"
+                               placeholder="Search products..." value="@ViewBag.SearchQuery">
+                        <button type="submit" class="btn btn-brown">Search</button>
+                    </div>
+                </form>
+            </div>
 
-    <!-- Bộ lọc sắp xếp giá -->
-    <div class="btn-group">
-        <a asp-action="Index" asp-route-sortOrder="asc" class="btn btn-outline-secondary">
-            ⬆ Price Low to High
-        </a>
-        <a asp-action="Index" asp-route-sortOrder="desc" class="btn btn-outline-secondary">
-            ⬇ Price High to Low
-        </a>
-    </div>
+            <!-- Sorting options -->
+            <div class="col-md-4">
+                <div class="dropdown w-100">
+                    <button class="btn btn-outline-brown dropdown-toggle w-100" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-sort-alpha-down me-1"></i> Sort Options
+                    </button>
+                    <ul class="dropdown-menu w-100" aria-labelledby="sortDropdown">
+                        <li><h6 class="dropdown-header">By Price</h6></li>
+                        <li>
+                            <a asp-action="AdminIndex" asp-route-sortOrder="asc" class="dropdown-item @(ViewBag.CurrentSort == "asc" ? "active" : "")">
+                                <i class="bi bi-sort-numeric-down me-2"></i> Price Low to High
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-action="AdminIndex" asp-route-sortOrder="desc" class="dropdown-item @(ViewBag.CurrentSort == "desc" ? "active" : "")">
+                                <i class="bi bi-sort-numeric-up me-2"></i> Price High to Low
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><h6 class="dropdown-header">By Name</h6></li>
+                        <li>
+                            <a asp-action="AdminIndex" asp-route-sortOrder="name_asc" class="dropdown-item @(ViewBag.CurrentSort == "name_asc" ? "active" : "")">
+                                <i class="bi bi-sort-alpha-down me-2"></i> Name A to Z
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-action="AdminIndex" asp-route-sortOrder="name_desc" class="dropdown-item @(ViewBag.CurrentSort == "name_desc" ? "active" : "")">
+                                <i class="bi bi-sort-alpha-up me-2"></i> Name Z to A
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a asp-action="AdminIndex" asp-route-sortOrder="category" class="dropdown-item @(ViewBag.CurrentSort == "category" ? "active" : "")">
+                                <i class="bi bi-folder me-2"></i> By Category
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
-    <!-- Các nút thao tác -->
-    <div class="d-flex gap-2">
-        <a asp-action="Add" class="btn btn-success">
-            <i class="fa-solid fa-plus"></i> Add Item
-        </a>
-        <a asp-controller="Category" asp-action="Index" class="btn btn-success">
-            <i class="fa-solid fa-folder-plus"></i> View Category
-        </a>
+            <!-- Action buttons -->
+            <div class="col-md-3">
+                <div class="d-flex gap-2 h-100">
+                    <a asp-action="Add" class="btn btn-success flex-grow-1 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-plus-circle me-1"></i> Add Item
+                    </a>
+                    <a asp-controller="Category" asp-action="Index" class="btn btn-primary flex-grow-1 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-folder me-1"></i> Categories
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-
-
-<table class="table table-striped table-bordered">
-    <thead class="table-dark">
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Description</th>
-            <th>Category</th>
-            <th class="text-center">Actions</th>
-        </tr>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var product in Model)
-        {
-            <tr>
-                <td>@product.Name</td>
-                <td>@product.Price.ToString("#,##0") Vnđ</td> <!-- Hiển thị giá theo định dạng tiền tệ -->
-                <td>@product.Description</td>
-                <td>@(product.Category?.Name ?? "No Category")</td> <!-- Kiểm tra nếu không có Category -->
-                <td class="text-center">
-                    <a asp-action="Display" asp-route-id="@product.Id" class="btn btn-info btn-sm">View</a>
-                    @if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+<!-- Products Table -->
+<div class="card shadow-sm">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover coffee-table mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Any())
                     {
-                        <a asp-action="Update" asp-route-id="@product.Id" class="btn btn-warning btn-sm">Edit</a>
-                        @if (User.IsInRole("Admin"))
+                        @foreach (var product in Model)
                         {
-                            <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger btn-sm"
-                               onclick="return confirm('Are you sure you want to delete this product?');">
-                                Delete
-                            </a>
+                            <tr>
+                                <td class="align-middle">
+                                    <div class="d-flex align-items-center">
+                                        @if (!string.IsNullOrEmpty(product.ImageUrl))
+                                        {
+                                            <img src="@product.ImageUrl" class="product-thumbnail me-2" alt="@product.Name">
+                                        }
+                                        else
+                                        {
+                                            <div class="no-image-placeholder me-2">
+                                                <i class="bi bi-cup-hot"></i>
+                                            </div>
+                                        }
+                                        <span>@product.Name</span>
+                                    </div>
+                                </td>
+                                <td class="align-middle">@product.Price.ToString("#,##0") VND</td>
+                                <td class="align-middle description-cell">@product.Description</td>
+                                <td class="align-middle">
+                                    <span class="badge bg-light text-dark">@(product.Category?.Name ?? "No Category")</span>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <div class="btn-group">
+                                        <a asp-action="Display" asp-route-id="@product.Id" class="btn btn-sm btn-info">
+                                            <i class="bi bi-eye"></i> View
+                                        </a>
+                                        @if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+                                        {
+                                            <a asp-action="Update" asp-route-id="@product.Id" class="btn btn-sm btn-warning">
+                                                <i class="bi bi-pencil"></i> Edit
+                                            </a>
+                                            @if (User.IsInRole("Admin"))
+                                            {
+                                                <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-sm btn-danger"
+                                                   onclick="return confirm('Are you sure you want to delete this product?');">
+                                                    <i class="bi bi-trash"></i> Delete
+                                                </a>
+                                            }
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
                         }
                     }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                    else
+                    {
+                        <tr>
+                            <td colspan="5" class="text-center py-4">
+                                <div class="empty-state">
+                                    <i class="bi bi-box large-icon mb-3"></i>
+                                    <h5>No products found</h5>
+                                    <p class="text-muted">Try changing your search terms or add a new product.</p>
+                                    <a asp-action="Add" class="btn btn-brown">Add New Product</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<style>
+    .product-thumbnail {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+    
+    .no-image-placeholder {
+        width: 40px;
+        height: 40px;
+        background-color: var(--coffee-cream);
+        color: var(--coffee-dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+    }
+    
+    .description-cell {
+        max-width: 250px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .coffee-table th {
+        font-weight: 600;
+        color: var(--coffee-dark);
+    }
+    
+    .coffee-table tr {
+        transition: all 0.2s;
+    }
+    
+    .coffee-table tr:hover {
+        background-color: #f8f3e9;
+    }
+    
+    .empty-state {
+        padding: 30px;
+        text-align: center;
+    }
+    
+    .empty-state .large-icon {
+        font-size: 3rem;
+        color: var(--coffee-light);
+    }
+</style>

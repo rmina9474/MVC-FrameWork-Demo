@@ -1,42 +1,157 @@
-﻿@model Reina.MacCredy.Models.Product
-@using Microsoft.AspNetCore.Mvc.Rendering
+﻿@model Product
 
-<h2 class="text-center my-4">Add Product</h2>
-<div class="container">
-    <form asp-action="Add" method="post" enctype="multipart/form-data" class="border p-4 rounded shadow bg-light">
-        <div class="mb-3">
-            <label asp-for="Name" class="form-label fw-bold"></label>
-            <input asp-for="Name" class="form-control" />
-            <span asp-validation-for="Name" class="text-danger"></span>
-        </div>
+@{
+    ViewData["Title"] = "Add New Cafe Item";
+}
 
-        <div class="mb-3">
-            <label asp-for="Price" class="form-label fw-bold"></label>
-            <input asp-for="Price" type="number" step="0.01" class="form-control" />
-            <span asp-validation-for="Price" class="text-danger"></span>
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Description" class="form-label fw-bold"></label>
-            <textarea asp-for="Description" class="form-control" rows="3"></textarea>
-            <span asp-validation-for="Description" class="text-danger"></span>
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="CategoryId" class="form-label fw-bold">Category</label>
-            <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-select">
-                <option value="">-- Select Category --</option>
-            </select>
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+    
+    <form asp-action="Add" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label">Name</label>
+                    <input asp-for="Name" class="form-control" required />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                
+                <div class="mb-3">
+                    <label asp-for="Price" class="form-label">Base Price</label>
+                    <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input asp-for="Price" class="form-control" type="number" step="0.01" min="0.01" required />
+                    </div>
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label">Description</label>
+                    <textarea asp-for="Description" class="form-control" rows="4" required></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                
+                <div class="mb-3">
+                    <label asp-for="CategoryId" class="form-label">Category</label>
+                    <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-select" required>
+                        <option value="">Select a category</option>
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="imageUrl" class="form-label">Product Image</label>
+                    <input type="file" name="imageUrl" id="imageUrl" class="form-control" accept="image/*" />
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label class="form-label">Preparation Time</label>
+                    <input asp-for="PrepTime" class="form-control" placeholder="e.g., 2-3 minutes" />
+                </div>
+                
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="IsFeatured" asp-for="IsFeatured" />
+                    <label class="form-check-label" for="IsFeatured">Featured Item</label>
+                </div>
+                
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="hasCustomOptions" name="hasCustomOptions" />
+                    <label class="form-check-label" for="hasCustomOptions">Has Customization Options</label>
+                </div>
+                
+                <div id="optionsContainer" style="display:none" class="border rounded p-3 mt-3">
+                    <h4>Customization Options</h4>
+                    
+                    <div class="option-template">
+                        <div class="row mb-2 option-row">
+                            <div class="col-md-5">
+                                <input type="text" name="optionNames[0]" class="form-control" placeholder="Option Name (e.g., Small)" />
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" name="optionPrices[0]" class="form-control" placeholder="Add. Price" min="0" step="0.01" value="0.00" />
+                            </div>
+                            <div class="col-md-3">
+                                <select name="optionTypes[0]" class="form-select">
+                                    <option value="Size">Size</option>
+                                    <option value="Milk">Milk</option>
+                                    <option value="Syrup">Syrup</option>
+                                    <option value="Extra">Extra</option>
+                                    <option value="Temperature">Temperature</option>
+                                </select>
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" class="btn btn-sm btn-danger remove-option">✕</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="options-list">
+                        <!-- New option rows will be added here -->
+                    </div>
+                    
+                    <button type="button" id="add-option" class="btn btn-sm btn-primary mt-2">Add Option</button>
+                </div>
+            </div>
         </div>
         
-        <div class="mb-3">
-            <label asp-for="ImageUrl" class="form-label fw-bold">Product Image</label>
-            <input type="file" name="ImageUrl" class="form-control" />
-        </div>
-
-        <div class="text-center">
-            <button type="submit" class="btn btn-primary px-4">Add</button>
-            <a asp-action="Index" class="btn btn-secondary px-4 ms-2">Cancel</a>
+        <div class="mb-3 mt-4">
+            <button type="submit" class="btn btn-primary">Save Item</button>
+            <a asp-action="Index" class="btn btn-secondary ml-2">Cancel</a>
         </div>
     </form>
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Show/hide options container based on checkbox
+            $('#hasCustomOptions').change(function() {
+                if($(this).is(':checked')) {
+                    $('#optionsContainer').show();
+                    addOptionRow(); // Add first row automatically
+                } else {
+                    $('#optionsContainer').hide();
+                    $('#options-list').empty();
+                }
+            });
+            
+            // Add option row
+            $('#add-option').click(function() {
+                addOptionRow();
+            });
+            
+            // Remove option row
+            $(document).on('click', '.remove-option', function() {
+                $(this).closest('.option-row').remove();
+                renumberOptions();
+            });
+            
+            function addOptionRow() {
+                var newIndex = $('#options-list .option-row').length;
+                
+                var template = $('.option-template .option-row').clone();
+                template.find('input, select').each(function() {
+                    var name = $(this).attr('name');
+                    if (name) {
+                        $(this).attr('name', name.replace('[0]', '[' + newIndex + ']'));
+                    }
+                });
+                
+                $('#options-list').append(template);
+            }
+            
+            function renumberOptions() {
+                $('#options-list .option-row').each(function(index) {
+                    $(this).find('input, select').each(function() {
+                        var name = $(this).attr('name');
+                        if (name) {
+                            $(this).attr('name', name.replace(/\[\d+\]/, '[' + index + ']'));
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+}

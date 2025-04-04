@@ -1,7 +1,4 @@
-@if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
+@if (User?.Identity != null && User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
 {
-    <a asp-area="" asp-controller="Order" asp-action="Index" class="nav-link">
-        <i class="bi bi-receipt"></i>
-        My Orders
-    </a>
+    <a class="nav-item nav-link" asp-controller="Order" asp-action="Index">My Orders</a>
 } 

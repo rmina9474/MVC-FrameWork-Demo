@@ -1,0 +1,361 @@
+@model IEnumerable<Reina.MacCredy.Models.Product>
+@using Microsoft.EntityFrameworkCore
+
+@{
+    ViewData["Title"] = "Home";
+    int numOfQuantity = 1;
+}
+
+<!-- Hero Section with Coffee Shop Theme -->
+<section class="hero-section py-5 mb-5 coffee-hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                <img src="~/images/coffee-logo.png" alt="Brew Haven Logo" class="img-fluid mb-4" style="max-width: 200px;">
+                <h1 class="display-4 fw-bold text-coffee">Crafting Perfect <span class="text-brown">Moments</span></h1>
+                <p class="lead">Experience the art of specialty coffee in every cup we serve</p>
+                <div class="mt-4">
+                    <a asp-controller="Product" asp-action="Browse" class="btn btn-brown btn-lg rounded-pill">
+                        <i class="bi bi-cup-hot me-2"></i> Explore Our Menu
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-lg overflow-hidden">
+                    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            @{
+                                var featured = Model.Take(3).ToList();
+                                for (int i = 0; i < featured.Count; i++)
+                                {
+                                    <div class="carousel-item @(i == 0 ? "active" : "")">
+                                        <img src="@featured[i].ImageUrl" class="d-block w-100" alt="@featured[i].Name" 
+                                             style="height: 300px; object-fit: cover;">
+                                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                                            <h5>@featured[i].Name</h5>
+                                            <p>@featured[i].Price.ToString("#,##0") VND</p>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Coffee Features Section -->
+<section class="features-section py-5 mb-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="feature-card text-center p-4 h-100">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-cup-hot fs-1 text-brown"></i>
+                    </div>
+                    <h5>Specialty Coffee</h5>
+                    <p class="text-muted small mb-0">Ethically sourced from premium farms</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="feature-card text-center p-4 h-100">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-clock fs-1 text-brown"></i>
+                    </div>
+                    <h5>Fresh Daily</h5>
+                    <p class="text-muted small mb-0">Freshly roasted beans daily</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="feature-card text-center p-4 h-100">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-people fs-1 text-brown"></i>
+                    </div>
+                    <h5>Expert Baristas</h5>
+                    <p class="text-muted small mb-0">Skilled in the art of coffee</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="feature-card text-center p-4 h-100">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-heart fs-1 text-brown"></i>
+                    </div>
+                    <h5>Made With Love</h5>
+                    <p class="text-muted small mb-0">Every cup crafted with passion</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Coffee Section -->
+<section class="products-section py-5 mb-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title position-relative pb-3 text-coffee">Featured Coffee</h2>
+            <p class="text-muted">Discover our handcrafted selection of signature coffee blends</p>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            @foreach (var item in Model.Take(6))
+            {
+                double avgRating = item.Reviews != null && item.Reviews.Any() 
+                    ? Math.Round(item.Reviews.Average(r => r.Rating), 1) 
+                    : 0;
+                int ratingCount = item.Reviews != null ? item.Reviews.Count : 0;
+
+                <div class="col d-flex">
+                    <div class="product-card coffee-card">
+                        <div class="product-image-wrapper">
+                            <img src="@item.ImageUrl" class="product-image" alt="@item.Name">
+                            <div class="product-actions-overlay">
+                                <button class="btn-icon quick-view-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal-@item.Id">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h3 class="product-name text-truncate-2">@item.Name</h3>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div class="product-price">@item.Price.ToString("#,##0") VND</div>
+                            </div>
+                            <!-- Product Rating -->
+                            <div class="product-rating mb-2">
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    if (i <= Math.Floor(avgRating))
+                                    {
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    }
+                                    else if (i - avgRating > 0 && i - avgRating < 1)
+                                    {
+                                        <i class="bi bi-star-half text-warning"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="bi bi-star text-warning"></i>
+                                    }
+                                }
+                                <span class="ms-1 text-muted small">(@ratingCount)</span>
+                            </div>
+                            <p class="product-description text-truncate-2">@(item.Description ?? "No description available")</p>
+                            <div class="product-actions">
+                                <a asp-controller="Product" asp-action="Display" asp-route-id="@item.Id" class="btn btn-outline-brown btn-sm me-2">
+                                    <i class="bi bi-info-circle"></i> Details
+                                </a>
+                                <button class="btn btn-brown add-to-cart-btn" data-product-id="@item.Id" data-quantity="@numOfQuantity">
+                                    <i class="bi bi-cart-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick View Modal -->
+                <div class="modal fade" id="quickViewModal-@item.Id" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header border-0">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-4">
+                                <div class="row g-3">
+                                    <div class="col-md-6 mb-4 mb-md-0">
+                                        <img src="@item.ImageUrl" class="img-fluid rounded-3" alt="@item.Name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h3 class="mb-3">@item.Name</h3>
+                                        <!-- Rating in Modal -->
+                                        <div class="mb-2">
+                                            @for (int i = 1; i <= 5; i++)
+                                            {
+                                                if (i <= Math.Floor(avgRating))
+                                                {
+                                                    <i class="bi bi-star-fill text-warning"></i>
+                                                }
+                                                else if (i - avgRating > 0 && i - avgRating < 1)
+                                                {
+                                                    <i class="bi bi-star-half text-warning"></i>
+                                                }
+                                                else
+                                                {
+                                                    <i class="bi bi-star text-warning"></i>
+                                                }
+                                            }
+                                            <span class="ms-1 text-muted">@avgRating.ToString("0.0") (@ratingCount @(ratingCount == 1 ? "review" : "reviews"))</span>
+                                        </div>
+                                        <div class="fs-4 text-primary fw-bold mb-4">@item.Price.ToString("#,##0") VND</div>
+                                        <p class="mb-4">@(item.Description ?? "No description available")</p>
+                                        <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-3 mb-4">
+                                            <div class="quantity-control d-flex align-items-center mb-3 mb-sm-0">
+                                                <button class="btn btn-sm btn-outline-secondary quantity-btn" data-action="decrease">-</button>
+                                                <input type="number" class="form-control form-control-sm mx-2 text-center quantity-input" value="1" min="1" max="10" style="width: 60px;">
+                                                <button class="btn btn-sm btn-outline-secondary quantity-btn" data-action="increase">+</button>
+                                            </div>
+                                            <button class="btn btn-brown add-to-cart-btn" data-product-id="@item.Id" data-quantity="1">
+                                                <i class="bi bi-cart-plus me-2"></i> Add to Cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Coffee Story Section (New) -->
+<section class="story-section py-5 mb-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="rounded overflow-hidden">
+                    <img src="~/images/coffee-beans.jpg" alt="Coffee Beans" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="text-coffee mb-4">Our Coffee Story</h2>
+                <p class="lead mb-4">At Brew Haven, we believe that great coffee starts with sourcing the finest beans from sustainable farms across the globe.</p>
+                <p class="mb-4">Every bean is carefully selected, expertly roasted, and prepared with precision to bring you a perfect cup of coffee every time. Our baristas are passionate about their craft and dedicated to providing you with an exceptional coffee experience.</p>
+                <a href="#" class="btn btn-outline-brown rounded-pill">Learn More About Our Coffee</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Customer Testimonials (New) -->
+<section class="testimonials-section py-5 mb-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title position-relative pb-3 text-coffee">What Our Customers Say</h2>
+            <p class="text-muted">Hear from our coffee enthusiasts</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="testimonial-card p-4">
+                    <div class="d-flex mb-4">
+                        <span class="testimonial-quote"><i class="bi bi-quote"></i></span>
+                        <div class="ms-3">
+                            <h5 class="mb-1">Emily T.</h5>
+                            <div class="text-warning mb-1">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Their cappuccino is the best I've ever had! The atmosphere is cozy, and the staff is incredibly friendly. Brew Haven has become my favorite morning spot."</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card p-4">
+                    <div class="d-flex mb-4">
+                        <span class="testimonial-quote"><i class="bi bi-quote"></i></span>
+                        <div class="ms-3">
+                            <h5 class="mb-1">Michael L.</h5>
+                            <div class="text-warning mb-1">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"I love the variety of coffees they offer. Their seasonal specials are always creative and delicious. The online ordering system makes my morning coffee run so much easier!"</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card p-4">
+                    <div class="d-flex mb-4">
+                        <span class="testimonial-quote"><i class="bi bi-quote"></i></span>
+                        <div class="ms-3">
+                            <h5 class="mb-1">Sarah K.</h5>
+                            <div class="text-warning mb-1">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"As a coffee enthusiast, I appreciate their attention to detail and commitment to quality. The single-origin options are outstanding. Highly recommended!"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('.add-to-cart-btn').click(function() {
+                var productId = $(this).data('product-id');
+                var quantity = $(this).data('quantity');
+                // If clicked from modal, get the quantity from the input
+                if ($(this).closest('.modal').length > 0) {
+                    quantity = $(this).closest('.modal').find('.quantity-input').val();
+                }
+                // Add to cart via AJAX
+                $.ajax({
+                    url: '/ShoppingCart/AddToCart',
+                    type: 'POST',
+                    data: {
+                        productId: productId,
+                        quantity: quantity
+                    },
+                    success: function(response) {
+                        // Update cart count
+                        $('.cart-count').text(response.cartCount);
+                        // Show success toast
+                        var toast = '<div class="toast-container position-fixed bottom-0 end-0 p-3"><div class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true"><div class="d-flex"><div class="toast-body"><i class="bi bi-check-circle me-2"></i> Item added to cart!</div><button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button></div></div></div>';
+                        $('body').append(toast);
+                        var toastEl = document.querySelector('.toast');
+                        var toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+                        toast.show();
+                        // Close modal if open
+                        $('.modal').modal('hide');
+                    },
+                    error: function() {
+                        // Show error toast
+                        var toast = '<div class="toast-container position-fixed bottom-0 end-0 p-3"><div class="toast align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true"><div class="d-flex"><div class="toast-body"><i class="bi bi-exclamation-circle me-2"></i> Failed to add item to cart.</div><button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button></div></div></div>';
+                        $('body').append(toast);
+                        var toastEl = document.querySelector('.toast');
+                        var toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+                        toast.show();
+                    }
+                });
+            });
+            // Quantity buttons in modals
+            $('.quantity-btn').click(function() {
+                var input = $(this).parent().find('.quantity-input');
+                var action = $(this).data('action');
+                var value = parseInt(input.val());
+                if (action === 'increase' && value < 10) {
+                    input.val(value + 1);
+                } else if (action === 'decrease' && value > 1) {
+                    input.val(value - 1);
+                }
+                // Update the data-quantity attribute of the add to cart button
+                $(this).closest('.modal-body').find('.add-to-cart-btn').data('quantity', input.val());
+            });
+        });
+    </script>
+} 

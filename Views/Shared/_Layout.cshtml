@@ -3,42 +3,44 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - Reina.MacCredy</title>
+        <title>@(ViewData["Title"] != null ? ViewData["Title"] + " - " : "")Brew Haven Coffee</title>
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="icon" type="image/png" href="~/images/coffee-logo.png">
         @RenderSection("Styles", required: false)
     </head>
-    <body data-is-admin="@User.IsInRole("Admin").ToString().ToLower()">
+    <body data-is-admin="@((User?.Identity != null && User.IsInRole("Admin")) ? "true" : "false")">
        <div class="wrapper">
        <header class="sticky-top shadow-sm">
-            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+            <nav class="navbar navbar-expand-lg navbar-light coffee-navbar py-3">
                 <div class="container">
                     <a class="navbar-brand d-flex align-items-center" asp-area="" asp-controller="Home" asp-action="Index">
-                        <img src="~/images/R.png" alt="Reina.MacCredy Shop Logo" height="40" class="me-2">
-                        <span class="fw-bold">Reina.MacCredy</span>
-                        <span class="ms-1 text-primary">Shop</span>
+                        <img src="~/images/coffee-logo.png" alt="Brew Haven Coffee Logo" height="40" class="me-2">
+                        <span class="fw-bold text-coffee">Brew</span>
+                        <span class="fw-bold ms-1 text-brown">Haven</span>
                     </a>
-                    
-                    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" 
-                            data-bs-target="#navbarContent" aria-controls="navbarContent" 
+
+                    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarContent" aria-controls="navbarContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarContent">
-                        @if (User.IsInRole("Admin"))
+                        @if (User?.Identity != null && User.IsInRole("Admin"))
                         {
                             <ul class="navbar-nav mx-auto">
                                 <li class="nav-item mx-2">
-                                    <a class="nav-link d-flex align-items-center" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
+                                    <a class="nav-link d-flex align-items-center @(ViewContext?.RouteData?.Values["controller"]?.ToString() == "Home" && ViewContext?.RouteData?.Values["action"]?.ToString() == "Index" ? "active" : "")"
+                                       asp-area="" asp-controller="Home" asp-action="Index">
                                         <i class="bi bi-speedometer2 me-2"></i>
                                         <span>Dashboard</span>
                                     </a>
                                 </li>
                                 <li class="nav-item dropdown mx-2">
-                                    <a class="nav-link d-flex align-items-center" href="#" id="manageDropdown" 
+                                    <a class="nav-link d-flex align-items-center" href="#" id="manageDropdown"
                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="bi bi-gear me-2"></i>
                                         <span>Manage</span>
@@ -46,17 +48,24 @@
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm" aria-labelledby="manageDropdown">
                                         <li>
-                                            <a class="dropdown-item d-flex align-items-center py-2" 
+                                            <a class="dropdown-item d-flex align-items-center py-2 @(ViewContext?.RouteData?.Values["controller"]?.ToString() == "Product" && ViewContext?.RouteData?.Values["action"]?.ToString() == "AdminIndex" ? "active" : "")"
                                                asp-area="" asp-controller="Product" asp-action="AdminIndex">
-                                                <i class="bi bi-box me-2 text-primary"></i>
+                                                <i class="bi bi-box me-2 text-coffee"></i>
                                                 <span>Products</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item d-flex align-items-center py-2" 
+                                            <a class="dropdown-item d-flex align-items-center py-2 @(ViewContext?.RouteData?.Values["controller"]?.ToString() == "Category" ? "active" : "")"
                                                asp-area="" asp-controller="Category" asp-action="Index">
-                                                <i class="bi bi-folder me-2 text-primary"></i>
+                                                <i class="bi bi-folder me-2 text-coffee"></i>
                                                 <span>Categories</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center py-2 @(ViewContext?.RouteData?.Values["controller"]?.ToString() == "Order" ? "active" : "")"
+                                               asp-area="" asp-controller="Order" asp-action="Index">
+                                                <i class="bi bi-receipt me-2 text-coffee"></i>
+                                                <span>Orders</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -67,54 +76,59 @@
                         {
                             <ul class="navbar-nav mx-auto">
                                 <li class="nav-item mx-2">
-                                    <a class="nav-link fw-semibold" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                    <a class="nav-link fw-semibold @(ViewContext?.RouteData?.Values["controller"]?.ToString() == "Home" && ViewContext?.RouteData?.Values["action"]?.ToString() == "Index" ? "active" : "")"
+                                       asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                                 </li>
                                 <li class="nav-item mx-2">
-                                    <a class="nav-link fw-semibold" asp-area="" asp-controller="Product" asp-action="Browse">Products</a>
+                                    <a class="nav-link fw-semibold @(ViewContext?.RouteData?.Values["controller"]?.ToString() == "Product" && ViewContext?.RouteData?.Values["action"]?.ToString() == "Browse" ? "active" : "")"
+                                       asp-area="" asp-controller="Product" asp-action="Browse">Menu</a>
                                 </li>
-                                <li require-admin="true" class="nav-item mx-2">
-                                    <a class="nav-link fw-semibold" asp-area="" asp-controller="Category" asp-action="Index">Categories</a>
+                                <li class="nav-item mx-2">
+                                    <a class="nav-link fw-semibold" href="#">About Us</a>
+                                </li>
+                                <li class="nav-item mx-2">
+                                    <a class="nav-link fw-semibold" href="#">Locations</a>
                                 </li>
                             </ul>
                         }
 
                         <div class="d-flex align-items-center">
-                            @if (User.Identity.IsAuthenticated)
+                            @if (User?.Identity != null && User.Identity.IsAuthenticated)
                             {
                                 <div class="dropdown">
-                                    <a class="btn btn-outline-primary rounded-pill me-3 d-flex align-items-center" 
-                                       href="#" role="button" id="accountDropdown" 
+                                    <a class="btn btn-outline-brown rounded-pill me-3 d-flex align-items-center"
+                                       href="#" role="button" id="accountDropdown"
                                        data-bs-toggle="dropdown" aria-expanded="false">
                                         @{
-                                            var userManager = (Microsoft.AspNetCore.Identity.UserManager<Reina.MacCredy.Models.ApplicationUser>)Context.RequestServices.GetService(typeof(Microsoft.AspNetCore.Identity.UserManager<Reina.MacCredy.Models.ApplicationUser>));
-                                            var currentUser = userManager.GetUserAsync(User).Result;
-                                            var avatarUrl = string.IsNullOrEmpty(currentUser?.AvatarUrl) ? "/images/default-avatar.png" : currentUser.AvatarUrl;
+                                            var userManager = (Microsoft.AspNetCore.Identity.UserManager<Reina.MacCredy.Models.ApplicationUser>)Context.RequestServices.GetService(typeof(Microsoft.AspNetCore.Identity.UserManager<Reina.MacCredy.Models.ApplicationUser>))!;
+                                            var currentUser = userManager != null ? userManager.GetUserAsync(User).Result : null;
+                                            var avatarUrl = currentUser == null || string.IsNullOrEmpty(currentUser.AvatarUrl) ? "/images/default-coffee-avatar.png" : currentUser.AvatarUrl;
                                         }
                                         <img src="@avatarUrl" alt="Profile" class="user-avatar-header me-2" />
-                                        <span>Hello @User.Identity.Name.Split('@')[0]!</span>
+                                        <span>@(currentUser?.UserName ?? "Account")</span>
                                         <i class="bi bi-chevron-down ms-2 small"></i>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm" aria-labelledby="accountDropdown">
                                         <li>
-                                            <a class="dropdown-item d-flex align-items-center py-2" 
+                                            <a class="dropdown-item d-flex align-items-center py-2 @(ViewContext?.RouteData?.Values["controller"]?.ToString() == "Account" && ViewContext?.RouteData?.Values["action"]?.ToString() == "Profile" ? "active" : "")"
                                                asp-area="" asp-controller="Account" asp-action="Profile">
-                                                <i class="bi bi-gear me-2 text-primary"></i>
+                                                <i class="bi bi-gear me-2 text-coffee"></i>
                                                 <span>Settings</span>
                                             </a>
                                         </li>
-                                        @if (!User.IsInRole("Admin"))
+                                        @if (User?.IsInRole("Admin") != true)
                                         {
                                             <li>
-                                                <a class="dropdown-item d-flex align-items-center py-2" 
+                                                <a class="dropdown-item d-flex align-items-center py-2 @(ViewContext?.RouteData?.Values["controller"]?.ToString() == "Order" && ViewContext?.RouteData?.Values["action"]?.ToString() == "Index" ? "active" : "")"
                                                    asp-area="" asp-controller="Order" asp-action="Index">
-                                                    <i class="bi bi-receipt me-2 text-primary"></i>
+                                                    <i class="bi bi-receipt me-2 text-coffee"></i>
                                                     <span>My Orders</span>
                                                 </a>
                                             </li>
                                         }
                                         <li><hr class="dropdown-divider"></li>
                                         <li>
-                                            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" 
+                                            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout"
                                                   asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                                                 <button type="submit" class="dropdown-item d-flex align-items-center py-2 text-danger">
                                                     <i class="bi bi-box-arrow-right me-2"></i>
@@ -127,23 +141,40 @@
                             }
                             else
                             {
-                                <a class="btn btn-outline-primary rounded-pill me-2" asp-area="Identity" asp-page="/Account/Login">
-                                    <i class="bi bi-person"></i> Login
+                                <a class="btn btn-outline-brown rounded-pill me-2" asp-area="Identity" asp-page="/Account/Login">
+                                    <i class="bi bi-person me-1"></i> Login
                                 </a>
-                                <a class="btn btn-primary rounded-pill" asp-area="Identity" asp-page="/Account/Register">
+                                <a class="btn btn-brown rounded-pill" asp-area="Identity" asp-page="/Account/Register">
                                     Register
                                 </a>
                             }
-                            
-                            @if (!User.IsInRole("Admin"))
+
+                            @if (User?.IsInRole("Admin") != true)
                             {
                                 <div class="cart-icon ms-3">
-                                    <a asp-controller="ShoppingCart" asp-action="Index" 
-                                       class="cart-btn position-relative">
+                                    <a asp-controller="ShoppingCart" asp-action="Index"
+                                       class="cart-btn position-relative @(ViewContext?.RouteData?.Values["controller"]?.ToString() == "ShoppingCart" ? "active" : "")">
                                         <div class="cart-btn-inner">
                                             <i class="bi bi-cart3"></i>
                                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count">
-                                                0
+                                                @{
+                                                    try 
+                                                    {
+                                                        var cartService = Context.RequestServices.GetService<Reina.MacCredy.Services.IShoppingCartService>();
+                                                        if (cartService != null && User?.Identity != null && User.Identity.IsAuthenticated)
+                                                        {
+                                                            @await cartService.GetCartItemCountAsync(User.Identity.Name ?? "")
+                                                        }
+                                                        else
+                                                        {
+                                                            @:0
+                                                        }
+                                                    }
+                                                    catch
+                                                    {
+                                                        @:0
+                                                    }
+                                                }
                                             </span>
                                         </div>
                                         <span class="cart-label d-none d-md-inline">Cart</span>
@@ -156,23 +187,23 @@
             </nav>
        </header>
 
-       <div class="container">
-            <main role="main" class="pb-3">
+       <div class="container py-4">
+            <main role="main">
                 @RenderBody()
             </main>
        </div>
 
-       <footer class="footer">
+       <footer class="footer coffee-footer mt-auto">
             <div class="container py-5">
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6">
                         <div class="footer-brand mb-4">
                             <div class="d-flex align-items-center">
-                                <img src="~/images/R.png" alt="Reina.MacCredy Shop Logo" height="50" class="me-3">
-                                <h3>Reina.MacCredy Shop</h3>
+                                <img src="~/images/coffee-logo.png" alt="Brew Haven Coffee Logo" height="50" class="me-3">
+                                <h3 class="text-coffee">Brew Haven Coffee</h3>
                             </div>
                         </div>
-                        <p class="mb-4">We provide high-quality products at affordable prices. Your satisfaction is our top priority.</p>
+                        <p class="mb-4">We serve premium coffee sourced from sustainable farms around the world. Every cup tells a story of quality and passion.</p>
                         <div class="footer-social">
                             <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
                             <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
@@ -180,42 +211,76 @@
                             <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-6">
-                        <h4 class="footer-title">Shop</h4>
-                        <ul class="list-unstyled">
-                            <li><a asp-controller="Home" asp-action="Index" class="footer-link">Home</a></li>
-                            <li><a asp-controller="Product" asp-action="Browse" class="footer-link">Products</a></li>
-                            <li require-admin="true"><a asp-controller="Category" asp-action="Index" class="footer-link">Categories</a></li>
-                            <li hide-for-admin="true"><a asp-controller="ShoppingCart" asp-action="Index" class="footer-link">Shopping Cart</a></li>
-                        </ul>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-section">
+                            <h4 class="footer-title">Menu</h4>
+                            <ul class="list-unstyled footer-menu">
+                                <li><a asp-controller="Home" asp-action="Index" class="footer-link"><i class="bi bi-house-door me-2"></i>Home</a></li>
+                                <li><a asp-controller="Product" asp-action="Browse" class="footer-link"><i class="bi bi-cup-hot me-2"></i>Coffee Menu</a></li>
+                                <li><a href="#" class="footer-link"><i class="bi bi-stars me-2"></i>Signature Drinks</a></li>
+                                <li><a href="#" class="footer-link"><i class="bi bi-egg-fried me-2"></i>Food & Pastries</a></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="col-lg-2 col-md-6">
-                        <h4 class="footer-title">Account</h4>
-                        <ul class="list-unstyled">
-                            @if (!User.Identity.IsAuthenticated)
-                            {
-                                <li><a asp-area="Identity" asp-page="/Account/Login" class="footer-link">Sign In</a></li>
-                                <li><a asp-area="Identity" asp-page="/Account/Register" class="footer-link">Register</a></li>
-                            }
-                            else if (!User.IsInRole("Admin"))
-                            {
-                                <li><a asp-controller="Order" asp-action="Index" class="footer-link">My Orders</a></li>
-                                <li><a asp-area="Identity" asp-page="/Account/Manage/Index" class="footer-link">Profile</a></li>
-                            }
-                            else
-                            {
-                                <li><a asp-area="Identity" asp-page="/Account/Manage/Index" class="footer-link">Profile</a></li>
-                            }
-                        </ul>
+                        <div class="footer-section">
+                            <h4 class="footer-title">Account</h4>
+                            <ul class="list-unstyled footer-menu">
+                                @if (User?.Identity == null || !User.Identity.IsAuthenticated)
+                                {
+                                    <li><a asp-area="Identity" asp-page="/Account/Login" class="footer-link"><i class="bi bi-box-arrow-in-right me-2"></i>Sign In</a></li>
+                                    <li><a asp-area="Identity" asp-page="/Account/Register" class="footer-link"><i class="bi bi-person-plus me-2"></i>Register</a></li>
+                                }
+                                else if (User?.IsInRole("Admin") != true)
+                                {
+                                    <li><a asp-controller="Order" asp-action="Index" class="footer-link"><i class="bi bi-bag me-2"></i>My Orders</a></li>
+                                    <li><a asp-area="Identity" asp-page="/Account/Manage/Index" class="footer-link"><i class="bi bi-person-circle me-2"></i>Profile</a></li>
+                                }
+                                else
+                                {
+                                    <li><a asp-area="Identity" asp-page="/Account/Manage/Index" class="footer-link"><i class="bi bi-person-circle me-2"></i>Profile</a></li>
+                                }
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <h4 class="footer-title">Contact Us</h4>
-                        <ul class="list-unstyled contact-info">
-                            <li><i class="bi bi-geo-alt"></i> 123 Shopping Street, District 1, HCMC, Vietnam</li>
-                            <li><i class="bi bi-telephone"></i> +84 123 456 789</li>
-                            <li><i class="bi bi-envelope"></i> info@reinamaccredy-shop.com</li>
-                            <li><i class="bi bi-clock"></i> Monday - Friday: 9:00 - 22:00</li>
-                        </ul>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-section">
+                            <h4 class="footer-title">Contact Us</h4>
+                            <ul class="list-unstyled contact-info">
+                                <li class="mb-2">
+                                    <div class="d-flex align-items-center">
+                                        <div class="contact-icon-wrapper me-3">
+                                            <i class="bi bi-geo-alt"></i>
+                                        </div>
+                                        <span>123 Shopping Street, District 1, HCMC, Vietnam</span>
+                                    </div>
+                                </li>
+                                <li class="mb-2">
+                                    <div class="d-flex align-items-center">
+                                        <div class="contact-icon-wrapper me-3">
+                                            <i class="bi bi-telephone"></i>
+                                        </div>
+                                        <span>+84 123 456 789</span>
+                                    </div>
+                                </li>
+                                <li class="mb-2">
+                                    <div class="d-flex align-items-center">
+                                        <div class="contact-icon-wrapper me-3">
+                                            <i class="bi bi-envelope"></i>
+                                        </div>
+                                        <span>info@brewhaven.com</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div class="contact-icon-wrapper me-3">
+                                            <i class="bi bi-clock"></i>
+                                        </div>
+                                        <span>Monday - Sunday: 7:00 - 22:00</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -223,11 +288,11 @@
                 <div class="container">
                     <div class="row align-items-center py-3">
                         <div class="col-md-6">
-                            <p class="mb-md-0">&copy; @DateTime.Now.Year - Reina.MacCredy Shop - All rights reserved</p>
+                            <p class="mb-md-0">&copy; @DateTime.Now.Year - Brew Haven Coffee Shop - All rights reserved</p>
                         </div>
                         <div class="col-md-6">
                             <div class="text-md-end">
-                                <a asp-controller="Home" asp-action="Privacy" class="me-3">Privacy Policy</a>
+                                <a href="#" class="me-3">Privacy Policy</a>
                                 <a href="#" class="me-3">Terms of Service</a>
                                 <a href="#">FAQ</a>
                             </div>
@@ -237,9 +302,43 @@
             </div>
        </footer>
        </div>
-       
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Update cart count
+        $(document).ready(function() {
+            // Load cart count for authenticated users
+            @if (User?.Identity != null && User.Identity.IsAuthenticated && (User?.IsInRole("Admin") != true))
+            {
+                <text>
+                $.ajax({
+                    url: '@Url.Action("GetCartCount", "ShoppingCart")',
+                    type: 'GET',
+                    success: function(response) {
+                        $('.cart-count').text(response);
+                    },
+                    error: function() {
+                        console.log('Error loading cart count');
+                    }
+                });
+                </text>
+            }
+            
+            // Mobile menu enhancements
+            if (window.innerWidth < 992) {
+                $('.navbar-nav .dropdown > a').click(function(e) {
+                    e.preventDefault();
+                    $(this).next('.dropdown-menu').toggle();
+                });
+            }
+
+            // Table responsive fixes for mobile
+            if (window.innerWidth < 768) {
+                $('.table-responsive').addClass('table-sm');
+            }
+        });
+    </script>
     @RenderSection("Scripts", required: false)
     </body>
 </html>

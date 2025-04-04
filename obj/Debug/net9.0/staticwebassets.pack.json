@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/scopedcss/projectbundle/Reina.MacCredy.bundle.scp.css",
-      "PackagePath": "staticwebassets/Reina.MacCredy.quzedpk2qu.bundle.scp.css"
+      "PackagePath": "staticwebassets/Reina.MacCredy.7g28xao28d.bundle.scp.css"
     },
     {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/css/dashboard.css",
@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets/images/R.png"
     },
     {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/TraDen.jpg",
+      "PackagePath": "staticwebassets/images/TraDen.jpg"
+    },
+    {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/avatars/b4860979-f909-4a0d-93e6-946ce18456d7_p1 (8).png",
       "PackagePath": "staticwebassets/images/avatars/b4860979-f909-4a0d-93e6-946ce18456d7_p1 (8).png"
     },
@@ -41,8 +45,80 @@
       "PackagePath": "staticwebassets/images/avatars/f13ac897-1ffc-44a5-9487-f34f3e170bcc_p0 (48).jpg"
     },
     {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee-beans-pattern.png",
+      "PackagePath": "staticwebassets/images/coffee-beans-pattern.png"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee-beans.jpg",
+      "PackagePath": "staticwebassets/images/coffee-beans.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee-logo.png",
+      "PackagePath": "staticwebassets/images/coffee-logo.png"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/Cafe-Y.jpg",
+      "PackagePath": "staticwebassets/images/coffee/Cafe-Y.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/CafeDen.jpg",
+      "PackagePath": "staticwebassets/images/coffee/CafeDen.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/CafeTruyenThong.jpg",
+      "PackagePath": "staticwebassets/images/coffee/CafeTruyenThong.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/Cappuchino.jpg",
+      "PackagePath": "staticwebassets/images/coffee/Cappuchino.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/Capuchino.jpg",
+      "PackagePath": "staticwebassets/images/coffee/Capuchino.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/Cocktail.jpg",
+      "PackagePath": "staticwebassets/images/coffee/Cocktail.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/Cocktails.jpg",
+      "PackagePath": "staticwebassets/images/coffee/Cocktails.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/HongTra.jpg",
+      "PackagePath": "staticwebassets/images/coffee/HongTra.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/Nespresso.jpg",
+      "PackagePath": "staticwebassets/images/coffee/Nespresso.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/TraChanh.jpg",
+      "PackagePath": "staticwebassets/images/coffee/TraChanh.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/TraDen.jpg",
+      "PackagePath": "staticwebassets/images/coffee/TraDen.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/cappuccino.jpg",
+      "PackagePath": "staticwebassets/images/coffee/cappuccino.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/espresso.jpg",
+      "PackagePath": "staticwebassets/images/coffee/espresso.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/latte.jpg",
+      "PackagePath": "staticwebassets/images/coffee/latte.jpg"
+    },
+    {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/default-avatar.png",
       "PackagePath": "staticwebassets/images/default-avatar.png"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/default-coffee-avatar.png",
+      "PackagePath": "staticwebassets/images/default-coffee-avatar.png"
     },
     {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/image-20250304201829948.png",

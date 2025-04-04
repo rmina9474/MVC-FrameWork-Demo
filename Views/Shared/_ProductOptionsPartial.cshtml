@@ -1,0 +1,45 @@
+@model Product
+
+@{
+    var options = Context.RequestServices.GetRequiredService<ApplicationDbContext>()
+        .ProductOptions.Where(o => o.ProductId == Model.Id)
+        .OrderBy(o => o.OptionType)
+        .ThenBy(o => o.AdditionalPrice)
+        .ToList();
+        
+    var optionTypes = options.Select(o => o.OptionType).Distinct().ToList();
+}
+
+@if (Model.CanCustomize && options.Any())
+{
+    <div class="cafe-customization mt-4">
+        <h4>Customize Your Order</h4>
+        
+        @foreach (var optionType in optionTypes)
+        {
+            <div class="option-group mb-3">
+                <h5>@optionType</h5>
+                <div class="btn-group" role="group">
+                    @foreach (var option in options.Where(o => o.OptionType == optionType))
+                    {
+                        <input type="radio" 
+                               class="btn-check product-option" 
+                               name="options-@optionType" 
+                               id="option-@option.Id" 
+                               autocomplete="off"
+                               value="@option.Id"
+                               data-price="@option.AdditionalPrice"
+                               @(option.IsDefault ? "checked" : "")>
+                        <label class="btn btn-outline-primary" for="option-@option.Id">
+                            @option.Name
+                            @if (option.AdditionalPrice > 0)
+                            {
+                                <span class="ms-1">(+$@option.AdditionalPrice.ToString("0.00"))</span>
+                            }
+                        </label>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+} 

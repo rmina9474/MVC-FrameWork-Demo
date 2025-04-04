@@ -12,17 +12,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-tAxbUQbUZ1Z3i6hVsSuxFgIgRGETw3edvONCBYsVq2w="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6429"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022tAxbUQbUZ1Z3i6hVsSuxFgIgRGETw3edvONCBYsVq2w=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 12:34:25 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/css/site.0wfslgi59l.css">
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/css/site.5zwrvrfdjg.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"0wfslgi59l"},{"Name":"integrity","Value":"sha256-kOsztVVb6zKZE5gmK1e/2zkhum6XT8k4UvweBFoFhB4="},{"Name":"label","Value":"_content/Reina.MacCredy/css/site.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"23222"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022kOsztVVb6zKZE5gmK1e/2zkhum6XT8k4UvweBFoFhB4=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:13:51 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"5zwrvrfdjg"},{"Name":"integrity","Value":"sha256-TyUEfi/QFxH6csrh\u002BSO1dTJXBM0pMLU8MbEJO0wxjE0="},{"Name":"label","Value":"_content/Reina.MacCredy/css/site.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"15089"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022TyUEfi/QFxH6csrh\u002BSO1dTJXBM0pMLU8MbEJO0wxjE0=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 19:48:11 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/css/site.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-kOsztVVb6zKZE5gmK1e/2zkhum6XT8k4UvweBFoFhB4="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"23222"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022kOsztVVb6zKZE5gmK1e/2zkhum6XT8k4UvweBFoFhB4=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:13:51 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-TyUEfi/QFxH6csrh\u002BSO1dTJXBM0pMLU8MbEJO0wxjE0="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"15089"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022TyUEfi/QFxH6csrh\u002BSO1dTJXBM0pMLU8MbEJO0wxjE0=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 19:48:11 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>
@@ -60,6 +60,210 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-F1eQVWFlVLCNsQV1mIDzpGSRJnQMxe2pnkp6WnEhjXc="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"3402795"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022F1eQVWFlVLCNsQV1mIDzpGSRJnQMxe2pnkp6WnEhjXc=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 14:50:29 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee-beans-pattern.nf0jgdl0hm.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee-beans-pattern.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"nf0jgdl0hm"},{"Name":"integrity","Value":"sha256-8zwndF8r2HNEvnkEZe\u002BYSpcv1Tncg71PYdQkLGB\u002B8e4="},{"Name":"label","Value":"_content/Reina.MacCredy/images/coffee-beans-pattern.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"162"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00228zwndF8r2HNEvnkEZe\u002BYSpcv1Tncg71PYdQkLGB\u002B8e4=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:58:32 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee-beans-pattern.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee-beans-pattern.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-8zwndF8r2HNEvnkEZe\u002BYSpcv1Tncg71PYdQkLGB\u002B8e4="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"162"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00228zwndF8r2HNEvnkEZe\u002BYSpcv1Tncg71PYdQkLGB\u002B8e4=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:58:32 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee-beans.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee-beans.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-MtmHfv8PjneiQDzjst/guui78\u002Bo2lj1x3PolZ11sd4c="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"3005966"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022MtmHfv8PjneiQDzjst/guui78\u002Bo2lj1x3PolZ11sd4c=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:58:25 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee-beans.mirin9llid.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee-beans.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"mirin9llid"},{"Name":"integrity","Value":"sha256-MtmHfv8PjneiQDzjst/guui78\u002Bo2lj1x3PolZ11sd4c="},{"Name":"label","Value":"_content/Reina.MacCredy/images/coffee-beans.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3005966"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022MtmHfv8PjneiQDzjst/guui78\u002Bo2lj1x3PolZ11sd4c=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:58:25 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee-logo.fu8t7a8f1v.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee-logo.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"fu8t7a8f1v"},{"Name":"integrity","Value":"sha256-\u002BR6SwG4vtaG7RHcSiqwd7GDf6APTpJa/KB8uCkWYYqE="},{"Name":"label","Value":"_content/Reina.MacCredy/images/coffee-logo.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"10947"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022\u002BR6SwG4vtaG7RHcSiqwd7GDf6APTpJa/KB8uCkWYYqE=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:58:21 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee-logo.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee-logo.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-\u002BR6SwG4vtaG7RHcSiqwd7GDf6APTpJa/KB8uCkWYYqE="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"10947"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022\u002BR6SwG4vtaG7RHcSiqwd7GDf6APTpJa/KB8uCkWYYqE=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:58:21 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/Cafe-Y.e34wdinkad.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\Cafe-Y.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"e34wdinkad"},{"Name":"integrity","Value":"sha256-ugH5l7IN7TBD5L\u002BhXzBrOpD\u002B8fxmvfHW6NWwNZI5sBo="},{"Name":"label","Value":"_content/Reina.MacCredy/images/coffee/Cafe-Y.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"415623"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022ugH5l7IN7TBD5L\u002BhXzBrOpD\u002B8fxmvfHW6NWwNZI5sBo=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/Cafe-Y.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\Cafe-Y.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-ugH5l7IN7TBD5L\u002BhXzBrOpD\u002B8fxmvfHW6NWwNZI5sBo="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"415623"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022ugH5l7IN7TBD5L\u002BhXzBrOpD\u002B8fxmvfHW6NWwNZI5sBo=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/CafeDen.hhnbl3coak.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\CafeDen.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"hhnbl3coak"},{"Name":"integrity","Value":"sha256-pSwnTSZva6IJdXHcrauBS0tcthGr//cTPLCstLF\u002BXz0="},{"Name":"label","Value":"_content/Reina.MacCredy/images/coffee/CafeDen.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1554455"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022pSwnTSZva6IJdXHcrauBS0tcthGr//cTPLCstLF\u002BXz0=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/CafeDen.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\CafeDen.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-pSwnTSZva6IJdXHcrauBS0tcthGr//cTPLCstLF\u002BXz0="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"1554455"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022pSwnTSZva6IJdXHcrauBS0tcthGr//cTPLCstLF\u002BXz0=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/CafeTruyenThong.7aqs7yl1d3.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\CafeTruyenThong.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"7aqs7yl1d3"},{"Name":"integrity","Value":"sha256-8cxadc6R7Bmhpw2ScNrmhVm/gyGqgo75ISiyMiunu8U="},{"Name":"label","Value":"_content/Reina.MacCredy/images/coffee/CafeTruyenThong.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"589327"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00228cxadc6R7Bmhpw2ScNrmhVm/gyGqgo75ISiyMiunu8U=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/CafeTruyenThong.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\CafeTruyenThong.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-8cxadc6R7Bmhpw2ScNrmhVm/gyGqgo75ISiyMiunu8U="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"589327"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00228cxadc6R7Bmhpw2ScNrmhVm/gyGqgo75ISiyMiunu8U=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/cappuccino.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\cappuccino.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-9qEiU6n/nuqYncQ7j3xipeZpnwFeowaUAJego1EU/l4="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"1196858"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00229qEiU6n/nuqYncQ7j3xipeZpnwFeowaUAJego1EU/l4=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:58:48 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/cappuccino.u7jbwycagh.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\cappuccino.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"u7jbwycagh"},{"Name":"integrity","Value":"sha256-9qEiU6n/nuqYncQ7j3xipeZpnwFeowaUAJego1EU/l4="},{"Name":"label","Value":"_content/Reina.MacCredy/images/coffee/cappuccino.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1196858"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00229qEiU6n/nuqYncQ7j3xipeZpnwFeowaUAJego1EU/l4=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:58:48 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/Cappuchino.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\Cappuchino.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-\u002BdzTj7HwjdGq3B2hBaa/OSUW1yAwGMiqGa3UiLEoLts="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"1336688"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022\u002BdzTj7HwjdGq3B2hBaa/OSUW1yAwGMiqGa3UiLEoLts=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/Cappuchino.n4ipvz1wwh.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\Cappuchino.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"n4ipvz1wwh"},{"Name":"integrity","Value":"sha256-\u002BdzTj7HwjdGq3B2hBaa/OSUW1yAwGMiqGa3UiLEoLts="},{"Name":"label","Value":"_content/Reina.MacCredy/images/coffee/Cappuchino.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1336688"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022\u002BdzTj7HwjdGq3B2hBaa/OSUW1yAwGMiqGa3UiLEoLts=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/Capuchino.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\Capuchino.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-cjrWDSNeU\u002BohC1KOzNgTwBhRvp5oILukW4/qH43swX8="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"649055"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022cjrWDSNeU\u002BohC1KOzNgTwBhRvp5oILukW4/qH43swX8=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/Capuchino.qypgbiapu2.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\Capuchino.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"qypgbiapu2"},{"Name":"integrity","Value":"sha256-cjrWDSNeU\u002BohC1KOzNgTwBhRvp5oILukW4/qH43swX8="},{"Name":"label","Value":"_content/Reina.MacCredy/images/coffee/Capuchino.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"649055"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022cjrWDSNeU\u002BohC1KOzNgTwBhRvp5oILukW4/qH43swX8=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/Cocktail.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\Cocktail.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-0Yeu6JanEgps1pI9FeuvVioNYsPPutUWgEqTw2VEMUk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"2543597"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00220Yeu6JanEgps1pI9FeuvVioNYsPPutUWgEqTw2VEMUk=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/Cocktail.lvq7w5javl.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\Cocktail.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"lvq7w5javl"},{"Name":"integrity","Value":"sha256-0Yeu6JanEgps1pI9FeuvVioNYsPPutUWgEqTw2VEMUk="},{"Name":"label","Value":"_content/Reina.MacCredy/images/coffee/Cocktail.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2543597"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00220Yeu6JanEgps1pI9FeuvVioNYsPPutUWgEqTw2VEMUk=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/Cocktails.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\Cocktails.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-\u002BvjOj7prP8bVi3WHF0ZYSHQt/r6thnXznbMFHMvlpyo="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"5207089"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022\u002BvjOj7prP8bVi3WHF0ZYSHQt/r6thnXznbMFHMvlpyo=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/Cocktails.mscd93zzvk.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\Cocktails.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"mscd93zzvk"},{"Name":"integrity","Value":"sha256-\u002BvjOj7prP8bVi3WHF0ZYSHQt/r6thnXznbMFHMvlpyo="},{"Name":"label","Value":"_content/Reina.MacCredy/images/coffee/Cocktails.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5207089"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022\u002BvjOj7prP8bVi3WHF0ZYSHQt/r6thnXznbMFHMvlpyo=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/espresso.bt1hro3opc.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\espresso.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"bt1hro3opc"},{"Name":"integrity","Value":"sha256-b677rO1T2LYZmcUxJqHQXDxtbEWvw7RvYQpl30zzqOU="},{"Name":"label","Value":"_content/Reina.MacCredy/images/coffee/espresso.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3158921"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022b677rO1T2LYZmcUxJqHQXDxtbEWvw7RvYQpl30zzqOU=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:58:43 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/espresso.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\espresso.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-b677rO1T2LYZmcUxJqHQXDxtbEWvw7RvYQpl30zzqOU="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"3158921"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022b677rO1T2LYZmcUxJqHQXDxtbEWvw7RvYQpl30zzqOU=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:58:43 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/HongTra.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\HongTra.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-nHSI0EPtwHRtUEJYre1sZDFtGOn/DHIVm82/5ZBNhz8="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"1067314"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022nHSI0EPtwHRtUEJYre1sZDFtGOn/DHIVm82/5ZBNhz8=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:32:59 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/HongTra.wfuqgykhqi.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\HongTra.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"wfuqgykhqi"},{"Name":"integrity","Value":"sha256-nHSI0EPtwHRtUEJYre1sZDFtGOn/DHIVm82/5ZBNhz8="},{"Name":"label","Value":"_content/Reina.MacCredy/images/coffee/HongTra.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1067314"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022nHSI0EPtwHRtUEJYre1sZDFtGOn/DHIVm82/5ZBNhz8=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:32:59 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/latte.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\latte.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-7m8rGjEzFvauh\u002BZ7BPcqZ0y8v8x2tHU2/z72dptkenM="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"1667469"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00227m8rGjEzFvauh\u002BZ7BPcqZ0y8v8x2tHU2/z72dptkenM=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:58:45 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/latte.mf2bvgv8vx.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\latte.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"mf2bvgv8vx"},{"Name":"integrity","Value":"sha256-7m8rGjEzFvauh\u002BZ7BPcqZ0y8v8x2tHU2/z72dptkenM="},{"Name":"label","Value":"_content/Reina.MacCredy/images/coffee/latte.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1667469"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00227m8rGjEzFvauh\u002BZ7BPcqZ0y8v8x2tHU2/z72dptkenM=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:58:45 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/Nespresso.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\Nespresso.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-R63PSRsTiPbSSuqYykD2x/fxEZhZY\u002B\u002BXrVrmr\u002BRHv8k="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"3580481"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022R63PSRsTiPbSSuqYykD2x/fxEZhZY\u002B\u002BXrVrmr\u002BRHv8k=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/Nespresso.xm8csg4e85.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\Nespresso.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"xm8csg4e85"},{"Name":"integrity","Value":"sha256-R63PSRsTiPbSSuqYykD2x/fxEZhZY\u002B\u002BXrVrmr\u002BRHv8k="},{"Name":"label","Value":"_content/Reina.MacCredy/images/coffee/Nespresso.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3580481"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022R63PSRsTiPbSSuqYykD2x/fxEZhZY\u002B\u002BXrVrmr\u002BRHv8k=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/TraChanh.ggkmboxwxo.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\TraChanh.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ggkmboxwxo"},{"Name":"integrity","Value":"sha256-8JMc3\u002BtS7myv2Wln6gSx2K2bfHJVBBMSdJ9g/3/ISFI="},{"Name":"label","Value":"_content/Reina.MacCredy/images/coffee/TraChanh.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1587119"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00228JMc3\u002BtS7myv2Wln6gSx2K2bfHJVBBMSdJ9g/3/ISFI=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/TraChanh.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\TraChanh.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-8JMc3\u002BtS7myv2Wln6gSx2K2bfHJVBBMSdJ9g/3/ISFI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"1587119"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00228JMc3\u002BtS7myv2Wln6gSx2K2bfHJVBBMSdJ9g/3/ISFI=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/TraDen.jeaw4w63s8.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\TraDen.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"jeaw4w63s8"},{"Name":"integrity","Value":"sha256-qyDjbdeQucJELnVpRzcx9hvJ4xd5lyoLtGChKcKhJ3M="},{"Name":"label","Value":"_content/Reina.MacCredy/images/coffee/TraDen.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4833502"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022qyDjbdeQucJELnVpRzcx9hvJ4xd5lyoLtGChKcKhJ3M=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/coffee/TraDen.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\coffee\TraDen.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-qyDjbdeQucJELnVpRzcx9hvJ4xd5lyoLtGChKcKhJ3M="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"4833502"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022qyDjbdeQucJELnVpRzcx9hvJ4xd5lyoLtGChKcKhJ3M=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:34:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/default-avatar.jn57tidt1w.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\default-avatar.png'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -71,6 +275,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-X\u002B2NzuKD3cFshBm\u002BMdZ03HGYc5L56p8mp65qosrZt2E="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"282"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022X\u002B2NzuKD3cFshBm\u002BMdZ03HGYc5L56p8mp65qosrZt2E=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 14:40:18 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/default-coffee-avatar.fu8t7a8f1v.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\default-coffee-avatar.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"fu8t7a8f1v"},{"Name":"integrity","Value":"sha256-\u002BR6SwG4vtaG7RHcSiqwd7GDf6APTpJa/KB8uCkWYYqE="},{"Name":"label","Value":"_content/Reina.MacCredy/images/default-coffee-avatar.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"10947"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022\u002BR6SwG4vtaG7RHcSiqwd7GDf6APTpJa/KB8uCkWYYqE=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:53:37 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/default-coffee-avatar.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\default-coffee-avatar.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-\u002BR6SwG4vtaG7RHcSiqwd7GDf6APTpJa/KB8uCkWYYqE="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"10947"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022\u002BR6SwG4vtaG7RHcSiqwd7GDf6APTpJa/KB8uCkWYYqE=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:53:37 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/image-20250304201829948.0i2pelg88a.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\image-20250304201829948.png'))</AssetFile>
@@ -143,6 +359,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-cpzTQXok1/GmxQ\u002BoOIBPqAkInJfsJaEGI5Fnsep133M="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"675768"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022cpzTQXok1/GmxQ\u002BoOIBPqAkInJfsJaEGI5Fnsep133M=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 12:34:25 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/TraDen.jeaw4w63s8.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\TraDen.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"jeaw4w63s8"},{"Name":"integrity","Value":"sha256-qyDjbdeQucJELnVpRzcx9hvJ4xd5lyoLtGChKcKhJ3M="},{"Name":"label","Value":"_content/Reina.MacCredy/images/TraDen.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4833502"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022qyDjbdeQucJELnVpRzcx9hvJ4xd5lyoLtGChKcKhJ3M=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:25:21 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/TraDen.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\TraDen.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-qyDjbdeQucJELnVpRzcx9hvJ4xd5lyoLtGChKcKhJ3M="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"4833502"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022qyDjbdeQucJELnVpRzcx9hvJ4xd5lyoLtGChKcKhJ3M=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 18:25:21 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/js/admin-site.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\admin-site.js'))</AssetFile>
@@ -1044,17 +1272,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"yuqz60w80x"},{"Name":"integrity","Value":"sha256-ujjr/2dcVYceynVFq2vx5fbuTdbFZqb9MbjOUbDxs9A="},{"Name":"label","Value":"_content/Reina.MacCredy/react-app/src/pages/Rewards.js"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"8477"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022ujjr/2dcVYceynVFq2vx5fbuTdbFZqb9MbjOUbDxs9A=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:04:51 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/Reina.MacCredy.bundle.scp.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Reina.MacCredy.quzedpk2qu.bundle.scp.css'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/Reina.MacCredy.7g28xao28d.bundle.scp.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Reina.MacCredy.7g28xao28d.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Ap49HWFjjwgsbwGGMPELdOgiFjUGFwOWXF1szUIdqec="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1083"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Ap49HWFjjwgsbwGGMPELdOgiFjUGFwOWXF1szUIdqec=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 12:34:25 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"7g28xao28d"},{"Name":"integrity","Value":"sha256-mRjA\u002BOvXTAT47t/BT\u002B9q\u002Bay1aMuYeG1OFI0L0ydmbv4="},{"Name":"label","Value":"_content/Reina.MacCredy/Reina.MacCredy.bundle.scp.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1083"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022mRjA\u002BOvXTAT47t/BT\u002B9q\u002Bay1aMuYeG1OFI0L0ydmbv4=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:51:17 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/Reina.MacCredy.quzedpk2qu.bundle.scp.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Reina.MacCredy.quzedpk2qu.bundle.scp.css'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/Reina.MacCredy.bundle.scp.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Reina.MacCredy.7g28xao28d.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"quzedpk2qu"},{"Name":"integrity","Value":"sha256-Ap49HWFjjwgsbwGGMPELdOgiFjUGFwOWXF1szUIdqec="},{"Name":"label","Value":"_content/Reina.MacCredy/Reina.MacCredy.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1083"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Ap49HWFjjwgsbwGGMPELdOgiFjUGFwOWXF1szUIdqec=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 12:34:25 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-mRjA\u002BOvXTAT47t/BT\u002B9q\u002Bay1aMuYeG1OFI0L0ydmbv4="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1083"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022mRjA\u002BOvXTAT47t/BT\u002B9q\u002Bay1aMuYeG1OFI0L0ydmbv4=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:51:17 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
   </ItemGroup>
 </Project>

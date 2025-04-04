@@ -32,7 +32,7 @@ namespace Reina.MacCredy.Controllers
             }
             
             // For logged in users, pre-fill information
-            if (User.Identity.IsAuthenticated)
+            if (User?.Identity != null && User.Identity.IsAuthenticated)
             {
                 var user = await _userManager.GetUserAsync(User);
                 if (user != null)
@@ -66,7 +66,7 @@ namespace Reina.MacCredy.Controllers
             }
             
             // For logged in users
-            if (User.Identity.IsAuthenticated)
+            if (User?.Identity != null && User.Identity.IsAuthenticated)
             {
                 var user = await _userManager.GetUserAsync(User);
                 if (user != null)
@@ -117,8 +117,8 @@ namespace Reina.MacCredy.Controllers
             return View("OrderCompleted", order.Id); // Order completion confirmation page
         }
 
-        [HttpGet]
-        public async Task<IActionResult> AddToCart(int productId, int quantity = 1)
+        [HttpPost]
+        public async Task<IActionResult> AddToCart(int productId, int quantity = 1, decimal totalPrice = 0, string selectedOptions = "")
         {
             var product = await _productRepository.GetByIdAsync(productId);
             if (product == null)
@@ -128,22 +128,34 @@ namespace Reina.MacCredy.Controllers
 
             var cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart") ?? new ShoppingCart();
             
-            var existingItem = cart.Items.FirstOrDefault(i => i.ProductId == productId);
+            // Use custom price if provided (for products with options)
+            decimal actualPrice = totalPrice > 0 ? totalPrice : product.Price;
+            
+            // Create a unique identifier for this product+options combination
+            string cartItemKey = productId.ToString();
+            if (!string.IsNullOrEmpty(selectedOptions))
+            {
+                cartItemKey += "_" + selectedOptions.GetHashCode();
+            }
+            
+            var existingItem = cart.Items.FirstOrDefault(i => i.ProductId == productId && 
+                                                     (i.SelectedOptions == selectedOptions || 
+                                                      (string.IsNullOrEmpty(i.SelectedOptions) && string.IsNullOrEmpty(selectedOptions))));
+            
             if (existingItem != null)
             {
-                // For direct quantity updates (not incremental)
-                if (quantity <= 0)
-                {
-                    cart.RemoveItem(productId);
-                }
-                else
-                {
-                    existingItem.Quantity = quantity;
-                }
+                existingItem.Quantity += quantity;
             }
-            else if (quantity > 0)
+            else
             {
-                cart.AddItem(product, quantity);
+                cart.Items.Add(new CartItem
+                {
+                    ProductId = product.Id,
+                    Name = product.Name,
+                    Price = actualPrice,
+                    Quantity = quantity,
+                    SelectedOptions = selectedOptions
+                });
             }
 
             HttpContext.Session.SetObjectAsJson("Cart", cart);
@@ -153,12 +165,12 @@ namespace Reina.MacCredy.Controllers
                 return Json(new { 
                     success = true, 
                     message = "Cart updated successfully",
-                    quantity = quantity <= 0 ? 1 : quantity
+                    quantity = quantity
                 });
             }
             
             // Check if user is authenticated before proceeding to cart
-            if (!User.Identity.IsAuthenticated)
+            if (User?.Identity == null || !User.Identity.IsAuthenticated)
             {
                 // Store return URL for after login
                 return RedirectToAction("LoginPrompt", new { returnUrl = Url.Action("Index", "ShoppingCart") });
@@ -203,14 +215,17 @@ namespace Reina.MacCredy.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateQuantity(int productId, int quantity)
+        public IActionResult UpdateQuantity(int productId, int quantity, string selectedOptions = "")
         {
             var cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart") ?? new ShoppingCart();
-            var item = cart.Items.FirstOrDefault(i => i.ProductId == productId);
+            
+            var item = cart.Items.FirstOrDefault(i => i.ProductId == productId && 
+                                                    (i.SelectedOptions == selectedOptions || 
+                                                     (string.IsNullOrEmpty(i.SelectedOptions) && string.IsNullOrEmpty(selectedOptions))));
             
             if (item != null)
             {
-                item.Quantity = Math.Max(1, quantity); // Ensure quantity is at least 1
+                item.Quantity = Math.Max(1, Math.Min(10, quantity)); // Ensure quantity is between 1 and 10
                 HttpContext.Session.SetObjectAsJson("Cart", cart);
                 return Json(new { success = true });
             }
