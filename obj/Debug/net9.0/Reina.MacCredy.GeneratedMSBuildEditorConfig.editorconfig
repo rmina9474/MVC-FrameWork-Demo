@@ -92,8 +92,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9Mb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Volumes/rmina/04. Code/C\#dotNET/MVC-FrameWork-Demo/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvQ2hhbmdlUGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Volumes/rmina/04. Code/C\#dotNET/MVC-FrameWork-Demo/Areas/Identity/Pages/Account/Manage/Email.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Volumes/rmina/04. Code/C\#dotNET/MVC-FrameWork-Demo/Areas/Identity/Pages/Account/Manage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Volumes/rmina/04. Code/C\#dotNET/MVC-FrameWork-Demo/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Volumes/rmina/04. Code/C\#dotNET/MVC-FrameWork-Demo/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
@@ -102,6 +114,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Volumes/rmina/04. Code/C\#dotNET/MVC-FrameWork-Demo/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvX01hbmFnZU5hdi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Volumes/rmina/04. Code/C\#dotNET/MVC-FrameWork-Demo/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvX1N0YXR1c01lc3NhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Volumes/rmina/04. Code/C\#dotNET/MVC-FrameWork-Demo/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Volumes/rmina/04. Code/C\#dotNET/MVC-FrameWork-Demo/Areas/Identity/Pages/Account/Register.cshtml]
@@ -152,12 +172,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Volumes/rmina/04. Code/C\#dotNET/MVC-FrameWork-Demo/Views/Order/CurrentOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZXIvQ3VycmVudE9yZGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Volumes/rmina/04. Code/C\#dotNET/MVC-FrameWork-Demo/Views/Order/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZXIvRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Volumes/rmina/04. Code/C\#dotNET/MVC-FrameWork-Demo/Views/Order/GuestCheckout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZXIvR3Vlc3RDaGVja291dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Volumes/rmina/04. Code/C\#dotNET/MVC-FrameWork-Demo/Views/Order/History.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZXIvSGlzdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Volumes/rmina/04. Code/C\#dotNET/MVC-FrameWork-Demo/Views/Order/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZXIvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Volumes/rmina/04. Code/C\#dotNET/MVC-FrameWork-Demo/Views/Order/LoginPrompt.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZXIvTG9naW5Qcm9tcHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Volumes/rmina/04. Code/C\#dotNET/MVC-FrameWork-Demo/Views/Order/OrderCompleted.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZXIvT3JkZXJDb21wbGV0ZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Volumes/rmina/04. Code/C\#dotNET/MVC-FrameWork-Demo/Views/Product/Add.cshtml]

@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets/images/TraDen.jpg"
     },
     {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/avatars/702e2785-356a-4a05-befd-58c56b0d55aa_p1 (8).png",
+      "PackagePath": "staticwebassets/images/avatars/702e2785-356a-4a05-befd-58c56b0d55aa_p1 (8).png"
+    },
+    {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/avatars/b4860979-f909-4a0d-93e6-946ce18456d7_p1 (8).png",
       "PackagePath": "staticwebassets/images/avatars/b4860979-f909-4a0d-93e6-946ce18456d7_p1 (8).png"
     },
