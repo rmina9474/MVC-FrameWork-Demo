@@ -36,7 +36,7 @@
 
     <div class="card profile-card mb-5">
         <div class="card-body p-0">
-            <form id="profile-form" class="needs-validation" method="post" action="/Account/UpdateProfile" enctype="multipart/form-data">
+            <form id="profile-form" class="needs-validation" method="post" action="@Url.Action("UpdateProfile", "Account")" enctype="multipart/form-data">
                 @Html.AntiForgeryToken()
                 <div class="row g-0">
                     <div class="col-lg-3 profile-sidebar">

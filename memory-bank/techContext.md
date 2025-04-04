@@ -19,10 +19,12 @@
 - **Razor Views**: Server-side rendering of HTML
 - **HTML5/CSS3**: Web standards for structure and styling
 - **CSS Custom Properties**: Variables for consistent theming
-- **CSS Animations**: Keyframes for interactive effects
+- **CSS Animations**: Keyframes for interactive effects and fade-ins
 - **CSS Transforms**: Visual effects for user engagement
 - **CSS Flexbox/Grid**: Advanced layout techniques
+- **Media Queries**: Responsive design for different device sizes
 - **JavaScript/jQuery**: Client-side interactivity and AJAX functionality
+- **File Upload Handling**: Client-side image preview and server-side processing
 - **Bootstrap 5**: Responsive UI framework
 - **Bootstrap Icons**: Icon library for the UI
 - **Toast Notifications**: User feedback system
@@ -31,6 +33,7 @@
 - **Server-side validation**: Model validation and error handling
 - **Client-side validation**: Form validation with jQuery
 - **Null checks**: Defensive coding for User.Identity and other critical objects
+- **Null-conditional operators**: Safe property access with ?. operator
 - **Try-catch blocks**: Exception handling for critical operations
 - **Toast notifications**: User-friendly error/success messages
 
@@ -70,10 +73,12 @@ Reina.MacCredy/
 ├── Services/             # Business logic and service implementations
 ├── Views/                # UI templates
 │   └── Shared/           # Shared layout and partial views
+│   └── Account/          # User account management views
 ├── wwwroot/              # Static resources (CSS, JS, images)
 │   ├── css/              # Stylesheets
 │   ├── js/               # JavaScript files
 │   └── images/           # Image assets
+│       └── avatars/      # User profile images
 ├── Dockerfile            # Container definition for the web application
 ├── docker-compose.yml    # Multi-container application setup
 └── Program.cs            # Application configuration and startup
@@ -87,6 +92,7 @@ Reina.MacCredy/
 - Static assets should be properly cached
 - Asynchronous operations for potentially slow tasks
 - Minimize DOM manipulations for better client-side performance
+- Optimize image uploads and processing for profile avatars
 
 ### Security Requirements
 - All user data must be encrypted at rest
@@ -95,6 +101,7 @@ Reina.MacCredy/
 - Input validation must be performed on all user inputs
 - Authentication and authorization must be enforced for protected resources
 - Proper null checks to prevent null reference exceptions
+- File upload validation to prevent security vulnerabilities
 
 ### Stability Requirements
 - Defensive programming practices throughout the codebase
@@ -130,13 +137,17 @@ The application relies on the following NuGet packages:
 
 ## UI Implementation Techniques
 - CSS Custom Properties for consistent theming
-- Card-based design for product displays
+- Card-based design for product displays and profile sections
 - Toast notifications for user feedback
 - Modal dialogs for quick views
 - Hover effects for interactive elements
 - Quantity controls with intuitive interface
 - CSS animations for UI feedback
 - Advanced CSS selectors for styling without additional markup
+- Defensive null checking with null-conditional operators for UI elements
+- File upload preview with client-side JavaScript
+- Responsive service cards that adapt to different screen sizes
+- Fade-in animations for alerts and important notifications
 
 ## Deployment Strategy
 - Docker-based deployment for consistent environments

@@ -36,13 +36,16 @@ The Reina.MacCredy e-commerce application follows a standard ASP.NET Core MVC ar
 - Toast notifications for user feedback on actions
 
 ### UI Design Patterns
-- **Card Pattern**: Consistent content containers for products
+- **Card Pattern**: Consistent content containers for products and profile sections
+- **Service Card Pattern**: Specialized cards for account services with icon and action button
 - **Quick Action Pattern**: Immediate access to common actions (add to cart, view details)
 - **Hover Effect Pattern**: Visual feedback on interactive elements
-- **Notification Pattern**: Toast messages for action feedback
+- **Notification Pattern**: Toast messages and fade-in alerts for action feedback
 - **Section Organization**: Clear separation of content types on pages
 - **Responsive Grid System**: Adapts layout to different screen sizes
 - **Modal Dialog Pattern**: Detailed views without page navigation
+- **Avatar Upload Pattern**: Visual interface for profile image management
+- **Form Organization Pattern**: Logical grouping of input fields with clear labels
 
 ## Component Relationships
 
@@ -66,6 +69,7 @@ User Action → Client-side Validation → AJAX Request → Server Processing
 - **Order Services**: Process orders and manage checkout
 - **Shopping Cart Services**: Manage cart functionality
 - **Admin Services**: Support administrative operations
+- **Profile Services**: Manage user profile information and settings
 
 ## Database Schema
 The application uses Entity Framework Core with a code-first approach, defining the following key entities:
@@ -113,4 +117,7 @@ The application is organized into distinct areas:
 - **Visual Feedback**: Actions confirmed through animations and notifications
 - **Mobile-First Design**: Ensuring usability on all device sizes
 - **Quick Order Flow**: Streamlined process for frequent customers
-- **Accessible Controls**: Clear labels and sufficient touch targets 
+- **Accessible Controls**: Clear labels and sufficient touch targets
+- **Action Confirmation**: Visual feedback when actions are successful
+- **Content Separation**: Clear visual distinction between different content sections
+- **Responsive Adaptation**: UI elements that reorganize based on screen size 
