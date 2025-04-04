@@ -1,0 +1,377 @@
+{
+  "Files": [
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net8.0/scopedcss/projectbundle/Reina.MacCredy.bundle.scp.css",
+      "PackagePath": "staticwebassets/Reina.MacCredy.7g28xao28d.bundle.scp.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/css/dashboard.css",
+      "PackagePath": "staticwebassets/css/dashboard.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/IMG_4311.jpg",
+      "PackagePath": "staticwebassets/images/IMG_4311.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/OIP (1).jpeg",
+      "PackagePath": "staticwebassets/images/OIP (1).jpeg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/OIP.jpeg",
+      "PackagePath": "staticwebassets/images/OIP.jpeg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/R.png",
+      "PackagePath": "staticwebassets/images/R.png"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/avatars/b4860979-f909-4a0d-93e6-946ce18456d7_p1 (8).png",
+      "PackagePath": "staticwebassets/images/avatars/b4860979-f909-4a0d-93e6-946ce18456d7_p1 (8).png"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/avatars/f13ac897-1ffc-44a5-9487-f34f3e170bcc_p0 (48).jpg",
+      "PackagePath": "staticwebassets/images/avatars/f13ac897-1ffc-44a5-9487-f34f3e170bcc_p0 (48).jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/default-avatar.png",
+      "PackagePath": "staticwebassets/images/default-avatar.png"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/image-20250304201829948.png",
+      "PackagePath": "staticwebassets/images/image-20250304201829948.png"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/p0 (24).png",
+      "PackagePath": "staticwebassets/images/p0 (24).png"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/js/admin-site.js",
+      "PackagePath": "staticwebassets/js/admin-site.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/js/site.js",
+      "PackagePath": "staticwebassets/js/site.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/LICENSE",
+      "PackagePath": "staticwebassets/lib/bootstrap"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/LICENSE.txt"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/jquery-validation/LICENSE.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/LICENSE.md"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/jquery-validation/dist/additional-methods.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.min.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.min.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/jquery/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/jquery/dist/jquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/jquery/dist/jquery.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/jquery/dist/jquery.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/jquery/dist/jquery.slim.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.slim.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/jquery/dist/jquery.slim.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.slim.min.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/jquery/dist/jquery.slim.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.slim.min.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/package.json",
+      "PackagePath": "staticwebassets/react-app/package.json"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/public/index.html",
+      "PackagePath": "staticwebassets/react-app/public/index.html"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/public/manifest.json",
+      "PackagePath": "staticwebassets/react-app/public/manifest.json"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/App.js",
+      "PackagePath": "staticwebassets/react-app/src/App.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/components/Footer.js",
+      "PackagePath": "staticwebassets/react-app/src/components/Footer.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/components/Header.js",
+      "PackagePath": "staticwebassets/react-app/src/components/Header.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/index.css",
+      "PackagePath": "staticwebassets/react-app/src/index.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/index.js",
+      "PackagePath": "staticwebassets/react-app/src/index.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/GiftCards.js",
+      "PackagePath": "staticwebassets/react-app/src/pages/GiftCards.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Home.js",
+      "PackagePath": "staticwebassets/react-app/src/pages/Home.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Menu.js",
+      "PackagePath": "staticwebassets/react-app/src/pages/Menu.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/OrderNow.js",
+      "PackagePath": "staticwebassets/react-app/src/pages/OrderNow.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Rewards.js",
+      "PackagePath": "staticwebassets/react-app/src/pages/Rewards.js"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.Reina.MacCredy.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.Reina.MacCredy.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.Reina.MacCredy.props",
+      "PackagePath": "build\\Reina.MacCredy.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Reina.MacCredy.props",
+      "PackagePath": "buildMultiTargeting\\Reina.MacCredy.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Reina.MacCredy.props",
+      "PackagePath": "buildTransitive\\Reina.MacCredy.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

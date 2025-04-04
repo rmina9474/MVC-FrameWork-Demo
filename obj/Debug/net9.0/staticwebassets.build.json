@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OKVSc4wvOg+Z78CHeZhC8No9oEPnT5n4vk0ZXewAbgg=",
+  "Hash": "U/qN/SBUt9GEv8x+wtCL6k8nbBhieZGlTNoy3BMJHPk=",
   "Source": "Reina.MacCredy",
   "BasePath": "_content/Reina.MacCredy",
   "Mode": "Default",
@@ -1424,6 +1424,27 @@
       "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/jquery-validation/dist/jquery.validate.js"
     },
     {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/134rrk1nmr-8h33mfge2k.gz",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/public/manifest#[.{fingerprint=8h33mfge2k}]?.json.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/public/manifest.json",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "w6fv70xp06",
+      "Integrity": "WOpI7MFCBmeilMHakTxDFZXlz/b6Wy1CPLiPFhdxOqM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/public/manifest.json"
+    },
+    {
       "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/14ipv7q33s-bqjiyaj88i.gz",
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
@@ -1676,6 +1697,48 @@
       "OriginalItemSpec": "/Users/maccredyreina/.nuget/packages/microsoft.aspnetcore.identity.ui/9.0.3/staticwebassets/V5/lib/bootstrap/dist/css/bootstrap.min.css"
     },
     {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/4yujzamh9f-ot7bd59unk.gz",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/App#[.{fingerprint=ot7bd59unk}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/App.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "j80decd44v",
+      "Integrity": "c5DMbgAGCmBaM1AIKucL4uteK3rh6Dz3D7IZieysFSM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/App.js"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/667uarf15c-nb801rcrhy.gz",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/public/index#[.{fingerprint=nb801rcrhy}]?.html.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/public/index.html",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "pbtis1ayks",
+      "Integrity": "CzsbzfM084P6O1WbelT3vRbA7wbmzZ8EyYvpMxThZTs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/public/index.html"
+    },
+    {
       "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/6q6pswin1c-46ein0sx1k.gz",
       "SourceId": "Reina.MacCredy",
       "SourceType": "Discovered",
@@ -1737,6 +1800,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/maccredyreina/.nuget/packages/microsoft.aspnetcore.identity.ui/9.0.3/staticwebassets/V5/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/7seqx5gn6c-4ebzxklncd.gz",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/pages/OrderNow#[.{fingerprint=4ebzxklncd}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/OrderNow.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "y0ewfuytcm",
+      "Integrity": "/umXkaSOwEilwL8i5IfH7nQoto7E2GKecmwUe6ggSLc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/OrderNow.js"
     },
     {
       "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/7ve9yxan4d-kbrnm935zg.gz",
@@ -1991,6 +2075,27 @@
       "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/jquery/dist/jquery.slim.min.map"
     },
     {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/anks8vax91-yuqz60w80x.gz",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/pages/Rewards#[.{fingerprint=yuqz60w80x}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Rewards.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "lyc688gy1o",
+      "Integrity": "HS99mCJ51R4pe2Tk61Ls9SKItWlDxADtSFGe5i+071o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Rewards.js"
+    },
+    {
       "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/apr8wcs4z6-hrwsygsryq.gz",
       "SourceId": "Reina.MacCredy",
       "SourceType": "Discovered",
@@ -2178,6 +2283,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/maccredyreina/.nuget/packages/microsoft.aspnetcore.identity.ui/9.0.3/staticwebassets/V5/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/db2fwbeb72-ambv1h59n9.gz",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/pages/Menu#[.{fingerprint=ambv1h59n9}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Menu.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "9p4q77kjjw",
+      "Integrity": "s4Iw1EDhTQffnR5ztikYm8Zdm/3okdv5/GSIZVSzvy4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Menu.js"
     },
     {
       "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/eb27mqwgz2-erw9l3u2r3.gz",
@@ -2516,6 +2642,27 @@
       "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap.css"
     },
     {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/ik9j1i5r8x-7o8zz05gyd.gz",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/components/Header#[.{fingerprint=7o8zz05gyd}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/components/Header.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "mkah8325rq",
+      "Integrity": "Olxu40O67x7y43/9qRuRKXEAKb+r86Jgg/DT53IvLPY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/components/Header.js"
+    },
+    {
       "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/ivy2s9gwh5-iovd86k7lj.gz",
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
@@ -2726,6 +2873,48 @@
       "OriginalItemSpec": "/Users/maccredyreina/.nuget/packages/microsoft.aspnetcore.identity.ui/9.0.3/staticwebassets/V5/lib/bootstrap/dist/css/bootstrap.rtl.css"
     },
     {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/l4tit18epj-opcxpza6ve.gz",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/index#[.{fingerprint=opcxpza6ve}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/index.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "pbx9zne9dv",
+      "Integrity": "9e9IZjBQF7JSVlInq97KFgglMBYSBm0jJgpD14PL7EI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/index.css"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/ldqvi2c6dp-yb4gw0wz19.gz",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/pages/GiftCards#[.{fingerprint=yb4gw0wz19}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/GiftCards.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "foo71yklcd",
+      "Integrity": "r2GRQQqMYVYubMLT42g/j5/KUdeujW6ggRfCEaQnvWE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/GiftCards.js"
+    },
+    {
       "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/ldxy2n3w6q-356vix0kms.gz",
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
@@ -2766,6 +2955,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/maccredyreina/.nuget/packages/microsoft.aspnetcore.identity.ui/9.0.3/staticwebassets/V5/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/mkbpn38wxk-qb44bxqst9.gz",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/components/Footer#[.{fingerprint=qb44bxqst9}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/components/Footer.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "4fva04y37z",
+      "Integrity": "cNKf2KZFOCbwwvn0PVMQNCcvflRLn9CsZ+MZz8lxt/s=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/components/Footer.js"
     },
     {
       "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/mnyqgmhsfh-x0q3zqp4vz.gz",
@@ -3020,12 +3230,12 @@
       "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css"
     },
     {
-      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-a12kmoygvq.gz",
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-0wfslgi59l.gz",
       "SourceId": "Reina.MacCredy",
       "SourceType": "Discovered",
       "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/Reina.MacCredy",
-      "RelativePath": "css/site#[.{fingerprint=a12kmoygvq}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=0wfslgi59l}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -3034,8 +3244,8 @@
       "RelatedAsset": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/css/site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "lba6fq9fnl",
-      "Integrity": "weCBR2eLpQcKRnzA5PvNRsq53v1qv/cFcL0fPPkA0sI=",
+      "Fingerprint": "frmuyliy56",
+      "Integrity": "RbsCIWkPwMvsVg1Q3jWAmLco4FWUgvd+zeQDJUSd6TA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/css/site.css"
@@ -3608,6 +3818,27 @@
       "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"
     },
     {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/vqln8q4lew-vtmbvgc3m7.gz",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/package#[.{fingerprint=vtmbvgc3m7}]?.json.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/package.json",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "4syieadv6i",
+      "Integrity": "bLm1dJmf3BHTW8xxRWiIeXpGemny7mul/Iyw6Nrl2Qk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/package.json"
+    },
+    {
       "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/vsrbd71spn-lcd1t2u6c8.gz",
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
@@ -3669,6 +3900,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/wr9qoar4r9-42hhckdurc.gz",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/pages/Home#[.{fingerprint=42hhckdurc}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Home.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "15bc417hkc",
+      "Integrity": "m2RWq8dH+EfDzeN4FN1/PfOVnBHDdioX4H2E6dMVeSA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Home.js"
     },
     {
       "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/wvtsapsx1q-fsbi9cje9m.gz",
@@ -4007,6 +4259,27 @@
       "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css"
     },
     {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/zzdvjn3dr7-t8itm6qcoa.gz",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/index#[.{fingerprint=t8itm6qcoa}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/index.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "86066cjrv1",
+      "Integrity": "oFNQ8/qnRwymz5jMp/wtKmGSsSM7IYZ3qYtTov9YHFw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/index.js"
+    },
+    {
       "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/zzna4nrm5w-notf2xhcfb.gz",
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
@@ -4105,8 +4378,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "a12kmoygvq",
-      "Integrity": "Tp1s605jNBwzDmtzG9jIFU9VdmjxM2VmKT+7K/DFIng=",
+      "Fingerprint": "0wfslgi59l",
+      "Integrity": "kOsztVVb6zKZE5gmK1e/2zkhum6XT8k4UvweBFoFhB4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/site.css"
@@ -4278,6 +4551,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/images/OIP.jpeg"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/p0 (24).png",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "images/p0 (24)#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ugjiq2vluy",
+      "Integrity": "8vq+gDekqPnEVCK0/FRXujAGEXPQ/dBy/56L/aMhi54=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/p0 (24).png"
     },
     {
       "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/R.png",
@@ -5601,6 +5895,279 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/package.json",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/package#[.{fingerprint}]?.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "vtmbvgc3m7",
+      "Integrity": "rXjRv5jUSMK6sHOuU/2TcD6W5vRjY73RHONrj2z6ejk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/react-app/package.json"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/public/index.html",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/public/index#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "nb801rcrhy",
+      "Integrity": "3WiYXwkftuzZYO2/UbxAFpxWwiFMVbYIXFV2qdljORw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/react-app/public/index.html"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/public/manifest.json",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/public/manifest#[.{fingerprint}]?.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8h33mfge2k",
+      "Integrity": "XCYQlij6JJdC/AUaFKN7fjN+E7t7CAdLLMy7NjXf78k=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/react-app/public/manifest.json"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/App.js",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/App#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ot7bd59unk",
+      "Integrity": "pJILGl3pI7Kl3qxYtd+DZhcW31RjQfpaxjpEVPX7ENE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/react-app/src/App.js"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/components/Footer.js",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/components/Footer#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "qb44bxqst9",
+      "Integrity": "5p2jI6oUcJpoJE8yDgPOcXuyCrFcSQCk9HM4dsbWhk8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/react-app/src/components/Footer.js"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/components/Header.js",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/components/Header#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "7o8zz05gyd",
+      "Integrity": "p2nPbcnp1REzGOIz9L6wSL846hU0n3Z9dyBTGE5VYbk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/react-app/src/components/Header.js"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/index.css",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/index#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "opcxpza6ve",
+      "Integrity": "ZPxPRaE0/6+4KnQLkngphV/JOlbuZ/W4a7yN8oohvwQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/react-app/src/index.css"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/index.js",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/index#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "t8itm6qcoa",
+      "Integrity": "Y7Akp6vZMW3Wq0gZtxE4T9NqjL25iRTXZSd1xKQ5ukU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/react-app/src/index.js"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/GiftCards.js",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/pages/GiftCards#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "yb4gw0wz19",
+      "Integrity": "7llpYr5IQLwxcbemHfmmbnm2vSdhryKHUC/fIJdKNQc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/react-app/src/pages/GiftCards.js"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Home.js",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/pages/Home#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "42hhckdurc",
+      "Integrity": "nBwvO4HGuRpedHRT6EUo2qpIoi5/VioH2f9t/PxDeB4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/react-app/src/pages/Home.js"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Menu.js",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/pages/Menu#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ambv1h59n9",
+      "Integrity": "kmHbJHyhqLl0eAx1pAsr0tUqJNIr7PSgGq9GFt39+mk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/react-app/src/pages/Menu.js"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/OrderNow.js",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/pages/OrderNow#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "4ebzxklncd",
+      "Integrity": "bMVP5SiYsnA01zSShgJygyPSZxn2wvht5pzQbKF01ng=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/react-app/src/pages/OrderNow.js"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Rewards.js",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "react-app/src/pages/Rewards#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "yuqz60w80x",
+      "Integrity": "ujjr/2dcVYceynVFq2vx5fbuTdbFZqb9MbjOUbDxs9A=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/react-app/src/pages/Rewards.js"
     }
   ],
   "Endpoints": [
@@ -5903,13 +6470,13 @@
       ]
     },
     {
-      "Route": "css/site.a12kmoygvq.css",
-      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-a12kmoygvq.gz",
+      "Route": "css/site.0wfslgi59l.css",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-0wfslgi59l.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000223015165"
+          "Quality": "0.000209599665"
         }
       ],
       "ResponseHeaders": [
@@ -5919,15 +6486,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4483"
+          "Value": "4770"
         },
         {
           "Name": "ETag",
-          "Value": "\"weCBR2eLpQcKRnzA5PvNRsq53v1qv/cFcL0fPPkA0sI=\""
+          "Value": "\"RbsCIWkPwMvsVg1Q3jWAmLco4FWUgvd+zeQDJUSd6TA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 15:00:30 GMT"
+          "Value": "Fri, 04 Apr 2025 17:13:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5947,13 +6514,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Tp1s605jNBwzDmtzG9jIFU9VdmjxM2VmKT+7K/DFIng=\""
+          "Value": "W/\"kOsztVVb6zKZE5gmK1e/2zkhum6XT8k4UvweBFoFhB4=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "a12kmoygvq"
+          "Value": "0wfslgi59l"
         },
         {
           "Name": "label",
@@ -5961,12 +6528,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Tp1s605jNBwzDmtzG9jIFU9VdmjxM2VmKT+7K/DFIng="
+          "Value": "sha256-kOsztVVb6zKZE5gmK1e/2zkhum6XT8k4UvweBFoFhB4="
         }
       ]
     },
     {
-      "Route": "css/site.a12kmoygvq.css",
+      "Route": "css/site.0wfslgi59l.css",
       "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/css/site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -5976,7 +6543,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "21401"
+          "Value": "23222"
         },
         {
           "Name": "Content-Type",
@@ -5984,11 +6551,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Tp1s605jNBwzDmtzG9jIFU9VdmjxM2VmKT+7K/DFIng=\""
+          "Value": "\"kOsztVVb6zKZE5gmK1e/2zkhum6XT8k4UvweBFoFhB4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 15:00:30 GMT"
+          "Value": "Fri, 04 Apr 2025 17:13:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5998,7 +6565,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "a12kmoygvq"
+          "Value": "0wfslgi59l"
         },
         {
           "Name": "label",
@@ -6006,13 +6573,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Tp1s605jNBwzDmtzG9jIFU9VdmjxM2VmKT+7K/DFIng="
+          "Value": "sha256-kOsztVVb6zKZE5gmK1e/2zkhum6XT8k4UvweBFoFhB4="
         }
       ]
     },
     {
-      "Route": "css/site.a12kmoygvq.css.gz",
-      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-a12kmoygvq.gz",
+      "Route": "css/site.0wfslgi59l.css.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-0wfslgi59l.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6021,7 +6588,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4483"
+          "Value": "4770"
         },
         {
           "Name": "Content-Type",
@@ -6029,11 +6596,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"weCBR2eLpQcKRnzA5PvNRsq53v1qv/cFcL0fPPkA0sI=\""
+          "Value": "\"RbsCIWkPwMvsVg1Q3jWAmLco4FWUgvd+zeQDJUSd6TA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 15:00:30 GMT"
+          "Value": "Fri, 04 Apr 2025 17:13:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6051,7 +6618,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "a12kmoygvq"
+          "Value": "0wfslgi59l"
         },
         {
           "Name": "label",
@@ -6059,7 +6626,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-weCBR2eLpQcKRnzA5PvNRsq53v1qv/cFcL0fPPkA0sI="
+          "Value": "sha256-RbsCIWkPwMvsVg1Q3jWAmLco4FWUgvd+zeQDJUSd6TA="
         }
       ]
     },
@@ -6102,12 +6669,12 @@
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-a12kmoygvq.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-0wfslgi59l.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000223015165"
+          "Quality": "0.000209599665"
         }
       ],
       "ResponseHeaders": [
@@ -6117,15 +6684,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4483"
+          "Value": "4770"
         },
         {
           "Name": "ETag",
-          "Value": "\"weCBR2eLpQcKRnzA5PvNRsq53v1qv/cFcL0fPPkA0sI=\""
+          "Value": "\"RbsCIWkPwMvsVg1Q3jWAmLco4FWUgvd+zeQDJUSd6TA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 15:00:30 GMT"
+          "Value": "Fri, 04 Apr 2025 17:13:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6145,13 +6712,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Tp1s605jNBwzDmtzG9jIFU9VdmjxM2VmKT+7K/DFIng=\""
+          "Value": "W/\"kOsztVVb6zKZE5gmK1e/2zkhum6XT8k4UvweBFoFhB4=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Tp1s605jNBwzDmtzG9jIFU9VdmjxM2VmKT+7K/DFIng="
+          "Value": "sha256-kOsztVVb6zKZE5gmK1e/2zkhum6XT8k4UvweBFoFhB4="
         }
       ]
     },
@@ -6166,7 +6733,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "21401"
+          "Value": "23222"
         },
         {
           "Name": "Content-Type",
@@ -6174,11 +6741,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Tp1s605jNBwzDmtzG9jIFU9VdmjxM2VmKT+7K/DFIng=\""
+          "Value": "\"kOsztVVb6zKZE5gmK1e/2zkhum6XT8k4UvweBFoFhB4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 15:00:30 GMT"
+          "Value": "Fri, 04 Apr 2025 17:13:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6188,13 +6755,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Tp1s605jNBwzDmtzG9jIFU9VdmjxM2VmKT+7K/DFIng="
+          "Value": "sha256-kOsztVVb6zKZE5gmK1e/2zkhum6XT8k4UvweBFoFhB4="
         }
       ]
     },
     {
       "Route": "css/site.css.gz",
-      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-a12kmoygvq.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-0wfslgi59l.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6203,7 +6770,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4483"
+          "Value": "4770"
         },
         {
           "Name": "Content-Type",
@@ -6211,11 +6778,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"weCBR2eLpQcKRnzA5PvNRsq53v1qv/cFcL0fPPkA0sI=\""
+          "Value": "\"RbsCIWkPwMvsVg1Q3jWAmLco4FWUgvd+zeQDJUSd6TA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 15:00:30 GMT"
+          "Value": "Fri, 04 Apr 2025 17:13:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6233,7 +6800,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-weCBR2eLpQcKRnzA5PvNRsq53v1qv/cFcL0fPPkA0sI="
+          "Value": "sha256-RbsCIWkPwMvsVg1Q3jWAmLco4FWUgvd+zeQDJUSd6TA="
         }
       ]
     },
@@ -15674,6 +16241,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-TDWOuwL0IZn2VR9lvEtOv5iRiUXSwI5j/dQXHLoqYfA="
+        }
+      ]
+    },
+    {
+      "Route": "images/p0 (24).png",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/p0 (24).png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "817894"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8vq+gDekqPnEVCK0/FRXujAGEXPQ/dBy/56L/aMhi54=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:36:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8vq+gDekqPnEVCK0/FRXujAGEXPQ/dBy/56L/aMhi54="
+        }
+      ]
+    },
+    {
+      "Route": "images/p0 (24).ugjiq2vluy.png",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/p0 (24).png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "817894"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8vq+gDekqPnEVCK0/FRXujAGEXPQ/dBy/56L/aMhi54=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:36:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ugjiq2vluy"
+        },
+        {
+          "Name": "label",
+          "Value": "images/p0 (24).png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8vq+gDekqPnEVCK0/FRXujAGEXPQ/dBy/56L/aMhi54="
         }
       ]
     },
@@ -36273,6 +36922,3880 @@
         {
           "Name": "integrity",
           "Value": "sha256-F1wMlgb/juW08DFUssW6Pm9EBKfjXXRiSK0F5FgXxJU="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/package.json",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/vqln8q4lew-vtmbvgc3m7.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002777777778"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "359"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bLm1dJmf3BHTW8xxRWiIeXpGemny7mul/Iyw6Nrl2Qk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"rXjRv5jUSMK6sHOuU/2TcD6W5vRjY73RHONrj2z6ejk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-rXjRv5jUSMK6sHOuU/2TcD6W5vRjY73RHONrj2z6ejk="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/package.json",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/package.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "787"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"rXjRv5jUSMK6sHOuU/2TcD6W5vRjY73RHONrj2z6ejk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-rXjRv5jUSMK6sHOuU/2TcD6W5vRjY73RHONrj2z6ejk="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/package.json.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/vqln8q4lew-vtmbvgc3m7.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "359"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bLm1dJmf3BHTW8xxRWiIeXpGemny7mul/Iyw6Nrl2Qk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-bLm1dJmf3BHTW8xxRWiIeXpGemny7mul/Iyw6Nrl2Qk="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/package.vtmbvgc3m7.json",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/vqln8q4lew-vtmbvgc3m7.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002777777778"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "359"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bLm1dJmf3BHTW8xxRWiIeXpGemny7mul/Iyw6Nrl2Qk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"rXjRv5jUSMK6sHOuU/2TcD6W5vRjY73RHONrj2z6ejk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vtmbvgc3m7"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/package.json"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-rXjRv5jUSMK6sHOuU/2TcD6W5vRjY73RHONrj2z6ejk="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/package.vtmbvgc3m7.json",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/package.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "787"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"rXjRv5jUSMK6sHOuU/2TcD6W5vRjY73RHONrj2z6ejk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vtmbvgc3m7"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/package.json"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-rXjRv5jUSMK6sHOuU/2TcD6W5vRjY73RHONrj2z6ejk="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/package.vtmbvgc3m7.json.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/vqln8q4lew-vtmbvgc3m7.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "359"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bLm1dJmf3BHTW8xxRWiIeXpGemny7mul/Iyw6Nrl2Qk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vtmbvgc3m7"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/package.json.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-bLm1dJmf3BHTW8xxRWiIeXpGemny7mul/Iyw6Nrl2Qk="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/public/index.html",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/667uarf15c-nb801rcrhy.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002227171492"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "448"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CzsbzfM084P6O1WbelT3vRbA7wbmzZ8EyYvpMxThZTs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"3WiYXwkftuzZYO2/UbxAFpxWwiFMVbYIXFV2qdljORw=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-3WiYXwkftuzZYO2/UbxAFpxWwiFMVbYIXFV2qdljORw="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/public/index.html",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/public/index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "797"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3WiYXwkftuzZYO2/UbxAFpxWwiFMVbYIXFV2qdljORw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-3WiYXwkftuzZYO2/UbxAFpxWwiFMVbYIXFV2qdljORw="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/public/index.html.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/667uarf15c-nb801rcrhy.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "448"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CzsbzfM084P6O1WbelT3vRbA7wbmzZ8EyYvpMxThZTs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CzsbzfM084P6O1WbelT3vRbA7wbmzZ8EyYvpMxThZTs="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/public/index.nb801rcrhy.html",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/667uarf15c-nb801rcrhy.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002227171492"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "448"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CzsbzfM084P6O1WbelT3vRbA7wbmzZ8EyYvpMxThZTs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"3WiYXwkftuzZYO2/UbxAFpxWwiFMVbYIXFV2qdljORw=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nb801rcrhy"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/public/index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-3WiYXwkftuzZYO2/UbxAFpxWwiFMVbYIXFV2qdljORw="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/public/index.nb801rcrhy.html",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/public/index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "797"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3WiYXwkftuzZYO2/UbxAFpxWwiFMVbYIXFV2qdljORw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nb801rcrhy"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/public/index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-3WiYXwkftuzZYO2/UbxAFpxWwiFMVbYIXFV2qdljORw="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/public/index.nb801rcrhy.html.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/667uarf15c-nb801rcrhy.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "448"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CzsbzfM084P6O1WbelT3vRbA7wbmzZ8EyYvpMxThZTs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nb801rcrhy"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/public/index.html.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-CzsbzfM084P6O1WbelT3vRbA7wbmzZ8EyYvpMxThZTs="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/public/manifest.8h33mfge2k.json",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/134rrk1nmr-8h33mfge2k.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.003952569170"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "252"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WOpI7MFCBmeilMHakTxDFZXlz/b6Wy1CPLiPFhdxOqM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"XCYQlij6JJdC/AUaFKN7fjN+E7t7CAdLLMy7NjXf78k=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8h33mfge2k"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/public/manifest.json"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-XCYQlij6JJdC/AUaFKN7fjN+E7t7CAdLLMy7NjXf78k="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/public/manifest.8h33mfge2k.json",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/public/manifest.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "486"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XCYQlij6JJdC/AUaFKN7fjN+E7t7CAdLLMy7NjXf78k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8h33mfge2k"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/public/manifest.json"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-XCYQlij6JJdC/AUaFKN7fjN+E7t7CAdLLMy7NjXf78k="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/public/manifest.8h33mfge2k.json.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/134rrk1nmr-8h33mfge2k.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "252"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WOpI7MFCBmeilMHakTxDFZXlz/b6Wy1CPLiPFhdxOqM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8h33mfge2k"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/public/manifest.json.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WOpI7MFCBmeilMHakTxDFZXlz/b6Wy1CPLiPFhdxOqM="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/public/manifest.json",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/134rrk1nmr-8h33mfge2k.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.003952569170"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "252"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WOpI7MFCBmeilMHakTxDFZXlz/b6Wy1CPLiPFhdxOqM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"XCYQlij6JJdC/AUaFKN7fjN+E7t7CAdLLMy7NjXf78k=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-XCYQlij6JJdC/AUaFKN7fjN+E7t7CAdLLMy7NjXf78k="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/public/manifest.json",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/public/manifest.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "486"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XCYQlij6JJdC/AUaFKN7fjN+E7t7CAdLLMy7NjXf78k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-XCYQlij6JJdC/AUaFKN7fjN+E7t7CAdLLMy7NjXf78k="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/public/manifest.json.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/134rrk1nmr-8h33mfge2k.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "252"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WOpI7MFCBmeilMHakTxDFZXlz/b6Wy1CPLiPFhdxOqM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WOpI7MFCBmeilMHakTxDFZXlz/b6Wy1CPLiPFhdxOqM="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/App.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/4yujzamh9f-ot7bd59unk.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002309468822"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "432"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"c5DMbgAGCmBaM1AIKucL4uteK3rh6Dz3D7IZieysFSM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:00:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"pJILGl3pI7Kl3qxYtd+DZhcW31RjQfpaxjpEVPX7ENE=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pJILGl3pI7Kl3qxYtd+DZhcW31RjQfpaxjpEVPX7ENE="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/App.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/App.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1109"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pJILGl3pI7Kl3qxYtd+DZhcW31RjQfpaxjpEVPX7ENE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:00:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pJILGl3pI7Kl3qxYtd+DZhcW31RjQfpaxjpEVPX7ENE="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/App.js.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/4yujzamh9f-ot7bd59unk.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "432"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"c5DMbgAGCmBaM1AIKucL4uteK3rh6Dz3D7IZieysFSM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:00:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-c5DMbgAGCmBaM1AIKucL4uteK3rh6Dz3D7IZieysFSM="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/App.ot7bd59unk.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/4yujzamh9f-ot7bd59unk.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002309468822"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "432"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"c5DMbgAGCmBaM1AIKucL4uteK3rh6Dz3D7IZieysFSM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:00:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"pJILGl3pI7Kl3qxYtd+DZhcW31RjQfpaxjpEVPX7ENE=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ot7bd59unk"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/App.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pJILGl3pI7Kl3qxYtd+DZhcW31RjQfpaxjpEVPX7ENE="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/App.ot7bd59unk.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/App.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1109"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pJILGl3pI7Kl3qxYtd+DZhcW31RjQfpaxjpEVPX7ENE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:00:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ot7bd59unk"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/App.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pJILGl3pI7Kl3qxYtd+DZhcW31RjQfpaxjpEVPX7ENE="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/App.ot7bd59unk.js.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/4yujzamh9f-ot7bd59unk.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "432"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"c5DMbgAGCmBaM1AIKucL4uteK3rh6Dz3D7IZieysFSM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:00:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ot7bd59unk"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/App.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-c5DMbgAGCmBaM1AIKucL4uteK3rh6Dz3D7IZieysFSM="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/components/Footer.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/mkbpn38wxk-qb44bxqst9.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000239808153"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4169"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cNKf2KZFOCbwwvn0PVMQNCcvflRLn9CsZ+MZz8lxt/s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:02:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"5p2jI6oUcJpoJE8yDgPOcXuyCrFcSQCk9HM4dsbWhk8=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5p2jI6oUcJpoJE8yDgPOcXuyCrFcSQCk9HM4dsbWhk8="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/components/Footer.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/components/Footer.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "14203"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5p2jI6oUcJpoJE8yDgPOcXuyCrFcSQCk9HM4dsbWhk8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:02:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5p2jI6oUcJpoJE8yDgPOcXuyCrFcSQCk9HM4dsbWhk8="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/components/Footer.js.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/mkbpn38wxk-qb44bxqst9.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4169"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cNKf2KZFOCbwwvn0PVMQNCcvflRLn9CsZ+MZz8lxt/s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:02:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-cNKf2KZFOCbwwvn0PVMQNCcvflRLn9CsZ+MZz8lxt/s="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/components/Footer.qb44bxqst9.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/mkbpn38wxk-qb44bxqst9.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000239808153"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4169"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cNKf2KZFOCbwwvn0PVMQNCcvflRLn9CsZ+MZz8lxt/s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:02:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"5p2jI6oUcJpoJE8yDgPOcXuyCrFcSQCk9HM4dsbWhk8=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qb44bxqst9"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/components/Footer.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5p2jI6oUcJpoJE8yDgPOcXuyCrFcSQCk9HM4dsbWhk8="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/components/Footer.qb44bxqst9.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/components/Footer.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "14203"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5p2jI6oUcJpoJE8yDgPOcXuyCrFcSQCk9HM4dsbWhk8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:02:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qb44bxqst9"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/components/Footer.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5p2jI6oUcJpoJE8yDgPOcXuyCrFcSQCk9HM4dsbWhk8="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/components/Footer.qb44bxqst9.js.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/mkbpn38wxk-qb44bxqst9.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4169"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cNKf2KZFOCbwwvn0PVMQNCcvflRLn9CsZ+MZz8lxt/s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:02:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qb44bxqst9"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/components/Footer.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-cNKf2KZFOCbwwvn0PVMQNCcvflRLn9CsZ+MZz8lxt/s="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/components/Header.7o8zz05gyd.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/ik9j1i5r8x-7o8zz05gyd.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000523560209"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1909"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Olxu40O67x7y43/9qRuRKXEAKb+r86Jgg/DT53IvLPY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:00:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"p2nPbcnp1REzGOIz9L6wSL846hU0n3Z9dyBTGE5VYbk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7o8zz05gyd"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/components/Header.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-p2nPbcnp1REzGOIz9L6wSL846hU0n3Z9dyBTGE5VYbk="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/components/Header.7o8zz05gyd.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/components/Header.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7355"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"p2nPbcnp1REzGOIz9L6wSL846hU0n3Z9dyBTGE5VYbk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:00:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7o8zz05gyd"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/components/Header.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-p2nPbcnp1REzGOIz9L6wSL846hU0n3Z9dyBTGE5VYbk="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/components/Header.7o8zz05gyd.js.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/ik9j1i5r8x-7o8zz05gyd.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1909"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Olxu40O67x7y43/9qRuRKXEAKb+r86Jgg/DT53IvLPY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:00:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7o8zz05gyd"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/components/Header.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Olxu40O67x7y43/9qRuRKXEAKb+r86Jgg/DT53IvLPY="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/components/Header.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/ik9j1i5r8x-7o8zz05gyd.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000523560209"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1909"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Olxu40O67x7y43/9qRuRKXEAKb+r86Jgg/DT53IvLPY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:00:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"p2nPbcnp1REzGOIz9L6wSL846hU0n3Z9dyBTGE5VYbk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-p2nPbcnp1REzGOIz9L6wSL846hU0n3Z9dyBTGE5VYbk="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/components/Header.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/components/Header.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7355"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"p2nPbcnp1REzGOIz9L6wSL846hU0n3Z9dyBTGE5VYbk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:00:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-p2nPbcnp1REzGOIz9L6wSL846hU0n3Z9dyBTGE5VYbk="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/components/Header.js.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/ik9j1i5r8x-7o8zz05gyd.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1909"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Olxu40O67x7y43/9qRuRKXEAKb+r86Jgg/DT53IvLPY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:00:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Olxu40O67x7y43/9qRuRKXEAKb+r86Jgg/DT53IvLPY="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/index.css",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/l4tit18epj-opcxpza6ve.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001360544218"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "734"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9e9IZjBQF7JSVlInq97KFgglMBYSBm0jJgpD14PL7EI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:00:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ZPxPRaE0/6+4KnQLkngphV/JOlbuZ/W4a7yN8oohvwQ=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZPxPRaE0/6+4KnQLkngphV/JOlbuZ/W4a7yN8oohvwQ="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/index.css",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/index.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2120"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZPxPRaE0/6+4KnQLkngphV/JOlbuZ/W4a7yN8oohvwQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:00:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZPxPRaE0/6+4KnQLkngphV/JOlbuZ/W4a7yN8oohvwQ="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/index.css.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/l4tit18epj-opcxpza6ve.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "734"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9e9IZjBQF7JSVlInq97KFgglMBYSBm0jJgpD14PL7EI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:00:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9e9IZjBQF7JSVlInq97KFgglMBYSBm0jJgpD14PL7EI="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/index.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/zzdvjn3dr7-t8itm6qcoa.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.005714285714"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "174"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"oFNQ8/qnRwymz5jMp/wtKmGSsSM7IYZ3qYtTov9YHFw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"Y7Akp6vZMW3Wq0gZtxE4T9NqjL25iRTXZSd1xKQ5ukU=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Y7Akp6vZMW3Wq0gZtxE4T9NqjL25iRTXZSd1xKQ5ukU="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/index.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/index.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "254"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Y7Akp6vZMW3Wq0gZtxE4T9NqjL25iRTXZSd1xKQ5ukU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Y7Akp6vZMW3Wq0gZtxE4T9NqjL25iRTXZSd1xKQ5ukU="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/index.js.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/zzdvjn3dr7-t8itm6qcoa.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "174"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"oFNQ8/qnRwymz5jMp/wtKmGSsSM7IYZ3qYtTov9YHFw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-oFNQ8/qnRwymz5jMp/wtKmGSsSM7IYZ3qYtTov9YHFw="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/index.opcxpza6ve.css",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/l4tit18epj-opcxpza6ve.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001360544218"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "734"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9e9IZjBQF7JSVlInq97KFgglMBYSBm0jJgpD14PL7EI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:00:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ZPxPRaE0/6+4KnQLkngphV/JOlbuZ/W4a7yN8oohvwQ=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "opcxpza6ve"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/index.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZPxPRaE0/6+4KnQLkngphV/JOlbuZ/W4a7yN8oohvwQ="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/index.opcxpza6ve.css",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/index.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2120"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZPxPRaE0/6+4KnQLkngphV/JOlbuZ/W4a7yN8oohvwQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:00:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "opcxpza6ve"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/index.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZPxPRaE0/6+4KnQLkngphV/JOlbuZ/W4a7yN8oohvwQ="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/index.opcxpza6ve.css.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/l4tit18epj-opcxpza6ve.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "734"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9e9IZjBQF7JSVlInq97KFgglMBYSBm0jJgpD14PL7EI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:00:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "opcxpza6ve"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/index.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9e9IZjBQF7JSVlInq97KFgglMBYSBm0jJgpD14PL7EI="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/index.t8itm6qcoa.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/zzdvjn3dr7-t8itm6qcoa.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.005714285714"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "174"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"oFNQ8/qnRwymz5jMp/wtKmGSsSM7IYZ3qYtTov9YHFw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"Y7Akp6vZMW3Wq0gZtxE4T9NqjL25iRTXZSd1xKQ5ukU=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "t8itm6qcoa"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/index.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Y7Akp6vZMW3Wq0gZtxE4T9NqjL25iRTXZSd1xKQ5ukU="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/index.t8itm6qcoa.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/index.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "254"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Y7Akp6vZMW3Wq0gZtxE4T9NqjL25iRTXZSd1xKQ5ukU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "t8itm6qcoa"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/index.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Y7Akp6vZMW3Wq0gZtxE4T9NqjL25iRTXZSd1xKQ5ukU="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/index.t8itm6qcoa.js.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/zzdvjn3dr7-t8itm6qcoa.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "174"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"oFNQ8/qnRwymz5jMp/wtKmGSsSM7IYZ3qYtTov9YHFw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 16:59:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "t8itm6qcoa"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/index.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-oFNQ8/qnRwymz5jMp/wtKmGSsSM7IYZ3qYtTov9YHFw="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/GiftCards.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/ldqvi2c6dp-yb4gw0wz19.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000480769231"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2079"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"r2GRQQqMYVYubMLT42g/j5/KUdeujW6ggRfCEaQnvWE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:05:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"7llpYr5IQLwxcbemHfmmbnm2vSdhryKHUC/fIJdKNQc=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7llpYr5IQLwxcbemHfmmbnm2vSdhryKHUC/fIJdKNQc="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/GiftCards.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/GiftCards.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7827"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7llpYr5IQLwxcbemHfmmbnm2vSdhryKHUC/fIJdKNQc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:05:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7llpYr5IQLwxcbemHfmmbnm2vSdhryKHUC/fIJdKNQc="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/GiftCards.js.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/ldqvi2c6dp-yb4gw0wz19.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2079"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"r2GRQQqMYVYubMLT42g/j5/KUdeujW6ggRfCEaQnvWE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:05:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-r2GRQQqMYVYubMLT42g/j5/KUdeujW6ggRfCEaQnvWE="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/GiftCards.yb4gw0wz19.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/ldqvi2c6dp-yb4gw0wz19.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000480769231"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2079"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"r2GRQQqMYVYubMLT42g/j5/KUdeujW6ggRfCEaQnvWE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:05:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"7llpYr5IQLwxcbemHfmmbnm2vSdhryKHUC/fIJdKNQc=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yb4gw0wz19"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/pages/GiftCards.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7llpYr5IQLwxcbemHfmmbnm2vSdhryKHUC/fIJdKNQc="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/GiftCards.yb4gw0wz19.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/GiftCards.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7827"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7llpYr5IQLwxcbemHfmmbnm2vSdhryKHUC/fIJdKNQc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:05:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yb4gw0wz19"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/pages/GiftCards.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7llpYr5IQLwxcbemHfmmbnm2vSdhryKHUC/fIJdKNQc="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/GiftCards.yb4gw0wz19.js.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/ldqvi2c6dp-yb4gw0wz19.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2079"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"r2GRQQqMYVYubMLT42g/j5/KUdeujW6ggRfCEaQnvWE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:05:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yb4gw0wz19"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/pages/GiftCards.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-r2GRQQqMYVYubMLT42g/j5/KUdeujW6ggRfCEaQnvWE="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/Home.42hhckdurc.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/wr9qoar4r9-42hhckdurc.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000645577792"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1548"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"m2RWq8dH+EfDzeN4FN1/PfOVnBHDdioX4H2E6dMVeSA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:03:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"nBwvO4HGuRpedHRT6EUo2qpIoi5/VioH2f9t/PxDeB4=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "42hhckdurc"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/pages/Home.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nBwvO4HGuRpedHRT6EUo2qpIoi5/VioH2f9t/PxDeB4="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/Home.42hhckdurc.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Home.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5106"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nBwvO4HGuRpedHRT6EUo2qpIoi5/VioH2f9t/PxDeB4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:03:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "42hhckdurc"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/pages/Home.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nBwvO4HGuRpedHRT6EUo2qpIoi5/VioH2f9t/PxDeB4="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/Home.42hhckdurc.js.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/wr9qoar4r9-42hhckdurc.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1548"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"m2RWq8dH+EfDzeN4FN1/PfOVnBHDdioX4H2E6dMVeSA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:03:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "42hhckdurc"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/pages/Home.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-m2RWq8dH+EfDzeN4FN1/PfOVnBHDdioX4H2E6dMVeSA="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/Home.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/wr9qoar4r9-42hhckdurc.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000645577792"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1548"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"m2RWq8dH+EfDzeN4FN1/PfOVnBHDdioX4H2E6dMVeSA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:03:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"nBwvO4HGuRpedHRT6EUo2qpIoi5/VioH2f9t/PxDeB4=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-nBwvO4HGuRpedHRT6EUo2qpIoi5/VioH2f9t/PxDeB4="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/Home.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Home.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5106"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nBwvO4HGuRpedHRT6EUo2qpIoi5/VioH2f9t/PxDeB4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:03:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-nBwvO4HGuRpedHRT6EUo2qpIoi5/VioH2f9t/PxDeB4="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/Home.js.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/wr9qoar4r9-42hhckdurc.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1548"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"m2RWq8dH+EfDzeN4FN1/PfOVnBHDdioX4H2E6dMVeSA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:03:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-m2RWq8dH+EfDzeN4FN1/PfOVnBHDdioX4H2E6dMVeSA="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/Menu.ambv1h59n9.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/db2fwbeb72-ambv1h59n9.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000426803244"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2342"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"s4Iw1EDhTQffnR5ztikYm8Zdm/3okdv5/GSIZVSzvy4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:03:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"kmHbJHyhqLl0eAx1pAsr0tUqJNIr7PSgGq9GFt39+mk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ambv1h59n9"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/pages/Menu.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-kmHbJHyhqLl0eAx1pAsr0tUqJNIr7PSgGq9GFt39+mk="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/Menu.ambv1h59n9.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Menu.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8045"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kmHbJHyhqLl0eAx1pAsr0tUqJNIr7PSgGq9GFt39+mk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:03:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ambv1h59n9"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/pages/Menu.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-kmHbJHyhqLl0eAx1pAsr0tUqJNIr7PSgGq9GFt39+mk="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/Menu.ambv1h59n9.js.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/db2fwbeb72-ambv1h59n9.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2342"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"s4Iw1EDhTQffnR5ztikYm8Zdm/3okdv5/GSIZVSzvy4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:03:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ambv1h59n9"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/pages/Menu.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-s4Iw1EDhTQffnR5ztikYm8Zdm/3okdv5/GSIZVSzvy4="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/Menu.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/db2fwbeb72-ambv1h59n9.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000426803244"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2342"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"s4Iw1EDhTQffnR5ztikYm8Zdm/3okdv5/GSIZVSzvy4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:03:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"kmHbJHyhqLl0eAx1pAsr0tUqJNIr7PSgGq9GFt39+mk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-kmHbJHyhqLl0eAx1pAsr0tUqJNIr7PSgGq9GFt39+mk="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/Menu.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Menu.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8045"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kmHbJHyhqLl0eAx1pAsr0tUqJNIr7PSgGq9GFt39+mk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:03:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-kmHbJHyhqLl0eAx1pAsr0tUqJNIr7PSgGq9GFt39+mk="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/Menu.js.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/db2fwbeb72-ambv1h59n9.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2342"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"s4Iw1EDhTQffnR5ztikYm8Zdm/3okdv5/GSIZVSzvy4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:03:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-s4Iw1EDhTQffnR5ztikYm8Zdm/3okdv5/GSIZVSzvy4="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/OrderNow.4ebzxklncd.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/7seqx5gn6c-4ebzxklncd.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000287852619"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3473"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/umXkaSOwEilwL8i5IfH7nQoto7E2GKecmwUe6ggSLc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:06:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"bMVP5SiYsnA01zSShgJygyPSZxn2wvht5pzQbKF01ng=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4ebzxklncd"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/pages/OrderNow.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-bMVP5SiYsnA01zSShgJygyPSZxn2wvht5pzQbKF01ng="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/OrderNow.4ebzxklncd.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/OrderNow.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12990"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bMVP5SiYsnA01zSShgJygyPSZxn2wvht5pzQbKF01ng=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:06:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4ebzxklncd"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/pages/OrderNow.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-bMVP5SiYsnA01zSShgJygyPSZxn2wvht5pzQbKF01ng="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/OrderNow.4ebzxklncd.js.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/7seqx5gn6c-4ebzxklncd.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3473"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/umXkaSOwEilwL8i5IfH7nQoto7E2GKecmwUe6ggSLc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:06:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4ebzxklncd"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/pages/OrderNow.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/umXkaSOwEilwL8i5IfH7nQoto7E2GKecmwUe6ggSLc="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/OrderNow.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/7seqx5gn6c-4ebzxklncd.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000287852619"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3473"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/umXkaSOwEilwL8i5IfH7nQoto7E2GKecmwUe6ggSLc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:06:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"bMVP5SiYsnA01zSShgJygyPSZxn2wvht5pzQbKF01ng=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-bMVP5SiYsnA01zSShgJygyPSZxn2wvht5pzQbKF01ng="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/OrderNow.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/OrderNow.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12990"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bMVP5SiYsnA01zSShgJygyPSZxn2wvht5pzQbKF01ng=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:06:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-bMVP5SiYsnA01zSShgJygyPSZxn2wvht5pzQbKF01ng="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/OrderNow.js.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/7seqx5gn6c-4ebzxklncd.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3473"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/umXkaSOwEilwL8i5IfH7nQoto7E2GKecmwUe6ggSLc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:06:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-/umXkaSOwEilwL8i5IfH7nQoto7E2GKecmwUe6ggSLc="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/Rewards.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/anks8vax91-yuqz60w80x.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000412371134"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2424"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HS99mCJ51R4pe2Tk61Ls9SKItWlDxADtSFGe5i+071o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:04:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ujjr/2dcVYceynVFq2vx5fbuTdbFZqb9MbjOUbDxs9A=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ujjr/2dcVYceynVFq2vx5fbuTdbFZqb9MbjOUbDxs9A="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/Rewards.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Rewards.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8477"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ujjr/2dcVYceynVFq2vx5fbuTdbFZqb9MbjOUbDxs9A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:04:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ujjr/2dcVYceynVFq2vx5fbuTdbFZqb9MbjOUbDxs9A="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/Rewards.js.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/anks8vax91-yuqz60w80x.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2424"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HS99mCJ51R4pe2Tk61Ls9SKItWlDxADtSFGe5i+071o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:04:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-HS99mCJ51R4pe2Tk61Ls9SKItWlDxADtSFGe5i+071o="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/Rewards.yuqz60w80x.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/anks8vax91-yuqz60w80x.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000412371134"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2424"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HS99mCJ51R4pe2Tk61Ls9SKItWlDxADtSFGe5i+071o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:04:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ujjr/2dcVYceynVFq2vx5fbuTdbFZqb9MbjOUbDxs9A=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yuqz60w80x"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/pages/Rewards.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ujjr/2dcVYceynVFq2vx5fbuTdbFZqb9MbjOUbDxs9A="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/Rewards.yuqz60w80x.js",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Rewards.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8477"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ujjr/2dcVYceynVFq2vx5fbuTdbFZqb9MbjOUbDxs9A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:04:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yuqz60w80x"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/pages/Rewards.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ujjr/2dcVYceynVFq2vx5fbuTdbFZqb9MbjOUbDxs9A="
+        }
+      ]
+    },
+    {
+      "Route": "react-app/src/pages/Rewards.yuqz60w80x.js.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/anks8vax91-yuqz60w80x.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2424"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HS99mCJ51R4pe2Tk61Ls9SKItWlDxADtSFGe5i+071o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 17:04:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yuqz60w80x"
+        },
+        {
+          "Name": "label",
+          "Value": "react-app/src/pages/Rewards.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HS99mCJ51R4pe2Tk61Ls9SKItWlDxADtSFGe5i+071o="
         }
       ]
     },

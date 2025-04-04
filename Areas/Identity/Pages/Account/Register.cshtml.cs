@@ -190,6 +190,12 @@ namespace Reina.MacCredy.Areas.Identity.Pages.Account
             }
 
             // If we got this far, something failed, redisplay form
+            // Repopulate the RoleList before returning the page
+            Input.RoleList = _roleManager.Roles.Select(u => u.Name).Select(x => new SelectListItem
+            {
+                Text = x,
+                Value = x
+            });
             return Page();
         }
 

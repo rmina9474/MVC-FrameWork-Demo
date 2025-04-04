@@ -49,6 +49,10 @@
       "PackagePath": "staticwebassets/images/image-20250304201829948.png"
     },
     {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/p0 (24).png",
+      "PackagePath": "staticwebassets/images/p0 (24).png"
+    },
+    {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/js/admin-site.js",
       "PackagePath": "staticwebassets/js/admin-site.js"
     },
@@ -295,6 +299,58 @@
     {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/jquery/dist/jquery.slim.min.map",
       "PackagePath": "staticwebassets/lib/jquery/dist/jquery.slim.min.map"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/package.json",
+      "PackagePath": "staticwebassets/react-app/package.json"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/public/index.html",
+      "PackagePath": "staticwebassets/react-app/public/index.html"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/public/manifest.json",
+      "PackagePath": "staticwebassets/react-app/public/manifest.json"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/App.js",
+      "PackagePath": "staticwebassets/react-app/src/App.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/components/Footer.js",
+      "PackagePath": "staticwebassets/react-app/src/components/Footer.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/components/Header.js",
+      "PackagePath": "staticwebassets/react-app/src/components/Header.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/index.css",
+      "PackagePath": "staticwebassets/react-app/src/index.css"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/index.js",
+      "PackagePath": "staticwebassets/react-app/src/index.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/GiftCards.js",
+      "PackagePath": "staticwebassets/react-app/src/pages/GiftCards.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Home.js",
+      "PackagePath": "staticwebassets/react-app/src/pages/Home.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Menu.js",
+      "PackagePath": "staticwebassets/react-app/src/pages/Menu.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/OrderNow.js",
+      "PackagePath": "staticwebassets/react-app/src/pages/OrderNow.js"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/react-app/src/pages/Rewards.js",
+      "PackagePath": "staticwebassets/react-app/src/pages/Rewards.js"
     },
     {
       "Id": "obj/Debug/net9.0/staticwebassets/msbuild.Reina.MacCredy.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

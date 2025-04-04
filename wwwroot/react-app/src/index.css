@@ -1,0 +1,114 @@
+:root {
+  /* Starbucks Colors */
+  --starbucks-green: #006241;
+  --starbucks-light-green: #1e3932;
+  --starbucks-black: #000000;
+  --starbucks-gold: #cba258;
+  --starbucks-white: #ffffff;
+  --starbucks-gray: #f7f7f7;
+  --starbucks-dark-gray: #6c757d;
+  
+  /* Fonts */
+  --font-primary: 'Open Sans', sans-serif;
+  --font-secondary: 'Sodo Sans', sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Transitions */
+  --transition-normal: 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--starbucks-black);
+  background-color: var(--starbucks-white);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+}
+
+a {
+  text-decoration: none;
+  color: var(--starbucks-black);
+  transition: color var(--transition-normal);
+}
+
+a:hover {
+  color: var(--starbucks-green);
+}
+
+button, .btn {
+  cursor: pointer;
+  font-family: var(--font-primary);
+  border: none;
+  background: none;
+  transition: all var(--transition-normal);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.btn-primary {
+  background-color: var(--starbucks-green);
+  color: var(--starbucks-white);
+  border-radius: 50px;
+  padding: 7px 16px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid var(--starbucks-green);
+}
+
+.btn-primary:hover {
+  background-color: rgba(0, 98, 65, 0.9);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--starbucks-black);
+  border-radius: 50px;
+  padding: 7px 16px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid var(--starbucks-black);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+} 

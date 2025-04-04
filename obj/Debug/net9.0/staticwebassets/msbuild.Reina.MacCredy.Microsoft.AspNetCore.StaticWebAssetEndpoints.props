@@ -12,17 +12,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-tAxbUQbUZ1Z3i6hVsSuxFgIgRGETw3edvONCBYsVq2w="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6429"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022tAxbUQbUZ1Z3i6hVsSuxFgIgRGETw3edvONCBYsVq2w=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 12:34:25 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/css/site.a12kmoygvq.css">
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/css/site.0wfslgi59l.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"a12kmoygvq"},{"Name":"integrity","Value":"sha256-Tp1s605jNBwzDmtzG9jIFU9VdmjxM2VmKT\u002B7K/DFIng="},{"Name":"label","Value":"_content/Reina.MacCredy/css/site.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"21401"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Tp1s605jNBwzDmtzG9jIFU9VdmjxM2VmKT\u002B7K/DFIng=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 15:00:30 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"0wfslgi59l"},{"Name":"integrity","Value":"sha256-kOsztVVb6zKZE5gmK1e/2zkhum6XT8k4UvweBFoFhB4="},{"Name":"label","Value":"_content/Reina.MacCredy/css/site.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"23222"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022kOsztVVb6zKZE5gmK1e/2zkhum6XT8k4UvweBFoFhB4=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:13:51 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/css/site.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Tp1s605jNBwzDmtzG9jIFU9VdmjxM2VmKT\u002B7K/DFIng="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"21401"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Tp1s605jNBwzDmtzG9jIFU9VdmjxM2VmKT\u002B7K/DFIng=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 15:00:30 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-kOsztVVb6zKZE5gmK1e/2zkhum6XT8k4UvweBFoFhB4="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"23222"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022kOsztVVb6zKZE5gmK1e/2zkhum6XT8k4UvweBFoFhB4=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:13:51 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>
@@ -119,6 +119,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"k0ebzvhzgv"},{"Name":"integrity","Value":"sha256-TDWOuwL0IZn2VR9lvEtOv5iRiUXSwI5j/dQXHLoqYfA="},{"Name":"label","Value":"_content/Reina.MacCredy/images/OIP.jpeg"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"358922"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022TDWOuwL0IZn2VR9lvEtOv5iRiUXSwI5j/dQXHLoqYfA=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 12:34:25 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/p0 (24).png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\p0 (24).png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-8vq\u002BgDekqPnEVCK0/FRXujAGEXPQ/dBy/56L/aMhi54="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"817894"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00228vq\u002BgDekqPnEVCK0/FRXujAGEXPQ/dBy/56L/aMhi54=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 16:36:17 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/p0 (24).ugjiq2vluy.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\p0 (24).png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ugjiq2vluy"},{"Name":"integrity","Value":"sha256-8vq\u002BgDekqPnEVCK0/FRXujAGEXPQ/dBy/56L/aMhi54="},{"Name":"label","Value":"_content/Reina.MacCredy/images/p0 (24).png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"817894"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00228vq\u002BgDekqPnEVCK0/FRXujAGEXPQ/dBy/56L/aMhi54=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 16:36:17 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/images/R.mqhnqkk5wq.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\R.png'))</AssetFile>
@@ -875,6 +887,162 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1117"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u0022hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 12:34:25 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/package.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\package.json'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-rXjRv5jUSMK6sHOuU/2TcD6W5vRjY73RHONrj2z6ejk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"787"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022rXjRv5jUSMK6sHOuU/2TcD6W5vRjY73RHONrj2z6ejk=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 16:59:11 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/package.vtmbvgc3m7.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\package.json'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"vtmbvgc3m7"},{"Name":"integrity","Value":"sha256-rXjRv5jUSMK6sHOuU/2TcD6W5vRjY73RHONrj2z6ejk="},{"Name":"label","Value":"_content/Reina.MacCredy/react-app/package.json"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"787"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022rXjRv5jUSMK6sHOuU/2TcD6W5vRjY73RHONrj2z6ejk=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 16:59:11 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/public/index.html">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\public\index.html'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-3WiYXwkftuzZYO2/UbxAFpxWwiFMVbYIXFV2qdljORw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"797"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u00223WiYXwkftuzZYO2/UbxAFpxWwiFMVbYIXFV2qdljORw=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 16:59:24 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/public/index.nb801rcrhy.html">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\public\index.html'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"nb801rcrhy"},{"Name":"integrity","Value":"sha256-3WiYXwkftuzZYO2/UbxAFpxWwiFMVbYIXFV2qdljORw="},{"Name":"label","Value":"_content/Reina.MacCredy/react-app/public/index.html"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"797"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u00223WiYXwkftuzZYO2/UbxAFpxWwiFMVbYIXFV2qdljORw=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 16:59:24 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/public/manifest.8h33mfge2k.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\public\manifest.json'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"8h33mfge2k"},{"Name":"integrity","Value":"sha256-XCYQlij6JJdC/AUaFKN7fjN\u002BE7t7CAdLLMy7NjXf78k="},{"Name":"label","Value":"_content/Reina.MacCredy/react-app/public/manifest.json"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"486"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022XCYQlij6JJdC/AUaFKN7fjN\u002BE7t7CAdLLMy7NjXf78k=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 16:59:35 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/public/manifest.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\public\manifest.json'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-XCYQlij6JJdC/AUaFKN7fjN\u002BE7t7CAdLLMy7NjXf78k="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"486"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022XCYQlij6JJdC/AUaFKN7fjN\u002BE7t7CAdLLMy7NjXf78k=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 16:59:35 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/App.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\App.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-pJILGl3pI7Kl3qxYtd\u002BDZhcW31RjQfpaxjpEVPX7ENE="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1109"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022pJILGl3pI7Kl3qxYtd\u002BDZhcW31RjQfpaxjpEVPX7ENE=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:00:18 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/App.ot7bd59unk.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\App.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ot7bd59unk"},{"Name":"integrity","Value":"sha256-pJILGl3pI7Kl3qxYtd\u002BDZhcW31RjQfpaxjpEVPX7ENE="},{"Name":"label","Value":"_content/Reina.MacCredy/react-app/src/App.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1109"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022pJILGl3pI7Kl3qxYtd\u002BDZhcW31RjQfpaxjpEVPX7ENE=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:00:18 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/components/Footer.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\components\Footer.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-5p2jI6oUcJpoJE8yDgPOcXuyCrFcSQCk9HM4dsbWhk8="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"14203"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00225p2jI6oUcJpoJE8yDgPOcXuyCrFcSQCk9HM4dsbWhk8=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:02:09 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/components/Footer.qb44bxqst9.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\components\Footer.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"qb44bxqst9"},{"Name":"integrity","Value":"sha256-5p2jI6oUcJpoJE8yDgPOcXuyCrFcSQCk9HM4dsbWhk8="},{"Name":"label","Value":"_content/Reina.MacCredy/react-app/src/components/Footer.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"14203"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00225p2jI6oUcJpoJE8yDgPOcXuyCrFcSQCk9HM4dsbWhk8=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:02:09 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/components/Header.7o8zz05gyd.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\components\Header.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"7o8zz05gyd"},{"Name":"integrity","Value":"sha256-p2nPbcnp1REzGOIz9L6wSL846hU0n3Z9dyBTGE5VYbk="},{"Name":"label","Value":"_content/Reina.MacCredy/react-app/src/components/Header.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"7355"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022p2nPbcnp1REzGOIz9L6wSL846hU0n3Z9dyBTGE5VYbk=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:00:57 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/components/Header.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\components\Header.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-p2nPbcnp1REzGOIz9L6wSL846hU0n3Z9dyBTGE5VYbk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"7355"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022p2nPbcnp1REzGOIz9L6wSL846hU0n3Z9dyBTGE5VYbk=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:00:57 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/index.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\index.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-ZPxPRaE0/6\u002B4KnQLkngphV/JOlbuZ/W4a7yN8oohvwQ="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2120"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ZPxPRaE0/6\u002B4KnQLkngphV/JOlbuZ/W4a7yN8oohvwQ=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:00:05 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/index.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\index.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Y7Akp6vZMW3Wq0gZtxE4T9NqjL25iRTXZSd1xKQ5ukU="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"254"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022Y7Akp6vZMW3Wq0gZtxE4T9NqjL25iRTXZSd1xKQ5ukU=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 16:59:45 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/index.opcxpza6ve.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\index.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"opcxpza6ve"},{"Name":"integrity","Value":"sha256-ZPxPRaE0/6\u002B4KnQLkngphV/JOlbuZ/W4a7yN8oohvwQ="},{"Name":"label","Value":"_content/Reina.MacCredy/react-app/src/index.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2120"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ZPxPRaE0/6\u002B4KnQLkngphV/JOlbuZ/W4a7yN8oohvwQ=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:00:05 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/index.t8itm6qcoa.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\index.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"t8itm6qcoa"},{"Name":"integrity","Value":"sha256-Y7Akp6vZMW3Wq0gZtxE4T9NqjL25iRTXZSd1xKQ5ukU="},{"Name":"label","Value":"_content/Reina.MacCredy/react-app/src/index.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"254"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022Y7Akp6vZMW3Wq0gZtxE4T9NqjL25iRTXZSd1xKQ5ukU=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 16:59:45 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/pages/GiftCards.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\pages\GiftCards.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-7llpYr5IQLwxcbemHfmmbnm2vSdhryKHUC/fIJdKNQc="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"7827"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00227llpYr5IQLwxcbemHfmmbnm2vSdhryKHUC/fIJdKNQc=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:05:42 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/pages/GiftCards.yb4gw0wz19.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\pages\GiftCards.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"yb4gw0wz19"},{"Name":"integrity","Value":"sha256-7llpYr5IQLwxcbemHfmmbnm2vSdhryKHUC/fIJdKNQc="},{"Name":"label","Value":"_content/Reina.MacCredy/react-app/src/pages/GiftCards.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"7827"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00227llpYr5IQLwxcbemHfmmbnm2vSdhryKHUC/fIJdKNQc=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:05:42 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/pages/Home.42hhckdurc.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\pages\Home.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"42hhckdurc"},{"Name":"integrity","Value":"sha256-nBwvO4HGuRpedHRT6EUo2qpIoi5/VioH2f9t/PxDeB4="},{"Name":"label","Value":"_content/Reina.MacCredy/react-app/src/pages/Home.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5106"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022nBwvO4HGuRpedHRT6EUo2qpIoi5/VioH2f9t/PxDeB4=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:03:09 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/pages/Home.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\pages\Home.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-nBwvO4HGuRpedHRT6EUo2qpIoi5/VioH2f9t/PxDeB4="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5106"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022nBwvO4HGuRpedHRT6EUo2qpIoi5/VioH2f9t/PxDeB4=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:03:09 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/pages/Menu.ambv1h59n9.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\pages\Menu.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ambv1h59n9"},{"Name":"integrity","Value":"sha256-kmHbJHyhqLl0eAx1pAsr0tUqJNIr7PSgGq9GFt39\u002Bmk="},{"Name":"label","Value":"_content/Reina.MacCredy/react-app/src/pages/Menu.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"8045"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022kmHbJHyhqLl0eAx1pAsr0tUqJNIr7PSgGq9GFt39\u002Bmk=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:03:59 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/pages/Menu.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\pages\Menu.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-kmHbJHyhqLl0eAx1pAsr0tUqJNIr7PSgGq9GFt39\u002Bmk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"8045"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022kmHbJHyhqLl0eAx1pAsr0tUqJNIr7PSgGq9GFt39\u002Bmk=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:03:59 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/pages/OrderNow.4ebzxklncd.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\pages\OrderNow.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"4ebzxklncd"},{"Name":"integrity","Value":"sha256-bMVP5SiYsnA01zSShgJygyPSZxn2wvht5pzQbKF01ng="},{"Name":"label","Value":"_content/Reina.MacCredy/react-app/src/pages/OrderNow.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"12990"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022bMVP5SiYsnA01zSShgJygyPSZxn2wvht5pzQbKF01ng=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:06:53 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/pages/OrderNow.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\pages\OrderNow.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-bMVP5SiYsnA01zSShgJygyPSZxn2wvht5pzQbKF01ng="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"12990"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022bMVP5SiYsnA01zSShgJygyPSZxn2wvht5pzQbKF01ng=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:06:53 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/pages/Rewards.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\pages\Rewards.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-ujjr/2dcVYceynVFq2vx5fbuTdbFZqb9MbjOUbDxs9A="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"8477"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022ujjr/2dcVYceynVFq2vx5fbuTdbFZqb9MbjOUbDxs9A=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:04:51 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/react-app/src/pages/Rewards.yuqz60w80x.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\react-app\src\pages\Rewards.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"yuqz60w80x"},{"Name":"integrity","Value":"sha256-ujjr/2dcVYceynVFq2vx5fbuTdbFZqb9MbjOUbDxs9A="},{"Name":"label","Value":"_content/Reina.MacCredy/react-app/src/pages/Rewards.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"8477"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022ujjr/2dcVYceynVFq2vx5fbuTdbFZqb9MbjOUbDxs9A=\u0022"},{"Name":"Last-Modified","Value":"Fri, 04 Apr 2025 17:04:51 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Reina.MacCredy/Reina.MacCredy.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Reina.MacCredy.quzedpk2qu.bundle.scp.css'))</AssetFile>
