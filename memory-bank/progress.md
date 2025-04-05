@@ -1,7 +1,7 @@
 # Progress
 
 ## Current Status
-The Reina.MacCredy e-commerce application is in active development with core functionality implemented and operational. The project is in a maintenance and enhancement phase, with UI modernization, new features being added incrementally, and bugs being addressed to improve stability.
+The Reina.MacCredy e-commerce application is in active development with core functionality implemented and operational. The project is in a maintenance and enhancement phase, with focus on security improvements, payment handling enhancements, and UI modernization.
 
 ## What Works
 
@@ -11,7 +11,12 @@ The Reina.MacCredy e-commerce application is in active development with core fun
 - ✅ **Shopping Cart**: Adding, removing, and updating items
 - ✅ **Checkout Process**: Completing purchases with shipping information
 - ✅ **Order Management**: Viewing and processing orders
+- ✅ **Order History**: Viewing past orders and details
 - ✅ **Admin Dashboard**: Managing products, categories, and orders
+- ✅ **Payment Process**: Handling payment gateway integration with proper cancellation flows
+- ✅ **Session Management**: Secure cookie handling with proper protection
+- ✅ **UI Simplification**: Streamlined ordering process with direct "Order" buttons
+- ✅ **Price Formatting**: Consistent VND currency display across the application
 
 ### Technical Implementation
 - ✅ **Database Integration**: Entity Framework Core with SQL Server
@@ -20,80 +25,116 @@ The Reina.MacCredy e-commerce application is in active development with core fun
 - ✅ **MVC Architecture**: Clean separation of concerns
 - ✅ **Responsive UI**: Mobile-friendly interface with Bootstrap
 - ✅ **Source Control**: Proper .gitignore configuration for .NET Core projects
+- ✅ **Error Handling**: Comprehensive error handling for payment flows
+- ✅ **Session Security**: Data protection and secure cookie configuration
+- ✅ **Route Configuration**: Proper attribute routing for payment callbacks
+- ✅ **View Completeness**: All required views implemented for controller actions
+- ✅ **Price Formatting**: Standardized extension method for consistent currency display
 
 ### UI/UX Improvements
 - ✅ **Modern Home Page**: Enhanced design with improved user experience
-- ✅ **Profile Settings Page**: Modernized UI with improved avatar management and service cards
-- ✅ **Quick Order System**: Streamlined ordering process for popular items
-- ✅ **Interactive Product Cards**: Hover effects and quick action buttons
-- ✅ **User Feedback**: Toast notifications for cart actions
-- ✅ **Quantity Controls**: Intuitive interface for adjusting quantities
-- ✅ **Button Styling**: Enhanced button hover effects with proper text visibility
-- 🔄 **Other Pages**: Applying consistent design across the site
+- ✅ **Profile Settings Page**: Modernized UI with improved avatar management
+- ✅ **Quick Order System**: Streamlined ordering process
+- ✅ **Interactive Product Cards**: Hover effects and quick actions
+- ✅ **User Feedback**: Toast notifications for actions
+- ✅ **Quantity Controls**: Intuitive interface
+- ✅ **Button Styling**: Enhanced hover effects
+- ✅ **Payment Error Handling**: Proper redirection and messaging
+- ✅ **Session Handling**: Secure cookie management
+- ✅ **Button Terminology**: Consistent "Order" buttons across the application
+- ✅ **Simplified Navigation**: Removed redundant order button from navigation bar
+- ✅ **Order History View**: Implemented missing view for order history
+- ✅ **Price Display**: Standardized VND currency format
+- 🔄 **Checkout Form**: Improved validation
+- 🔄 **Other Pages**: Consistent design application
 
 ## What's Left to Build
 
 ### Feature Enhancements
-- 🔄 **Advanced Product Search**: Implementing more sophisticated search and filtering
-- 🔄 **Product Recommendations**: Algorithm for suggesting related products
-- ❌ **Customer Reviews System**: Enhancing the product review functionality
-- ❌ **Wishlist Feature**: Allowing users to save items for later
-- ❌ **Discount/Coupon System**: Implementing promotional pricing
+- 🔄 **Advanced Search**: More sophisticated search and filtering
+- 🔄 **Product Recommendations**: Related products algorithm
+- 🔄 **Payment Error Handling**: Additional error scenarios
+- 🔄 **Session Security**: Additional security measures
+- ❌ **Customer Reviews**: Enhanced review functionality
+- ❌ **Wishlist Feature**: Save items for later
+- ❌ **Discount System**: Promotional pricing
+- ❌ **Multi-currency Support**: International pricing options
 
 ### Technical Improvements
-- 🔄 **Error Handling**: Implementing comprehensive null checks and error handling
-- 🔄 **Performance Optimization**: Improving page load times and database queries
-- 🔄 **Advanced Analytics**: Enhancing reporting for administrators
-- 🔄 **CSS Consistency**: Ensuring proper styling across different browsers and devices
-- ❌ **API Development**: Creating RESTful APIs for potential mobile integration
-- ❌ **Automated Testing**: Expanding unit and integration test coverage
-- ❌ **Localization**: Supporting multiple languages and regions
+- 🔄 **Form Validation**: Comprehensive validation
+- 🔄 **Error Handling**: Comprehensive checks
+- 🔄 **Performance**: Page load and query optimization
+- 🔄 **Analytics**: Enhanced reporting
+- 🔄 **CSS Consistency**: Cross-browser styling
+- 🔄 **UI Terminology**: Ensure consistent button/action naming
+- 🔄 **View Verification**: Check for missing views in all controller actions
+- ❌ **API Development**: RESTful APIs
+- ❌ **Automated Testing**: Test coverage
+- ❌ **Localization**: Multiple languages
 
 ## Known Issues
-1. ✅ **UserController Errors**: Missing View context issues fixed by proper controller inheritance
-2. ✅ **Home Page CSS**: Fixed syntax errors with @keyframes and type comparison issues
-3. ✅ **Button Hover States**: Fixed button text visibility issues when hovering
-4. 🔄 **Null Reference Exceptions**: Some views may still have inadequate null checking
-5. 🔄 **Database Migrations**: Need careful management to prevent data loss
-6. 🔄 **Product Search Performance**: Could be optimized for larger catalogs
-7. 🔄 **Mobile Responsiveness**: Some admin pages need UI improvements for smaller screens
+1. ✅ **UserController**: Fixed missing View context
+2. ✅ **Home Page CSS**: Fixed syntax errors
+3. ✅ **Button States**: Fixed hover visibility
+4. ✅ **Email Validation**: Fixed checkout form
+5. ✅ **Payment Cancellation**: Fixed gateway handling
+6. ✅ **Session Security**: Implemented proper protection
+7. ✅ **Payment Routes**: Fixed callback handling
+8. ✅ **Button Consistency**: Updated "Add to Cart" to "Order"
+9. ✅ **Order History View**: Created missing History.cshtml view
+10. ✅ **Price Formatting**: Standardized VND currency display
+11. 🔄 **Null References**: Some views need checks
+12. 🔄 **Database Migrations**: Need management
+13. 🔄 **Search Performance**: Needs optimization
+14. 🔄 **Mobile UI**: Admin page improvements
 
 ## Recent Progress
-- ✅ Fixed button hover styles to ensure text remains visible on all backgrounds
-- ✅ Improved button animations with better z-index handling and transitions
-- ✅ Enhanced button shadow effects for more modern visual feedback
-- ✅ Fixed the Account/Profile route to use proper controller-based approach
-- ✅ Added a comprehensive .gitignore file with standard .NET Core exclusions and .cursor directory
-- ✅ Modernized the profile settings page UI with improved visual design and user experience
-- ✅ Added enhanced avatar management with visual feedback
-- ✅ Implemented responsive service cards with hover effects on the profile page
-- ✅ Added fade-in animations for notifications and alerts
-- ✅ Improved form layout and organization in the profile settings page
-- ✅ Fixed UserController errors by ensuring proper inheritance from Controller class
-- ✅ Resolved CSS syntax errors with @keyframes in the home page
-- ✅ Fixed type comparison issues (string vs int) in the home page
-- ✅ Implemented modern UI design for the home page with improved visual aesthetics
-- ✅ Added dedicated "Quick Order" section for streamlined purchasing
-- ✅ Enhanced product cards with hover effects and quick action buttons
-- ✅ Implemented toast notifications for cart actions
-- ✅ Added animation effects for improved user engagement
-- ✅ Added quantity controls in multiple locations for easier ordering
-- ✅ Fixed null reference exceptions in _Layout.cshtml with proper null checks
-- ✅ Implemented safer cart count display with error handling
-- ✅ Added null-conditional operators for ViewContext.RouteData.Values access
-- ✅ Added new product columns to enhance product details
-- ✅ Implemented coffee product catalog
-- ✅ Updated orders table structure for better order management
+- ✅ Standardized price formatting to display in VND format
+- ✅ Fixed duplicate variables bug in Menu.cshtml
+- ✅ Created missing Order History view (History.cshtml)
+- ✅ Removed order button from navigation bar
+- ✅ Changed "Add to Cart" to "Order" across product views
+- ✅ Updated toast notifications to match new terminology
+- ✅ Added data protection with application name and lifetime
+- ✅ Configured secure session cookies with proper settings
+- ✅ Added explicit route attributes for payment callbacks
+- ✅ Added MapControllers() for proper routing
+- ✅ Fixed payment cancellation handling
+- ✅ Enhanced payment verification messages
+- ✅ Fixed email validation in checkout
+- ✅ Cleaned up code formatting
+- ✅ Fixed UI styling issues
+- ✅ Added .gitignore configuration
+- ✅ Modernized profile page UI
+- ✅ Enhanced avatar management
+- ✅ Added service cards
+- ✅ Improved form layouts
+- ✅ Added animations
+- ✅ Fixed controller issues
+- ✅ Resolved CSS problems
+- ✅ Fixed type comparisons
+- ✅ Enhanced home page
+- ✅ Added quick ordering
+- ✅ Improved product cards
+- ✅ Added notifications
+- ✅ Fixed null checks
+- ✅ Enhanced error handling
+- ✅ Updated database schema
 
 ## Next Priorities
-1. 🔄 Modernize shopping cart and checkout process UI
-2. 🔄 Complete the product catalog enhancements
-3. 🔄 Implement the advanced search functionality
-4. 🔄 Apply consistent UI modernization to other sections of the application
-5. 🔄 Optimize database performance for product queries
-6. 🔄 Enhance the Docker deployment process
-7. 🔄 Update README file with latest features and fixes
-8. 🔄 Ensure cross-browser compatibility for CSS effects and animations
+1. 🔄 Verify all controllers have corresponding views
+2. 🔄 Check for remaining "Add to Cart" references
+3. 🔄 Enhance session security further
+4. 🔄 Expand payment error handling
+5. 🔄 Modernize remaining UI
+6. 🔄 Implement validation strategy
+7. 🔄 Complete catalog enhancements
+8. 🔄 Implement advanced search
+9. 🔄 Optimize database queries
+10. 🔄 Enhance Docker deployment
+11. 🔄 Update documentation
+12. 🔄 Ensure cross-browser support
+13. 🔄 Verify consistent price formatting in all views
 
 ## Legend
 - ✅ Complete

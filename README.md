@@ -1,6 +1,6 @@
 # E-Commerce Web Application - Reina.MacCredy Shop
 
-This repository contains an ASP.NET Core e-commerce web application built using modern web development practices. The application provides a comprehensive online shopping experience with user management, product catalog, shopping cart functionality, and an admin dashboard.
+This repository contains an ASP.NET Core e-commerce web application built using modern web development practices. The application provides a comprehensive online shopping experience with user management, product catalog, shopping cart functionality, secure payment processing, and an admin dashboard.
 
 ## 📋 Table of Contents
 
@@ -12,6 +12,8 @@ This repository contains an ASP.NET Core e-commerce web application built using 
 - [How to Use This Project](#how-to-use-this-project)
 - [Screenshots](#screenshots)
 - [Setup and Installation](#setup-and-installation)
+- [Payment Gateway Integration](#payment-gateway-integration)
+- [Security Features](#security-features)
 - [Recent Updates](#recent-updates)
 - [Known Issues](#known-issues)
 - [Contributing](#contributing)
@@ -25,7 +27,9 @@ This e-commerce application is a fully functional online shop with both customer
 
 - User-friendly product browsing and shopping experience
 - Secure user authentication and account management
-- Shopping cart and checkout process
+- Shopping cart and checkout process with multiple payment options
+- Integrated payment gateways (MoMo, VNPay) with proper error handling
+- Secure session management and data protection
 - Admin dashboard for managing products, categories, and orders
 - Order management and tracking
 - Containerized deployment with Docker and Docker Compose
@@ -61,6 +65,7 @@ This e-commerce application is a fully functional online shop with both customer
 - **ASP.NET Core 8.0**: Modern web framework
 - **Entity Framework Core 9.0.3**: ORM for database operations
 - **ASP.NET Core Identity**: User authentication and authorization
+- **ASP.NET Core Data Protection**: Secure session management
 - **C# 12**: Primary programming language
 - **HTML/CSS/JavaScript**: Frontend development
 - **CSS Custom Properties**: Variables for consistent theming
@@ -73,6 +78,8 @@ This e-commerce application is a fully functional online shop with both customer
 - **Dependency Injection**: For loosely coupled design
 - **Docker & Docker Compose**: Containerization and orchestration
 - **Health Checks**: Application monitoring
+- **MoMo Payment Gateway**: Payment processing
+- **VNPay Payment Gateway**: Payment processing
 
 ## 📂 Project Structure
 
@@ -235,6 +242,8 @@ The development of this project followed these key steps:
 - SQL Server (or SQL Server Express) (for local development)
 - Visual Studio 2022 or Visual Studio Code (for local development)
 - Docker and Docker Compose (for containerized deployment)
+- SSL Certificate (for secure payment processing)
+- Payment Gateway API Keys (for MoMo and VNPay integration)
 
 ### Installation Steps
 
@@ -246,21 +255,58 @@ The development of this project followed these key steps:
    cd Reina.MacCredy
    ```
 
-2. **Update the connection string**
+2. **Configure environment variables**
    
-   In appsettings.json, update the connection string to point to your SQL Server instance:
+   Create a `.env` file in the root directory:
+   ```
+   ASPNETCORE_ENVIRONMENT=Development
+   ASPNETCORE_URLS=https://localhost:5001;http://localhost:5000
+   
+   # Database Configuration
+   ConnectionStrings__DefaultConnection=Server=YOUR_SERVER;Database=ReinaMacCredyShop;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True;
+   
+   # Session Configuration
+   DataProtection__ApplicationName=Reina.MacCredy.Shop
+   DataProtection__KeyLifetime=30.00:00:00
+   
+   # Payment Gateway Configuration
+   MoMo__PartnerCode=your_partner_code
+   MoMo__AccessKey=your_access_key
+   MoMo__SecretKey=your_secret_key
+   MoMo__ApiEndpoint=https://test-payment.momo.vn
+   
+   VNPay__TmnCode=your_tmn_code
+   VNPay__HashSecret=your_hash_secret
+   VNPay__PaymentUrl=https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+   ```
+
+3. **Update the connection string**
+   
+   In appsettings.json, verify the connection string matches your environment:
    ```json
-   "ConnectionStrings": {
-     "DefaultConnection": "Server=YOUR_SERVER;Database=ReinaMacCredyShop;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True;"
+   {
+     "ConnectionStrings": {
+       "DefaultConnection": "Server=YOUR_SERVER;Database=ReinaMacCredyShop;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True;"
+     },
+     "DataProtection": {
+       "ApplicationName": "Reina.MacCredy.Shop",
+       "KeyLifetime": "30.00:00:00"
+     }
    }
    ```
 
-3. **Apply database migrations**
+4. **Apply database migrations**
    ```
    dotnet ef database update
    ```
 
-4. **Run the application**
+5. **Install SSL certificate for development**
+   ```
+   dotnet dev-certs https --clean
+   dotnet dev-certs https --trust
+   ```
+
+6. **Run the application**
    ```
    dotnet run
    ```
@@ -273,20 +319,28 @@ The development of this project followed these key steps:
    cd Reina.MacCredy
    ```
 
-2. **Build and start the Docker containers**
+2. **Configure environment variables**
+   
+   Create a `.env` file as described above, but update the connection string for Docker:
+   ```
+   ConnectionStrings__DefaultConnection=Server=sqlserver;Database=ReinaMacCredyShop;User Id=sa;Password=NewPassword123!;TrustServerCertificate=True;
+   ```
+
+3. **Build and start the Docker containers**
    ```
    docker-compose build
    docker-compose up -d
    ```
 
-3. **Access the application**
-   - Web Application: http://localhost:8080
+4. **Access the application**
+   - Web Application: https://localhost:8443 (HTTPS)
+   - Web Application: http://localhost:8080 (HTTP)
    - SQL Server: localhost:1499
      - Username: sa
      - Password: NewPassword123!
-     - Database: Webbanhang
+     - Database: ReinaMacCredyShop
 
-4. **Docker management commands**
+5. **Docker management commands**
    ```
    # View container status
    docker-compose ps
@@ -306,54 +360,105 @@ The development of this project followed these key steps:
    docker-compose up -d
    ```
 
-5. **Container Health Checks**
-   - The application includes health check endpoints at `/health`
-   - Both the web application and SQL Server containers have configured health checks that monitor their status
+### Payment Gateway Setup
 
-### Docker Configuration
+1. **MoMo Configuration**
+   - Register for a MoMo Merchant account
+   - Obtain your Partner Code, Access Key, and Secret Key
+   - Configure the callback URL in your MoMo merchant portal
+   - Update the `.env` file with your credentials
 
-The application is containerized using Docker with the following components:
+2. **VNPay Configuration**
+   - Register for a VNPay Merchant account
+   - Obtain your TMN Code and Hash Secret
+   - Configure the callback URL in your VNPay merchant portal
+   - Update the `.env` file with your credentials
 
-1. **Web Application Container**
-   - Based on .NET 8.0 runtime
-   - Exposes ports 80 (HTTP) and 443 (HTTPS)
-   - Maps to host ports 8080 and 8443 respectively
-   - Includes health monitoring
+### Security Configuration
 
-2. **SQL Server Container**
-   - Uses SQL Server 2022 Express
-   - Persistent data storage through Docker volumes
-   - Exposes port 1433
-   - Maps to host port 1499
+1. **Session Security**
+   - Configure Data Protection keys persistence:
+   ```csharp
+   services.AddDataProtection()
+       .SetApplicationName("Reina.MacCredy.Shop")
+       .SetDefaultKeyLifetime(TimeSpan.FromDays(30));
+   ```
 
-The complete configuration can be found in the `docker-compose.yml` and `Dockerfile` in the repository root.
+2. **Cookie Security**
+   - Configure secure session cookies:
+   ```csharp
+   services.AddSession(options =>
+   {
+       options.Cookie.Name = ".Reina.MacCredy.Session";
+       options.Cookie.HttpOnly = true;
+       options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+       options.Cookie.SameSite = SameSiteMode.Strict;
+   });
+   ```
 
 ## 🆕 Recent Updates
 
-### Fixes and Improvements
-- Fixed UserController inheritance issues by properly inheriting from Controller class
-- Resolved CSS syntax errors with @keyframes in the home page
-- Fixed type comparison issues in the home page (string vs int comparison)
-- Implemented enhanced product cards with hover effects and quick action buttons
-- Added direct "Add to Cart" functionality from multiple locations
-- Improved quantity selection UI for better user experience
-- Added visual feedback with toast notifications for cart actions
-- Added animation effects to improve user engagement
-- Fixed null reference exceptions in _Layout.cshtml by adding proper null checks
-- Added null-conditional operators for ViewContext.RouteData.Values to prevent crashes
-- Implemented better error handling for cart count display
+### Security Enhancements
+- Added data protection with application name and lifetime configuration
+- Implemented secure session cookies with proper protection
+- Added explicit route attributes for payment callbacks
+- Enhanced payment gateway integration with proper error handling
+- Improved payment verification and cancellation flows
 
-### New Features
-- Added a dedicated "Quick Order" section for faster purchasing
-- Added new coffee-themed product catalog
-- Enhanced product cards with on-hover quick actions
-- Added toast notifications for cart actions
+### Payment Processing
+- Integrated MoMo payment gateway with proper cancellation handling
+- Added VNPay payment gateway support
+- Implemented comprehensive payment error handling
+- Added proper route configuration for payment callbacks
+
+### UI/UX Improvements
+- Enhanced profile page design
+- Improved avatar management
+- Added service cards
+- Enhanced form layouts with better validation
+- Added interactive animations and feedback
+- Improved product cards with quick actions
+
+### Price Formatting
+- Standardized all price displays to VND format throughout the application
+
+### Navigation
+- Simplified by removing redundant order button from navigation bar
+
+### Order History
+- Added missing view to fix order history display issues
+
+### Payment Flow
+- Enhanced payment gateway integration with improved cancellation handling and error messages
+
+### Session Security
+- Implemented data protection with explicit application name and key lifetime settings
+
+### Cookie Configuration
+- Updated session cookies with secure settings and proper timeout values
+
+### Routing
+- Added explicit route attributes for payment callbacks and MapControllers() for proper registration
+
+### Validation
+- Improved email validation in checkout form
+
+### Code Quality
+- Cleaned up trailing whitespace and fixed syntax errors
+
+### UI Styling
+- Enhanced button hover states and animations
+
+### Source Control
+- Added comprehensive .gitignore configuration for .NET Core projects
 
 ## ⚠️ Known Issues
-- Some views may still have inadequate null checking
-- Database migrations need careful management to prevent data loss
-- Product search performance could be optimized for larger catalogs
-- Some admin pages need UI improvements for smaller screens
+- Some views require additional null checking
+- Database migrations need careful management
+- Search performance optimization needed
+- Mobile UI improvements for admin pages
+- Payment gateway error handling expansion needed
+- Additional session security measures planned
 
 ## 🤝 Contributing
 
