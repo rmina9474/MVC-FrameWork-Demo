@@ -1,6 +1,7 @@
 ﻿@model Reina.MacCredy.Models.Product
 @using Microsoft.AspNetCore.Identity
 @using System.Security.Claims
+@using Reina.MacCredy.Extensions
 @inject SignInManager<ApplicationUser> SignInManager
 
 @{
@@ -9,139 +10,156 @@
     var optionTypes = ViewBag.OptionTypes as List<string> ?? new List<string>();
 }
 
-<div class="container mt-4">
-    <nav aria-label="breadcrumb">
+<div class="container mt-4 mb-5">
+    <!-- Breadcrumb with coffee styling -->
+    <nav aria-label="breadcrumb" class="mb-4">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
-            <li class="breadcrumb-item"><a asp-controller="Product" asp-action="Browse">Menu</a></li>
-            <li class="breadcrumb-item active" aria-current="page">@Model.Name</li>
+            <li class="breadcrumb-item"><a href="/" class="text-coffee-medium"><i class="bi bi-house-door me-1"></i>Home</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Product" asp-action="Browse" class="text-coffee-medium"><i class="bi bi-cup-hot me-1"></i>Menu</a></li>
+            <li class="breadcrumb-item active text-coffee-dark" aria-current="page">@Model.Name</li>
         </ol>
     </nav>
 
-    <div class="row">
-        <div class="col-md-5">
-            @if (!string.IsNullOrEmpty(Model.ImageUrl))
-            {
-                <img src="@Model.ImageUrl" alt="@Model.Name" class="img-fluid rounded cafe-product-image">
-            }
-            else
-            {
-                <img src="/images/default-coffee.jpg" alt="Default Image" class="img-fluid rounded cafe-product-image">
-            }
-        </div>
-        
-        <div class="col-md-7">
-            <h2 class="mb-2">@Model.Name</h2>
-            
-            @if (Model.Category != null)
-            {
-                <span class="badge bg-secondary mb-2">@Model.Category.Name</span>
-            }
-            
-            <div class="mb-3">
-                @if (Model.Reviews != null && Model.Reviews.Any())
+    <div class="product-detail-card bg-white rounded-4 shadow-sm overflow-hidden">
+        <div class="row g-0">
+            <div class="col-lg-5 product-img-col">
+                @if (!string.IsNullOrEmpty(Model.ImageUrl))
                 {
-                    <div class="d-flex align-items-center mb-2">
-                        @for (int i = 1; i <= 5; i++)
-                        {
-                            if (i <= Math.Round(Model.AverageRating))
-                            {
-                                <i class="bi bi-star-fill text-warning"></i>
-                            }
-                            else
-                            {
-                                <i class="bi bi-star text-warning"></i>
-                            }
-                        }
-                        <span class="ms-2">(@Model.Reviews.Count reviews)</span>
+                    <img src="@Model.ImageUrl" alt="@Model.Name" class="product-detail-img">
+                }
+                else
+                {
+                    <img src="/images/default-coffee.jpg" alt="Default Image" class="product-detail-img">
+                }
+                @if (Model.Category != null)
+                {
+                    <div class="product-category-badge">
+                        <span class="badge bg-coffee-light">@Model.Category.Name</span>
                     </div>
                 }
             </div>
-            
-            <div class="product-description mb-4">
-                <p>@Model.Description</p>
-                
-                @if (!string.IsNullOrEmpty(Model.PrepTime))
-                {
-                    <p><i class="bi bi-clock me-2"></i> Prep time: @Model.PrepTime</p>
-                }
-            </div>
-            
-            <div class="pricing mb-4">
-                <h4 class="product-price">$@Model.Price.ToString("0.00")</h4>
-                <span id="additional-price-display" class="text-muted" style="display:none;">
-                    + $<span id="additional-price">0.00</span> for selected options
-                </span>
-            </div>
-            
-            <form asp-controller="ShoppingCart" asp-action="AddToCart" method="post" class="mb-4">
-                <input type="hidden" name="productId" value="@Model.Id" />
-                <input type="hidden" name="totalPrice" id="totalPriceInput" value="@Model.Price" />
-                <input type="hidden" name="selectedOptions" id="selectedOptionsInput" value="" />
-                
-                @if (Model.CanCustomize && options.Any())
-                {
-                    <div class="cafe-customization mb-4">
-                        <h5>Customize Your Order</h5>
-                        
-                        @foreach (var optionType in optionTypes)
+
+            <div class="col-lg-7">
+                <div class="product-detail-content p-4 p-lg-5">
+                    <h1 class="product-detail-title text-coffee-dark mb-3">@Model.Name</h1>
+
+                    <div class="mb-4">
+                        @if (Model.Reviews != null && Model.Reviews.Any())
                         {
-                            <div class="option-group mb-3">
-                                <div class="option-group-title mb-2">@optionType</div>
-                                <div class="btn-group" role="group">
-                                    @foreach (var option in options.Where(o => o.OptionType == optionType))
+                            <div class="d-flex align-items-center mb-2">
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    if (i <= Math.Round(Model.AverageRating))
                                     {
-                                        <input type="radio" 
-                                                class="btn-check product-option" 
-                                                name="option-@optionType" 
-                                                id="option-@option.Id" 
-                                                value="@option.Id"
-                                                data-price="@option.AdditionalPrice"
-                                                data-option-type="@option.OptionType"
-                                                @(option.IsDefault ? "checked" : "")>
-                                        <label class="btn btn-outline-primary" for="option-@option.Id">
-                                            @option.Name
-                                            @if (option.AdditionalPrice > 0)
-                                            {
-                                                <span class="ms-1">(+$@option.AdditionalPrice.ToString("0.00"))</span>
-                                            }
-                                        </label>
+                                        <i class="bi bi-star-fill text-warning"></i>
                                     }
-                                </div>
+                                    else
+                                    {
+                                        <i class="bi bi-star text-warning"></i>
+                                    }
+                                }
+                                <span class="ms-2 text-coffee-medium">(@Model.Reviews.Count reviews)</span>
                             </div>
                         }
                     </div>
-                }
-                
-                <div class="quantity-section mb-3">
-                    <label for="quantity" class="form-label">Quantity</label>
-                    <div class="input-group quantity-control" style="width: 130px;">
-                        <button type="button" class="btn btn-outline-secondary" id="decrease-quantity">-</button>
-                        <input type="number" id="quantity" name="quantity" class="form-control text-center" value="1" min="1" max="10">
-                        <button type="button" class="btn btn-outline-secondary" id="increase-quantity">+</button>
+
+                    <div class="product-price-box bg-coffee-cream p-3 mb-4 rounded-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h2 class="product-detail-price mb-0 text-coffee-dark">@Model.Price.FormatPrice()</h2>
+                            @if (!string.IsNullOrEmpty(Model.PrepTime))
+                            {
+                                <div class="prep-time-badge">
+                                    <i class="bi bi-clock me-1"></i> @Model.PrepTime
+                                </div>
+                            }
+                        </div>
+                        <div id="additional-price-display" class="text-coffee-medium small mt-2" style="display:none;">
+                            + <span id="additional-price">0</span> VND for selected options
+                        </div>
                     </div>
+
+                    <div class="product-description mb-4">
+                        <h5 class="text-coffee-dark mb-3">Description</h5>
+                        <p class="mb-3">@Model.Description</p>
+                    </div>
+
+                    <form asp-controller="ShoppingCart" asp-action="AddToCart" method="post" class="mb-4">
+                        <input type="hidden" name="productId" value="@Model.Id" />
+                        <input type="hidden" name="totalPrice" id="totalPriceInput" value="@Model.Price" />
+                        <input type="hidden" name="selectedOptions" id="selectedOptionsInput" value="" />
+
+                        @if (Model.CanCustomize && options.Any())
+                        {
+                            <div class="product-options mb-4">
+                                <h5 class="text-coffee-dark mb-3">Customize Your Order</h5>
+
+                                @foreach (var optionType in optionTypes)
+                                {
+                                    <div class="option-group mb-3">
+                                        <div class="option-group-title mb-2 fw-medium">@optionType</div>
+                                        <div class="option-buttons">
+                                            @foreach (var option in options.Where(o => o.OptionType == optionType))
+                                            {
+                                                <input type="radio"
+                                                       class="btn-check product-option"
+                                                       name="option-@optionType"
+                                                       id="option-@option.Id"
+                                                       value="@option.Id"
+                                                       data-price="@option.AdditionalPrice"
+                                                       data-option-type="@option.OptionType"
+                                                       @(option.IsDefault ? "checked" : "")>
+                                                <label class="btn btn-outline-coffee option-btn mb-2" for="option-@option.Id">
+                                                    @option.Name
+                                                    @if (option.AdditionalPrice > 0)
+                                                    {
+                                                        <span class="ms-1">(+@option.AdditionalPrice.ToString("#,##0") VND)</span>
+                                                    }
+                                                </label>
+                                            }
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+
+                        <div class="d-flex flex-column flex-md-row align-items-stretch gap-3 mt-4">
+                            <div class="quantity-section">
+                                <label for="quantity" class="form-label text-coffee-dark mb-2">Quantity</label>
+                                <div class="quantity-control d-flex">
+                                    <button type="button" class="btn btn-outline-coffee" id="decrease-quantity">
+                                        <i class="bi bi-dash"></i>
+                                    </button>
+                                    <input type="number" id="quantity" name="quantity" class="form-control text-center" value="1" min="1" max="10">
+                                    <button type="button" class="btn btn-outline-coffee" id="increase-quantity">
+                                        <i class="bi bi-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="order-btn-wrapper flex-grow-1 d-flex align-items-end">
+                                <button type="submit" class="btn btn-coffee btn-lg w-100">
+                                    <i class="bi bi-cart-plus me-2"></i> Add to Order
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                
-                <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-primary">Add to Cart</button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
-    
+
     <!-- Reviews Section -->
     @if (Model.Reviews != null && Model.Reviews.Any())
     {
-        <div class="reviews-section mt-5">
-            <h3>Customer Reviews</h3>
-            <hr />
-            
+        <div class="reviews-section mt-5 bg-white rounded-4 shadow-sm p-4">
+            <h3 class="text-coffee-dark mb-4">Customer Reviews</h3>
+
             @foreach (var review in Model.Reviews.OrderByDescending(r => r.CreatedAt))
             {
-                <div class="review-item mb-4">
+                <div class="review-item mb-4 pb-4 @(review != Model.Reviews.OrderByDescending(r => r.CreatedAt).Last() ? "border-bottom" : "")">
                     <div class="d-flex justify-content-between">
                         <div>
-                            <div class="review-rating mb-1">
+                            <div class="review-rating mb-2">
                                 @for (int i = 1; i <= 5; i++)
                                 {
                                     if (i <= review.Rating)
@@ -154,26 +172,26 @@
                                     }
                                 }
                             </div>
-                            <h5 class="review-author">@(review.User?.UserName ?? "Anonymous")</h5>
+                            <h5 class="review-author mb-1">@(review.User?.UserName ?? "Anonymous")</h5>
                         </div>
                         <small class="text-muted">@review.CreatedAt.ToString("MMM dd, yyyy")</small>
                     </div>
-                    <p class="review-text">@review.Comment</p>
+                    <p class="review-text mt-2 mb-0">@review.Comment</p>
                 </div>
             }
         </div>
     }
-    
+
     <!-- Add Review Section -->
     @if (User.Identity?.IsAuthenticated == true && ViewBag.HasOrdered == true && !Model.Reviews?.Any(r => r.UserId == User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value) == true)
     {
-        <div class="add-review-section mt-4">
-            <h4>Write a Review</h4>
+        <div class="add-review-section mt-4 bg-white rounded-4 shadow-sm p-4">
+            <h4 class="text-coffee-dark mb-3">Write a Review</h4>
             <form asp-controller="Product" asp-action="AddReview" method="post">
                 <input type="hidden" name="productId" value="@Model.Id" />
-                
+
                 <div class="mb-3">
-                    <label for="rating" class="form-label">Rating</label>
+                    <label for="rating" class="form-label text-coffee-medium">Rating</label>
                     <div class="rating-stars">
                         @for (int i = 1; i <= 5; i++)
                         {
@@ -182,17 +200,189 @@
                         }
                     </div>
                 </div>
-                
+
                 <div class="mb-3">
-                    <label for="comment" class="form-label">Your Review</label>
-                    <textarea id="comment" name="comment" class="form-control" rows="3" required></textarea>
+                    <label for="comment" class="form-label text-coffee-medium">Your Review</label>
+                    <textarea id="comment" name="comment" class="form-control border-coffee" rows="3" required></textarea>
                 </div>
-                
-                <button type="submit" class="btn btn-primary">Submit Review</button>
+
+                <button type="submit" class="btn btn-coffee">
+                    <i class="bi bi-check-circle me-2"></i> Submit Review
+                </button>
             </form>
         </div>
     }
 </div>
+
+@section Styles {
+    <style>
+        /* Product Detail Page Styles */
+        .text-coffee-dark {
+            color: var(--coffee-dark);
+        }
+
+        .text-coffee-medium {
+            color: var(--coffee-medium);
+        }
+
+        .bg-coffee-light {
+            background-color: var(--coffee-light);
+            color: white;
+        }
+
+        .bg-coffee-cream {
+            background-color: var(--coffee-cream);
+        }
+
+        .btn-coffee {
+            background-color: var(--coffee-medium);
+            border-color: var(--coffee-medium);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-coffee:hover, .btn-coffee:focus {
+            background-color: var(--coffee-dark);
+            border-color: var(--coffee-dark);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline-coffee {
+            border-color: var(--coffee-medium);
+            color: var(--coffee-medium);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-coffee:hover, .btn-outline-coffee:focus {
+            background-color: var(--coffee-medium);
+            color: white;
+        }
+
+        .border-coffee {
+            border-color: var(--coffee-medium);
+        }
+
+        .product-detail-card {
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .product-img-col {
+            position: relative;
+        }
+
+        .product-detail-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+        }
+
+        .product-category-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .product-detail-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .product-detail-price {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        .prep-time-badge {
+            background-color: white;
+            color: var(--coffee-medium);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .option-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .option-btn {
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+        }
+
+        .option-btn:checked {
+            background-color: var(--coffee-medium);
+            color: white;
+        }
+
+        .quantity-control {
+            width: 150px;
+        }
+
+        .quantity-control .form-control {
+            border-left: none;
+            border-right: none;
+            border-color: var(--coffee-medium);
+        }
+
+        .quantity-control .form-control:focus {
+            box-shadow: none;
+            border-color: var(--coffee-medium);
+        }
+
+        .quantity-control .btn {
+            border-color: var(--coffee-medium);
+            z-index: 0;
+        }
+
+        /* Review Styles */
+        .review-author {
+            font-weight: 600;
+            color: var(--coffee-dark);
+        }
+
+        .review-text {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .border-bottom {
+            border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+        }
+
+        /* Rating Stars */
+        .rating-stars {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .star-label {
+            cursor: pointer;
+            color: #ccc;
+            transition: all 0.2s ease;
+        }
+
+        .star-label:hover i,
+        .star-label:hover ~ .star-label i {
+            color: var(--warning);
+        }
+
+        input[name="rating"]:checked ~ .star-label i {
+            color: var(--warning);
+        }
+
+        @@media (max-width: 991.98px) {
+            .product-detail-img {
+                aspect-ratio: 4/3;
+            }
+        }
+    </style>
+}
 
 @section Scripts {
     <script>
@@ -204,14 +394,14 @@
                     $('#quantity').val(quantity + 1);
                 }
             });
-            
+
             $('#decrease-quantity').click(function() {
                 var quantity = parseInt($('#quantity').val());
                 if (quantity > 1) {
                     $('#quantity').val(quantity - 1);
                 }
             });
-            
+
             // Rating stars interaction
             $('.star-label').hover(
                 function() {
@@ -232,7 +422,7 @@
                     }
                 }
             );
-            
+
             $('.star-label').click(function() {
                 var index = $(this).prev('input').val();
                 for (var i = 1; i <= 5; i++) {
@@ -243,41 +433,37 @@
                     }
                 }
             });
-            
+
             // Calculate total price based on selected options
             updateTotalPrice();
-            
+
             $('.product-option').change(function() {
                 updateTotalPrice();
             });
-            
+
             function updateTotalPrice() {
                 var basePrice = @Model.Price;
                 var additionalPrice = 0;
                 var selectedOptions = [];
-                
+
                 $('.product-option:checked').each(function() {
                     var optionPrice = parseFloat($(this).data('price'));
                     var optionId = $(this).val();
                     var optionType = $(this).data('option-type');
-                    
+
                     additionalPrice += optionPrice;
-                    selectedOptions.push({
-                        id: optionId,
-                        type: optionType
-                    });
+                    selectedOptions.push(optionId);
                 });
-                
+
+                $('#totalPriceInput').val(basePrice + additionalPrice);
+                $('#selectedOptionsInput').val(selectedOptions.join(','));
+
                 if (additionalPrice > 0) {
-                    $('#additional-price').text(additionalPrice.toFixed(2));
+                    $('#additional-price').text(additionalPrice.toLocaleString('vi-VN'));
                     $('#additional-price-display').show();
                 } else {
                     $('#additional-price-display').hide();
                 }
-                
-                var totalPrice = basePrice + additionalPrice;
-                $('#totalPriceInput').val(totalPrice.toFixed(2));
-                $('#selectedOptionsInput').val(JSON.stringify(selectedOptions));
             }
         });
     </script>

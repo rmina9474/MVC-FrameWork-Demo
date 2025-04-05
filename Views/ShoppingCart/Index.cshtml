@@ -1,115 +1,141 @@
 ﻿@model ShoppingCart
+@using Reina.MacCredy.Extensions
+@using Reina.MacCredy.Models
 
 @{
     ViewData["Title"] = "Your Order";
 }
 
-<div class="container mt-4">
-    <h2 class="mb-4">Your Order</h2>
+<div class="container py-5">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="mb-1 fw-bold">Your Order</h2>
+            <p class="text-muted">Review your items before checkout</p>
+        </div>
+    </div>
 
     @if (Model.Items.Any())
     {
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Menu Item</th>
-                        <th>Customization</th>
-                        <th class="text-center">Quantity</th>
-                        <th class="text-end">Price</th>
-                        <th class="text-end">Subtotal</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.Items)
-                    {
-                        <tr>
-                            <td class="align-middle">
-                                <div class="d-flex align-items-center">
-                                    <div>@item.Name</div>
-                                </div>
-                            </td>
-                            <td class="align-middle">
-                                @if (!string.IsNullOrEmpty(item.SelectedOptions))
-                                {
-                                    <div>
-                                        @try
+        <div class="card shadow border-0 rounded-4 overflow-hidden mb-4">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-borderless mb-0">
+                        <thead class="bg-light">
+                            <tr>
+                                <th class="ps-4 py-3">Menu Item</th>
+                                <th class="py-3">Customization</th>
+                                <th class="text-center py-3">Quantity</th>
+                                <th class="text-end py-3">Price</th>
+                                <th class="text-end py-3">Subtotal</th>
+                                <th class="pe-4 py-3"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Items)
+                            {
+                                <tr class="border-bottom">
+                                    <td class="align-middle ps-4">
+                                        <div class="d-flex align-items-center">
+                                            <div class="fw-medium">@item.Name</div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle">
+                                        @if (!string.IsNullOrEmpty(item.SelectedOptions))
                                         {
-                                            var options = System.Text.Json.JsonSerializer.Deserialize<List<object>>(item.SelectedOptions);
-                                            var optionsContext = Context.RequestServices.GetRequiredService<ApplicationDbContext>();
-                                            foreach (var optObj in options)
-                                            {
-                                                var obj = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, object>>(optObj.ToString());
-                                                if (obj.TryGetValue("id", out var idValue))
+                                            <div>
+                                                @try
                                                 {
-                                                    int optionId = Convert.ToInt32(idValue.ToString());
-                                                    var option = optionsContext.ProductOptions.FirstOrDefault(o => o.Id == optionId);
-                                                    if (option != null)
+                                                    var options = System.Text.Json.JsonSerializer.Deserialize<List<object>>(item.SelectedOptions);
+                                                    var optionsContext = Context.RequestServices.GetRequiredService<ApplicationDbContext>();
+                                                    foreach (var optObj in options)
                                                     {
-                                                        <div class="small text-muted">@option.OptionType: @option.Name</div>
+                                                        var obj = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, object>>(optObj.ToString());
+                                                        if (obj.TryGetValue("id", out var idValue))
+                                                        {
+                                                            int optionId = Convert.ToInt32(idValue.ToString());
+                                                            var option = optionsContext.ProductOptions.FirstOrDefault(o => o.Id == optionId);
+                                                            if (option != null)
+                                                            {
+                                                                <div class="small text-muted">@option.OptionType: @option.Name</div>
+                                                            }
+                                                        }
                                                     }
                                                 }
-                                            }
+                                                catch
+                                                {
+                                                    <span class="small text-muted">Custom options</span>
+                                                }
+                                            </div>
                                         }
-                                        catch
+                                        else
                                         {
-                                            <span class="small text-muted">Custom options</span>
+                                            <span class="small text-muted">Standard</span>
                                         }
-                                    </div>
-                                }
-                                else
-                                {
-                                    <span class="small text-muted">Standard</span>
-                                }
-                            </td>
-                            <td class="text-center align-middle">
-                                <div class="input-group input-group-sm quantity-control" style="width: 120px;">
-                                    <button type="button" class="btn btn-outline-secondary btn-sm decrease-quantity" data-id="@item.ProductId"
-                                            data-options="@item.SelectedOptions">-</button>
-                                    <input type="number" class="form-control text-center item-quantity" value="@item.Quantity" min="1" max="10"
-                                           data-id="@item.ProductId" data-options="@item.SelectedOptions">
-                                    <button type="button" class="btn btn-outline-secondary btn-sm increase-quantity" data-id="@item.ProductId"
-                                            data-options="@item.SelectedOptions">+</button>
-                                </div>
-                            </td>
-                            <td class="text-end align-middle">$@item.Price.ToString("0.00")</td>
-                            <td class="text-end align-middle">$@((item.Price * item.Quantity).ToString("0.00"))</td>
-                            <td class="text-end align-middle">
-                                <a asp-action="RemoveFromCart" asp-route-productId="@item.ProductId" 
-                                   class="btn btn-sm btn-outline-danger">
-                                    <i class="bi bi-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="4" class="text-end fw-bold">Total:</td>
-                        <td class="text-end fw-bold">$@Model.GetTotal().ToString("0.00")</td>
-                        <td></td>
-                    </tr>
-                </tfoot>
-            </table>
+                                    </td>
+                                    <td class="text-center align-middle">
+                                        <div class="d-inline-flex align-items-center quantity-control">
+                                            <button type="button" class="btn btn-sm decrease-quantity"
+                                                    data-id="@item.ProductId" data-options="@item.SelectedOptions">
+                                                <i class="bi bi-dash"></i>
+                                            </button>
+                                            <input type="number" class="form-control form-control-sm text-center mx-1 item-quantity"
+                                                   value="@item.Quantity" min="1" max="10" style="width: 45px;"
+                                                   data-id="@item.ProductId" data-options="@item.SelectedOptions">
+                                            <button type="button" class="btn btn-sm increase-quantity"
+                                                    data-id="@item.ProductId" data-options="@item.SelectedOptions">
+                                                <i class="bi bi-plus"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                    <td class="text-end align-middle">@(item.Price.ToString("#,##0")) VND</td>
+                                    <td class="text-end align-middle fw-medium">@((item.Price * item.Quantity).ToString("#,##0")) VND</td>
+                                    <td class="text-end align-middle pe-4">
+                                        <button type="button" class="btn btn-sm btn-link text-danger remove-item"
+                                                data-id="@item.ProductId" data-options="@item.SelectedOptions">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer bg-white p-4 border-0">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="text-start">
+                        <span class="fs-5 fw-medium">Total</span>
+                    </div>
+                    <div class="text-end">
+                        <span class="fs-4 fw-bold">@(Model.GetTotal().ToString("#,##0")) VND</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="d-flex justify-content-between mt-4">
-            <a asp-controller="Product" asp-action="Browse" class="btn btn-outline-secondary">
-                <i class="bi bi-arrow-left me-2"></i>Continue Shopping
-            </a>
-            <a asp-action="Checkout" class="btn btn-primary">
+        <div class="d-flex flex-column flex-md-row justify-content-between mt-4 gap-3">
+            <div class="d-flex gap-2">
+                <a asp-controller="Product" asp-action="Browse" class="btn btn-outline-secondary px-4">
+                    <i class="bi bi-arrow-left me-2"></i>Continue Shopping
+                </a>
+                <button type="button" class="btn btn-outline-danger" id="clearCartBtn">
+                    <i class="bi bi-trash me-2"></i>Delete Cart
+                </button>
+            </div>
+            <a asp-action="Checkout" class="btn btn-primary px-4 py-3">
                 Proceed to Checkout<i class="bi bi-arrow-right ms-2"></i>
             </a>
         </div>
     }
     else
     {
-        <div class="alert alert-info">
-            <h4 class="alert-heading">Your order is empty!</h4>
-            <p>Looks like you haven't added any items to your order yet.</p>
-            <hr>
-            <a asp-controller="Product" asp-action="Browse" class="btn btn-primary">Browse Our Menu</a>
+        <div class="card shadow border-0 rounded-4 overflow-hidden">
+            <div class="card-body text-center p-5">
+                <i class="bi bi-cart-x" style="font-size: 4rem; color: #ddd;"></i>
+                <h3 class="mt-4 mb-3">Your order is empty</h3>
+                <p class="text-muted mb-4">Looks like you haven't added any items to your order yet.</p>
+                <a asp-controller="Product" asp-action="Browse" class="btn btn-primary px-4 py-2">Browse Our Menu</a>
+            </div>
         </div>
     }
 </div>
@@ -126,7 +152,7 @@
                     updateQuantity(input);
                 }
             });
-            
+
             // Handle quantity decrease
             $('.decrease-quantity').click(function() {
                 var input = $(this).siblings('.item-quantity');
@@ -136,17 +162,32 @@
                     updateQuantity(input);
                 }
             });
-            
+
             // Handle direct input change
             $('.item-quantity').change(function() {
                 updateQuantity($(this));
             });
-            
+
+            // Handle remove item
+            $('.remove-item').click(function() {
+                var productId = $(this).data('id');
+                var options = $(this).data('options');
+
+                window.location.href = '@Url.Action("RemoveFromCart", "ShoppingCart")?productId=' + productId;
+            });
+
+            // Handle clear cart
+            $('#clearCartBtn').click(function() {
+                if (confirm('Are you sure you want to remove all items from your cart?')) {
+                    window.location.href = '@Url.Action("ClearCart", "ShoppingCart")';
+                }
+            });
+
             function updateQuantity(input) {
                 var productId = input.data('id');
                 var options = input.data('options');
                 var quantity = parseInt(input.val());
-                
+
                 // Validate quantity
                 if (isNaN(quantity) || quantity < 1) {
                     quantity = 1;
@@ -155,13 +196,13 @@
                     quantity = 10;
                     input.val(10);
                 }
-                
+
                 // Send AJAX request to update cart
                 $.ajax({
                     url: '@Url.Action("UpdateQuantity", "ShoppingCart")',
                     type: 'POST',
-                    data: { 
-                        productId: productId, 
+                    data: {
+                        productId: productId,
                         quantity: quantity,
                         selectedOptions: options
                     },

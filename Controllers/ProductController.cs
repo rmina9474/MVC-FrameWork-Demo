@@ -27,42 +27,56 @@ namespace Reina.MacCredy.Controllers
             _context = context;
             _userManager = userManager;
         }
-        
+
         // Hiển thị danh sách sản phẩm
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
+            await Task.Delay(1); // Add await operation to make it truly async
             return RedirectToAction(nameof(Browse));
         }
-        
+
         // Browse products for all users
         [AllowAnonymous]
         public async Task<IActionResult> Browse(string searchQuery, string sortOrder)
         {
-            var products = await _productRepository.GetAllAsync();
+            var products = _context.Products
+                .Include(p => p.Category)
+                .Include(p => p.Reviews)
+                .AsQueryable();
 
-            // Lọc theo từ khóa tìm kiếm (nếu có)
-            if (!string.IsNullOrEmpty(searchQuery))
+            // Apply search filter
+            if (!string.IsNullOrWhiteSpace(searchQuery))
             {
-                products = products.Where(p => p.Name.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)).ToList();
+                searchQuery = searchQuery.ToLower();
+                products = products.Where(p =>
+                    p.Name.ToLower().Contains(searchQuery) ||
+                    (p.Description != null && p.Description.ToLower().Contains(searchQuery)) ||
+                    (p.Category != null && p.Category.Name.ToLower().Contains(searchQuery))
+                );
+
+                ViewBag.SearchQuery = searchQuery;
             }
 
-            // Sắp xếp theo giá
-            ViewBag.CurrentSort = sortOrder;
+            // Apply sorting
             switch (sortOrder)
             {
                 case "asc":
-                    products = products.OrderBy(p => p.Price).ToList(); // Giá tăng dần
+                    products = products.OrderBy(p => p.Price);
+                    ViewBag.CurrentSort = "asc";
                     break;
                 case "desc":
-                    products = products.OrderByDescending(p => p.Price).ToList(); // Giá giảm dần
+                    products = products.OrderByDescending(p => p.Price);
+                    ViewBag.CurrentSort = "desc";
+                    break;
+                default:
+                    products = products.OrderBy(p => p.Name);
                     break;
             }
 
-            ViewBag.SearchQuery = searchQuery;
-            return View(products);
+            return View(await products.ToListAsync());
         }
-        
+
         [Authorize(Roles = "Admin")]
         [HttpGet]
         [ActionName("AdminIndex")]
@@ -113,11 +127,11 @@ namespace Reina.MacCredy.Controllers
             ViewBag.Categories = new SelectList(categories, "Id", "Name");
             return View();
         }
-        
+
         // Xử lý thêm sản phẩm mới
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public async Task<IActionResult> Add(Product product, IFormFile imageUrl, bool hasCustomOptions, List<string> optionNames = null, List<decimal> optionPrices = null, List<string> optionTypes = null)
+        public async Task<IActionResult> Add(Product product, IFormFile imageUrl, bool hasCustomOptions, List<string>? optionNames = null, List<decimal>? optionPrices = null, List<string>? optionTypes = null)
         {
             if (ModelState.IsValid)
             {
@@ -126,14 +140,14 @@ namespace Reina.MacCredy.Controllers
                     // Lưu hình ảnh đại diện tham khảo bài 02 hàm SaveImage
                     product.ImageUrl = await SaveImage(imageUrl);
                 }
-                
+
                 // Set cafe-specific properties
                 product.IsAvailable = true;
                 product.CanCustomize = hasCustomOptions;
-                
+
                 // Save the product first to get an ID
                 await _productRepository.AddAsync(product);
-                
+
                 // Add options if this product has customizations
                 if (hasCustomOptions && optionNames != null && optionPrices != null && optionTypes != null)
                 {
@@ -149,13 +163,13 @@ namespace Reina.MacCredy.Controllers
                                 ProductId = product.Id,
                                 IsDefault = i == 0 // First option is default
                             };
-                            
+
                             _context.ProductOptions.Add(option);
                         }
                     }
                     await _context.SaveChangesAsync();
                 }
-                
+
                 return RedirectToAction(nameof(Index));
             }
             // Nếu ModelState không hợp lệ, hiển thị form với dữ liệu đã nhập
@@ -163,7 +177,7 @@ namespace Reina.MacCredy.Controllers
             ViewBag.Categories = new SelectList(categories, "Id", "Name");
             return View(product);
         }
-       
+
         // Viết thêm hàm SaveImage (tham khảo bài 02)
         private async Task<string> SaveImage(IFormFile image)
         {
@@ -174,7 +188,7 @@ namespace Reina.MacCredy.Controllers
             }
             return "/images/" + image.FileName; // Trả về đường dẫn tương đối
         }
-        
+
         // Allow all users to view product details
         [AllowAnonymous]
         public async Task<IActionResult> Display(int id)
@@ -184,12 +198,12 @@ namespace Reina.MacCredy.Controllers
                 var product = await _context.Products
                     .Include(p => p.Category)
                     .FirstOrDefaultAsync(p => p.Id == id);
-                    
+
                 if (product == null)
                 {
                     return NotFound();
                 }
-                
+
                 // Include reviews if the table exists
                 try
                 {
@@ -197,7 +211,7 @@ namespace Reina.MacCredy.Controllers
                         .Include(p => p.Category)
                         .Include(p => p.Reviews)
                         .FirstOrDefaultAsync(p => p.Id == id);
-                        
+
                     // Load user information for each review separately to avoid nullability issues
                     if (product?.Reviews != null)
                     {
@@ -214,7 +228,7 @@ namespace Reina.MacCredy.Controllers
                     // If there's an error loading reviews, continue with the product without reviews
                     Console.WriteLine($"Error loading reviews: {ex.Message}");
                 }
-                
+
                 // Get product options for cafe items
                 try
                 {
@@ -223,7 +237,7 @@ namespace Reina.MacCredy.Controllers
                         .OrderBy(o => o.OptionType)
                         .ThenBy(o => o.AdditionalPrice)
                         .ToListAsync();
-                        
+
                     ViewBag.ProductOptions = options;
                     ViewBag.OptionTypes = options.Select(o => o.OptionType).Distinct().ToList();
                 }
@@ -232,7 +246,7 @@ namespace Reina.MacCredy.Controllers
                     // If options can't be loaded, continue without them
                     Console.WriteLine($"Error loading product options: {ex.Message}");
                 }
-                
+
                 // Check if the current user has purchased this product
                 bool hasOrdered = false;
                 if (User.Identity?.IsAuthenticated == true)
@@ -242,9 +256,9 @@ namespace Reina.MacCredy.Controllers
                         .Include(od => od.Order)
                         .AnyAsync(od => od.Order.UserId == userId && od.ProductId == id);
                 }
-                
+
                 ViewBag.HasOrdered = hasOrdered;
-                
+
                 return View(product);
             }
             catch (Exception ex)
@@ -252,14 +266,14 @@ namespace Reina.MacCredy.Controllers
                 // Log the exception
                 Console.WriteLine($"Error in Display method: {ex.Message}");
                 // Return a friendly error view
-                return View("Error", new ErrorViewModel 
-                { 
+                return View("Error", new ErrorViewModel
+                {
                     RequestId = System.Diagnostics.Activity.Current?.Id ?? HttpContext.TraceIdentifier,
                     ErrorMessage = "There was an error accessing the product. The database might be updating."
                 });
             }
         }
-        
+
         // Handle product review submission
         [Authorize]
         [HttpPost]
@@ -269,37 +283,37 @@ namespace Reina.MacCredy.Controllers
             {
                 ModelState.AddModelError("Rating", "Rating must be between 1 and 5");
             }
-            
+
             if (string.IsNullOrWhiteSpace(comment))
             {
                 ModelState.AddModelError("Comment", "Please provide a comment");
             }
-            
+
             if (!ModelState.IsValid)
             {
                 return RedirectToAction(nameof(Display), new { id = productId });
             }
-            
+
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var user = await _userManager.FindByIdAsync(userId);
             var product = await _context.Products.FindAsync(productId);
-            
+
             if (user == null || product == null)
             {
                 return NotFound();
             }
-            
+
             // Check if user has already reviewed this product
             var existingReview = await _context.ProductReviews
                 .FirstOrDefaultAsync(r => r.ProductId == productId && r.UserId == userId);
-                
+
             if (existingReview != null)
             {
                 // Update existing review
                 existingReview.Rating = rating;
                 existingReview.Comment = comment;
                 existingReview.CreatedAt = DateTime.Now;
-                
+
                 _context.ProductReviews.Update(existingReview);
             }
             else
@@ -315,15 +329,15 @@ namespace Reina.MacCredy.Controllers
                     User = user,
                     Product = product
                 };
-                
+
                 _context.ProductReviews.Add(review);
             }
-            
+
             await _context.SaveChangesAsync();
-            
+
             return RedirectToAction(nameof(Display), new { id = productId });
         }
-        
+
         // Hiển thị form cập nhật sản phẩm
         [Authorize(Roles = "Admin,Employee")]
         public async Task<IActionResult> Update(int id)
@@ -338,7 +352,7 @@ namespace Reina.MacCredy.Controllers
             product.CategoryId);
             return View(product);
         }
-        
+
         // Xử lý cập nhật sản phẩm
         [HttpPost]
         [Authorize(Roles = "Admin,Employee")]
@@ -377,7 +391,7 @@ namespace Reina.MacCredy.Controllers
             ViewBag.Categories = new SelectList(categories, "Id", "Name");
             return View(product);
         }
-        
+
         // Hiển thị form xác nhận xóa sản phẩm
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
@@ -389,7 +403,7 @@ namespace Reina.MacCredy.Controllers
             }
             return View(product);
         }
-        
+
         // Xử lý xóa sản phẩm
         [Authorize(Roles = "Admin")]
         [HttpPost]
@@ -398,20 +412,20 @@ namespace Reina.MacCredy.Controllers
             await _productRepository.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
-        
+
         // Delete a review (Admin only)
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> DeleteReview(int reviewId, int productId)
         {
             var review = await _context.ProductReviews.FindAsync(reviewId);
-            
+
             if (review != null)
             {
                 _context.ProductReviews.Remove(review);
                 await _context.SaveChangesAsync();
             }
-            
+
             return RedirectToAction(nameof(Display), new { id = productId });
         }
     }

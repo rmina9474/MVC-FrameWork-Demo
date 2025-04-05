@@ -26,14 +26,14 @@ namespace Reina.MacCredy.Areas.Admin.Controllers
             var totalProducts = await _context.Products.CountAsync();
             var totalCategories = await _context.Categories.CountAsync();
             var totalOrders = await _context.Orders.CountAsync();
-            
+
             // Calculate monthly revenue
             var currentMonth = DateTime.Now.Month;
             var currentYear = DateTime.Now.Year;
             var monthlyRevenue = await _context.Orders
                 .Where(o => o.OrderDate.Month == currentMonth && o.OrderDate.Year == currentYear)
                 .SumAsync(o => o.TotalPrice);
-            
+
             // Modified query to safely get recent orders without using new columns
             var recentOrderIds = await _context.Orders
                 .OrderByDescending(o => o.OrderDate)
@@ -52,11 +52,12 @@ namespace Reina.MacCredy.Areas.Admin.Controllers
                         Id = o.Id,
                         OrderDate = o.OrderDate,
                         TotalPrice = o.TotalPrice,
-                        ShippingAddress = o.ShippingAddress,
-                        Notes = o.Notes,
-                        UserId = o.UserId
+                        ShippingAddress = o.ShippingAddress ?? "",
+                        Notes = o.Notes ?? "",
+                        UserId = o.UserId ?? "",
+                        UserName = "Unknown" // Initialize with default value
                     })
-                    .FirstOrDefaultAsync();    
+                    .FirstOrDefaultAsync();
                 if (order != null)
                 {
                     // Get the username if UserId exists
@@ -89,9 +90,9 @@ namespace Reina.MacCredy.Areas.Admin.Controllers
         public int Id { get; set; }
         public DateTime OrderDate { get; set; }
         public decimal TotalPrice { get; set; }
-        public string ShippingAddress { get; set; }
-        public string Notes { get; set; }
-        public string UserId { get; set; }
-        public string UserName { get; set; }
+        public required string ShippingAddress { get; set; }
+        public required string Notes { get; set; }
+        public required string UserId { get; set; }
+        public required string UserName { get; set; }
     }
 }

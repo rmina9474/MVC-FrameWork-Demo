@@ -1,168 +1,119 @@
 @model IEnumerable<Reina.MacCredy.Models.Product>
+@using Reina.MacCredy.Extensions
 
 @{
     ViewData["Title"] = "Browse Products";
 }
 
-<div class="container section-padding">
-    <div class="text-center mb-5">
-        <h1 class="section-title">Our Products</h1>
-        <p class="text-muted">Discover our complete collection of high-quality products</p>
-    </div>
-
-    <!-- Search and Filter Controls -->
-    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
-        <!-- Search Form -->
-        <form method="get" class="d-flex mb-3 mb-md-0">
-            <div class="input-group">
-                <input type="text" name="searchQuery" class="form-control" 
-                       placeholder="Search products..." value="@ViewBag.SearchQuery">
-                <button type="submit" class="btn btn-primary">
-                    <i class="bi bi-search"></i>
-                </button>
-            </div>
-        </form>
-
-        <!-- Sort Controls -->
-        <div class="btn-group">
-            <a asp-action="Browse" asp-route-sortOrder="asc" asp-route-searchQuery="@ViewBag.SearchQuery" 
-               class="btn @(ViewBag.CurrentSort == "asc" ? "btn-primary" : "btn-outline-primary")">
-                <i class="bi bi-sort-numeric-down"></i> Price: Low to High
-            </a>
-            <a asp-action="Browse" asp-route-sortOrder="desc" asp-route-searchQuery="@ViewBag.SearchQuery" 
-               class="btn @(ViewBag.CurrentSort == "desc" ? "btn-primary" : "btn-outline-primary")">
-                <i class="bi bi-sort-numeric-up"></i> Price: High to Low
-            </a>
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h1 class="display-4 fw-bold text-primary">Our Coffee Collection</h1>
+            <p class="lead">Discover our carefully selected premium coffee beans from around the world</p>
         </div>
     </div>
 
-    <!-- Products Grid -->
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        @foreach (var item in Model)
-        {
-            double avgRating = item.Reviews != null && item.Reviews.Any() 
-                ? Math.Round(item.Reviews.Average(r => r.Rating), 1) 
-                : 0;
-            int ratingCount = item.Reviews != null ? item.Reviews.Count : 0;
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <form asp-action="Browse" method="get" class="d-flex">
+                <div class="input-group">
+                    <input type="text" name="searchQuery" value="@ViewBag.SearchQuery" class="form-control" placeholder="Search by name, description or category..." aria-label="Search">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-search"></i> Search
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4 text-md-end">
+            <div class="btn-group" role="group">
+                <a asp-action="Browse" asp-route-sortOrder="asc" asp-route-searchQuery="@ViewBag.SearchQuery"
+                   class="btn @(ViewBag.CurrentSort == "asc" ? "btn-primary" : "btn-outline-primary")">
+                    <i class="bi bi-sort-numeric-down"></i> Price: Low to High
+                </a>
+                <a asp-action="Browse" asp-route-sortOrder="desc" asp-route-searchQuery="@ViewBag.SearchQuery"
+                   class="btn @(ViewBag.CurrentSort == "desc" ? "btn-primary" : "btn-outline-primary")">
+                    <i class="bi bi-sort-numeric-up"></i> Price: High to Low
+                </a>
+            </div>
+        </div>
+    </div>
 
-            <div class="col d-flex">
-                <div class="product-card">
-                    <div class="product-image-wrapper">
-                        <img src="@item.ImageUrl" class="product-image" alt="@item.Name">
-                        <div class="product-actions-overlay">
-                            <button class="btn-icon quick-view-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal-@item.Id">
-                                <i class="bi bi-eye"></i>
-                            </button>
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info" role="alert">
+            <i class="bi bi-info-circle me-2"></i> No products found. Try a different search term.
+        </div>
+    }
+    else
+    {
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            @foreach (var product in Model)
+            {
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0 rounded-3 product-card">
+                        <div class="position-relative">
+                            <img src="@(string.IsNullOrEmpty(product.ImageUrl) ? "/images/placeholder.jpg" : product.ImageUrl)"
+                                 class="card-img-top rounded-top-3" alt="@product.Name" style="height: 200px; object-fit: cover;">
                         </div>
-                    </div>
-                    <div class="product-card-body">
-                        <h3 class="product-name text-truncate-2">@item.Name</h3>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <div class="product-price">@item.Price.ToString("#,##0") VND</div>
-                        </div>
-                        <!-- Product Rating -->
-                        <div class="product-rating mb-2">
-                            @for (int i = 1; i <= 5; i++)
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <h5 class="card-title mb-0 text-truncate">@product.Name</h5>
+                                <span class="badge bg-primary rounded-pill">@product.Price.FormatPrice()</span>
+                            </div>
+
+                            @if (product.Category != null)
                             {
-                                if (i <= Math.Floor(avgRating))
-                                {
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                }
-                                else if (i - avgRating > 0 && i - avgRating < 1)
-                                {
-                                    <i class="bi bi-star-half text-warning"></i>
-                                }
-                                else
-                                {
-                                    <i class="bi bi-star text-warning"></i>
-                                }
+                                <div class="mb-2">
+                                    <span class="badge bg-secondary">@product.Category.Name</span>
+                                </div>
                             }
-                            <span class="ms-1 text-muted small">(@ratingCount)</span>
+
+                            <p class="card-text small text-muted mb-3" style="height: 3em; overflow: hidden;">
+                                @(product.Description?.Length > 100 ? product.Description.Substring(0, 100) + "..." : product.Description)
+                            </p>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    @{
+                                        var rating = product.Reviews != null && product.Reviews.Any()
+                                            ? product.Reviews.Average(r => r.Rating)
+                                            : 0;
+                                        for (int i = 1; i <= 5; i++)
+                                        {
+                                            <i class="bi @(i <= rating ? "bi-star-fill text-warning" : "bi-star text-muted")"></i>
+                                        }
+                                    }
+                                    <small class="ms-1 text-muted">
+                                        @(product.Reviews?.Count ?? 0) @(product.Reviews?.Count == 1 ? "review" : "reviews")
+                                    </small>
+                                </div>
+                            </div>
                         </div>
-                        <p class="product-description text-truncate-2">@(item.Description ?? "No description available")</p>
-                        <div class="product-actions">
-                            <a asp-controller="Product" asp-action="Display" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm me-2">
-                                <i class="bi bi-info-circle"></i> Details
+                        <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between">
+                            <a asp-controller="Product" asp-action="Display" asp-route-id="@product.Id"
+                               class="btn btn-sm btn-outline-secondary">
+                                <i class="bi bi-eye"></i> Details
                             </a>
-                            <button class="btn btn-primary add-to-cart-btn" data-product-id="@item.Id" data-quantity="1">
+                            <button class="btn btn-sm btn-primary add-to-cart-button"
+                                    data-id="@product.Id" data-name="@product.Name" data-price="@product.Price">
                                 <i class="bi bi-cart-plus"></i> Add to Cart
                             </button>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Quick View Modal -->
-            <div class="modal fade" id="quickViewModal-@item.Id" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header border-0">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body p-4">
-                            <div class="row g-3">
-                                <div class="col-md-6 mb-4 mb-md-0">
-                                    <img src="@item.ImageUrl" class="img-fluid rounded-3" alt="@item.Name">
-                                </div>
-                                <div class="col-md-6">
-                                    <h3 class="mb-3">@item.Name</h3>
-                                    <!-- Rating in Modal -->
-                                    <div class="mb-2">
-                                        @for (int i = 1; i <= 5; i++)
-                                        {
-                                            if (i <= Math.Floor(avgRating))
-                                            {
-                                                <i class="bi bi-star-fill text-warning"></i>
-                                            }
-                                            else if (i - avgRating > 0 && i - avgRating < 1)
-                                            {
-                                                <i class="bi bi-star-half text-warning"></i>
-                                            }
-                                            else
-                                            {
-                                                <i class="bi bi-star text-warning"></i>
-                                            }
-                                        }
-                                        <span class="ms-1 text-muted">@avgRating.ToString("0.0") (@ratingCount @(ratingCount == 1 ? "review" : "reviews"))</span>
-                                    </div>
-                                    <div class="fs-4 text-primary fw-bold mb-4">@item.Price.ToString("#,##0") VND</div>
-                                    <p class="mb-4">@(item.Description ?? "No description available")</p>
-                                    <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-3 mb-4">
-                                        <div class="quantity-control d-flex align-items-center mb-3 mb-sm-0">
-                                            <button class="quantity-btn decrease-btn btn btn-outline-secondary px-3" data-product-id="@item.Id">-</button>
-                                            <input type="number" value="1" min="1" class="quantity-input form-control mx-2 text-center" style="width: 60px;" id="modal-quantity-@item.Id">
-                                            <button class="quantity-btn increase-btn btn btn-outline-secondary px-3" data-product-id="@item.Id">+</button>
-                                        </div>
-                                        <button class="btn btn-primary modal-add-to-cart w-100 w-sm-auto" data-product-id="@item.Id">
-                                            <i class="bi bi-cart-plus"></i> Add to Cart
-                                        </button>
-                                    </div>
-                                    <a asp-controller="Product" asp-action="Display" asp-route-id="@item.Id" class="btn btn-outline-primary w-100">
-                                        <i class="bi bi-info-circle"></i> View Full Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
-    </div>
+            }
+        </div>
+    }
 </div>
 
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div id="cartToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header bg-primary text-white">
-            <i class="bi bi-cart-check me-2"></i>
-            <strong class="me-auto">Shopping Cart</strong>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body">
-            <p id="cartToastMessage">Product added to cart!</p>
-            <div class="mt-2 pt-2 border-top">
-                <a asp-controller="ShoppingCart" asp-action="Index" class="btn btn-primary btn-sm">View Cart</a>
-                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Continue Shopping</button>
+<!-- Toast notification for cart -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+    <div id="cartToast" class="toast align-items-center text-white bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                <i class="bi bi-check-circle me-2"></i> <span id="cartMessage"></span>
             </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
 </div>
@@ -170,65 +121,39 @@
 @section Scripts {
     <script>
         $(document).ready(function() {
-            // Add to cart button click event
-            $('.add-to-cart-btn').click(function() {
-                var productId = $(this).data('product-id');
-                var quantity = $(this).data('quantity');
-                addToCart(productId, quantity);
-            });
-            
-            // Modal add to cart button click event
-            $('.modal-add-to-cart').click(function() {
-                var productId = $(this).data('product-id');
-                var quantity = $('#modal-quantity-' + productId).val();
-                addToCart(productId, quantity);
-                $('#quickViewModal-' + productId).modal('hide');
-            });
-            
-            // Quantity buttons in modal
-            $('.decrease-btn').click(function() {
-                var productId = $(this).data('product-id');
-                var inputField = $('#modal-quantity-' + productId);
-                var value = parseInt(inputField.val()) - 1;
-                inputField.val(value < 1 ? 1 : value);
-            });
-            
-            $('.increase-btn').click(function() {
-                var productId = $(this).data('product-id');
-                var inputField = $('#modal-quantity-' + productId);
-                inputField.val(parseInt(inputField.val()) + 1);
-            });
-            
-            function addToCart(productId, quantity) {
+            // Add to cart button click handler
+            $('.add-to-cart-button').click(function() {
+                const productId = $(this).data('id');
+                const productName = $(this).data('name');
+
+                // Add product to cart via AJAX (implement this part based on your cart system)
                 $.ajax({
                     url: '@Url.Action("AddToCart", "ShoppingCart")',
-                    type: 'GET',
-                    data: { productId: productId, quantity: quantity },
-                    success: function(response) {
-                        if (response.success) {
-                            // Show toast notification
-                            var toast = new bootstrap.Toast(document.getElementById('cartToast'));
-                            toast.show();
-                            
-                            // Update cart count in navbar
-                            updateCartCount();
-                        }
+                    type: 'POST',
+                    data: {
+                        productId: productId,
+                        quantity: 1
+                    },
+                    success: function() {
+                        // Show toast notification
+                        $('#cartMessage').text(productName + ' added to your cart!');
+                        const toast = new bootstrap.Toast(document.getElementById('cartToast'));
+                        toast.show();
+
+                        // Update cart count in navbar (if you have one)
+                        // updateCartCount();
+                    },
+                    error: function() {
+                        alert('Failed to add item to cart. Please try again.');
                     }
                 });
-            }
-            
-            function updateCartCount() {
-                $.ajax({
-                    url: '@Url.Action("GetCartCount", "ShoppingCart")',
-                    type: 'GET',
-                    success: function(response) {
-                        $('.cart-count').text(response);
-                    }
-                });
-            }
-            
-            // Initialize cart count
-            updateCartCount();
+            });
+
+            // Add hover effect to product cards
+            $('.product-card').hover(
+                function() { $(this).addClass('shadow'); },
+                function() { $(this).removeClass('shadow'); }
+            );
         });
     </script>
-} 
+}

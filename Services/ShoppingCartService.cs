@@ -32,7 +32,7 @@ namespace Reina.MacCredy.Services
 
                 var cart = httpContext.Session.GetObjectFromJson<ShoppingCart>("Cart");
                 int cartCount = cart?.Items.Sum(item => item.Quantity) ?? 0;
-                
+
                 return Task.FromResult(cartCount);
             }
             catch
@@ -42,4 +42,4 @@ namespace Reina.MacCredy.Services
             }
         }
     }
-} 
+}

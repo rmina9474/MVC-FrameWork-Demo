@@ -25,17 +25,29 @@ namespace Reina.MacCredy.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Profile()
+        // Redirect to Identity Login page
+        public IActionResult Login()
         {
-            var user = await _userManager.GetUserAsync(User);
-            if (user == null)
-            {
-                return NotFound();
-            }
+            return RedirectToPage("/Account/Login", new { area = "Identity" });
+        }
 
-            ViewData["User"] = user;
-            return View();
+        // Redirect to Identity Register page
+        public IActionResult Register()
+        {
+            return RedirectToPage("/Account/Register", new { area = "Identity" });
+        }
+
+        // Redirect to Identity Logout page
+        [HttpPost]
+        public IActionResult Logout()
+        {
+            return RedirectToPage("/Account/Logout", new { area = "Identity" });
+        }
+
+        // Redirect to Identity Profile/Manage page
+        public IActionResult Profile()
+        {
+            return RedirectToPage("/Account/Manage/Index", new { area = "Identity" });
         }
 
         [HttpPost]
@@ -75,7 +87,7 @@ namespace Reina.MacCredy.Controllers
 
                 string uniqueFileName = Guid.NewGuid().ToString() + "_" + avatarImage.FileName;
                 string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                
+
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     await avatarImage.CopyToAsync(fileStream);
@@ -102,4 +114,4 @@ namespace Reina.MacCredy.Controllers
             return RedirectToAction("Profile");
         }
     }
-} 
+}

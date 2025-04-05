@@ -7,18 +7,18 @@
   --starbucks-white: #ffffff;
   --starbucks-gray: #f7f7f7;
   --starbucks-dark-gray: #6c757d;
-  
+
   /* Fonts */
-  --font-primary: 'Open Sans', sans-serif;
-  --font-secondary: 'Sodo Sans', sans-serif;
-  
+  --font-primary: "Open Sans", sans-serif;
+  --font-secondary: "Sodo Sans", sans-serif;
+
   /* Spacing */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
-  
+
   /* Transitions */
   --transition-normal: 0.3s ease;
 }
@@ -38,7 +38,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-secondary);
   font-weight: 700;
   margin-bottom: var(--spacing-md);
@@ -54,7 +59,8 @@ a:hover {
   color: var(--starbucks-green);
 }
 
-button, .btn {
+button,
+.btn {
   cursor: pointer;
   font-family: var(--font-primary);
   border: none;
@@ -111,4 +117,4 @@ img {
   h2 {
     font-size: 1.5rem;
   }
-} 
+}

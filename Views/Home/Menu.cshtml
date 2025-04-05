@@ -24,7 +24,7 @@
                 <!-- Search Form -->
                 <form asp-action="Menu" method="get" class="search-form">
                     <div class="input-group">
-                        <input type="text" name="searchQuery" class="form-control border-coffee" 
+                        <input type="text" name="searchQuery" class="form-control border-coffee"
                                placeholder="Search our menu..." value="@ViewBag.SearchQuery">
                         <button type="submit" class="btn btn-coffee">
                             <i class="bi bi-search"></i>
@@ -36,11 +36,11 @@
                 <div class="d-flex justify-content-md-end">
                     <!-- Filter Buttons -->
                     <div class="btn-group">
-                        <a asp-action="Menu" asp-route-sortOrder="asc" asp-route-searchQuery="@ViewBag.SearchQuery" 
+                        <a asp-action="Menu" asp-route-sortOrder="asc" asp-route-searchQuery="@ViewBag.SearchQuery"
                            class="btn @(ViewBag.CurrentSort == "asc" ? "btn-coffee" : "btn-outline-coffee")">
                             <i class="bi bi-sort-numeric-down me-1"></i> Price: Low to High
                         </a>
-                        <a asp-action="Menu" asp-route-sortOrder="desc" asp-route-searchQuery="@ViewBag.SearchQuery" 
+                        <a asp-action="Menu" asp-route-sortOrder="desc" asp-route-searchQuery="@ViewBag.SearchQuery"
                            class="btn @(ViewBag.CurrentSort == "desc" ? "btn-coffee" : "btn-outline-coffee")">
                             <i class="bi bi-sort-numeric-up me-1"></i> Price: High to Low
                         </a>
@@ -67,8 +67,8 @@
                         <h5 class="card-title mb-2">@item.Name</h5>
                         <div class="product-rating mb-2">
                             @{
-                                double avgRating = item.Reviews != null && item.Reviews.Any() 
-                                    ? Math.Round(item.Reviews.Average(r => r.Rating), 1) 
+                                double avgRating = item.Reviews != null && item.Reviews.Any()
+                                    ? Math.Round(item.Reviews.Average(r => r.Rating), 1)
                                     : 0;
                                 int ratingCount = item.Reviews != null ? item.Reviews.Count : 0;
                             }
@@ -92,7 +92,7 @@
                         <p class="card-text text-muted mb-3">@(item.Description?.Length > 100 ? item.Description.Substring(0, 100) + "..." : item.Description)</p>
                         <div class="d-flex flex-column">
                             <div class="price-section mb-3">
-                                <span class="fs-5 fw-bold text-coffee-medium">@item.Price.FormatPrice()</span>
+                                <span class="fw-bold fs-5">@item.Price.FormatPrice()</span>
                             </div>
                             <div class="button-group d-flex">
                                 <a asp-controller="Product" asp-action="Display" asp-route-id="@item.Id" class="btn btn-outline-coffee me-2 flex-grow-1">Details</a>
@@ -102,7 +102,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Quick View Modal -->
             <div class="modal fade" id="quickViewModal-@item.Id" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -136,7 +136,7 @@
                                         }
                                         <span class="ms-1 text-muted">@avgRating.ToString("0.0") (@ratingCount @(ratingCount == 1 ? "review" : "reviews"))</span>
                                     </div>
-                                    <div class="fs-4 text-coffee-dark fw-bold mb-3">@item.Price.FormatPrice()</div>
+                                    <span class="fw-bold fs-5">@item.Price.FormatPrice()</span>
                                     <p class="mb-4">@(item.Description ?? "No description available")</p>
                                     <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-3 mb-4">
                                         <div class="quantity-control d-flex align-items-center mb-3 mb-sm-0">
@@ -159,7 +159,7 @@
             </div>
         }
     </div>
-    
+
     @if (!Model.Any())
     {
         <div class="text-center py-5">
@@ -196,7 +196,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .menu-hero::before {
             content: '';
             position: absolute;
@@ -209,60 +209,60 @@
             opacity: 0.08;
             z-index: 0;
         }
-        
+
         .menu-controls {
             transition: all 0.3s ease;
             border: 1px solid rgba(var(--coffee-cream-rgb), 0.3);
         }
-        
+
         .border-coffee {
             border-color: var(--coffee-medium);
         }
-        
+
         .border-coffee:focus {
             box-shadow: 0 0 0 0.25rem rgba(var(--coffee-medium), 0.25);
             border-color: var(--coffee-medium);
         }
-        
+
         .btn-coffee {
             background-color: var(--coffee-medium);
             border-color: var(--coffee-medium);
             color: white;
         }
-        
+
         .btn-coffee:hover, .btn-coffee:focus {
             background-color: var(--coffee-dark);
             border-color: var(--coffee-dark);
             color: white;
         }
-        
+
         .btn-outline-coffee {
             border-color: var(--coffee-medium);
             color: var(--coffee-medium);
         }
-        
+
         .btn-outline-coffee:hover, .btn-outline-coffee:focus {
             background-color: var(--coffee-medium);
             color: white;
         }
-        
+
         .bg-coffee {
             background-color: var(--coffee-medium);
         }
-        
+
         .bg-coffee-light {
             background-color: var(--coffee-light);
             color: white;
         }
-        
+
         .text-coffee {
             color: var(--coffee-dark);
         }
-        
+
         .text-coffee-medium {
             color: var(--coffee-medium);
         }
-        
+
         /* Menu Card Styles */
         .menu-card {
             background-color: white;
@@ -270,40 +270,40 @@
             border: none;
             transition: all 0.3s ease;
         }
-        
+
         .shadow-hover {
             transition: all 0.3s ease;
         }
-        
+
         .shadow-hover:hover {
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
             transform: translateY(-5px);
         }
-        
+
         .menu-card-image {
             position: relative;
             height: 220px;
             overflow: hidden;
         }
-        
+
         .menu-card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        
+
         .menu-card:hover .menu-card-image img {
             transform: scale(1.05);
         }
-        
+
         .menu-card-badge {
             position: absolute;
             top: 10px;
             left: 10px;
             z-index: 2;
         }
-        
+
         .menu-card-actions {
             position: absolute;
             top: 10px;
@@ -315,12 +315,12 @@
             transform: translateX(20px);
             transition: all 0.3s ease;
         }
-        
+
         .menu-card:hover .menu-card-actions {
             opacity: 1;
             transform: translateX(0);
         }
-        
+
         .action-btn {
             width: 40px;
             height: 40px;
@@ -335,17 +335,17 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
             transition: all 0.3s ease;
         }
-        
+
         .action-btn:hover {
             background-color: var(--coffee-medium);
             color: white;
             transform: scale(1.1);
         }
-        
+
         .menu-card-body {
             padding: 1.25rem;
         }
-        
+
         .menu-card-title {
             font-size: 1.25rem;
             font-weight: 600;
@@ -356,7 +356,7 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
-        
+
         .menu-card-description {
             color: #666;
             margin-bottom: 1rem;
@@ -367,50 +367,50 @@
             overflow: hidden;
             height: 2.8rem;
         }
-        
+
         .menu-card-footer {
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
         }
-        
+
         .menu-card-price {
             font-size: 1.25rem;
             font-weight: 700;
             color: var(--coffee-medium);
         }
-        
+
         .menu-card-actions-bottom {
             display: flex;
             justify-content: space-between;
         }
-        
+
         .menu-card-actions-bottom .btn {
             flex: 1;
         }
-        
+
         .menu-card-actions-bottom .btn:first-child {
             margin-right: 0.5rem;
         }
-        
+
         /* Modal Styles */
         .object-cover {
             object-fit: cover;
         }
-        
+
         /* Quantity Controls */
         .quantity-input::-webkit-outer-spin-button,
         .quantity-input::-webkit-inner-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
-        
+
         @@media (max-width: 767.98px) {
             .menu-card-actions-bottom {
                 flex-direction: column;
                 gap: 0.5rem;
             }
-            
+
             .menu-card-actions-bottom .btn:first-child {
                 margin-right: 0;
             }
@@ -427,7 +427,7 @@
                 var quantity = $(this).data('quantity');
                 addToCart(productId, quantity);
             });
-            
+
             // Modal add to cart button click event
             $('.modal-add-to-cart').click(function() {
                 var productId = $(this).data('product-id');
@@ -435,7 +435,7 @@
                 addToCart(productId, quantity);
                 $('#quickViewModal-' + productId).modal('hide');
             });
-            
+
             // Quantity buttons in modal
             $('.decrease-btn').click(function() {
                 var productId = $(this).data('product-id');
@@ -443,13 +443,13 @@
                 var value = parseInt(inputField.val()) - 1;
                 inputField.val(value < 1 ? 1 : value);
             });
-            
+
             $('.increase-btn').click(function() {
                 var productId = $(this).data('product-id');
                 var inputField = $('#modal-quantity-' + productId);
                 inputField.val(parseInt(inputField.val()) + 1);
             });
-            
+
             function addToCart(productId, quantity) {
                 $.ajax({
                     url: '@Url.Action("AddToCart", "ShoppingCart")',
@@ -460,14 +460,14 @@
                             // Show toast notification
                             var toast = new bootstrap.Toast(document.getElementById('cartToast'));
                             toast.show();
-                            
+
                             // Update cart count in navbar
                             updateCartCount();
                         }
                     }
                 });
             }
-            
+
             function updateCartCount() {
                 $.ajax({
                     url: '@Url.Action("GetCartCount", "ShoppingCart")',
@@ -477,9 +477,9 @@
                     }
                 });
             }
-            
+
             // Initialize cart count
             updateCartCount();
         });
     </script>
-} 
+}

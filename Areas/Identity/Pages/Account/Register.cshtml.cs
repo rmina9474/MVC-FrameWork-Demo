@@ -156,8 +156,8 @@ namespace Reina.MacCredy.Areas.Identity.Pages.Account
                     {
                         await _userManager.AddToRoleAsync(user, Input.Role);
                     }
-                    else 
-                    { 
+                    else
+                    {
                         await _userManager.AddToRoleAsync(user, SD.Role_Customer);
                     }
 

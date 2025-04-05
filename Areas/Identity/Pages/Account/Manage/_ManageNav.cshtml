@@ -7,40 +7,40 @@
 }
 
 <div class="nav flex-column nav-pills">
-    <a class="nav-link @(currentPage == "/Account/Manage/Index" ? "active bg-primary" : "")" 
+    <a class="nav-link @(currentPage == "/Account/Manage/Index" ? "active bg-primary" : "")"
        id="profile" asp-page="./Index">
         <i class="bi bi-person me-2"></i>
         Profile
     </a>
-    <a class="nav-link @(currentPage == "/Account/Manage/Email" ? "active bg-primary" : "")" 
+    <a class="nav-link @(currentPage == "/Account/Manage/Email" ? "active bg-primary" : "")"
        id="email" asp-page="./Email">
         <i class="bi bi-envelope me-2"></i>
         Email
     </a>
-    <a class="nav-link @(currentPage == "/Account/Manage/ChangePassword" ? "active bg-primary" : "")" 
+    <a class="nav-link @(currentPage == "/Account/Manage/ChangePassword" ? "active bg-primary" : "")"
        id="change-password" asp-page="./ChangePassword">
         <i class="bi bi-key me-2"></i>
         Password
     </a>
     @if (hasExternalLogins)
     {
-        <a class="nav-link @(currentPage == "/Account/Manage/ExternalLogins" ? "active bg-primary" : "")" 
+        <a class="nav-link @(currentPage == "/Account/Manage/ExternalLogins" ? "active bg-primary" : "")"
            id="external-logins" asp-page="./ExternalLogins">
             <i class="bi bi-box-arrow-in-right me-2"></i>
             External logins
         </a>
     }
-    <a class="nav-link @(currentPage == "/Account/Manage/TwoFactorAuthentication" ? "active bg-primary" : "")" 
+    <a class="nav-link @(currentPage == "/Account/Manage/TwoFactorAuthentication" ? "active bg-primary" : "")"
        id="two-factor" asp-page="./TwoFactorAuthentication">
         <i class="bi bi-shield-lock me-2"></i>
         Two-factor authentication
     </a>
-    <a class="nav-link @(currentPage == "/Account/Manage/PersonalData" ? "active bg-primary" : "")" 
+    <a class="nav-link @(currentPage == "/Account/Manage/PersonalData" ? "active bg-primary" : "")"
        id="personal-data" asp-page="./PersonalData">
         <i class="bi bi-file-person me-2"></i>
         Personal data
     </a>
-    
+
     @if (!User.IsInRole("Admin"))
     {
         <hr class="my-3">
@@ -49,4 +49,4 @@
             My Orders
         </a>
     }
-</div> 
+</div>

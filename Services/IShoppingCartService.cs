@@ -6,4 +6,4 @@ namespace Reina.MacCredy.Services
     {
         Task<int> GetCartItemCountAsync(string username);
     }
-} 
+}

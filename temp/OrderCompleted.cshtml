@@ -1,0 +1,36 @@
+@model int
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-body text-center p-5">
+                    <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+                    <h1 class="mt-4">Order Completed</h1>
+                    <p class="lead mb-4">Thank you for your order! Your order number is <strong>#@Model</strong></p>
+
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success mb-4">
+                            @TempData["SuccessMessage"]
+                        </div>
+                    }
+
+                    @if (TempData["ErrorMessage"] != null)
+                    {
+                        <div class="alert alert-warning mb-4">
+                            @TempData["ErrorMessage"]
+                        </div>
+                    }
+
+                    <p>We've received your order and will process it as soon as possible. You'll receive an email confirmation shortly.</p>
+
+                    <div class="mt-4">
+                        <a href="@Url.Action("Index", "Home")" class="btn btn-primary me-3">Continue Shopping</a>
+                        <a href="@Url.Action("OrderHistory", "Order")" class="btn btn-outline-secondary">View Order History</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

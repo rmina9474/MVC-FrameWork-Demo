@@ -29,7 +29,7 @@
                                 for (int i = 0; i < featured.Count; i++)
                                 {
                                     <div class="carousel-item @(i == 0 ? "active" : "")">
-                                        <img src="@featured[i].ImageUrl" class="d-block w-100" alt="@featured[i].Name" 
+                                        <img src="@featured[i].ImageUrl" class="d-block w-100" alt="@featured[i].Name"
                                              style="height: 300px; object-fit: cover;">
                                         <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
                                             <h5>@featured[i].Name</h5>
@@ -109,8 +109,8 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             @foreach (var item in Model.Take(6))
             {
-                double avgRating = item.Reviews != null && item.Reviews.Any() 
-                    ? Math.Round(item.Reviews.Average(r => r.Rating), 1) 
+                double avgRating = item.Reviews != null && item.Reviews.Any()
+                    ? Math.Round(item.Reviews.Average(r => r.Rating), 1)
                     : 0;
                 int ratingCount = item.Reviews != null ? item.Reviews.Count : 0;
 
@@ -160,7 +160,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Quick View Modal -->
                 <div class="modal fade" id="quickViewModal-@item.Id" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -243,7 +243,7 @@
             <h2 class="section-title position-relative pb-3 text-coffee">What Our Customers Say</h2>
             <p class="text-muted">Hear from our coffee enthusiasts</p>
         </div>
-        
+
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="testimonial-card p-4">
@@ -358,4 +358,4 @@
             });
         });
     </script>
-} 
+}

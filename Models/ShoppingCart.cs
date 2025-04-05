@@ -8,10 +8,10 @@ namespace Reina.MacCredy.Models
 
         public void AddItem(Product product, int quantity, decimal customPrice = 0, string selectedOptions = "")
         {
-            var existingItem = Items.FirstOrDefault(i => i.ProductId == product.Id && 
-                                                        (i.SelectedOptions == selectedOptions || 
+            var existingItem = Items.FirstOrDefault(i => i.ProductId == product.Id &&
+                                                        (i.SelectedOptions == selectedOptions ||
                                                          (string.IsNullOrEmpty(i.SelectedOptions) && string.IsNullOrEmpty(selectedOptions))));
-            
+
             if (existingItem != null)
             {
                 existingItem.Quantity += quantity;

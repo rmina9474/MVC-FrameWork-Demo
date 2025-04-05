@@ -43,7 +43,7 @@ namespace Reina.MacCredy.Utilities
         /// </summary>
         public static bool CanViewOrders(ClaimsPrincipal user)
         {
-            return user.Identity.IsAuthenticated;
+            return user.Identity?.IsAuthenticated == true;
         }
 
         /// <summary>
@@ -57,17 +57,17 @@ namespace Reina.MacCredy.Utilities
         /// <summary>
         /// Check if user has permission to edit a specific resource
         /// </summary>
-        public static bool CanEditResource<T>(ClaimsPrincipal user, T resource, string userId = null) where T : class
+        public static bool CanEditResource<T>(ClaimsPrincipal user, T resource, string? userId = null) where T : class
         {
             // Admin can edit everything
             if (IsAdmin(user))
                 return true;
-            
+
             // If there's a userId parameter and it matches the current user
             if (!string.IsNullOrEmpty(userId) && user.FindFirstValue(ClaimTypes.NameIdentifier) == userId)
                 return true;
-                
+
             return false;
         }
     }
-} 
+}

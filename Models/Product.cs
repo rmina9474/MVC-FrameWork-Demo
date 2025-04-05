@@ -13,21 +13,21 @@ namespace Reina.MacCredy.Models
         public List<ProductImage>? Images { get; set; }
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
-        
+
         // Cafe-specific properties
         public bool IsAvailable { get; set; } = true;
-        
+
         public bool CanCustomize { get; set; } = false;
-        
+
         public bool HasSizeOptions { get; set; } = false;
-        
+
         public string? PrepTime { get; set; }
-        
+
         public bool IsFeatured { get; set; } = false;
-        
+
         // Add reference to product reviews
         public List<ProductReview>? Reviews { get; set; }
-        
+
         // Helper method to calculate average rating
         [System.ComponentModel.DataAnnotations.Schema.NotMapped]
         public double AverageRating => Reviews != null && Reviews.Any() ? Reviews.Average(r => r.Rating) : 0;

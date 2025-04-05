@@ -12,11 +12,21 @@ namespace Reina.MacCredy.Repositories
         }
         public async Task<IEnumerable<Product>> GetAllAsync()
         {
-            // return await _context.Products.ToListAsync();
-            return await _context.Products
-            .Include(p => p.Category) // Include thông tin về category
-            .Include(p => p.Reviews) // Include reviews for displaying ratings
-            .ToListAsync();
+            try
+            {
+                return await _context.Products
+                    .Include(p => p.Category) // Include thông tin về category
+                    .Include(p => p.Reviews) // Include reviews for displaying ratings
+                    .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                // Log the error (in a real app you'd use a proper logger)
+                Console.WriteLine($"Database error in GetAllAsync: {ex.Message}");
+
+                // Return an empty list rather than throwing an exception
+                return new List<Product>();
+            }
         }
         public async Task<Product> GetByIdAsync(int id)
         {

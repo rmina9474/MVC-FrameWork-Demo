@@ -31,4 +31,4 @@ namespace Reina.MacCredy.Areas.Identity.Pages.Account.Manage
             return View();
         }
     }
-} 
+}

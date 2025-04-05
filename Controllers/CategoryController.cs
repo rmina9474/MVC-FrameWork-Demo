@@ -15,7 +15,7 @@ namespace Reina.MacCredy.Controllers
             _productRepository = productRepository;
             _categoryRepository = categoryRepository;
         }
-        
+
         public async Task<IActionResult> Index()
         {
             var category = await _categoryRepository.GetAllAsync();

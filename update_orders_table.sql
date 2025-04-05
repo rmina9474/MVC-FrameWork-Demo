@@ -10,4 +10,4 @@ ALTER TABLE [Orders] ADD [ZipCode] nvarchar(max) NULL;
 
 -- Add entry to __EFMigrationsHistory to mark this migration as applied
 INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-VALUES (N'20250404124717_AddGuestCheckoutFields', N'9.0.3'); 
+VALUES (N'20250404124717_AddGuestCheckoutFields', N'9.0.3');

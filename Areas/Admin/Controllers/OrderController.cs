@@ -23,16 +23,16 @@ namespace Reina.MacCredy.Areas.Admin.Controllers
         // Hiển thị danh sách đơn hàng
         public async Task<IActionResult> Index()
         {
-            try 
+            try
             {
                 // Use a simplified query that only selects fields that exist in the database
                 var orderIds = await _context.Orders
                     .OrderByDescending(o => o.OrderDate)
                     .Select(o => o.Id)
                     .ToListAsync();
-                
+
                 var orderList = new List<OrderViewModel>();
-                
+
                 foreach (var id in orderIds)
                 {
                     var order = await _context.Orders
@@ -47,7 +47,7 @@ namespace Reina.MacCredy.Areas.Admin.Controllers
                             UserId = o.UserId
                         })
                         .FirstOrDefaultAsync();
-                    
+
                     if (order != null)
                     {
                         // Get user information separately if needed
@@ -57,22 +57,22 @@ namespace Reina.MacCredy.Areas.Admin.Controllers
                                 .Where(u => u.Id == order.UserId)
                                 .Select(u => new { u.UserName, u.Email })
                                 .FirstOrDefaultAsync();
-                            
+
                             if (user != null)
                             {
                                 order.UserName = user.UserName ?? "Unknown";
                                 order.Email = user.Email ?? "";
                             }
                         }
-                        
+
                         // Get order details count
                         order.OrderItemCount = await _context.OrderDetails
                             .CountAsync(od => od.OrderId == id);
-                        
+
                         orderList.Add(order);
                     }
                 }
-                
+
                 return View(orderList);
             }
             catch (Exception ex)
@@ -80,10 +80,10 @@ namespace Reina.MacCredy.Areas.Admin.Controllers
                 // Log the exception details
                 Console.WriteLine($"Error in Admin OrderController.Index: {ex.Message}");
                 Console.WriteLine(ex.StackTrace);
-                
+
                 // Return a friendly error view
-                return View("Error", new ErrorViewModel 
-                { 
+                return View("Error", new ErrorViewModel
+                {
                     RequestId = System.Diagnostics.Activity.Current?.Id ?? HttpContext.TraceIdentifier,
                     ErrorMessage = "There was an error accessing the orders. The database schema might be out of sync."
                 });
@@ -113,7 +113,7 @@ namespace Reina.MacCredy.Areas.Admin.Controllers
                 {
                     return NotFound();
                 }
-                
+
                 // Get user information separately
                 if (!string.IsNullOrEmpty(order.UserId))
                 {
@@ -121,7 +121,7 @@ namespace Reina.MacCredy.Areas.Admin.Controllers
                         .Where(u => u.Id == order.UserId)
                         .Select(u => new { u.UserName, u.Email, u.PhoneNumber })
                         .FirstOrDefaultAsync();
-                    
+
                     if (user != null)
                     {
                         order.UserName = user.UserName ?? "Unknown";
@@ -129,7 +129,7 @@ namespace Reina.MacCredy.Areas.Admin.Controllers
                         order.PhoneNumber = user.PhoneNumber ?? "";
                     }
                 }
-                
+
                 // Get order details separately
                 order.OrderDetails = await _context.OrderDetails
                     .Where(od => od.OrderId == id)
@@ -142,7 +142,10 @@ namespace Reina.MacCredy.Areas.Admin.Controllers
             {
                 // Log the exception
                 Console.WriteLine($"Error loading order details: {ex.Message}");
-                return View("Error", new ErrorViewModel { RequestId = "Error loading order details" });
+                return View("Error", new ErrorViewModel {
+                    RequestId = "Error loading order details",
+                    ErrorMessage = $"Unable to load order details: {ex.Message}"
+                });
             }
         }
 
@@ -159,28 +162,28 @@ namespace Reina.MacCredy.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Details), new { id });
         }
-        
+
         // Delete order action
         public async Task<IActionResult> Delete(int id)
         {
             var order = await _context.Orders
                 .Include(o => o.OrderDetails)
                 .FirstOrDefaultAsync(o => o.Id == id);
-                
+
             if (order == null)
             {
                 return NotFound();
             }
-            
+
             try
             {
                 // First remove all the order details
                 _context.OrderDetails.RemoveRange(order.OrderDetails);
-                
+
                 // Then remove the order itself
                 _context.Orders.Remove(order);
                 await _context.SaveChangesAsync();
-                
+
                 TempData["Success"] = "Order has been deleted successfully.";
                 return RedirectToAction(nameof(Index));
             }
@@ -191,7 +194,7 @@ namespace Reina.MacCredy.Areas.Admin.Controllers
             }
         }
     }
-    
+
     // View model to match only existing database columns
     public class OrderViewModel
     {

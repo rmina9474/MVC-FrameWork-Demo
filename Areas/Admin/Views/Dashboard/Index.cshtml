@@ -85,7 +85,7 @@
                                         <td>@order.OrderDate.ToShortDateString()</td>
                                         <td>@(((decimal)order.TotalPrice).ToString("#,##0")) VND</td>
                                         <td>
-                                            <a asp-area="Admin" asp-controller="Order" asp-action="Details" 
+                                            <a asp-area="Admin" asp-controller="Order" asp-action="Details"
                                                asp-route-id="@order.Id" class="view-details">
                                                 <i class="bi bi-eye"></i> View
                                             </a>

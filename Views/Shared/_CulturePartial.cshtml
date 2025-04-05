@@ -1,0 +1,28 @@
+@using System.Globalization
+@using Microsoft.AspNetCore.Localization
+
+@{
+    var supportedCultures = new[] { "vi-VN", "en-US" };
+    var currentCulture = Context.Features.Get<IRequestCultureFeature>()?.RequestCulture.Culture.Name ?? "vi-VN";
+}
+
+<div class="dropdown">
+    <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        @CultureInfo.CurrentCulture.DisplayName
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+        @foreach (var culture in supportedCultures)
+        {
+            var displayName = new CultureInfo(culture).DisplayName;
+            <li>
+                <a class="dropdown-item @(culture == currentCulture ? "active" : "")"
+                   asp-controller="Culture"
+                   asp-action="SetCulture"
+                   asp-route-culture="@culture"
+                   asp-route-returnUrl="@Context.Request.Path@Context.Request.QueryString">
+                    @displayName
+                </a>
+            </li>
+        }
+    </ul>
+</div>

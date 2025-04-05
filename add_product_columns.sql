@@ -24,4 +24,4 @@ BEGIN
     ALTER TABLE Products ADD IsFeatured bit NOT NULL DEFAULT 0;
 END
 
-PRINT 'Product table columns have been updated successfully!' 
+PRINT 'Product table columns have been updated successfully!'

@@ -51,4 +51,4 @@ INSERT INTO Products (Name, Description, Price, CategoryId, ImageUrl, IsAvailabl
 VALUES ('Butter Croissant', 'Flaky, buttery croissant, baked fresh daily.', 25000, 4, '/images/coffee/espresso.jpg', 1, 0, 0, '1 min', 0);
 
 INSERT INTO Products (Name, Description, Price, CategoryId, ImageUrl, IsAvailable, CanCustomize, HasSizeOptions, PrepTime, IsFeatured)
-VALUES ('Chocolate Chip Cookie', 'Freshly baked cookie with chunks of chocolate.', 20000, 4, '/images/coffee/latte.jpg', 1, 0, 0, '1 min', 0); 
+VALUES ('Chocolate Chip Cookie', 'Freshly baked cookie with chunks of chocolate.', 20000, 4, '/images/coffee/latte.jpg', 1, 0, 0, '1 min', 0);

@@ -6,7 +6,7 @@
 
 <div class="container mt-4">
     <h2>@ViewData["Title"]</h2>
-    
+
     <form asp-action="Add" method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-6">
@@ -15,7 +15,7 @@
                     <input asp-for="Name" class="form-control" required />
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
-                
+
                 <div class="mb-3">
                     <label asp-for="Price" class="form-label">Base Price</label>
                     <div class="input-group">
@@ -24,13 +24,13 @@
                     </div>
                     <span asp-validation-for="Price" class="text-danger"></span>
                 </div>
-                
+
                 <div class="mb-3">
                     <label asp-for="Description" class="form-label">Description</label>
                     <textarea asp-for="Description" class="form-control" rows="4" required></textarea>
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
-                
+
                 <div class="mb-3">
                     <label asp-for="CategoryId" class="form-label">Category</label>
                     <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-select" required>
@@ -38,32 +38,32 @@
                     </select>
                     <span asp-validation-for="CategoryId" class="text-danger"></span>
                 </div>
-                
+
                 <div class="mb-3">
                     <label for="imageUrl" class="form-label">Product Image</label>
                     <input type="file" name="imageUrl" id="imageUrl" class="form-control" accept="image/*" />
                 </div>
             </div>
-            
+
             <div class="col-md-6">
                 <div class="mb-3">
                     <label class="form-label">Preparation Time</label>
                     <input asp-for="PrepTime" class="form-control" placeholder="e.g., 2-3 minutes" />
                 </div>
-                
+
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="IsFeatured" asp-for="IsFeatured" />
                     <label class="form-check-label" for="IsFeatured">Featured Item</label>
                 </div>
-                
+
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="hasCustomOptions" name="hasCustomOptions" />
                     <label class="form-check-label" for="hasCustomOptions">Has Customization Options</label>
                 </div>
-                
+
                 <div id="optionsContainer" style="display:none" class="border rounded p-3 mt-3">
                     <h4>Customization Options</h4>
-                    
+
                     <div class="option-template">
                         <div class="row mb-2 option-row">
                             <div class="col-md-5">
@@ -86,16 +86,16 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div id="options-list">
                         <!-- New option rows will be added here -->
                     </div>
-                    
+
                     <button type="button" id="add-option" class="btn btn-sm btn-primary mt-2">Add Option</button>
                 </div>
             </div>
         </div>
-        
+
         <div class="mb-3 mt-4">
             <button type="submit" class="btn btn-primary">Save Item</button>
             <a asp-action="Index" class="btn btn-secondary ml-2">Cancel</a>
@@ -116,21 +116,21 @@
                     $('#options-list').empty();
                 }
             });
-            
+
             // Add option row
             $('#add-option').click(function() {
                 addOptionRow();
             });
-            
+
             // Remove option row
             $(document).on('click', '.remove-option', function() {
                 $(this).closest('.option-row').remove();
                 renumberOptions();
             });
-            
+
             function addOptionRow() {
                 var newIndex = $('#options-list .option-row').length;
-                
+
                 var template = $('.option-template .option-row').clone();
                 template.find('input, select').each(function() {
                     var name = $(this).attr('name');
@@ -138,10 +138,10 @@
                         $(this).attr('name', name.replace('[0]', '[' + newIndex + ']'));
                     }
                 });
-                
+
                 $('#options-list').append(template);
             }
-            
+
             function renumberOptions() {
                 $('#options-list .option-row').each(function(index) {
                     $(this).find('input, select').each(function() {

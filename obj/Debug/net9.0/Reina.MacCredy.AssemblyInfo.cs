@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Reina.MacCredy")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f23eea451d042f6286d2efc4f7a55f3bc1c840b6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+63506f23c5d8bf9bbee80717e6f0191e73d8ce16")]
 [assembly: System.Reflection.AssemblyProductAttribute("Reina.MacCredy")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Reina.MacCredy")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

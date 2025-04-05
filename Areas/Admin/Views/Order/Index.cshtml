@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Reina.MacCredy.Areas.Admin.Controllers.OrderViewModel>
 
-@{  
+@{
     ViewData["Title"] = "Order Management";
 }
 
@@ -90,7 +90,7 @@
                                         }
                                     </td>
                                     <td class="text-center">
-                                        <a asp-area="Admin" asp-controller="Order" asp-action="Details" asp-route-id="@order.Id" 
+                                        <a asp-area="Admin" asp-controller="Order" asp-action="Details" asp-route-id="@order.Id"
                                            class="btn btn-sm btn-primary">
                                             <i class="bi bi-eye"></i> View
                                         </a>
@@ -121,16 +121,16 @@
         .btn, .navbar, .footer {
             display: none !important;
         }
-        
+
         .card {
             box-shadow: none !important;
             border: none !important;
         }
-        
+
         .table {
             border: 1px solid #dee2e6;
         }
-        
+
         .badge {
             border: 1px solid #dee2e6 !important;
             color: #000 !important;

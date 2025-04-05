@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/scopedcss/projectbundle/Reina.MacCredy.bundle.scp.css",
-      "PackagePath": "staticwebassets/Reina.MacCredy.7g28xao28d.bundle.scp.css"
+      "PackagePath": "staticwebassets/Reina.MacCredy.987b7s9s5q.bundle.scp.css"
     },
     {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/css/dashboard.css",
@@ -15,6 +15,46 @@
     {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/favicon.ico",
       "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/.!19065!IMG_4311.jpg",
+      "PackagePath": "staticwebassets/images/.!19065!IMG_4311.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/.!19067!p0 (24).png",
+      "PackagePath": "staticwebassets/images/.!19067!p0 (24).png"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/.!19069!coffee-logo.png",
+      "PackagePath": "staticwebassets/images/.!19069!coffee-logo.png"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/.!19073!OIP.jpeg",
+      "PackagePath": "staticwebassets/images/.!19073!OIP.jpeg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/.!19074!coffee-beans.jpg",
+      "PackagePath": "staticwebassets/images/.!19074!coffee-beans.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/.!19076!image-20250304201829948.png",
+      "PackagePath": "staticwebassets/images/.!19076!image-20250304201829948.png"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/.!19078!default-coffee-avatar.png",
+      "PackagePath": "staticwebassets/images/.!19078!default-coffee-avatar.png"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/.!19079!OIP (1).jpeg",
+      "PackagePath": "staticwebassets/images/.!19079!OIP (1).jpeg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/.!19080!TraDen.jpg",
+      "PackagePath": "staticwebassets/images/.!19080!TraDen.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/.!19100!R.png",
+      "PackagePath": "staticwebassets/images/.!19100!R.png"
     },
     {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/IMG_4311.jpg",
@@ -37,12 +77,28 @@
       "PackagePath": "staticwebassets/images/TraDen.jpg"
     },
     {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/about-coffee-shop.jpg",
+      "PackagePath": "staticwebassets/images/about-coffee-shop.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/avatars/.!19098!b4860979-f909-4a0d-93e6-946ce18456d7_p1 (8).png",
+      "PackagePath": "staticwebassets/images/avatars/.!19098!b4860979-f909-4a0d-93e6-946ce18456d7_p1 (8).png"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/avatars/.!19099!f13ac897-1ffc-44a5-9487-f34f3e170bcc_p0 (48).jpg",
+      "PackagePath": "staticwebassets/images/avatars/.!19099!f13ac897-1ffc-44a5-9487-f34f3e170bcc_p0 (48).jpg"
+    },
+    {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/avatars/b4860979-f909-4a0d-93e6-946ce18456d7_p1 (8).png",
       "PackagePath": "staticwebassets/images/avatars/b4860979-f909-4a0d-93e6-946ce18456d7_p1 (8).png"
     },
     {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/avatars/f13ac897-1ffc-44a5-9487-f34f3e170bcc_p0 (48).jpg",
       "PackagePath": "staticwebassets/images/avatars/f13ac897-1ffc-44a5-9487-f34f3e170bcc_p0 (48).jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/cart-icon.svg",
+      "PackagePath": "staticwebassets/images/cart-icon.svg"
     },
     {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee-beans-pattern.png",
@@ -53,8 +109,72 @@
       "PackagePath": "staticwebassets/images/coffee-beans.jpg"
     },
     {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee-cup.svg",
+      "PackagePath": "staticwebassets/images/coffee-cup.svg"
+    },
+    {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee-logo.png",
       "PackagePath": "staticwebassets/images/coffee-logo.png"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee-team.jpg",
+      "PackagePath": "staticwebassets/images/coffee-team.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/.!19081!Cocktail.jpg",
+      "PackagePath": "staticwebassets/images/coffee/.!19081!Cocktail.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/.!19082!Cafe-Y.jpg",
+      "PackagePath": "staticwebassets/images/coffee/.!19082!Cafe-Y.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/.!19083!Nespresso.jpg",
+      "PackagePath": "staticwebassets/images/coffee/.!19083!Nespresso.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/.!19084!Cappuchino.jpg",
+      "PackagePath": "staticwebassets/images/coffee/.!19084!Cappuchino.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/.!19085!espresso.jpg",
+      "PackagePath": "staticwebassets/images/coffee/.!19085!espresso.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/.!19086!CafeTruyenThong.jpg",
+      "PackagePath": "staticwebassets/images/coffee/.!19086!CafeTruyenThong.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/.!19087!Cocktails.jpg",
+      "PackagePath": "staticwebassets/images/coffee/.!19087!Cocktails.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/.!19088!CafeDen.jpg",
+      "PackagePath": "staticwebassets/images/coffee/.!19088!CafeDen.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/.!19089!TraDen.jpg",
+      "PackagePath": "staticwebassets/images/coffee/.!19089!TraDen.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/.!19090!cappuccino.jpg",
+      "PackagePath": "staticwebassets/images/coffee/.!19090!cappuccino.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/.!19091!latte.jpg",
+      "PackagePath": "staticwebassets/images/coffee/.!19091!latte.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/.!19092!HongTra.jpg",
+      "PackagePath": "staticwebassets/images/coffee/.!19092!HongTra.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/.!19093!TraChanh.jpg",
+      "PackagePath": "staticwebassets/images/coffee/.!19093!TraChanh.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/.!19094!Capuchino.jpg",
+      "PackagePath": "staticwebassets/images/coffee/.!19094!Capuchino.jpg"
     },
     {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/coffee/Cafe-Y.jpg",
@@ -121,12 +241,32 @@
       "PackagePath": "staticwebassets/images/default-coffee-avatar.png"
     },
     {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/district-1-location.jpg",
+      "PackagePath": "staticwebassets/images/district-1-location.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/district-2-location.jpg",
+      "PackagePath": "staticwebassets/images/district-2-location.jpg"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/district-3-location.jpg",
+      "PackagePath": "staticwebassets/images/district-3-location.jpg"
+    },
+    {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/image-20250304201829948.png",
       "PackagePath": "staticwebassets/images/image-20250304201829948.png"
     },
     {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/order-icon.svg",
+      "PackagePath": "staticwebassets/images/order-icon.svg"
+    },
+    {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/p0 (24).png",
       "PackagePath": "staticwebassets/images/p0 (24).png"
+    },
+    {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/user-icon.svg",
+      "PackagePath": "staticwebassets/images/user-icon.svg"
     },
     {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/js/admin-site.js",

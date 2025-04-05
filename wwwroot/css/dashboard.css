@@ -21,7 +21,7 @@
 body {
   background-color: #f5f8fa;
   color: var(--text-color);
-  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
 }
 
 /* Dashboard Layout */
@@ -292,16 +292,19 @@ body {
   .stats-container {
     grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
   }
-  
+
   .action-buttons {
     grid-template-columns: 1fr;
   }
-  
+
   .dashboard-content {
     padding: 1rem;
   }
-  
-  .stat-card, .orders-section, .quick-actions, .system-info {
+
+  .stat-card,
+  .orders-section,
+  .quick-actions,
+  .system-info {
     padding: 1rem;
   }
 }
@@ -330,13 +333,17 @@ body {
 
 /* Add a subtle shine effect to the stat cards */
 .stat-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -75%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%);
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
   transform: skewX(-25deg);
   opacity: 0;
   transition: all 0.8s ease;

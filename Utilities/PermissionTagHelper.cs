@@ -9,7 +9,7 @@ namespace Reina.MacCredy.Utilities
     [HtmlTargetElement("*", Attributes = "hide-for-admin")]
     public class PermissionTagHelper : TagHelper
     {
-        private readonly ClaimsPrincipal _user;
+        private readonly ClaimsPrincipal? _user;
 
         public PermissionTagHelper(Microsoft.AspNetCore.Http.IHttpContextAccessor httpContextAccessor)
         {
@@ -17,10 +17,10 @@ namespace Reina.MacCredy.Utilities
         }
 
         [HtmlAttributeName("require-permission")]
-        public string RequirePermission { get; set; }
+        public required string RequirePermission { get; set; }
 
         [HtmlAttributeName("require-role")]
-        public string RequireRole { get; set; }
+        public required string RequireRole { get; set; }
 
         [HtmlAttributeName("require-admin")]
         public bool RequireAdmin { get; set; }
@@ -33,11 +33,11 @@ namespace Reina.MacCredy.Utilities
             bool shouldHide = false;
 
             // No user is logged in
-            if (_user == null || !_user.Identity.IsAuthenticated)
+            if (_user == null || !_user.Identity?.IsAuthenticated == true)
             {
                 // If any permission is required, hide the element
-                if (!string.IsNullOrEmpty(RequirePermission) || 
-                    !string.IsNullOrEmpty(RequireRole) || 
+                if (!string.IsNullOrEmpty(RequirePermission) ||
+                    !string.IsNullOrEmpty(RequireRole) ||
                     RequireAdmin)
                 {
                     shouldHide = true;
@@ -93,4 +93,4 @@ namespace Reina.MacCredy.Utilities
             }
         }
     }
-} 
+}

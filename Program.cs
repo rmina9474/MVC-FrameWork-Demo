@@ -5,20 +5,56 @@ using Reina.MacCredy.Models;
 using Reina.MacCredy.Repositories;
 using Reina.MacCredy.Services;
 using System.Linq;
+using Microsoft.AspNetCore.DataProtection;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.EntityFrameworkCore.Sqlite;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllersWithViews();
+// Add data protection configuration
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo(Path.Combine(builder.Environment.ContentRootPath, "keys")))
+    .SetDefaultKeyLifetime(TimeSpan.FromDays(14));
 
-builder.Services.AddDbContext<ApplicationDbContext>(options => 
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), 
-        sqlServerOptionsAction: sqlOptions => 
-        {
-            sqlOptions.EnableRetryOnFailure();
-            sqlOptions.CommandTimeout(30);
-            // Allow multiple active result sets to avoid "There is already an open DataReader" error
-            sqlOptions.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
-        }));
+// Add localization
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+// Configure session with explicit cookie settings
+builder.Services.AddSession(options =>
+{
+    options.Cookie.Name = ".Reina.MacCredy.Session";
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+});
+
+// Configure localization
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    var supportedCultures = new[]
+    {
+        new CultureInfo("vi-VN"),
+        new CultureInfo("en-US")
+    };
+
+    options.DefaultRequestCulture = new RequestCulture("vi-VN");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+});
+
+builder.Services.AddControllersWithViews()
+    .AddViewLocalization();
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
+});
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddDefaultTokenProviders()
@@ -26,23 +62,6 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddRazorPages();
-
-builder.Services.ConfigureApplicationCookie(options =>
-{
-    options.LoginPath = $"/Identity/Account/Login";
-    options.LogoutPath = $"/Identity/Account/Logout";
-    options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
-});
-
-builder.Services.AddDistributedMemoryCache();
-builder.Services.AddSession(options =>
-{
-    options.IdleTimeout = TimeSpan.FromMinutes(30);
-    options.Cookie.HttpOnly = true;
-    options.Cookie.IsEssential = true;
-});
-
-// Add services to the container.
 
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();
@@ -53,6 +72,10 @@ builder.Services.AddHttpContextAccessor();
 
 // Add health checks
 builder.Services.AddHealthChecks();
+
+// Add payment service
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddHttpClient();
 
 var app = builder.Build();
 
@@ -65,9 +88,29 @@ using (var scope = app.Services.CreateScope())
         logger.LogInformation("Attempting to get ApplicationDbContext...");
         var context = services.GetRequiredService<ApplicationDbContext>();
         logger.LogInformation("ApplicationDbContext obtained. Attempting to migrate database...");
-        // Apply migrations at startup
-        context.Database.Migrate();
-        logger.LogInformation("Database migration completed successfully.");
+
+        try
+        {
+            // Apply migrations at startup with better error handling
+            context.Database.Migrate();
+            logger.LogInformation("Database migration completed successfully.");
+        }
+        catch (Exception migrationEx)
+        {
+            logger.LogError(migrationEx, "Error during database migration. Attempting to create database if it doesn't exist...");
+
+            try
+            {
+                // Try alternate approach if migration fails
+                context.Database.EnsureCreated();
+                logger.LogInformation("Database created successfully using EnsureCreated.");
+            }
+            catch (Exception createEx)
+            {
+                logger.LogError(createEx, "Critical database initialization error. Application may not function correctly.");
+                // Continue execution - we'll handle database errors gracefully in controllers
+            }
+        }
 
         var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
         var roles = new[] { "Admin", "User" }; // Add your desired roles
@@ -88,42 +131,45 @@ using (var scope = app.Services.CreateScope())
             // Note: No need to get logger again here, use the one from the outer scope
             var dbContext = services.GetRequiredService<ApplicationDbContext>();
             var connection = dbContext.Database.GetDbConnection();
-            
+
             // Open connection if it's not already open
             if (connection.State != System.Data.ConnectionState.Open)
             {
                 connection.Open();
             }
-            
+
             using (var command = connection.CreateCommand())
             {
-                // Check if Brand column exists
-                command.CommandText = @"
-                    IF NOT EXISTS (
-                        SELECT 1
-                        FROM INFORMATION_SCHEMA.COLUMNS
-                        WHERE TABLE_NAME = 'Products' AND COLUMN_NAME = 'Brand'
-                    )
-                    BEGIN
-                        ALTER TABLE Products ADD Brand nvarchar(max) NULL;
-                    END";
-                
-                command.ExecuteNonQuery();
+                // Check if Brand column exists in SQLite
+                command.CommandText = @"SELECT COUNT(*) FROM pragma_table_info('Products') WHERE name = 'Brand'";
+
+                int columnExists = Convert.ToInt32(command.ExecuteScalar());
+                if (columnExists == 0)
+                {
+                    // Add Brand column if it doesn't exist
+                    using (var alterCommand = connection.CreateCommand())
+                    {
+                        alterCommand.CommandText = "ALTER TABLE Products ADD COLUMN Brand TEXT NULL";
+                        alterCommand.ExecuteNonQuery();
+                    }
+                }
             }
-            
+
             // Check and add AvatarUrl column to AspNetUsers
             using (var command = connection.CreateCommand())
             {
-                command.CommandText = @"
-                    IF NOT EXISTS (
-                        SELECT 1
-                        FROM INFORMATION_SCHEMA.COLUMNS
-                        WHERE TABLE_NAME = 'AspNetUsers' AND COLUMN_NAME = 'AvatarUrl'
-                    )
-                    BEGIN
-                        ALTER TABLE AspNetUsers ADD AvatarUrl nvarchar(max) NULL;
-                    END";
-                command.ExecuteNonQuery();
+                command.CommandText = @"SELECT COUNT(*) FROM pragma_table_info('AspNetUsers') WHERE name = 'AvatarUrl'";
+
+                int columnExists = Convert.ToInt32(command.ExecuteScalar());
+                if (columnExists == 0)
+                {
+                    // Add AvatarUrl column if it doesn't exist
+                    using (var alterCommand = connection.CreateCommand())
+                    {
+                        alterCommand.CommandText = "ALTER TABLE AspNetUsers ADD COLUMN AvatarUrl TEXT NULL";
+                        alterCommand.ExecuteNonQuery();
+                    }
+                }
             }
         }
         catch (Exception ex)
@@ -148,12 +194,36 @@ if (!app.Environment.IsDevelopment())
 }
 else
 {
-    // Add Hong Tra product in development mode
+    // First create cafe categories
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+        // Check if we need to seed cafe categories
+        if (!dbContext.Categories.Any(c => c.Name == "Hot Coffee" || c.Name == "Cold Coffee"))
+        {
+            var cafeCategories = new List<Category>
+            {
+                new Category { Name = "Hot Coffee" },
+                new Category { Name = "Cold Coffee" },
+                new Category { Name = "Tea" },
+                new Category { Name = "Pastries" },
+                new Category { Name = "Sandwiches" },
+                new Category { Name = "Desserts" }
+            };
+
+            dbContext.Categories.AddRange(cafeCategories);
+            dbContext.SaveChanges();
+            Console.WriteLine("Cafe categories added to database!");
+        }
+    }
+
+    // Then add Hong Tra product in development mode
     using (var scope = app.Services.CreateScope())
     {
         var services = scope.ServiceProvider;
         var context = services.GetRequiredService<ApplicationDbContext>();
-        
+
         // Check if Hong Tra already exists
         if (!context.Products.Any(p => p.Name == "Hong Tra Tea"))
         {
@@ -171,16 +241,16 @@ else
                 PrepTime = "2-3 min",
                 IsFeatured = true
             };
-            
+
             context.Products.Add(hongTra);
             context.SaveChanges();
-            
+
             Console.WriteLine("Hong Tra Tea product added to database!");
         }
-        
+
         // Add all other drinks from assets
         var newDrinks = new List<Product>();
-        
+
         // Check if new drinks exist before adding
         if (!context.Products.Any(p => p.Name == "Traditional Vietnamese Coffee"))
         {
@@ -196,7 +266,7 @@ else
                 PrepTime = "3-4 min",
                 IsFeatured = true
             });
-            
+
             newDrinks.Add(new Product {
                 Name = "Black Coffee",
                 Description = "Strong and aromatic black coffee made from freshly ground beans.",
@@ -209,7 +279,7 @@ else
                 PrepTime = "2-3 min",
                 IsFeatured = false
             });
-            
+
             newDrinks.Add(new Product {
                 Name = "Milk Coffee",
                 Description = "Traditional coffee with condensed milk, a Vietnamese favorite.",
@@ -222,7 +292,7 @@ else
                 PrepTime = "2-3 min",
                 IsFeatured = true
             });
-            
+
             newDrinks.Add(new Product {
                 Name = "Cappuccino",
                 Description = "Espresso with steamed milk foam, sprinkled with cocoa powder.",
@@ -235,7 +305,7 @@ else
                 PrepTime = "3-4 min",
                 IsFeatured = false
             });
-            
+
             newDrinks.Add(new Product {
                 Name = "Nespresso Specialty",
                 Description = "Premium coffee made with Nespresso capsules for a rich, aromatic experience.",
@@ -248,7 +318,7 @@ else
                 PrepTime = "1-2 min",
                 IsFeatured = true
             });
-            
+
             newDrinks.Add(new Product {
                 Name = "Iced Lemon Tea",
                 Description = "Refreshing black tea with fresh lemon and ice.",
@@ -261,7 +331,7 @@ else
                 PrepTime = "2-3 min",
                 IsFeatured = false
             });
-            
+
             newDrinks.Add(new Product {
                 Name = "Black Tea",
                 Description = "Premium black tea with a bold flavor, served hot.",
@@ -274,7 +344,7 @@ else
                 PrepTime = "2-3 min",
                 IsFeatured = false
             });
-            
+
             newDrinks.Add(new Product {
                 Name = "Classic Cocktail",
                 Description = "A refreshing non-alcoholic cocktail with mixed fruits and soda.",
@@ -287,7 +357,7 @@ else
                 PrepTime = "4-5 min",
                 IsFeatured = true
             });
-            
+
             newDrinks.Add(new Product {
                 Name = "Premium Mixed Cocktails",
                 Description = "A selection of tropical non-alcoholic cocktails with fresh fruits.",
@@ -300,7 +370,7 @@ else
                 PrepTime = "5-6 min",
                 IsFeatured = true
             });
-            
+
             // Add all products to database
             if (newDrinks.Count > 0)
             {
@@ -312,30 +382,8 @@ else
     }
 }
 
-// Seed cafe categories
-using (var scope = app.Services.CreateScope())
-{
-    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    
-    // Check if we need to seed cafe categories
-    if (!dbContext.Categories.Any(c => c.Name == "Hot Coffee" || c.Name == "Cold Coffee"))
-    {
-        var cafeCategories = new List<Category>
-        {
-            new Category { Name = "Hot Coffee" },
-            new Category { Name = "Cold Coffee" },
-            new Category { Name = "Tea" },
-            new Category { Name = "Pastries" },
-            new Category { Name = "Sandwiches" },
-            new Category { Name = "Desserts" }
-        };
-        
-        dbContext.Categories.AddRange(cafeCategories);
-        dbContext.SaveChanges();
-    }
-}
-
 app.UseSession();
+app.UseRequestLocalization();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
@@ -343,8 +391,38 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+// Add redirect for Account routes to Identity
+app.Use(async (context, next) =>
+{
+    var path = context.Request.Path.Value;
+
+    // Redirect /Account/Login to /Identity/Account/Login
+    if (path.StartsWith("/Account/Login", StringComparison.OrdinalIgnoreCase))
+    {
+        context.Response.Redirect("/Identity/Account/Login");
+        return;
+    }
+
+    // Redirect /Account/Logout to /Identity/Account/Logout
+    if (path.StartsWith("/Account/Logout", StringComparison.OrdinalIgnoreCase))
+    {
+        context.Response.Redirect("/Identity/Account/Logout");
+        return;
+    }
+
+    // Redirect /Account/Register to /Identity/Account/Register
+    if (path.StartsWith("/Account/Register", StringComparison.OrdinalIgnoreCase))
+    {
+        context.Response.Redirect("/Identity/Account/Register");
+        return;
+    }
+
+    await next();
+});
+
 app.MapRazorPages();
 
+app.MapControllers();
 app.MapControllerRoute(
     name: "areas",
     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");

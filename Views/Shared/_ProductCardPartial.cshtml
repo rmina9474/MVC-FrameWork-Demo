@@ -1,0 +1,61 @@
+@model Product
+@using Reina.MacCredy.Extensions
+
+<div class="menu-card rounded-4 h-100 shadow-hover">
+    <div class="menu-card-image">
+        <img src="@Model.ImageUrl" alt="@Model.Name">
+        <div class="menu-card-badge">
+            @if (Model.Category != null)
+            {
+                <span class="badge bg-coffee-light">@Model.Category.Name</span>
+            }
+        </div>
+        <div class="menu-card-actions">
+            <button class="action-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal-@Model.Id">
+                <i class="bi bi-eye-fill"></i>
+            </button>
+            <button class="action-btn add-to-cart-btn" data-product-id="@Model.Id" data-quantity="1">
+                <i class="bi bi-cart-plus-fill"></i>
+            </button>
+        </div>
+    </div>
+    <div class="menu-card-body">
+        <h3 class="menu-card-title">@Model.Name</h3>
+        <div class="product-rating mb-2">
+            @{
+                double avgRating = Model.Reviews != null && Model.Reviews.Any()
+                    ? Math.Round(Model.Reviews.Average(r => r.Rating), 1)
+                    : 0;
+                int ratingCount = Model.Reviews != null ? Model.Reviews.Count : 0;
+            }
+            @for (int i = 1; i <= 5; i++)
+            {
+                if (i <= Math.Floor(avgRating))
+                {
+                    <i class="bi bi-star-fill text-warning"></i>
+                }
+                else if (i - avgRating > 0 && i - avgRating < 1)
+                {
+                    <i class="bi bi-star-half text-warning"></i>
+                }
+                else
+                {
+                    <i class="bi bi-star text-warning"></i>
+                }
+            }
+            <span class="ms-1 text-coffee-medium small">(@ratingCount)</span>
+        </div>
+        <p class="menu-card-description">@(Model.Description ?? "No description available")</p>
+        <div class="menu-card-footer">
+            <div class="menu-card-price">@Model.Price.FormatPrice()</div>
+            <div class="menu-card-actions-bottom">
+                <a asp-controller="Product" asp-action="Display" asp-route-id="@Model.Id" class="btn btn-sm btn-outline-coffee">
+                    Details
+                </a>
+                <button class="btn btn-sm btn-coffee add-to-cart-btn" data-product-id="@Model.Id" data-quantity="1">
+                    Order
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
