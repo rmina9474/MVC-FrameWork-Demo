@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "86qs3XDrKfXN27uBcdikHn1SJXTF1cnDjmxYhB3qR/M=",
+  "Hash": "j7czyUo6/t9Z3tt6xTo47SeyX8oFRi9ywOmKHe+4D2Q=",
   "Source": "Reina.MacCredy",
   "BasePath": "_content/Reina.MacCredy",
   "Mode": "Default",
@@ -3230,12 +3230,12 @@
       "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css"
     },
     {
-      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-5zwrvrfdjg.gz",
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-23rxfiy3uh.gz",
       "SourceId": "Reina.MacCredy",
       "SourceType": "Discovered",
       "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/Reina.MacCredy",
-      "RelativePath": "css/site#[.{fingerprint=5zwrvrfdjg}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=23rxfiy3uh}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -3244,8 +3244,8 @@
       "RelatedAsset": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/css/site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "bdtfg8lzi2",
-      "Integrity": "kX28/WGi5M3SCpssEZ7q+FV1XhvmwhZBTopLOz333rM=",
+      "Fingerprint": "76doafifg3",
+      "Integrity": "UeGdmwDWrJKk5RSk9b7eWZzhJV12zQS4oCMjhgbIhPI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/css/site.css"
@@ -4378,8 +4378,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "5zwrvrfdjg",
-      "Integrity": "TyUEfi/QFxH6csrh+SO1dTJXBM0pMLU8MbEJO0wxjE0=",
+      "Fingerprint": "23rxfiy3uh",
+      "Integrity": "oiGLecSnO5Suc1Ab4v/CuPmjXtiaMdJlHpK7D1ME4Sk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/site.css"
@@ -4404,6 +4404,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/avatars/702e2785-356a-4a05-befd-58c56b0d55aa_p1 (8).png",
+      "SourceId": "Reina.MacCredy",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/",
+      "BasePath": "_content/Reina.MacCredy",
+      "RelativePath": "images/avatars/702e2785-356a-4a05-befd-58c56b0d55aa_p1 (8)#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bgg3epuhog",
+      "Integrity": "9Zc+qAZx49Dow+nZ8oYTvwqmM5igddQyhhh/ekg1+ak=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/avatars/702e2785-356a-4a05-befd-58c56b0d55aa_p1 (8).png"
     },
     {
       "Identity": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/avatars/b4860979-f909-4a0d-93e6-946ce18456d7_p1 (8).png",
@@ -6869,13 +6890,13 @@
       ]
     },
     {
-      "Route": "css/site.5zwrvrfdjg.css",
-      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-5zwrvrfdjg.gz",
+      "Route": "css/site.23rxfiy3uh.css",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-23rxfiy3uh.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000278241514"
+          "Quality": "0.000236462521"
         }
       ],
       "ResponseHeaders": [
@@ -6885,15 +6906,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3593"
+          "Value": "4228"
         },
         {
           "Name": "ETag",
-          "Value": "\"kX28/WGi5M3SCpssEZ7q+FV1XhvmwhZBTopLOz333rM=\""
+          "Value": "\"UeGdmwDWrJKk5RSk9b7eWZzhJV12zQS4oCMjhgbIhPI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 19:48:11 GMT"
+          "Value": "Fri, 04 Apr 2025 21:17:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6913,13 +6934,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"TyUEfi/QFxH6csrh+SO1dTJXBM0pMLU8MbEJO0wxjE0=\""
+          "Value": "W/\"oiGLecSnO5Suc1Ab4v/CuPmjXtiaMdJlHpK7D1ME4Sk=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "5zwrvrfdjg"
+          "Value": "23rxfiy3uh"
         },
         {
           "Name": "label",
@@ -6927,12 +6948,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-TyUEfi/QFxH6csrh+SO1dTJXBM0pMLU8MbEJO0wxjE0="
+          "Value": "sha256-oiGLecSnO5Suc1Ab4v/CuPmjXtiaMdJlHpK7D1ME4Sk="
         }
       ]
     },
     {
-      "Route": "css/site.5zwrvrfdjg.css",
+      "Route": "css/site.23rxfiy3uh.css",
       "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/css/site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -6942,7 +6963,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "15089"
+          "Value": "19176"
         },
         {
           "Name": "Content-Type",
@@ -6950,11 +6971,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"TyUEfi/QFxH6csrh+SO1dTJXBM0pMLU8MbEJO0wxjE0=\""
+          "Value": "\"oiGLecSnO5Suc1Ab4v/CuPmjXtiaMdJlHpK7D1ME4Sk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 19:48:11 GMT"
+          "Value": "Fri, 04 Apr 2025 21:17:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6964,7 +6985,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "5zwrvrfdjg"
+          "Value": "23rxfiy3uh"
         },
         {
           "Name": "label",
@@ -6972,13 +6993,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-TyUEfi/QFxH6csrh+SO1dTJXBM0pMLU8MbEJO0wxjE0="
+          "Value": "sha256-oiGLecSnO5Suc1Ab4v/CuPmjXtiaMdJlHpK7D1ME4Sk="
         }
       ]
     },
     {
-      "Route": "css/site.5zwrvrfdjg.css.gz",
-      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-5zwrvrfdjg.gz",
+      "Route": "css/site.23rxfiy3uh.css.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-23rxfiy3uh.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6987,7 +7008,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3593"
+          "Value": "4228"
         },
         {
           "Name": "Content-Type",
@@ -6995,11 +7016,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"kX28/WGi5M3SCpssEZ7q+FV1XhvmwhZBTopLOz333rM=\""
+          "Value": "\"UeGdmwDWrJKk5RSk9b7eWZzhJV12zQS4oCMjhgbIhPI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 19:48:11 GMT"
+          "Value": "Fri, 04 Apr 2025 21:17:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7017,7 +7038,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "5zwrvrfdjg"
+          "Value": "23rxfiy3uh"
         },
         {
           "Name": "label",
@@ -7025,7 +7046,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-kX28/WGi5M3SCpssEZ7q+FV1XhvmwhZBTopLOz333rM="
+          "Value": "sha256-UeGdmwDWrJKk5RSk9b7eWZzhJV12zQS4oCMjhgbIhPI="
         }
       ]
     },
@@ -7068,12 +7089,12 @@
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-5zwrvrfdjg.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-23rxfiy3uh.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000278241514"
+          "Quality": "0.000236462521"
         }
       ],
       "ResponseHeaders": [
@@ -7083,15 +7104,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3593"
+          "Value": "4228"
         },
         {
           "Name": "ETag",
-          "Value": "\"kX28/WGi5M3SCpssEZ7q+FV1XhvmwhZBTopLOz333rM=\""
+          "Value": "\"UeGdmwDWrJKk5RSk9b7eWZzhJV12zQS4oCMjhgbIhPI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 19:48:11 GMT"
+          "Value": "Fri, 04 Apr 2025 21:17:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7111,13 +7132,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"TyUEfi/QFxH6csrh+SO1dTJXBM0pMLU8MbEJO0wxjE0=\""
+          "Value": "W/\"oiGLecSnO5Suc1Ab4v/CuPmjXtiaMdJlHpK7D1ME4Sk=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-TyUEfi/QFxH6csrh+SO1dTJXBM0pMLU8MbEJO0wxjE0="
+          "Value": "sha256-oiGLecSnO5Suc1Ab4v/CuPmjXtiaMdJlHpK7D1ME4Sk="
         }
       ]
     },
@@ -7132,7 +7153,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "15089"
+          "Value": "19176"
         },
         {
           "Name": "Content-Type",
@@ -7140,11 +7161,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"TyUEfi/QFxH6csrh+SO1dTJXBM0pMLU8MbEJO0wxjE0=\""
+          "Value": "\"oiGLecSnO5Suc1Ab4v/CuPmjXtiaMdJlHpK7D1ME4Sk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 19:48:11 GMT"
+          "Value": "Fri, 04 Apr 2025 21:17:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7154,13 +7175,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-TyUEfi/QFxH6csrh+SO1dTJXBM0pMLU8MbEJO0wxjE0="
+          "Value": "sha256-oiGLecSnO5Suc1Ab4v/CuPmjXtiaMdJlHpK7D1ME4Sk="
         }
       ]
     },
     {
       "Route": "css/site.css.gz",
-      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-5zwrvrfdjg.gz",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/obj/Debug/net9.0/compressed/pemnkejl89-23rxfiy3uh.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7169,7 +7190,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3593"
+          "Value": "4228"
         },
         {
           "Name": "Content-Type",
@@ -7177,11 +7198,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"kX28/WGi5M3SCpssEZ7q+FV1XhvmwhZBTopLOz333rM=\""
+          "Value": "\"UeGdmwDWrJKk5RSk9b7eWZzhJV12zQS4oCMjhgbIhPI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 19:48:11 GMT"
+          "Value": "Fri, 04 Apr 2025 21:17:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7199,7 +7220,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-kX28/WGi5M3SCpssEZ7q+FV1XhvmwhZBTopLOz333rM="
+          "Value": "sha256-UeGdmwDWrJKk5RSk9b7eWZzhJV12zQS4oCMjhgbIhPI="
         }
       ]
     },
@@ -16066,6 +16087,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-F1wMlgb/juW08DFUssW6Pm9EBKfjXXRiSK0F5FgXxJU="
+        }
+      ]
+    },
+    {
+      "Route": "images/avatars/702e2785-356a-4a05-befd-58c56b0d55aa_p1 (8).bgg3epuhog.png",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/avatars/702e2785-356a-4a05-befd-58c56b0d55aa_p1 (8).png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1513391"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9Zc+qAZx49Dow+nZ8oYTvwqmM5igddQyhhh/ekg1+ak=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 20:29:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bgg3epuhog"
+        },
+        {
+          "Name": "label",
+          "Value": "images/avatars/702e2785-356a-4a05-befd-58c56b0d55aa_p1 (8).png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9Zc+qAZx49Dow+nZ8oYTvwqmM5igddQyhhh/ekg1+ak="
+        }
+      ]
+    },
+    {
+      "Route": "images/avatars/702e2785-356a-4a05-befd-58c56b0d55aa_p1 (8).png",
+      "AssetFile": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/images/avatars/702e2785-356a-4a05-befd-58c56b0d55aa_p1 (8).png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1513391"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9Zc+qAZx49Dow+nZ8oYTvwqmM5igddQyhhh/ekg1+ak=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 20:29:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9Zc+qAZx49Dow+nZ8oYTvwqmM5igddQyhhh/ekg1+ak="
         }
       ]
     },

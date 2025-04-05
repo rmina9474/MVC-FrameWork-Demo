@@ -4,35 +4,45 @@
     ViewData["Title"] = "Browse Products";
 }
 
-<div class="container section-padding">
-    <div class="text-center mb-5">
-        <h1 class="section-title">Our Products</h1>
-        <p class="text-muted">Discover our complete collection of high-quality products</p>
+<div class="menu-hero">
+    <div class="container py-5">
+        <div class="text-center mb-4">
+            <h1 class="section-title">Our Products</h1>
+            <p class="lead text-muted">Discover our complete collection of high-quality products</p>
+        </div>
     </div>
+</div>
 
+<div class="container py-5">
     <!-- Search and Filter Controls -->
-    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
-        <!-- Search Form -->
-        <form method="get" class="d-flex mb-3 mb-md-0">
-            <div class="input-group">
-                <input type="text" name="searchQuery" class="form-control" 
-                       placeholder="Search products..." value="@ViewBag.SearchQuery">
-                <button type="submit" class="btn btn-primary">
-                    <i class="bi bi-search"></i>
-                </button>
+    <div class="search-filter-container mb-4">
+        <div class="row g-3 align-items-center">
+            <!-- Search Form -->
+            <div class="col-md-5">
+                <form method="get" class="search-form">
+                    <div class="input-group">
+                        <input type="text" name="searchQuery" class="form-control" 
+                            placeholder="Search products..." value="@ViewBag.SearchQuery">
+                        <button type="submit" class="btn btn-primary search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
-        </form>
-
-        <!-- Sort Controls -->
-        <div class="btn-group">
-            <a asp-action="Browse" asp-route-sortOrder="asc" asp-route-searchQuery="@ViewBag.SearchQuery" 
-               class="btn @(ViewBag.CurrentSort == "asc" ? "btn-primary" : "btn-outline-primary")">
-                <i class="bi bi-sort-numeric-down"></i> Price: Low to High
-            </a>
-            <a asp-action="Browse" asp-route-sortOrder="desc" asp-route-searchQuery="@ViewBag.SearchQuery" 
-               class="btn @(ViewBag.CurrentSort == "desc" ? "btn-primary" : "btn-outline-primary")">
-                <i class="bi bi-sort-numeric-up"></i> Price: High to Low
-            </a>
+            
+            <!-- Sort Controls -->
+            <div class="col-md-7">
+                <div class="sort-buttons d-flex justify-content-md-end">
+                    <a asp-action="Browse" asp-route-sortOrder="asc" asp-route-searchQuery="@ViewBag.SearchQuery" 
+                    class="sort-btn @(ViewBag.CurrentSort == "asc" ? "active" : "")">
+                        <i class="bi bi-arrow-down-up"></i> Price: Low to High
+                    </a>
+                    <a asp-action="Browse" asp-route-sortOrder="desc" asp-route-searchQuery="@ViewBag.SearchQuery" 
+                    class="sort-btn @(ViewBag.CurrentSort == "desc" ? "active" : "")">
+                        <i class="bi bi-arrow-up-down"></i> Price: High to Low
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -45,8 +55,8 @@
                 : 0;
             int ratingCount = item.Reviews != null ? item.Reviews.Count : 0;
 
-            <div class="col d-flex">
-                <div class="product-card">
+            <div class="col">
+                <div class="product-card menu-product-card">
                     <div class="product-image-wrapper">
                         <img src="@item.ImageUrl" class="product-image" alt="@item.Name">
                         <div class="product-actions-overlay">
@@ -81,10 +91,10 @@
                         </div>
                         <p class="product-description text-truncate-2">@(item.Description ?? "No description available")</p>
                         <div class="product-actions">
-                            <a asp-controller="Product" asp-action="Display" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm me-2">
+                            <a asp-controller="Product" asp-action="Display" asp-route-id="@item.Id" class="btn-product-detail">
                                 <i class="bi bi-info-circle"></i> Details
                             </a>
-                            <button class="btn btn-primary add-to-cart-btn" data-product-id="@item.Id" data-quantity="1">
+                            <button class="btn-product-cart add-to-cart-btn" data-product-id="@item.Id" data-quantity="1">
                                 <i class="bi bi-cart-plus"></i> Add to Cart
                             </button>
                         </div>
@@ -102,10 +112,10 @@
                         <div class="modal-body p-4">
                             <div class="row g-3">
                                 <div class="col-md-6 mb-4 mb-md-0">
-                                    <img src="@item.ImageUrl" class="img-fluid rounded-3" alt="@item.Name">
+                                    <img src="@item.ImageUrl" class="img-fluid rounded-3 modal-product-image" alt="@item.Name">
                                 </div>
                                 <div class="col-md-6">
-                                    <h3 class="mb-3">@item.Name</h3>
+                                    <h3 class="modal-product-title mb-3">@item.Name</h3>
                                     <!-- Rating in Modal -->
                                     <div class="mb-2">
                                         @for (int i = 1; i <= 5; i++)
@@ -125,19 +135,19 @@
                                         }
                                         <span class="ms-1 text-muted">@avgRating.ToString("0.0") (@ratingCount @(ratingCount == 1 ? "review" : "reviews"))</span>
                                     </div>
-                                    <div class="fs-4 text-primary fw-bold mb-4">@item.Price.ToString("#,##0") VND</div>
-                                    <p class="mb-4">@(item.Description ?? "No description available")</p>
+                                    <div class="modal-product-price fs-4 fw-bold mb-4">@item.Price.ToString("#,##0") VND</div>
+                                    <p class="modal-product-description mb-4">@(item.Description ?? "No description available")</p>
                                     <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-3 mb-4">
                                         <div class="quantity-control d-flex align-items-center mb-3 mb-sm-0">
-                                            <button class="quantity-btn decrease-btn btn btn-outline-secondary px-3" data-product-id="@item.Id">-</button>
-                                            <input type="number" value="1" min="1" class="quantity-input form-control mx-2 text-center" style="width: 60px;" id="modal-quantity-@item.Id">
-                                            <button class="quantity-btn increase-btn btn btn-outline-secondary px-3" data-product-id="@item.Id">+</button>
+                                            <button class="quantity-btn decrease-btn" data-product-id="@item.Id">-</button>
+                                            <input type="number" value="1" min="1" class="quantity-input" id="modal-quantity-@item.Id">
+                                            <button class="quantity-btn increase-btn" data-product-id="@item.Id">+</button>
                                         </div>
-                                        <button class="btn btn-primary modal-add-to-cart w-100 w-sm-auto" data-product-id="@item.Id">
+                                        <button class="btn-modal-cart modal-add-to-cart" data-product-id="@item.Id">
                                             <i class="bi bi-cart-plus"></i> Add to Cart
                                         </button>
                                     </div>
-                                    <a asp-controller="Product" asp-action="Display" asp-route-id="@item.Id" class="btn btn-outline-primary w-100">
+                                    <a asp-controller="Product" asp-action="Display" asp-route-id="@item.Id" class="btn-modal-detail">
                                         <i class="bi bi-info-circle"></i> View Full Details
                                     </a>
                                 </div>
@@ -148,24 +158,391 @@
             </div>
         }
     </div>
+    
+    @if (!Model.Any())
+    {
+        <div class="empty-results text-center py-5">
+            <i class="bi bi-search fs-1 text-muted"></i>
+            <h3 class="mt-3">No products found</h3>
+            <p class="text-muted">Try adjusting your search criteria</p>
+            <a asp-action="Browse" class="btn btn-primary mt-3">View All Products</a>
+        </div>
+    }
 </div>
 
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
     <div id="cartToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header bg-primary text-white">
+        <div class="toast-header">
             <i class="bi bi-cart-check me-2"></i>
             <strong class="me-auto">Shopping Cart</strong>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
         <div class="toast-body">
             <p id="cartToastMessage">Product added to cart!</p>
             <div class="mt-2 pt-2 border-top">
-                <a asp-controller="ShoppingCart" asp-action="Index" class="btn btn-primary btn-sm">View Cart</a>
-                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Continue Shopping</button>
+                <a asp-controller="Order" asp-action="Index" class="btn-toast-view">View Cart</a>
+                <button type="button" class="btn-toast-continue" data-bs-dismiss="toast">Continue Shopping</button>
             </div>
         </div>
     </div>
 </div>
+
+@section Styles {
+    <style>
+        /* Menu Page Hero Section */
+        .menu-hero {
+            background-color: var(--coffee-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, var(--coffee-medium), var(--coffee-dark));
+        }
+        
+        .section-title {
+            color: var(--coffee-dark);
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 30%;
+            right: 30%;
+            bottom: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--coffee-medium), transparent);
+        }
+        
+        /* Search and Filter Styles */
+        .search-filter-container {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .search-form .form-control {
+            border-radius: var(--radius-md) 0 0 var(--radius-md);
+            border: 1px solid var(--gray-light);
+            padding: 0.75rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .search-form .form-control:focus {
+            border-color: var(--coffee-medium);
+            box-shadow: 0 0 0 0.2rem rgba(var(--coffee-medium-rgb), 0.25);
+        }
+        
+        .search-btn {
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            background-color: var(--coffee-medium);
+            border-color: var(--coffee-medium);
+            color: var(--white);
+            padding: 0.75rem 1.25rem;
+        }
+        
+        .search-btn:hover {
+            background-color: var(--coffee-dark);
+            border-color: var(--coffee-dark);
+        }
+        
+        .sort-buttons {
+            gap: 0.75rem;
+        }
+        
+        .sort-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.25rem;
+            background-color: var(--white);
+            color: var(--coffee-dark);
+            border: 1px solid var(--gray-light);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .sort-btn i {
+            margin-right: 0.5rem;
+        }
+        
+        .sort-btn:hover, .sort-btn.active {
+            background-color: var(--coffee-light);
+            border-color: var(--coffee-medium);
+            color: var(--coffee-dark);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        /* Product Card Enhancements */
+        .menu-product-card {
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-lighter);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .menu-product-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+            border-color: var(--coffee-light);
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+        }
+        
+        .text-warning {
+            color: #FFD700 !important;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .btn-product-detail, .btn-product-cart {
+            flex: 1;
+            padding: 0.625rem 1rem;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.375rem;
+        }
+        
+        .btn-product-detail {
+            background-color: var(--white);
+            color: var(--coffee-dark);
+            border: 1px solid var(--coffee-light);
+        }
+        
+        .btn-product-detail:hover {
+            background-color: var(--coffee-light);
+            color: var(--coffee-dark);
+        }
+        
+        .btn-product-cart {
+            background-color: var(--coffee-medium);
+            color: var(--white);
+            border: 1px solid var(--coffee-medium);
+        }
+        
+        .btn-product-cart:hover {
+            background-color: var(--coffee-dark);
+            border-color: var(--coffee-dark);
+        }
+        
+        /* Modal Enhancements */
+        .modal-content {
+            border-radius: var(--radius-lg);
+            border: none;
+            overflow: hidden;
+        }
+        
+        .modal-product-image {
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .modal-product-title {
+            color: var(--coffee-dark);
+            font-weight: 700;
+        }
+        
+        .modal-product-price {
+            color: var(--coffee-medium);
+        }
+        
+        .modal-product-description {
+            color: var(--gray-dark);
+            line-height: 1.6;
+        }
+        
+        .quantity-control {
+            border: 1px solid var(--gray-light);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+        
+        .quantity-btn {
+            background-color: var(--white);
+            border: none;
+            color: var(--coffee-dark);
+            width: 40px;
+            height: 40px;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .quantity-btn:hover {
+            background-color: var(--coffee-light);
+        }
+        
+        .quantity-input {
+            border: none;
+            text-align: center;
+            width: 60px;
+            height: 40px;
+            font-weight: 500;
+        }
+        
+        .btn-modal-cart, .btn-modal-detail {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-modal-cart {
+            background-color: var(--coffee-medium);
+            color: var(--white);
+            border: 1px solid var(--coffee-medium);
+            width: 100%;
+        }
+        
+        .btn-modal-cart:hover {
+            background-color: var(--coffee-dark);
+            border-color: var(--coffee-dark);
+        }
+        
+        .btn-modal-detail {
+            background-color: var(--white);
+            color: var(--coffee-dark);
+            border: 1px solid var(--gray-light);
+            width: 100%;
+            margin-top: 0.75rem;
+        }
+        
+        .btn-modal-detail:hover {
+            background-color: var(--coffee-light);
+            border-color: var(--coffee-light);
+        }
+        
+        /* Toast Enhancements */
+        .toast {
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            border: none;
+            box-shadow: var(--shadow-lg);
+            max-width: 350px;
+        }
+        
+        .toast-header {
+            background-color: var(--coffee-medium);
+            color: var(--white);
+            border-radius: var(--radius-md) var(--radius-md) 0 0;
+            padding: 0.75rem 1rem;
+        }
+        
+        .toast-body {
+            padding: 1rem;
+        }
+        
+        .btn-toast-view, .btn-toast-continue {
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.375rem;
+            font-size: 0.875rem;
+        }
+        
+        .btn-toast-view {
+            background-color: var(--coffee-medium);
+            color: var(--white);
+            border: 1px solid var(--coffee-medium);
+        }
+        
+        .btn-toast-view:hover {
+            background-color: var(--coffee-dark);
+            border-color: var(--coffee-dark);
+        }
+        
+        .btn-toast-continue {
+            background-color: var(--white);
+            color: var(--coffee-dark);
+            border: 1px solid var(--gray-light);
+            margin-left: 0.5rem;
+        }
+        
+        .btn-toast-continue:hover {
+            background-color: var(--coffee-light);
+            border-color: var(--coffee-light);
+        }
+        
+        /* Empty Results */
+        .empty-results {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        /* Responsive Adjustments */
+        @@media (max-width: 767px) {
+            .sort-buttons {
+                justify-content: space-between;
+                width: 100%;
+                margin-top: 1rem;
+            }
+            
+            .sort-btn {
+                flex: 1;
+                font-size: 0.875rem;
+                padding: 0.625rem;
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+            
+            .quantity-control {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+}
 
 @section Scripts {
     <script>
@@ -201,7 +578,7 @@
             
             function addToCart(productId, quantity) {
                 $.ajax({
-                    url: '@Url.Action("AddToCart", "ShoppingCart")',
+                    url: '@Url.Action("AddToCart", "Order")',
                     type: 'GET',
                     data: { productId: productId, quantity: quantity },
                     success: function(response) {
@@ -219,7 +596,7 @@
             
             function updateCartCount() {
                 $.ajax({
-                    url: '@Url.Action("GetCartCount", "ShoppingCart")',
+                    url: '@Url.Action("GetCartCount", "Order")',
                     type: 'GET',
                     success: function(response) {
                         $('.cart-count').text(response);
@@ -229,6 +606,12 @@
             
             // Initialize cart count
             updateCartCount();
+            
+            // Add animation to cards
+            $('.menu-product-card').each(function(index) {
+                $(this).css('animation-delay', (index * 0.05) + 's');
+                $(this).addClass('fade-in');
+            });
         });
     </script>
 } 

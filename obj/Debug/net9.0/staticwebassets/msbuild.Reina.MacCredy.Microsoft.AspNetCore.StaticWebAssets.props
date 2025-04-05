@@ -30,8 +30,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>5zwrvrfdjg</Fingerprint>
-      <Integrity>TyUEfi/QFxH6csrh+SO1dTJXBM0pMLU8MbEJO0wxjE0=</Integrity>
+      <Fingerprint>23rxfiy3uh</Fingerprint>
+      <Integrity>oiGLecSnO5Suc1Ab4v/CuPmjXtiaMdJlHpK7D1ME4Sk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</OriginalItemSpec>
@@ -53,6 +53,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\avatars\702e2785-356a-4a05-befd-58c56b0d55aa_p1 (8).png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Reina.MacCredy</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Reina.MacCredy</BasePath>
+      <RelativePath>images/avatars/702e2785-356a-4a05-befd-58c56b0d55aa_p1 (8).png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>bgg3epuhog</Fingerprint>
+      <Integrity>9Zc+qAZx49Dow+nZ8oYTvwqmM5igddQyhhh/ekg1+ak=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\avatars\702e2785-356a-4a05-befd-58c56b0d55aa_p1 (8).png'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\avatars\b4860979-f909-4a0d-93e6-946ce18456d7_p1 (8).png'))">
       <SourceType>Package</SourceType>

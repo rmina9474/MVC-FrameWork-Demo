@@ -1,0 +1,31 @@
+@model int
+
+@{
+    ViewData["Title"] = "Order Completed";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card text-center shadow-sm">
+                <div class="card-body py-5">
+                    <div class="mb-4">
+                        <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+                    </div>
+                    <h2 class="mb-3">Thank You for Your Order!</h2>
+                    <p class="mb-4">Your order has been placed successfully.</p>
+                    <p class="mb-4">Order ID: <strong>#@Model</strong></p>
+                    <p>We'll send you confirmation and updates about your order via email.</p>
+                    <div class="mt-4">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-primary">
+                            <i class="bi bi-house me-2"></i>Return to Home
+                        </a>
+                        <a asp-controller="Order" asp-action="Details" asp-route-id="@Model" class="btn btn-outline-secondary ms-2">
+                            <i class="bi bi-eye me-2"></i>View Order Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

@@ -121,8 +121,15 @@
                                             <li>
                                                 <a class="dropdown-item d-flex align-items-center py-2 @(ViewContext?.RouteData?.Values["controller"]?.ToString() == "Order" && ViewContext?.RouteData?.Values["action"]?.ToString() == "Index" ? "active" : "")"
                                                    asp-area="" asp-controller="Order" asp-action="Index">
+                                                    <i class="bi bi-cart me-2 text-coffee"></i>
+                                                    <span>Current Order</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item d-flex align-items-center py-2 @(ViewContext?.RouteData?.Values["controller"]?.ToString() == "Order" && ViewContext?.RouteData?.Values["action"]?.ToString() == "OrderHistory" ? "active" : "")"
+                                                   asp-area="" asp-controller="Order" asp-action="OrderHistory">
                                                     <i class="bi bi-receipt me-2 text-coffee"></i>
-                                                    <span>My Orders</span>
+                                                    <span>Order History</span>
                                                 </a>
                                             </li>
                                         }
@@ -152,8 +159,8 @@
                             @if (User?.IsInRole("Admin") != true)
                             {
                                 <div class="cart-icon ms-3">
-                                    <a asp-controller="ShoppingCart" asp-action="Index"
-                                       class="cart-btn position-relative @(ViewContext?.RouteData?.Values["controller"]?.ToString() == "ShoppingCart" ? "active" : "")">
+                                    <a asp-controller="Order" asp-action="Index"
+                                       class="cart-btn position-relative @(ViewContext?.RouteData?.Values["controller"]?.ToString() == "Order" && ViewContext?.RouteData?.Values["action"]?.ToString() == "Index" ? "active" : "")">
                                         <div class="cart-btn-inner">
                                             <i class="bi bi-cart3"></i>
                                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count">
@@ -233,7 +240,7 @@
                                 }
                                 else if (User?.IsInRole("Admin") != true)
                                 {
-                                    <li><a asp-controller="Order" asp-action="Index" class="footer-link"><i class="bi bi-bag me-2"></i>My Orders</a></li>
+                                    <li><a asp-controller="Order" asp-action="OrderHistory" class="footer-link"><i class="bi bi-bag me-2"></i>My Orders</a></li>
                                     <li><a asp-controller="Account" asp-action="Profile" class="footer-link"><i class="bi bi-person-circle me-2"></i>Profile</a></li>
                                 }
                                 else
@@ -313,7 +320,7 @@
             {
                 <text>
                 $.ajax({
-                    url: '@Url.Action("GetCartCount", "ShoppingCart")',
+                    url: '@Url.Action("GetCartCount", "Order")',
                     type: 'GET',
                     success: function(response) {
                         $('.cart-count').text(response);

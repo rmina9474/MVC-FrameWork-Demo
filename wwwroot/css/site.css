@@ -194,16 +194,41 @@ a:hover {
 
 /* CTA Button Styles - Using Accent Color */
 .btn-brown {
-    background: var(--coffee-cta);
-    border-color: var(--coffee-cta);
-    color: var(--white);
-}
-
-.btn-brown:hover {
     background: var(--coffee-dark);
     border-color: var(--coffee-dark);
     color: var(--white);
-    box-shadow: 0 5px 15px rgba(74, 44, 42, 0.3);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-brown:hover {
+    background: var(--coffee-medium);
+    border-color: var(--coffee-medium);
+    color: var(--white);
+    box-shadow: 0 6px 18px rgba(126, 89, 68, 0.35);
+    transform: translateY(-3px);
+}
+
+.btn-brown::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1),
+                height 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: -1;
+}
+
+.btn-brown:hover::after {
+    width: 350px;
+    height: 350px;
 }
 
 .btn-outline-brown {
