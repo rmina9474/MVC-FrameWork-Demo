@@ -46,6 +46,17 @@ namespace Reina.MacCredy.Models
         // Flag to identify guest orders
         public bool IsGuestOrder { get; set; }
         
+        // Payment information
+        public int PaymentMethod { get; set; } = 1; // Default to Cash (1)
+        
+        public int PaymentStatus { get; set; } = 0; // Default to Pending (0)
+        
+        public string? TransactionId { get; set; }
+        
+        public string? PaymentResponse { get; set; }
+        
+        public string? PaymentReference { get; set; }
+        
         [ValidateNever]
         public ApplicationUser? ApplicationUser { get; set; }
         

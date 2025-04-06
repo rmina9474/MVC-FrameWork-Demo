@@ -1,4 +1,8 @@
-/* Enhanced Core Styles and Variables - Modern E-commerce Theme */
+/* 
+   CORE CSS VARIABLES - DO NOT MODIFY
+   These variables are used throughout the site
+   including the menu page. Ensure these are not removed.
+*/
 :root {
     /* Colors */
     --primary: #3498db;
@@ -393,6 +397,135 @@ a:hover {
 
 .navbar-brand {
     font-weight: 700;
+}
+
+/* Coffee Navbar Styles - Improved Visibility */
+.coffee-navbar {
+    background-color: rgba(255, 255, 255, 0.97); /* More opaque */
+    background-image: url('../images/coffee-beans-pattern.png');
+    background-blend-mode: overlay;
+    background-position: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    padding: 0.8rem 0;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid var(--coffee-cream);
+    position: relative;
+    z-index: 1000;
+}
+
+.coffee-navbar .container {
+    position: relative;
+    z-index: 1;
+}
+
+.coffee-navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
+    z-index: -1;
+}
+
+.coffee-navbar .nav-link {
+    color: var(--coffee-dark);
+    font-weight: 600;
+    position: relative;
+    padding: 0.5rem 1rem;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.coffee-navbar .nav-link:hover {
+    color: var(--coffee-medium);
+}
+
+.coffee-navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--coffee-medium);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.coffee-navbar .nav-link:hover::after,
+.coffee-navbar .nav-link.active::after {
+    width: 80%;
+}
+
+.coffee-navbar .navbar-brand {
+    font-size: 1.5rem;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.coffee-navbar .text-coffee {
+    color: var(--coffee-medium);
+}
+
+.coffee-navbar .text-brown {
+    color: var(--coffee-dark);
+}
+
+/* Enhance navbar cart and buttons */
+.coffee-navbar .cart-btn {
+    color: var(--coffee-dark);
+    padding: 0.5rem;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.coffee-navbar .cart-btn:hover {
+    background-color: rgba(var(--coffee-cream-rgb), 0.3);
+    transform: translateY(-2px);
+}
+
+.coffee-navbar .cart-btn i {
+    font-size: 1.4rem;
+}
+
+.coffee-navbar .btn {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.coffee-navbar .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile navbar adjustments */
+@media (max-width: 991.98px) {
+    .coffee-navbar {
+        background-color: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .coffee-navbar .navbar-collapse {
+        background-color: rgba(255, 255, 255, 0.98);
+        padding: 1rem;
+        border-radius: 0 0 var(--radius-md) var(--radius-md);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-top: 0.5rem;
+    }
+    
+    .coffee-navbar .nav-link::after {
+        display: none;
+    }
+    
+    .coffee-navbar .nav-link.active {
+        background-color: rgba(var(--coffee-cream-rgb), 0.3);
+        border-radius: var(--radius-md);
+    }
 }
 
 .nav-link {

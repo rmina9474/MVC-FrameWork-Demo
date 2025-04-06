@@ -1,0 +1,78 @@
+@{
+    ViewData["Title"] = "VNPay Payment";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 text-center">
+                    <div class="mb-4">
+                        <i class="bi bi-credit-card fs-1 text-primary"></i>
+                        <h2 class="card-title mt-3">VNPay Payment</h2>
+                        <p class="text-muted">Your payment is being processed. Please do not close this page.</p>
+                    </div>
+                    
+                    <div class="payment-details bg-light p-3 rounded-3 mb-4">
+                        <div class="row mb-2">
+                            <div class="col-6 text-start">Order ID:</div>
+                            <div class="col-6 text-end fw-bold">@ViewBag.OrderReference</div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-6 text-start">Amount:</div>
+                            <div class="col-6 text-end fw-bold text-primary">@String.Format("{0:N0} VND", ViewBag.Amount)</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 text-start">Date:</div>
+                            <div class="col-6 text-end">@ViewBag.OrderDate.ToString("dd/MM/yyyy HH:mm")</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mb-4">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-3">Redirecting to VNPay payment gateway...</p>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <a href="@ViewBag.PaymentUrl" class="btn btn-primary" id="redirectBtn">Go to Payment Gateway</a>
+                        <a href="@Url.Action("Index", "Home")" class="btn btn-outline-secondary">Cancel Payment</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <p class="text-muted small">
+                    <i class="bi bi-shield-check me-1"></i>
+                    Your payment is secured with VNPay's encryption technology
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Auto redirect after 3 seconds
+            setTimeout(function() {
+                window.location.href = "@ViewBag.PaymentUrl";
+            }, 3000);
+            
+            // Update redirect button countdown
+            var count = 3;
+            var countdown = setInterval(function() {
+                if (count <= 0) {
+                    clearInterval(countdown);
+                    return;
+                }
+                $("#redirectBtn").text("Redirecting in " + count + " seconds...");
+                count--;
+            }, 1000);
+            
+            // Log payment flow for debugging
+            console.log("VNPay payment page loaded for order: @ViewBag.OrderReference");
+        });
+    </script>
+} 

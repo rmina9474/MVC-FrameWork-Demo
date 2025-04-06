@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets/css/dashboard.css"
     },
     {
+      "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/css/menu.css",
+      "PackagePath": "staticwebassets/css/menu.css"
+    },
+    {
       "Id": "/Volumes/rmina/04. Code/C#dotNET/MVC-FrameWork-Demo/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },

@@ -1,7 +1,7 @@
 # Product Context
 
 ## Why This Project Exists
-The Reina.MacCredy e-commerce platform was developed to create a modern, user-friendly online shopping experience focused primarily on specialty coffee products and related merchandise. The application serves both customers looking to purchase high-quality coffee products and administrators needing to manage the store efficiently.
+The CoffeeShop Web Application was developed to create a modern, user-friendly online shopping experience focused primarily on specialty coffee products and related merchandise. The application serves both customers looking to purchase high-quality coffee products and administrators needing to manage the store efficiently.
 
 ## Problems It Solves
 
@@ -31,14 +31,14 @@ The Reina.MacCredy e-commerce platform was developed to create a modern, user-fr
 1. **Homepage Discovery**
    - Featured products and categories prominently displayed
    - Quick order section for popular items
-   - Visually appealing product cards with immediate "Add to Cart" functionality
+   - Visually appealing product cards with immediate "Order" functionality
    - Intuitive navigation to product categories
 
 2. **Product Browsing**
    - Clean, filterable product listings
    - Detailed product information with high-quality images
    - Quick view options without leaving the catalog page
-   - Easy quantity adjustment and cart addition
+   - Easy quantity adjustment and order placement
 
 3. **Shopping Cart**
    - Clear summary of selected items
@@ -92,6 +92,7 @@ The Reina.MacCredy e-commerce platform was developed to create a modern, user-fr
 5. **Error Prevention**: Intuitive design that helps users avoid mistakes
 6. **Efficiency**: Minimize steps for common tasks
 7. **Consistency**: Predictable patterns throughout the application
+8. **Clear Terminology**: Using consistent terms like "Order" across the application
 
 ### Visual Design Goals
 1. **Modern Aesthetic**: Clean, contemporary design language

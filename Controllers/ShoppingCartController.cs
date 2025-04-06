@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Reina.MacCredy.Extensions;
 using Reina.MacCredy.Models;
 using Reina.MacCredy.Repositories;
+using Reina.MacCredy.Services;
 
 namespace Reina.MacCredy.Controllers
 {
@@ -13,12 +14,14 @@ namespace Reina.MacCredy.Controllers
         private readonly IProductRepository _productRepository;
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly PaymentService _paymentService;
         
-        public ShoppingCartController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IProductRepository productRepository)
+        public ShoppingCartController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IProductRepository productRepository, PaymentService paymentService)
         {
             _productRepository = productRepository;
             _context = context;
             _userManager = userManager;
+            _paymentService = paymentService;
         }
         
         // Remove Authorize to allow guests to access checkout page
@@ -59,124 +62,267 @@ namespace Reina.MacCredy.Controllers
         public async Task<IActionResult> Checkout(Order order)
         {
             var cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart");
+            
             if (cart == null || !cart.Items.Any())
             {
-                // Handle empty cart...
-                return RedirectToAction("Index");
+                ModelState.AddModelError("", "Your cart is empty!");
+                return View(order);
             }
             
-            // For logged in users
-            if (User?.Identity != null && User.Identity.IsAuthenticated)
+            // Add current cart items to order
+            foreach (var item in cart.Items)
             {
-                var user = await _userManager.GetUserAsync(User);
-                if (user != null)
+                var orderDetail = new OrderDetail
                 {
-                    order.UserId = user.Id;
-                }
+                    ProductId = item.ProductId,
+                    Quantity = item.Quantity,
+                    Price = item.Price,
+                    SelectedOptions = item.SelectedOptions
+                };
+                order.OrderDetails.Add(orderDetail);
+            }
+            
+            order.TotalPrice = cart.GetTotal();
+            order.OrderDate = DateTime.Now;
+            
+            // Set user ID if authenticated
+            if (User.Identity.IsAuthenticated)
+            {
+                order.UserId = await _userManager.GetUserIdAsync(await _userManager.GetUserAsync(User));
+                order.IsGuestOrder = false;
             }
             else
             {
-                // For guest users, ensure we have minimum required information
-                if (string.IsNullOrEmpty(order.ShippingAddress) || string.IsNullOrEmpty(order.Email))
-                {
-                    ModelState.AddModelError("", "Please provide shipping address and email");
-                    return View("GuestCheckout", order);
-                }
-                
-                // Set guest flag
                 order.IsGuestOrder = true;
             }
             
-            order.OrderDate = DateTime.UtcNow;
-            order.TotalPrice = cart.Items.Sum(i => i.Price * i.Quantity);
-            var orderDetails = new List<OrderDetail>();
-            
-            foreach (var item in cart.Items)
+            // Validate notes length
+            if (order.Notes?.Length > 500)
             {
-                var product = await _productRepository.GetByIdAsync(item.ProductId);
-                orderDetails.Add(new OrderDetail
-                {
-                    ProductId = item.ProductId,
-                    Product = product,
-                    Quantity = item.Quantity,
-                    Price = item.Price,
-                    Order = order
-                });
+                ModelState.AddModelError("Notes", "Notes cannot exceed 500 characters");
+                return View(order);
             }
-            order.OrderDetails = orderDetails;
-
-            // Set a default value for Notes if it is null or empty
-            if (string.IsNullOrEmpty(order.Notes))
+            
+            // Set default notes if empty
+            if (string.IsNullOrWhiteSpace(order.Notes))
             {
                 order.Notes = "No additional notes.";
             }
 
+            // Ensure PaymentMethod has a valid value (default to Cash on Delivery if not provided)
+            if (order.PaymentMethod <= 0)
+            {
+                order.PaymentMethod = SD.Payment_CashOnDelivery; // Use SD constant
+            }
+            
+            // Set default payment status
+            order.PaymentStatus = SD.PaymentStatus_Pending; // Use SD constant
+
             _context.Orders.Add(order);
             await _context.SaveChangesAsync();
+            
+            // Process payment if not Cash on Delivery
+            if (order.PaymentMethod != SD.Payment_CashOnDelivery)
+            {
+                var returnUrl = Url.Action("OrderCompleted", "ShoppingCart", new { id = order.Id }, Request.Scheme);
+                var paymentResult = await _paymentService.ProcessPaymentAsync(order, returnUrl);
+
+                if (paymentResult.Success)
+                {
+                    // Update order with payment success
+                    order.PaymentStatus = SD.PaymentStatus_Approved;
+                    order.PaymentResponse = paymentResult.Message;
+                    await _context.SaveChangesAsync();
+                    
+                    // Clear the cart
+                    HttpContext.Session.Remove("Cart");
+                    
+                    // Redirect based on payment result
+                    if (!string.IsNullOrEmpty(paymentResult.RedirectUrl))
+                    {
+                        // Check if this is an external redirect or an internal route
+                        if (paymentResult.RedirectUrl.StartsWith("http") && 
+                            !paymentResult.RedirectUrl.Contains(Request.Host.ToString()))
+                        {
+                            // External payment gateway redirect
+                            return Redirect(paymentResult.RedirectUrl);
+                        }
+                        else
+                        {
+                            // Internal route - redirect to route within our application
+                            return Redirect(paymentResult.RedirectUrl);
+                        }
+                    }
+                    else
+                    {
+                        // Direct completion (no redirect needed)
+                        TempData["OrderId"] = order.Id.ToString();
+                        TempData["PaymentMessage"] = paymentResult.Message;
+                        return RedirectToAction("OrderCompleted", new { id = order.Id });
+                    }
+                }
+                else
+                {
+                    // Payment processing failed
+                    ModelState.AddModelError("", paymentResult.Message);
+                    return View(order);
+                }
+            }
+            else
+            {
+                // Cash on delivery - mark as pending
+                order.PaymentStatus = SD.PaymentStatus_Pending;
+                await _context.SaveChangesAsync();
+            }
+            
+            // Clear the cart
             HttpContext.Session.Remove("Cart");
-            return View("OrderCompleted", order.Id); // Order completion confirmation page
+            
+            // Use TempData which is more reliable across redirects than ViewBag
+            TempData["OrderId"] = order.Id.ToString();
+            return RedirectToAction("OrderCompleted", new { id = order.Id });
+        }
+
+        public IActionResult OrderCompleted(int id)
+        {
+            // Retrieve order details if needed
+            var order = _context.Orders.FirstOrDefault(o => o.Id == id);
+            
+            if (order == null)
+            {
+                // Fallback to TempData if order not found
+                ViewBag.OrderId = TempData["OrderId"]?.ToString() ?? "Unknown";
+                ViewBag.PaymentMessage = TempData["PaymentMessage"]?.ToString() ?? "Order processed successfully";
+                // Set default payment status to pending (integer value)
+                ViewBag.PaymentStatus = SD.PaymentStatus_Pending;
+                ViewBag.PaymentMethod = SD.Payment_CashOnDelivery;
+            }
+            else
+            {
+                ViewBag.OrderId = order.Id.ToString();
+                ViewBag.PaymentStatus = order.PaymentStatus;
+                ViewBag.PaymentMethod = GetPaymentMethodName(order.PaymentMethod);
+                ViewBag.PaymentMessage = order.PaymentResponse ?? "Order processed successfully";
+            }
+            
+            return View("OrderCompleted");
+        }
+
+        // Helper method to get payment method name
+        private string GetPaymentMethodName(int paymentMethod)
+        {
+            return paymentMethod switch
+            {
+                SD.Payment_CashOnDelivery => "Cash on Delivery",
+                SD.Payment_CreditCard => "Credit Card",
+                SD.Payment_BankTransfer => "Bank Transfer",
+                SD.Payment_MoMo => "MoMo",
+                SD.Payment_VNPay => "VNPay",
+                _ => "Unknown"
+            };
         }
 
         [HttpPost]
         public async Task<IActionResult> AddToCart(int productId, int quantity = 1, decimal totalPrice = 0, string selectedOptions = "")
         {
-            var product = await _productRepository.GetByIdAsync(productId);
-            if (product == null)
+            try
             {
-                return NotFound();
-            }
-
-            var cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart") ?? new ShoppingCart();
-            
-            // Use custom price if provided (for products with options)
-            decimal actualPrice = totalPrice > 0 ? totalPrice : product.Price;
-            
-            // Create a unique identifier for this product+options combination
-            string cartItemKey = productId.ToString();
-            if (!string.IsNullOrEmpty(selectedOptions))
-            {
-                cartItemKey += "_" + selectedOptions.GetHashCode();
-            }
-            
-            var existingItem = cart.Items.FirstOrDefault(i => i.ProductId == productId && 
-                                                     (i.SelectedOptions == selectedOptions || 
-                                                      (string.IsNullOrEmpty(i.SelectedOptions) && string.IsNullOrEmpty(selectedOptions))));
-            
-            if (existingItem != null)
-            {
-                existingItem.Quantity += quantity;
-            }
-            else
-            {
-                cart.Items.Add(new CartItem
+                Console.WriteLine($"AddToCart called - Product ID: {productId}, Quantity: {quantity}");
+                
+                var product = await _productRepository.GetByIdAsync(productId);
+                if (product == null)
                 {
-                    ProductId = product.Id,
-                    Name = product.Name,
-                    Price = actualPrice,
-                    Quantity = quantity,
-                    SelectedOptions = selectedOptions
-                });
-            }
+                    Console.WriteLine($"Product not found: {productId}");
+                    if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                    {
+                        return Json(new { success = false, message = "Product not found" });
+                    }
+                    return NotFound();
+                }
 
-            HttpContext.Session.SetObjectAsJson("Cart", cart);
-            
-            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
-            {
-                return Json(new { 
-                    success = true, 
-                    message = "Cart updated successfully",
-                    quantity = quantity
-                });
+                // Get cart from session or create a new one
+                var cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart");
+                if (cart == null)
+                {
+                    Console.WriteLine("Creating new cart");
+                    cart = new ShoppingCart();
+                }
+                else
+                {
+                    Console.WriteLine($"Existing cart found with {cart.Items.Count} items");
+                }
+                
+                // Use custom price if provided (for products with options)
+                decimal actualPrice = totalPrice > 0 ? totalPrice : product.Price;
+                
+                // Create a unique identifier for this product+options combination
+                string cartItemKey = productId.ToString();
+                if (!string.IsNullOrEmpty(selectedOptions))
+                {
+                    cartItemKey += "_" + selectedOptions.GetHashCode();
+                }
+                
+                var existingItem = cart.Items.FirstOrDefault(i => i.ProductId == productId && 
+                                                        (i.SelectedOptions == selectedOptions || 
+                                                        (string.IsNullOrEmpty(i.SelectedOptions) && string.IsNullOrEmpty(selectedOptions))));
+                
+                if (existingItem != null)
+                {
+                    Console.WriteLine($"Updating existing item: {product.Name}, new quantity: {existingItem.Quantity + quantity}");
+                    existingItem.Quantity += quantity;
+                }
+                else
+                {
+                    Console.WriteLine($"Adding new item: {product.Name}, quantity: {quantity}");
+                    cart.Items.Add(new CartItem
+                    {
+                        ProductId = product.Id,
+                        Name = product.Name,
+                        Price = actualPrice,
+                        Quantity = quantity,
+                        SelectedOptions = selectedOptions
+                    });
+                }
+
+                // Save updated cart back to session
+                HttpContext.Session.SetObjectAsJson("Cart", cart);
+                
+                Console.WriteLine($"Cart updated - Items: {cart.Items.Count}, Total: {cart.TotalPrice}");
+                
+                if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                {
+                    Console.WriteLine("Returning AJAX response");
+                    return Json(new { 
+                        success = true, 
+                        message = "Product added to order successfully",
+                        quantity = quantity,
+                        cartCount = cart.Items.Sum(i => i.Quantity),
+                        cartTotal = cart.TotalPrice
+                    });
+                }
+                
+                // Check if user is authenticated before proceeding to cart
+                if (User?.Identity == null || !User.Identity.IsAuthenticated)
+                {
+                    Console.WriteLine("User not authenticated, redirecting to login prompt");
+                    // Store return URL for after login
+                    return RedirectToAction("LoginPrompt", new { returnUrl = Url.Action("Index", "ShoppingCart") });
+                }
+                
+                Console.WriteLine("Redirecting to cart");
+                return RedirectToAction("Index");
             }
-            
-            // Check if user is authenticated before proceeding to cart
-            if (User?.Identity == null || !User.Identity.IsAuthenticated)
+            catch (Exception ex)
             {
-                // Store return URL for after login
-                return RedirectToAction("LoginPrompt", new { returnUrl = Url.Action("Index", "ShoppingCart") });
+                Console.WriteLine($"Error adding to cart: {ex.Message}");
+                Console.WriteLine($"Stack trace: {ex.StackTrace}");
+                
+                if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                {
+                    return Json(new { success = false, message = $"Error adding to cart: {ex.Message}", error = ex.Message });
+                }
+                throw;
             }
-            
-            return RedirectToAction("Index");
         }
 
         [HttpGet("ShoppingCart/RemoveFromCart")]
@@ -209,9 +355,19 @@ namespace Reina.MacCredy.Controllers
         [HttpGet]
         public IActionResult GetCartCount()
         {
-            var cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart");
-            var cartCount = cart?.Items.Sum(item => item.Quantity) ?? 0;
-            return Json(cartCount);
+            try
+            {
+                var cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart");
+                var cartCount = cart?.Items.Sum(item => item.Quantity) ?? 0;
+                Console.WriteLine($"GetCartCount called - Current count: {cartCount}");
+                return Json(cartCount);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in GetCartCount: {ex.Message}");
+                Console.WriteLine($"Stack trace: {ex.StackTrace}");
+                return Json(0); // Return 0 as fallback on error
+            }
         }
 
         [HttpPost]

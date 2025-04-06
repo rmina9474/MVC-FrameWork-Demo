@@ -35,17 +35,32 @@ The Reina.MacCredy e-commerce application follows a standard ASP.NET Core MVC ar
 - AJAX error handling for client-side operations
 - Toast notifications for user feedback on actions
 
+### Design System Pattern
+- **Color System**: Coffee-themed palette with consistent variables (coffee-dark, coffee-medium, coffee-light, coffee-cream)
+- **Typography System**: Consistent font families and sizes for headings and body text
+- **Spacing System**: Standardized spacing values for margins and padding
+- **Component Library**: Reusable UI elements with consistent styling
+- **Icon System**: Consistent use of Bootstrap icons throughout the application
+- **Animation System**: Subtle transitions and hover effects for interactive elements
+- **Terminology System**: Consistent use of terms like "Order" rather than "Add to Cart" across the application
+
 ### UI Design Patterns
 - **Card Pattern**: Consistent content containers for products and profile sections
+- **Product Card Pattern**: Standardized cards with image, title, price, rating, and actions
 - **Service Card Pattern**: Specialized cards for account services with icon and action button
-- **Quick Action Pattern**: Immediate access to common actions (add to cart, view details)
-- **Hover Effect Pattern**: Visual feedback on interactive elements
+- **Quick Action Pattern**: Immediate access to common actions (order, view details)
+- **Badge Pattern**: Category indicators on product cards
+- **Hover Effect Pattern**: Visual feedback on interactive elements with scale and shadow changes
+- **Animation Pattern**: Subtle transitions and transforms for interactive elements
 - **Notification Pattern**: Toast messages and fade-in alerts for action feedback
+- **Hero Section Pattern**: Branded header area for content sections
 - **Section Organization**: Clear separation of content types on pages
 - **Responsive Grid System**: Adapts layout to different screen sizes
-- **Modal Dialog Pattern**: Detailed views without page navigation
+- **Modal Dialog Pattern**: Detailed views and customization options without page navigation
+- **Option Selector Pattern**: Radio button groups for product customization
 - **Avatar Upload Pattern**: Visual interface for profile image management
 - **Form Organization Pattern**: Logical grouping of input fields with clear labels
+- **Search and Filter Pattern**: Standardized layout for search input and sorting controls
 
 ## Component Relationships
 
@@ -76,6 +91,7 @@ The application uses Entity Framework Core with a code-first approach, defining 
 
 - **User**: Customer accounts and authentication data
 - **Product**: Item details, pricing, and inventory
+- **ProductOption**: Customization options for products (sizes, extras, flavors)
 - **Category**: Product categorization
 - **Order**: Purchase transactions and status
 - **OrderItem**: Individual items within an order
@@ -109,10 +125,11 @@ The application is organized into distinct areas:
 - Lazy loading for related entities when appropriate
 - Defensive coding to prevent application crashes
 - Dynamic loading of cart data with AJAX to improve page load times
+- Optimized image loading for product displays
 
 ## UI/UX Patterns
 - **Visual Hierarchy**: Important elements emphasized through size, color, and position
-- **Progressive Disclosure**: Complex options revealed as needed
+- **Progressive Disclosure**: Complex options revealed as needed (e.g., product customization)
 - **Consistent Navigation**: Predictable menu structure across the application
 - **Visual Feedback**: Actions confirmed through animations and notifications
 - **Mobile-First Design**: Ensuring usability on all device sizes
@@ -120,4 +137,9 @@ The application is organized into distinct areas:
 - **Accessible Controls**: Clear labels and sufficient touch targets
 - **Action Confirmation**: Visual feedback when actions are successful
 - **Content Separation**: Clear visual distinction between different content sections
-- **Responsive Adaptation**: UI elements that reorganize based on screen size 
+- **Responsive Adaptation**: UI elements that reorganize based on screen size
+- **Card Grid Layout**: Consistent product display using responsive card grids
+- **Detail Modal Pattern**: Quick access to additional information without page navigation
+- **Customization Flow**: Step-by-step process for product options
+- **Price Formatting**: Consistent currency display with thousands separators
+- **Terminology Consistency**: Using "Order" consistently for all product addition actions 

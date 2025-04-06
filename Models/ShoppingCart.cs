@@ -5,6 +5,9 @@ namespace Reina.MacCredy.Models
     public class ShoppingCart
     {
         public List<CartItem> Items { get; set; } = new List<CartItem>();
+        
+        // Add a TotalPrice property for JSON serialization
+        public decimal TotalPrice => GetTotal();
 
         public void AddItem(Product product, int quantity, decimal customPrice = 0, string selectedOptions = "")
         {

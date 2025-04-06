@@ -17,6 +17,18 @@ namespace Reina.MacCredy.Extensions
             return value == null ? default(T) : JsonConvert.DeserializeObject<T>(value);
         }
         
+        // Methods needed by ShoppingCartController
+        public static void SetObjectAsJson<T>(this ISession session, string key, T value)
+        {
+            session.SetString(key, JsonConvert.SerializeObject(value));
+        }
+
+        public static T GetObjectFromJson<T>(this ISession session, string key)
+        {
+            var value = session.GetString(key);
+            return value == null ? default(T) : JsonConvert.DeserializeObject<T>(value);
+        }
+        
         // Add a FormatPrice extension for consistent price formatting
         public static string FormatPrice(this decimal price)
         {

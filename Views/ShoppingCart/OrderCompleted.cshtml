@@ -1,3 +1,113 @@
-﻿@model int
-<h2>Order Completed</h2>
-<p>Your order with ID @Model has been placed successfully.</p>
+﻿@{
+    ViewData["Title"] = "Order Completed";
+    var orderId = ViewBag.OrderId ?? TempData["OrderId"] as string;
+    var paymentStatus = ViewBag.PaymentStatus ?? "Completed";
+    var paymentMethod = ViewBag.PaymentMethod ?? "Unknown";
+    var paymentMessage = ViewBag.PaymentMessage ?? "Your order has been processed successfully.";
+    
+    // Import the SD class to access constants
+    @using Reina.MacCredy.Models;
+}
+
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
+                    <div class="text-center mb-4">
+                        <div class="mb-3">
+                            <i class="bi bi-check-circle-fill text-success fs-1"></i>
+                        </div>
+                        <h1 class="h3 mb-3">Thank You For Your Order!</h1>
+                        <p class="text-muted">Your order has been placed and is being processed.</p>
+                    </div>
+                    
+                    <div class="order-details">
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <div class="border rounded p-3 h-100">
+                                    <h5 class="mb-3">Order Summary</h5>
+                                    <p class="mb-1"><strong>Order ID:</strong> #@orderId</p>
+                                    <p class="mb-1"><strong>Date:</strong> @DateTime.Now.ToString("MMMM dd, yyyy")</p>
+                                    <p class="mb-0"><strong>Payment Method:</strong> @(paymentMethod)</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="border rounded p-3 h-100">
+                                    <h5 class="mb-3">Payment Status</h5>
+                                    @if (paymentStatus is int intStatus)
+                                    {
+                                        @if (intStatus == SD.PaymentStatus_Approved)
+                                        {
+                                            <div class="d-flex align-items-center text-success mb-2">
+                                                <i class="bi bi-check-circle-fill me-2"></i>
+                                                <span>Payment Approved</span>
+                                            </div>
+                                        }
+                                        else if (intStatus == SD.PaymentStatus_Pending)
+                                        {
+                                            <div class="d-flex align-items-center text-warning mb-2">
+                                                <i class="bi bi-hourglass-split me-2"></i>
+                                                <span>Payment Pending</span>
+                                            </div>
+                                        }
+                                        else if (intStatus == SD.PaymentStatus_Rejected)
+                                        {
+                                            <div class="d-flex align-items-center text-danger mb-2">
+                                                <i class="bi bi-x-circle-fill me-2"></i>
+                                                <span>Payment Rejected</span>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="d-flex align-items-center text-info mb-2">
+                                                <i class="bi bi-info-circle-fill me-2"></i>
+                                                <span>Payment Status: @intStatus</span>
+                                            </div>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <div class="d-flex align-items-center text-info mb-2">
+                                            <i class="bi bi-info-circle-fill me-2"></i>
+                                            <span>@paymentStatus</span>
+                                        </div>
+                                    }
+                                    <p class="small text-muted mb-0">@paymentMessage</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <p class="mb-4">We'll send you a confirmation email with your order details shortly.</p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <a href="@Url.Action("Index", "Home")" class="btn btn-outline-dark">
+                                <i class="bi bi-house me-2"></i> Return to Home
+                            </a>
+                            <a href="@Url.Action("Menu", "Home")" class="btn btn-coffee">
+                                <i class="bi bi-cup-hot me-2"></i> Continue Shopping
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Styles {
+    <style>
+        .btn-coffee {
+            background-color: var(--coffee-medium);
+            border-color: var(--coffee-medium);
+            color: white;
+        }
+        
+        .btn-coffee:hover {
+            background-color: var(--coffee-dark);
+            border-color: var(--coffee-dark);
+            color: white;
+        }
+    </style>
+}

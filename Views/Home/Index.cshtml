@@ -38,7 +38,7 @@
                                             <h5>@featured[i].Name</h5>
                                             <p class="mb-0">@featured[i].Price.ToString("#,##0") VND</p>
                                             <button class="btn btn-sm btn-brown mt-2 quick-add-btn" data-product-id="@featured[i].Id" data-quantity="1">
-                                                <i class="bi bi-cart-plus"></i> Add to Cart
+                                                <i class="bi bi-cart-plus"></i> Order
                                             </button>
                                         </div>
                                     </div>
@@ -142,7 +142,7 @@
                         </div>
                         <div class="card-footer bg-transparent border-0 pt-0">
                             <button class="btn btn-brown w-100 quick-add-to-cart" data-product-id="@item.Id">
-                                <i class="bi bi-cart-plus me-2"></i> Add to Cart
+                                <i class="bi bi-cart-plus me-2"></i> Order
                             </button>
                         </div>
                     </div>
@@ -234,7 +234,7 @@
                                     <i class="bi bi-info-circle"></i> Details
                                 </a>
                                 <button class="btn btn-brown add-to-cart-btn" data-product-id="@item.Id" data-quantity="@numOfQuantity">
-                                    <i class="bi bi-cart-plus"></i> Add to Cart
+                                    <i class="bi bi-cart-plus"></i> Order
                                 </button>
                             </div>
                         </div>
@@ -286,7 +286,7 @@
                                                 <button class="btn btn-sm btn-outline-secondary quantity-btn" data-action="increase">+</button>
                                             </div>
                                             <button class="btn btn-brown add-to-cart-btn" data-product-id="@item.Id" data-quantity="1">
-                                                <i class="bi bi-cart-plus me-2"></i> Add to Cart
+                                                <i class="bi bi-cart-plus me-2"></i> Order
                                             </button>
                                         </div>
                                     </div>
@@ -325,7 +325,7 @@
 @section Scripts {
     <script>
         $(document).ready(function() {
-            // Add to cart button click event
+            // Add to order button click event
             $('.add-to-cart-btn, .add-to-cart-btn-overlay, .quick-add-btn').click(function() {
                 var productId = $(this).data('product-id');
                 var quantity = $(this).data('quantity');
@@ -336,7 +336,7 @@
                 addToCart(productId, quantity);
             });
             
-            // Quick order add to cart
+            // Quick order add to order
             $('.quick-add-to-cart').click(function() {
                 var productId = $(this).data('product-id');
                 var quantity = $('#quantity-' + productId).val();
@@ -356,7 +356,7 @@
                     } else if (action === 'decrease' && value > 1) {
                         input.val(value - 1);
                     }
-                    // Update the data-quantity attribute of the add to cart button
+                    // Update the data-quantity attribute of the add to order button
                     $(this).closest('.modal-body').find('.add-to-cart-btn').data('quantity', input.val());
                 }
                 // If in quick order section
@@ -372,9 +372,9 @@
                 }
             });
             
-            // Function to add items to cart
+            // Function to add items to order
             function addToCart(productId, quantity) {
-                // Add to cart via AJAX
+                // Add to order via AJAX
                 $.ajax({
                     url: '/ShoppingCart/AddToCart',
                     type: 'POST',
@@ -383,11 +383,11 @@
                         quantity: quantity
                     },
                     success: function(response) {
-                        // Update cart count
+                        // Update order count
                         $('.cart-count').text(response.cartCount);
                         
                         // Show success toast
-                        showToast('success', '<i class="bi bi-check-circle me-2"></i> Item added to cart!');
+                        showToast('success', '<i class="bi bi-check-circle me-2"></i> Item added to order!');
                         
                         // Close modal if open
                         $('.modal').modal('hide');
@@ -400,7 +400,7 @@
                     },
                     error: function() {
                         // Show error toast
-                        showToast('danger', '<i class="bi bi-exclamation-circle me-2"></i> Failed to add item to cart.');
+                        showToast('danger', '<i class="bi bi-exclamation-circle me-2"></i> Failed to add item to order.');
                     }
                 });
             }

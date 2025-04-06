@@ -1,5 +1,191 @@
 # Technical Context
 
+## Technology Stack
+
+### Backend
+- **Framework**: ASP.NET Core 8.0
+- **Language**: C# 12
+- **ORM**: Entity Framework Core 9.0.3
+- **Database**: Microsoft SQL Server
+- **Authentication**: ASP.NET Core Identity
+- **API Style**: MVC pattern with view-based endpoints
+- **JSON Serialization**: Newtonsoft.Json for session state management
+
+### Frontend
+- **View Engine**: Razor Views
+- **CSS Framework**: Bootstrap 5
+- **JavaScript Libraries**: jQuery for AJAX and DOM manipulation
+- **Icons**: Bootstrap Icons
+- **Responsive Design**: Mobile-first approach
+
+### Infrastructure
+- **Containerization**: Docker with docker-compose for local development
+- **Source Control**: Git
+- **IDE**: Visual Studio 2022 / VS Code
+- **Deployment Target**: Containerized application
+- **Session Management**: ASP.NET Core Session with secure cookie configuration
+
+## Development Setup
+
+### Prerequisites
+- .NET 9.0 SDK or later
+- Docker Desktop (for containerized development)
+- SQL Server (or SQL Server container)
+- Git
+- IDE of choice (Visual Studio 2022 or VS Code recommended)
+
+### Local Development
+1. Clone the repository
+2. Run `dotnet restore` to restore NuGet packages
+3. Update connection string in `appsettings.json` if needed
+4. Run `dotnet ef database update` to apply migrations
+5. Run `dotnet run` to start the application
+
+### Docker Development
+1. Clone the repository
+2. Run `docker-compose up` to build and start the application and database
+3. Access the application at http://localhost:5000
+
+## Architecture
+
+### Application Layers
+1. **Presentation Layer**: MVC Controllers and Razor Views
+2. **Service Layer**: Business logic services
+3. **Repository Layer**: Data access abstraction
+4. **Data Layer**: Entity Framework Core and SQL Server
+
+### Design Patterns
+1. **Repository Pattern**: Data access abstraction
+2. **Dependency Injection**: Service registration and resolution
+3. **MVC Pattern**: Model-View-Controller for web interface
+4. **Options Pattern**: Configuration management
+5. **Factory Pattern**: For creating complex objects
+
+### Data Flow
+1. User interacts with Views
+2. Controllers handle requests
+3. Services process business logic
+4. Repositories interact with database
+5. Results flow back to Views
+
+## Project Structure
+
+### Key Directories
+- **/Controllers**: MVC controllers
+- **/Models**: Domain models and ViewModels
+- **/Views**: Razor views
+- **/Areas**: Feature-specific areas (like Admin, Identity)
+- **/Services**: Business logic services
+- **/Repositories**: Data access interfaces and implementations
+- **/Extensions**: Extension methods (including session extensions for cart)
+- **/Utilities**: Helper classes and utilities
+
+### Important Files
+- **Program.cs**: Application startup and DI configuration
+- **appsettings.json**: Application configuration
+- **Dockerfile**: Docker configuration
+- **docker-compose.yml**: Multi-container Docker configuration
+
+## Key Technical Considerations
+
+### Session Management
+- Using ASP.NET Core's session middleware
+- Cookie-based session with proper security settings
+- Session data stored as JSON using Newtonsoft.Json
+- Custom extension methods (GetObjectFromJson, SetObjectAsJson) for type-safe session access
+- Proper error handling for session state changes
+
+### Data Protection
+- Configured with explicit application name and key lifetime
+- Secure cookie settings with HttpOnly, SameSite, and Secure flags
+- CSRF protection through antiforgery tokens
+- Proper authorization checks
+
+### AJAX Handling
+- jQuery for AJAX requests
+- Proper X-Requested-With header for identifying AJAX requests
+- Comprehensive error handling
+- JSON responses with standardized format
+- Client-side logging for troubleshooting
+
+### Shopping Cart Implementation
+- Shopping cart stored in session
+- Cart data serialized to JSON
+- Proper model definition with TotalPrice property
+- Idempotent operations for adding/removing items
+- Price formatting standardized to VND currency
+
+### Authentication & Authorization
+- ASP.NET Core Identity for user management
+- Role-based authorization (Admin and User roles)
+- Secure password hashing and storage
+- Email confirmation
+
+### Database Schema
+- Code-first approach with migrations
+- Proper relationships and constraints
+- Indexed columns for performance
+- Nullable types where appropriate
+
+### Error Handling
+- Global exception handler
+- Controller-level try-catch blocks for domain-specific errors
+- User-friendly error messages
+- Detailed logging for debugging
+- Developer-friendly error details in development environment
+
+### Performance Considerations
+- Efficient database queries
+- Proper use of async/await
+- Caching where appropriate
+- Bundling and minification for frontend assets
+- Lazy loading when beneficial
+
+### Security
+- HTTPS enforcement
+- Cross-site scripting (XSS) protection
+- Cross-site request forgery (CSRF) protection
+- SQL injection prevention through parameterized queries
+- Proper authentication and authorization
+- Input validation and sanitization
+
+## Technical Decisions
+
+### Why ASP.NET Core MVC?
+- Strong typing and compile-time checks
+- Rich ecosystem and libraries
+- Integration with Entity Framework Core
+- Built-in authentication and authorization
+- Familiar to the development team
+
+### Why Entity Framework Core?
+- ORM with strong LINQ support
+- Code-first approach allows for easier domain modeling
+- Migration support for database versioning
+- Integration with ASP.NET Core
+- Reduced boilerplate data access code
+
+### Why Newtonsoft.Json?
+- Robust and widely-used serialization library
+- Excellent handling of complex object graphs
+- Customizable serialization settings
+- Better compatibility with existing code
+- Well-documented and maintained
+
+### Why Repository Pattern?
+- Abstraction of data access logic
+- Easier unit testing through mocking
+- Separation of concerns
+- Consistent data access patterns
+- Flexibility to change data source implementation
+
+### Why Docker?
+- Consistent development environment
+- Easier onboarding for new developers
+- Production-like environment locally
+- Simplified deployment process
+- Infrastructure as code
+
 ## Technologies Used
 
 ### Core Framework

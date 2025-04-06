@@ -1,4 +1,5 @@
-@model Reina.MacCredy.Models.Order
+@model Order
+@using Reina.MacCredy.Models
 @using Reina.MacCredy.Extensions
 
 @{
@@ -63,6 +64,19 @@
                                 <input asp-for="ZipCode" class="form-control" required />
                                 <span asp-validation-for="ZipCode" class="text-danger"></span>
                             </div>
+                        </div>
+                        
+                        <h5 class="mb-3">Payment Information</h5>
+                        <div class="mb-4">
+                            <label asp-for="PaymentMethod" class="form-label">Payment Method</label>
+                            <select asp-for="PaymentMethod" class="form-select" required>
+                                <option value="@SD.Payment_CashOnDelivery">Cash on Delivery</option>
+                                <option value="@SD.Payment_CreditCard">Credit Card</option>
+                                <option value="@SD.Payment_BankTransfer">Bank Transfer</option>
+                                <option value="@SD.Payment_MoMo">MoMo</option>
+                                <option value="@SD.Payment_VNPay">VNPay</option>
+                            </select>
+                            <span asp-validation-for="PaymentMethod" class="text-danger"></span>
                         </div>
                         
                         <h5 class="mb-3">Additional Information</h5>

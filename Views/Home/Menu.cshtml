@@ -1,5 +1,6 @@
 @model IEnumerable<Reina.MacCredy.Models.Product>
 @using Reina.MacCredy.Extensions
+@using System.Text.Json
 
 @{
     ViewData["Title"] = "Menu";
@@ -96,7 +97,9 @@
                             </div>
                             <div class="button-group d-flex">
                                 <a asp-controller="Product" asp-action="Display" asp-route-id="@item.Id" class="btn btn-outline-coffee me-2 flex-grow-1">Details</a>
-                                <button class="btn btn-coffee flex-grow-1 add-to-cart-btn" data-product-id="@item.Id" data-quantity="1">Order</button>
+                                <button class="btn btn-coffee flex-grow-1 add-to-cart-btn" data-product-id="@item.Id" data-quantity="1">
+                                    <i class="bi bi-cart-plus me-1"></i> Order
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -421,17 +424,26 @@
 @section Scripts {
     <script>
         $(document).ready(function() {
-            // Add to cart button click event
-            $('.add-to-cart-btn').click(function() {
+            console.log("Menu page script initialized - " + new Date().toISOString());
+            console.log("Testing order button selectors:", $('.add-to-cart-btn').length, "order buttons found");
+            
+            // Add to order button click event
+            $('.add-to-cart-btn').click(function(e) {
+                e.preventDefault();
+                console.log("Add to order button clicked");
                 var productId = $(this).data('product-id');
-                var quantity = $(this).data('quantity');
+                var quantity = $(this).data('quantity') || 1;
+                console.log("Button data - Product ID:", productId, "Quantity:", quantity);
                 addToCart(productId, quantity);
             });
             
-            // Modal add to cart button click event
-            $('.modal-add-to-cart').click(function() {
+            // Modal add to order button click event
+            $('.modal-add-to-cart').click(function(e) {
+                e.preventDefault();
+                console.log("Modal add to order button clicked");
                 var productId = $(this).data('product-id');
                 var quantity = $('#modal-quantity-' + productId).val();
+                console.log("Modal data - Product ID:", productId, "Quantity:", quantity);
                 addToCart(productId, quantity);
                 $('#quickViewModal-' + productId).modal('hide');
             });
@@ -451,19 +463,40 @@
             });
             
             function addToCart(productId, quantity) {
+                console.log("Adding to order - Product ID:", productId, "Quantity:", quantity);
+                
                 $.ajax({
                     url: '@Url.Action("AddToCart", "ShoppingCart")',
                     type: 'POST',
-                    data: { productId: productId, quantity: quantity },
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    data: {
+                        productId: productId,
+                        quantity: quantity
+                    },
                     success: function(response) {
-                        if (response.success) {
+                        console.log("Add to order response:", response);
+                        if (response && response.success) {
                             // Show toast notification
                             var toast = new bootstrap.Toast(document.getElementById('cartToast'));
                             toast.show();
                             
                             // Update cart count in navbar
                             updateCartCount();
+                            
+                            // Update cart toast message
+                            $('#cartToastMessage').text(response.message || "Product added to order!");
+                        } else {
+                            console.error("Failed to add to order:", response);
+                            alert("Failed to add product to order. Please try again.");
                         }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("AJAX error:", status, error);
+                        console.log("Response:", xhr.responseText);
+                        alert("Failed to add product to order. Please try again later.");
                     }
                 });
             }
@@ -474,6 +507,9 @@
                     type: 'GET',
                     success: function(response) {
                         $('.cart-count').text(response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error updating cart count:", error);
                     }
                 });
             }

@@ -21,28 +21,29 @@ namespace Reina.MacCredy.Models
         {
             base.OnModelCreating(modelBuilder);
             
-            // Configure decimal properties to avoid truncation warnings
+            // Configure decimal properties for SQLite
             modelBuilder.Entity<Order>()
                 .Property(o => o.TotalPrice)
-                .HasColumnType("decimal(18,2)");
+                .HasConversion<double>();
                 
             modelBuilder.Entity<OrderDetail>()
                 .Property(od => od.Price)
-                .HasColumnType("decimal(18,2)");
+                .HasConversion<double>();
                 
             modelBuilder.Entity<Product>()
                 .Property(p => p.Price)
-                .HasColumnType("decimal(18,2)");
+                .HasConversion<double>();
                 
             modelBuilder.Entity<ProductOption>()
                 .Property(po => po.AdditionalPrice)
-                .HasColumnType("decimal(18,2)");
+                .HasConversion<double>();
                 
             // Configure Order to use UserId as ForeignKey for ApplicationUser
             modelBuilder.Entity<Order>()
                 .HasOne(o => o.ApplicationUser)
                 .WithMany()
-                .HasForeignKey(o => o.UserId);
+                .HasForeignKey(o => o.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

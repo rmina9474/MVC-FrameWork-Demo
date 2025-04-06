@@ -10,6 +10,11 @@
         <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
         <link rel="icon" type="image/png" href="~/images/coffee-logo.png">
         @RenderSection("Styles", required: false)
+        
+        <!-- Anti-Cache Meta Tags -->
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
     </head>
     <body data-is-admin="@((User?.Identity != null && User.IsInRole("Admin")) ? "true" : "false")">
        <div class="wrapper">
@@ -177,7 +182,7 @@
                                                 }
                                             </span>
                                         </div>
-                                        <span class="cart-label d-none d-md-inline">Cart</span>
+                                        <span class="cart-label d-none d-md-inline">Order</span>
                                     </a>
                                 </div>
                             }
@@ -306,20 +311,33 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        console.log("Layout script loaded");
+        
+        // Test jQuery
+        if (typeof jQuery !== 'undefined') {
+            console.log("jQuery is loaded, version: " + jQuery.fn.jquery);
+        } else {
+            console.error("jQuery is not loaded!");
+        }
+        
         // Update cart count
         $(document).ready(function() {
+            console.log("Document ready in layout");
+            
             // Load cart count for authenticated users
             @if (User?.Identity != null && User.Identity.IsAuthenticated && (User?.IsInRole("Admin") != true))
             {
                 <text>
+                console.log("Attempting to load cart count for authenticated user");
                 $.ajax({
                     url: '@Url.Action("GetCartCount", "ShoppingCart")',
                     type: 'GET',
                     success: function(response) {
+                        console.log("Cart count loaded: " + response);
                         $('.cart-count').text(response);
                     },
-                    error: function() {
-                        console.log('Error loading cart count');
+                    error: function(xhr, status, error) {
+                        console.error('Error loading cart count:', status, error);
                     }
                 });
                 </text>

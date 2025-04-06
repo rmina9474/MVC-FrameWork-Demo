@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
+using Microsoft.EntityFrameworkCore.Sqlite;
+using Microsoft.EntityFrameworkCore.InMemory;
 using Reina.MacCredy.Models;
 using Reina.MacCredy.Repositories;
 using Reina.MacCredy.Services;
@@ -11,14 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => 
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), 
-        sqlServerOptionsAction: sqlOptions => 
-        {
-            sqlOptions.EnableRetryOnFailure();
-            sqlOptions.CommandTimeout(30);
-            // Allow multiple active result sets to avoid "There is already an open DataReader" error
-            sqlOptions.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
-        }));
+    options.UseSqlite("Data Source=cafe_shop.db", sqliteOptions => sqliteOptions.MigrationsAssembly("Reina.MacCredy")));
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddDefaultTokenProviders()
@@ -47,6 +42,8 @@ builder.Services.AddSession(options =>
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();
 builder.Services.AddScoped<IShoppingCartService, ShoppingCartService>();
+builder.Services.AddScoped<PaymentService>();
+builder.Services.AddHttpClient();  // Add HttpClient factory
 
 // Add HttpContextAccessor for permission checks
 builder.Services.AddHttpContextAccessor();
@@ -64,10 +61,11 @@ using (var scope = app.Services.CreateScope())
     {
         logger.LogInformation("Attempting to get ApplicationDbContext...");
         var context = services.GetRequiredService<ApplicationDbContext>();
-        logger.LogInformation("ApplicationDbContext obtained. Attempting to migrate database...");
-        // Apply migrations at startup
-        context.Database.Migrate();
-        logger.LogInformation("Database migration completed successfully.");
+        logger.LogInformation("ApplicationDbContext obtained. Using SQLite database.");
+        
+        // Use EnsureCreated instead of migrations
+        context.Database.EnsureCreated();
+        logger.LogInformation("Database created successfully.");
 
         var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
         var roles = new[] { "Admin", "User" }; // Add your desired roles
@@ -82,61 +80,73 @@ using (var scope = app.Services.CreateScope())
         }
         logger.LogInformation("Role check/creation completed.");
 
-        // Add code to check and add Brand column if missing
-        try
+        // Create some test products
+        if (!context.Products.Any())
         {
-            // Note: No need to get logger again here, use the one from the outer scope
-            var dbContext = services.GetRequiredService<ApplicationDbContext>();
-            var connection = dbContext.Database.GetDbConnection();
+            logger.LogInformation("Creating test products...");
             
-            // Open connection if it's not already open
-            if (connection.State != System.Data.ConnectionState.Open)
+            // Create test categories first
+            var categories = new List<Category>
             {
-                connection.Open();
-            }
+                new Category { Name = "Hot Coffee", Description = "Hot coffee beverages" },
+                new Category { Name = "Cold Coffee", Description = "Cold and iced coffee beverages" },
+                new Category { Name = "Specialty Drinks", Description = "Special tea and non-coffee drinks" },
+                new Category { Name = "Food", Description = "Bakery and snack items" }
+            };
             
-            using (var command = connection.CreateCommand())
-            {
-                // Check if Brand column exists
-                command.CommandText = @"
-                    IF NOT EXISTS (
-                        SELECT 1
-                        FROM INFORMATION_SCHEMA.COLUMNS
-                        WHERE TABLE_NAME = 'Products' AND COLUMN_NAME = 'Brand'
-                    )
-                    BEGIN
-                        ALTER TABLE Products ADD Brand nvarchar(max) NULL;
-                    END";
-                
-                command.ExecuteNonQuery();
-            }
+            context.Categories.AddRange(categories);
+            context.SaveChanges();
             
-            // Check and add AvatarUrl column to AspNetUsers
-            using (var command = connection.CreateCommand())
+            // Now add products with categories
+            var products = new List<Product>
             {
-                command.CommandText = @"
-                    IF NOT EXISTS (
-                        SELECT 1
-                        FROM INFORMATION_SCHEMA.COLUMNS
-                        WHERE TABLE_NAME = 'AspNetUsers' AND COLUMN_NAME = 'AvatarUrl'
-                    )
-                    BEGIN
-                        ALTER TABLE AspNetUsers ADD AvatarUrl nvarchar(max) NULL;
-                    END";
-                command.ExecuteNonQuery();
-            }
-        }
-        catch (Exception ex)
-        {
-            // Use the logger declared in the outer scope
-            logger.LogError(ex, "An error occurred while checking/adding the Brand or AvatarUrl columns.");
+                new Product {
+                    Name = "Traditional Vietnamese Coffee",
+                    Description = "Authentic Vietnamese coffee brewed with a traditional filter, rich and strong in flavor.",
+                    Price = 38000,
+                    CategoryId = 1, // Hot Coffee
+                    ImageUrl = "/images/coffee/CafeTruyenThong.jpg",
+                    IsAvailable = true,
+                    CanCustomize = true,
+                    HasSizeOptions = true,
+                    PrepTime = "3-4 min",
+                    IsFeatured = true
+                },
+                new Product {
+                    Name = "Hong Tra Tea",
+                    Description = "A refreshing black tea with a rich aroma and smooth flavor profile.",
+                    Price = 42000,
+                    CategoryId = 3, // Specialty Drinks
+                    ImageUrl = "/images/coffee/HongTra.jpg",
+                    IsAvailable = true,
+                    CanCustomize = true,
+                    HasSizeOptions = true,
+                    PrepTime = "2-3 min",
+                    IsFeatured = true
+                },
+                new Product {
+                    Name = "Iced Caramel Macchiato",
+                    Description = "Espresso with vanilla syrup, milk and caramel sauce over ice.",
+                    Price = 48000,
+                    CategoryId = 2, // Cold Coffee
+                    ImageUrl = "/images/coffee/MacchiatoCaramel.jpg",
+                    IsAvailable = true,
+                    CanCustomize = true,
+                    HasSizeOptions = true,
+                    PrepTime = "2-3 min",
+                    IsFeatured = true
+                }
+            };
+            
+            context.Products.AddRange(products);
+            context.SaveChanges();
+            logger.LogInformation("Test products created successfully.");
         }
     }
     catch (Exception ex)
     {
         // Use the logger declared in the outer scope
-        logger.LogError(ex, "An error occurred during database migration/initialization.");
-        // Removed duplicate log message from here
+        logger.LogError(ex, "An error occurred during database initialization.");
     }
 }
 // Configure the HTTP request pipeline.
@@ -148,166 +158,71 @@ if (!app.Environment.IsDevelopment())
 }
 else
 {
-    // Add Hong Tra product in development mode
+    // Add demo data in development mode
     using (var scope = app.Services.CreateScope())
     {
         var services = scope.ServiceProvider;
         var context = services.GetRequiredService<ApplicationDbContext>();
+        var logger = services.GetRequiredService<ILogger<Program>>();
         
-        // Check if Hong Tra already exists
-        if (!context.Products.Any(p => p.Name == "Hong Tra Tea"))
+        try 
         {
-            // Add a new Hong Tra product
-            var hongTra = new Product
+            // Removed EnsureCreated check, we're using migrations now
+            if (!context.Products.Any())
             {
-                Name = "Hong Tra Tea",
-                Description = "A refreshing black tea with a rich aroma and smooth flavor profile.",
-                Price = 42000,
-                CategoryId = 3, // Specialty Drinks
-                ImageUrl = "/images/coffee/HongTra.jpg",
-                IsAvailable = true,
-                CanCustomize = true,
-                HasSizeOptions = true,
-                PrepTime = "2-3 min",
-                IsFeatured = true
-            };
-            
-            context.Products.Add(hongTra);
-            context.SaveChanges();
-            
-            Console.WriteLine("Hong Tra Tea product added to database!");
-        }
-        
-        // Add all other drinks from assets
-        var newDrinks = new List<Product>();
-        
-        // Check if new drinks exist before adding
-        if (!context.Products.Any(p => p.Name == "Traditional Vietnamese Coffee"))
-        {
-            newDrinks.Add(new Product {
-                Name = "Traditional Vietnamese Coffee",
-                Description = "Authentic Vietnamese coffee brewed with a traditional filter, rich and strong in flavor.",
-                Price = 38000,
-                CategoryId = 1, // Hot Coffee
-                ImageUrl = "/images/coffee/CafeTruyenThong.jpg",
-                IsAvailable = true,
-                CanCustomize = true,
-                HasSizeOptions = true,
-                PrepTime = "3-4 min",
-                IsFeatured = true
-            });
-            
-            newDrinks.Add(new Product {
-                Name = "Black Coffee",
-                Description = "Strong and aromatic black coffee made from freshly ground beans.",
-                Price = 35000,
-                CategoryId = 1, // Hot Coffee
-                ImageUrl = "/images/coffee/CafeDen.jpg",
-                IsAvailable = true,
-                CanCustomize = false,
-                HasSizeOptions = true,
-                PrepTime = "2-3 min",
-                IsFeatured = false
-            });
-            
-            newDrinks.Add(new Product {
-                Name = "Milk Coffee",
-                Description = "Traditional coffee with condensed milk, a Vietnamese favorite.",
-                Price = 40000,
-                CategoryId = 1, // Hot Coffee
-                ImageUrl = "/images/coffee/Cafe-Y.jpg",
-                IsAvailable = true,
-                CanCustomize = true,
-                HasSizeOptions = true,
-                PrepTime = "2-3 min",
-                IsFeatured = true
-            });
-            
-            newDrinks.Add(new Product {
-                Name = "Cappuccino",
-                Description = "Espresso with steamed milk foam, sprinkled with cocoa powder.",
-                Price = 45000,
-                CategoryId = 1, // Hot Coffee
-                ImageUrl = "/images/coffee/Cappuchino.jpg",
-                IsAvailable = true,
-                CanCustomize = true,
-                HasSizeOptions = true,
-                PrepTime = "3-4 min",
-                IsFeatured = false
-            });
-            
-            newDrinks.Add(new Product {
-                Name = "Nespresso Specialty",
-                Description = "Premium coffee made with Nespresso capsules for a rich, aromatic experience.",
-                Price = 50000,
-                CategoryId = 1, // Hot Coffee
-                ImageUrl = "/images/coffee/Nespresso.jpg",
-                IsAvailable = true,
-                CanCustomize = false,
-                HasSizeOptions = true,
-                PrepTime = "1-2 min",
-                IsFeatured = true
-            });
-            
-            newDrinks.Add(new Product {
-                Name = "Iced Lemon Tea",
-                Description = "Refreshing black tea with fresh lemon and ice.",
-                Price = 38000,
-                CategoryId = 3, // Tea
-                ImageUrl = "/images/coffee/TraChanh.jpg",
-                IsAvailable = true,
-                CanCustomize = true,
-                HasSizeOptions = true,
-                PrepTime = "2-3 min",
-                IsFeatured = false
-            });
-            
-            newDrinks.Add(new Product {
-                Name = "Black Tea",
-                Description = "Premium black tea with a bold flavor, served hot.",
-                Price = 35000,
-                CategoryId = 3, // Tea
-                ImageUrl = "/images/coffee/TraDen.jpg",
-                IsAvailable = true,
-                CanCustomize = false,
-                HasSizeOptions = true,
-                PrepTime = "2-3 min",
-                IsFeatured = false
-            });
-            
-            newDrinks.Add(new Product {
-                Name = "Classic Cocktail",
-                Description = "A refreshing non-alcoholic cocktail with mixed fruits and soda.",
-                Price = 55000,
-                CategoryId = 3, // Specialty Drinks
-                ImageUrl = "/images/coffee/Cocktail.jpg",
-                IsAvailable = true,
-                CanCustomize = true,
-                HasSizeOptions = true,
-                PrepTime = "4-5 min",
-                IsFeatured = true
-            });
-            
-            newDrinks.Add(new Product {
-                Name = "Premium Mixed Cocktails",
-                Description = "A selection of tropical non-alcoholic cocktails with fresh fruits.",
-                Price = 60000,
-                CategoryId = 3, // Specialty Drinks
-                ImageUrl = "/images/coffee/Cocktails.jpg",
-                IsAvailable = true,
-                CanCustomize = true,
-                HasSizeOptions = true,
-                PrepTime = "5-6 min",
-                IsFeatured = true
-            });
-            
-            // Add all products to database
-            if (newDrinks.Count > 0)
-            {
-                context.Products.AddRange(newDrinks);
+                logger.LogInformation("Seeding database with test data...");
+                
+                // Create categories
+                var categories = new List<Category>
+                {
+                    new Category { Name = "Hot Coffee", Description = "Hot coffee beverages" },
+                    new Category { Name = "Cold Coffee", Description = "Cold coffee beverages" },
+                    new Category { Name = "Specialty Drinks", Description = "Non-coffee specialty drinks" },
+                    new Category { Name = "Food", Description = "Food items" }
+                };
+                context.Categories.AddRange(categories);
                 context.SaveChanges();
-                Console.WriteLine($"{newDrinks.Count} new drinks added to database!");
+                
+                // Create sample products
+                var products = new List<Product>
+                {
+                    new Product {
+                        Name = "Traditional Vietnamese Coffee",
+                        Description = "Authentic Vietnamese coffee brewed with a traditional filter",
+                        Price = 38000,
+                        CategoryId = 1,
+                        ImageUrl = "/images/coffee/placeholder.jpg",
+                        IsAvailable = true,
+                        IsFeatured = true
+                    },
+                    new Product {
+                        Name = "Iced Coffee",
+                        Description = "Refreshing iced coffee",
+                        Price = 35000,
+                        CategoryId = 2,
+                        ImageUrl = "/images/coffee/placeholder.jpg",
+                        IsAvailable = true,
+                        IsFeatured = true
+                    },
+                    new Product {
+                        Name = "Matcha Latte",
+                        Description = "Green tea latte with a smooth taste",
+                        Price = 45000,
+                        CategoryId = 3,
+                        ImageUrl = "/images/coffee/placeholder.jpg",
+                        IsAvailable = true,
+                        IsFeatured = false
+                    }
+                };
+                context.Products.AddRange(products);
+                context.SaveChanges();
+                
+                logger.LogInformation("Test data seeded successfully.");
             }
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "An error occurred while seeding test data.");
         }
     }
 }
