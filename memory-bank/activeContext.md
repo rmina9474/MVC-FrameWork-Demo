@@ -13,7 +13,7 @@
 ## Recent Changes
 - Changed project name from "Brew Haven/Reina.MacCredy" to "CoffeeShop Web Application"
   - Updated all references in documentation and codebase
-  - Updated GitHub repository name to "Final Project For Web Programming"
+  - Updated GitHub repository name to "CoffeeShop-Web-Application"
 - Changed "Add to Cart" buttons to "Order" buttons throughout the application
   - Updated button text across all product pages
   - Modified JavaScript messages and comments for consistency

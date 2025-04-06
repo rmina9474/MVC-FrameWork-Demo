@@ -57,12 +57,12 @@ The application follows a standard ASP.NET Core MVC architecture with:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/MVC-FrameWork-Demo.git
+   git clone https://github.com/rmina9474/CoffeeShop-Web-Application.git
    ```
 
 2. Navigate to the project directory:
    ```
-   cd MVC-FrameWork-Demo
+   cd CoffeeShop-Web-Application
    ```
 
 3. Restore dependencies:
