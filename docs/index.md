@@ -1,52 +1,57 @@
-# Brew Haven Documentation
+# Reina.MacCredy E-Commerce Platform Documentation
 
-Welcome to the comprehensive documentation for the Brew Haven Coffee Shop e-commerce platform. This documentation is designed to help developers understand and work with the codebase efficiently.
+Welcome to the official documentation for the Reina.MacCredy E-Commerce Platform, a modern ASP.NET Core MVC web application for online coffee shops.
 
-## Overview
+## Introduction
 
-Brew Haven is a modern ASP.NET Core MVC e-commerce application for a specialty coffee shop. It features a clean architecture, responsive design, and a comprehensive set of e-commerce functionalities.
+The Reina.MacCredy E-Commerce Platform is a comprehensive online shopping solution built using ASP.NET Core MVC architecture. The platform provides a modern shopping experience focused on a specialized coffee product catalog with additional merchandise offerings. The application follows a clean architecture approach, implementing repository pattern, dependency injection, and MVC design patterns.
 
 ## Documentation Sections
 
-### Architecture Documentation
+### Architecture
+- [Architecture Overview](architecture/overview.md): The overall architectural design and patterns
+- [Data Model](architecture/data-model.md): Database schema and entity relationships
+- [Docker Containerization](architecture/docker-containerization.md): Containerization approach and configuration
 
-- [Architecture Overview](architecture/overview.md) - High-level overview of the system architecture, patterns, and components
-- [Database Schema](architecture/database-schema.md) - Detailed information about the database structure, tables, relationships, and indexing
+### API Documentation  
+- [Payment Integrations](api/payment-integrations.md): Payment gateway integration details
 
-### Developer Guides
+### Guides
+- [Development Setup](guides/development-setup.md): How to set up the development environment
+- [Project Structure](guides/project-structure.md): Explanation of the codebase organization
+- [Session Management](guides/session-management.md): Implementation of session state and shopping cart
 
-- [Developer Guide](guides/developer-guide.md) - Essential information for developers working on the project, including setup instructions, workflows, and best practices
+## Key Features
 
-### API Documentation
-
-- [API Documentation](api/api-documentation.md) - Reference for the application's API endpoints, request/response formats, and authentication
+- User registration and authentication
+- Product catalog with detailed product information
+- Shopping cart functionality
+- Order processing and history
+- Payment gateway integration (MoMo, VNPay)
+- Admin dashboard and product management
+- Docker containerization for deployment flexibility
 
 ## Getting Started
 
-If you're new to the project, we recommend the following reading order:
+To get started with the project, follow these steps:
 
-1. Start with the [README.md](../README.md) at the project root for a quick overview
-2. Read the [Architecture Overview](architecture/overview.md) to understand the system design
-3. Set up your development environment using the [Developer Guide](guides/developer-guide.md)
-4. Explore the [Database Schema](architecture/database-schema.md) to understand the data model
-5. Reference the [API Documentation](api/api-documentation.md) when working with backend services
+1. Review the [Development Setup Guide](guides/development-setup.md)
+2. Understand the [Project Structure](guides/project-structure.md)
+3. Explore the [Architecture Overview](architecture/overview.md)
 
-## Recent Updates
+## Technology Stack
 
-The codebase has recently undergone the following significant changes:
+- **Backend**: ASP.NET Core 8.0, C# 12, Entity Framework Core 9.0.3
+- **Frontend**: HTML5, CSS3, JavaScript, Bootstrap 5
+- **Database**: Microsoft SQL Server, SQLite (development)
+- **Containerization**: Docker, Docker Compose
+- **Authentication**: ASP.NET Core Identity
+- **Payment Gateways**: MoMo, VNPay
 
-- UI terminology standardization: Changed "Add to Cart" to "Order" across the entire application
-- Improved session serialization for the shopping cart functionality
-- Fixed MoMo payment processing errors
-- Enhanced error documentation and logging
+## Development Status
 
-## Documentation Maintenance
+The project is currently in an active maintenance and enhancement phase. Core functionality is complete, with ongoing improvements to UI/UX, performance optimization, and feature enhancements.
 
-This documentation is maintained alongside the codebase. If you notice any discrepancies or have suggestions for improvements, please update the relevant documentation files when making code changes.
+## Contributing
 
-## Additional Resources
-
-- [ASP.NET Core Documentation](https://docs.microsoft.com/en-us/aspnet/core)
-- [Entity Framework Core Documentation](https://docs.microsoft.com/en-us/ef/core)
-- [Bootstrap Documentation](https://getbootstrap.com/docs)
-- [jQuery Documentation](https://api.jquery.com) 
+We welcome contributions to the Reina.MacCredy E-Commerce Platform. Please refer to our contribution guidelines before submitting pull requests. 

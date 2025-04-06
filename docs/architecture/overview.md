@@ -1,160 +1,178 @@
 # Architecture Overview
 
-This document provides a comprehensive overview of the Brew Haven Coffee Shop e-commerce platform architecture.
+## Design Philosophy
 
-## Architecture Approach
+The Reina.MacCredy E-Commerce Platform follows a structured architectural approach with clear separation of concerns. The project utilizes industry-standard patterns and practices to ensure maintainability, scalability, and security.
 
-The Brew Haven application follows a standard ASP.NET Core MVC architecture with additional patterns to ensure maintainability, scalability, and separation of concerns.
+## Architecture Layers
 
-## Key Design Patterns
+The application is built with a layered architecture:
 
-### MVC Pattern
-- **Models**: Represent the data structures and business entities
-- **Views**: Handle the user interface and presentation logic
-- **Controllers**: Manage user input, work with models, and select views to render
+1. **Presentation Layer**: MVC Controllers and Razor Views
+2. **Service Layer**: Business logic services
+3. **Repository Layer**: Data access abstraction
+4. **Data Layer**: Entity Framework Core and SQL Server
+
+## Core Architectural Patterns
+
+### MVC (Model-View-Controller)
+
+The application uses the ASP.NET Core MVC pattern:
+
+- **Models**: Represent the data and business logic
+- **Views**: Handle the UI presentation using Razor syntax
+- **Controllers**: Process user input, update models, and select views
+
+```mermaid
+graph TD
+    Client[Client Browser] -->|HTTP Request| Router[Routing Engine]
+    Router -->|Route| Controller[Controller]
+    Controller -->|Data Access| Repository[Repository]
+    Repository -->|CRUD Operations| DB[(Database)]
+    Controller -->|Select| View[View]
+    View -->|Renders| Client
+```
 
 ### Repository Pattern
-- Abstracts data access logic from business logic
-- Provides a collection-like interface for domain objects
-- Enables easier unit testing through dependency injection
-- Centralizes data access logic, reducing duplication
+
+Data access is abstracted through repositories:
+
+- **Interfaces**: Define the contract for data access operations
+- **Implementations**: Provide concrete implementations using Entity Framework Core
+- **Dependency Injection**: Repositories are injected into controllers
+
+```csharp
+// Interface
+public interface IProductRepository
+{
+    Task<IEnumerable<Product>> GetAllAsync();
+    Task<Product> GetByIdAsync(int id);
+    Task AddAsync(Product product);
+    Task UpdateAsync(Product product);
+    Task DeleteAsync(int id);
+}
+
+// Implementation
+public class ProductRepository : IProductRepository
+{
+    private readonly ApplicationDbContext _context;
+
+    public ProductRepository(ApplicationDbContext context)
+    {
+        _context = context;
+    }
+
+    public async Task<IEnumerable<Product>> GetAllAsync()
+    {
+        return await _context.Products
+            .Include(p => p.Category)
+            .ToListAsync();
+    }
+
+    // Other implementations...
+}
+```
 
 ### Dependency Injection
-- Core services registered in Program.cs
-- Promotes loose coupling between components
-- Facilitates testing and maintenance
-- Supports the SOLID principles of software design
 
-### Unit of Work
-- Coordinates operations across multiple repositories
-- Ensures consistency in database operations
-- Manages transactions when necessary
+ASP.NET Core's built-in DI container is used to inject dependencies:
 
-## Component Relationships
-
-### Data Flow
-```
-User Request → Controller → Service → Repository → Database
-                  ↑                                  ↓
-                  └─────────── View ←────────────────┘
+```csharp
+// Registration in Program.cs
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
 ```
 
-### User Interaction Flow
-```
-User Action → Client-side Validation → AJAX Request → Server Processing
-     ↑                                                      ↓
-     └─────────── Visual Feedback ←────────────────────────┘
-```
+## Client-Side Architecture
 
-## Service Organization
-- **Identity Services**: Handle authentication and authorization
-- **Product Services**: Manage product catalog and inventory
-- **Order Services**: Process orders and manage checkout
-- **Shopping Cart Services**: Manage cart functionality
-- **Admin Services**: Support administrative operations
-- **Profile Services**: Manage user profile information and settings
+The front-end architecture follows these patterns:
+
+- **Progressive Enhancement**: Core functionality works without JavaScript
+- **Modular JavaScript**: Functionality organized in modules by feature
+- **AJAX Interactions**: Dynamic updates without full page reloads
+- **CSS Architecture**: Component-based styling with reusable patterns
 
 ## Database Schema
-The application uses Entity Framework Core with a code-first approach, defining the following key entities:
 
-- **User**: Customer accounts and authentication data
-- **Product**: Item details, pricing, and inventory
-- **ProductOption**: Customization options for products (sizes, extras, flavors)
-- **Category**: Product categorization
-- **Order**: Purchase transactions and status
-- **OrderItem**: Individual items within an order
-- **ShoppingCart**: Temporary storage for items before purchase
-- **Review**: Customer feedback on products
+The database includes the following main entities:
 
-## Areas and Modularity
-The application is organized into distinct areas:
+- **Users**: Customer accounts with profile information
+- **Products**: Coffee and food items with details and pricing
+- **Categories**: Product categorization
+- **Orders**: Customer orders with status tracking
+- **OrderItems**: Individual items in an order
+- **Reviews**: Product reviews from customers
 
-- **Main Application**: Customer-facing storefront
-- **Admin Area**: Administrative dashboard and tools
-- **Identity Area**: User authentication and account management
+## Container Architecture
 
-## Error Handling Pattern
-- Defensive programming with null checks for critical objects
-- Use of null-conditional operators (?.) for safer property access
-- Try-catch blocks for potentially problematic code sections
-- Graceful fallbacks to default values when exceptions occur
-- AJAX error handling for client-side operations
-- Toast notifications for user feedback on actions
+The application is containerized using Docker with a multi-container approach:
 
-## Security Considerations
-- ASP.NET Core Identity for authentication and authorization
-- Role-based access control for administrative features
-- Input validation and sanitization to prevent attacks
-- HTTPS enforcement for secure communication
-- Anti-forgery tokens for form submissions
-- Proper null checking to prevent null reference exceptions
-
-## Caching Strategy
-- In-memory caching for frequently accessed data
-- Entity Framework caching for query results
-- Static asset caching with appropriate headers
-
-## Performance Optimizations
-- Asynchronous programming with async/await
-- Efficient database queries and indexing
-- Pagination for large result sets
-- Lazy loading for related entities when appropriate
-- Defensive coding to prevent application crashes
-- Dynamic loading of cart data with AJAX to improve page load times
-- Optimized image loading for product displays
-
-## Design System Pattern
-- **Color System**: Coffee-themed palette with consistent variables (coffee-dark, coffee-medium, coffee-light, coffee-cream)
-- **Typography System**: Consistent font families and sizes for headings and body text
-- **Spacing System**: Standardized spacing values for margins and padding
-- **Component Library**: Reusable UI elements with consistent styling
-- **Icon System**: Consistent use of Bootstrap icons throughout the application
-- **Animation System**: Subtle transitions and hover effects for interactive elements
-- **Terminology System**: Consistent use of terms like "Order" rather than "Add to Cart" across the application
-
-## Project Structure
-
-```
-Brew Haven/
-├── Areas/
-│   ├── Admin/            # Admin dashboard and functionality
-│   └── Identity/         # User authentication and management
-├── Controllers/          # Application controllers
-├── Extensions/           # Custom extensions
-│   └── SessionExtensions.cs  # Session serialization helpers
-├── Migrations/           # Database migrations
-├── Models/               # Data models
-├── Repositories/         # Data access repositories
-├── Services/             # Business logic services
-│   └── PaymentService.cs # Payment processing service
-├── Views/                # UI templates
-│   └── Shared/           # Shared layout and partial views
-│   └── Account/          # User account management views
-├── wwwroot/              # Static resources (CSS, JS, images)
-│   ├── css/              # Stylesheets
-│   ├── js/               # JavaScript files
-│   └── images/           # Image assets
-│       └── avatars/      # User profile images
-├── Dockerfile            # Container definition for the web application
-├── docker-compose.yml    # Multi-container application setup
-└── Program.cs            # Application configuration and startup
+```mermaid
+graph TD
+    Client[Client Browser] -->|HTTP/HTTPS| WebApp[Web Application Container]
+    WebApp -->|SQL Queries| Database[SQL Server Container]
+    WebApp -->|Stores Files| Volume1[(Persistent Volume: Images)]
+    Database -->|Stores Data| Volume2[(Persistent Volume: SQL Data)]
 ```
 
-## UI Design Patterns
-- **Card Pattern**: Consistent content containers for products and profile sections
-- **Product Card Pattern**: Standardized cards with image, title, price, rating, and actions
-- **Service Card Pattern**: Specialized cards for account services with icon and action button
-- **Quick Action Pattern**: Immediate access to common actions (order, view details)
-- **Badge Pattern**: Category indicators on product cards
-- **Hover Effect Pattern**: Visual feedback on interactive elements with scale and shadow changes
-- **Animation Pattern**: Subtle transitions and transforms for interactive elements
-- **Notification Pattern**: Toast messages and fade-in alerts for action feedback
-- **Hero Section Pattern**: Branded header area for content sections
-- **Section Organization**: Clear separation of content types on pages
-- **Responsive Grid System**: Adapts layout to different screen sizes
-- **Modal Dialog Pattern**: Detailed views and customization options without page navigation
-- **Option Selector Pattern**: Radio button groups for product customization
-- **Avatar Upload Pattern**: Visual interface for profile image management
-- **Form Organization Pattern**: Logical grouping of input fields with clear labels
-- **Search and Filter Pattern**: Standardized layout for search input and sorting controls
-- **Terminology Consistency**: Using "Order" consistently for all product addition actions 
+### Container Configuration
+
+Docker Compose is used to orchestrate multiple containers:
+
+```yaml
+# Key parts of docker-compose.yml
+services:
+  webapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=HomeBrew;...
+    depends_on:
+      - sqlserver
+    networks:
+      - reina-network
+    volumes:
+      - ./wwwroot/images:/app/wwwroot/images
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=NewPassword123!
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    networks:
+      - reina-network
+
+networks:
+  reina-network:
+
+volumes:
+  sqlserver-data:
+```
+
+## Security Architecture
+
+The application implements several security patterns:
+
+1. **Authentication**: ASP.NET Core Identity for user authentication
+2. **Authorization**: Role-based and policy-based authorization
+3. **Data Protection**: ASP.NET Core Data Protection for secure storage
+4. **Input Validation**: Server-side and client-side validation
+5. **CSRF Protection**: Anti-forgery tokens for form submissions
+6. **Secure Communication**: HTTPS for all transactions
+7. **Secure Cookies**: HttpOnly and Secure cookies
+8. **Error Handling**: Custom error pages and logging
+
+## Performance Patterns
+
+The application uses several patterns to optimize performance:
+
+1. **Caching**: In-memory cache for frequently accessed data
+2. **Query Optimization**: Efficient Entity Framework queries
+3. **Asynchronous Operations**: Async/await pattern for I/O operations
+4. **Resource Bundling**: CSS and JavaScript bundling for frontend optimization 
