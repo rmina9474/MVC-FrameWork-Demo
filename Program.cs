@@ -12,8 +12,38 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<ApplicationDbContext>(options => 
-    options.UseSqlite("Data Source=cafe_shop.db", sqliteOptions => sqliteOptions.MigrationsAssembly("Reina.MacCredy")));
+// Get the connection string from configuration
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// Check if running in a Docker container
+var isDocker = Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") == "true";
+var dbProvider = builder.Configuration["DatabaseProvider"] ?? "SQLite";
+
+// Configure database context based on environment
+if (isDocker || dbProvider.Equals("SqlServer", StringComparison.OrdinalIgnoreCase))
+{
+    // When running in Docker, use SQL Server
+    builder.Services.AddDbContext<ApplicationDbContext>(options => 
+        options.UseSqlServer(connectionString, sqlOptions => 
+            sqlOptions.MigrationsAssembly("Reina.MacCredy")));
+    
+    builder.Services.AddHealthChecks()
+        .AddSqlServer(connectionString, name: "sqlserver");
+        
+    Console.WriteLine("Using SQL Server database provider");
+}
+else
+{
+    // Default to SQLite for local development
+    builder.Services.AddDbContext<ApplicationDbContext>(options => 
+        options.UseSqlite("Data Source=cafe_shop.db", sqliteOptions => 
+            sqliteOptions.MigrationsAssembly("Reina.MacCredy")));
+    
+    builder.Services.AddHealthChecks()
+        .AddSqlite("Data Source=cafe_shop.db", name: "sqlite");
+        
+    Console.WriteLine("Using SQLite database provider");
+}
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddDefaultTokenProviders()
@@ -48,9 +78,6 @@ builder.Services.AddHttpClient();  // Add HttpClient factory
 // Add HttpContextAccessor for permission checks
 builder.Services.AddHttpContextAccessor();
 
-// Add health checks
-builder.Services.AddHealthChecks();
-
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -61,11 +88,23 @@ using (var scope = app.Services.CreateScope())
     {
         logger.LogInformation("Attempting to get ApplicationDbContext...");
         var context = services.GetRequiredService<ApplicationDbContext>();
-        logger.LogInformation("ApplicationDbContext obtained. Using SQLite database.");
         
-        // Use EnsureCreated instead of migrations
-        context.Database.EnsureCreated();
-        logger.LogInformation("Database created successfully.");
+        if (isDocker || dbProvider.Equals("SqlServer", StringComparison.OrdinalIgnoreCase))
+        {
+            logger.LogInformation("ApplicationDbContext obtained. Using SQL Server database.");
+            
+            // For SQL Server, apply migrations
+            context.Database.Migrate();
+            logger.LogInformation("Database migrations applied successfully.");
+        }
+        else
+        {
+            logger.LogInformation("ApplicationDbContext obtained. Using SQLite database.");
+            
+            // For SQLite, use EnsureCreated
+            context.Database.EnsureCreated();
+            logger.LogInformation("Database created successfully.");
+        }
 
         var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
         var roles = new[] { "Admin", "User" }; // Add your desired roles
@@ -80,7 +119,7 @@ using (var scope = app.Services.CreateScope())
         }
         logger.LogInformation("Role check/creation completed.");
 
-        // Create some test products
+        // Create some test products if database is empty
         if (!context.Products.Any())
         {
             logger.LogInformation("Creating test products...");
@@ -158,102 +197,15 @@ if (!app.Environment.IsDevelopment())
 }
 else
 {
-    // Add demo data in development mode
-    using (var scope = app.Services.CreateScope())
-    {
-        var services = scope.ServiceProvider;
-        var context = services.GetRequiredService<ApplicationDbContext>();
-        var logger = services.GetRequiredService<ILogger<Program>>();
-        
-        try 
-        {
-            // Removed EnsureCreated check, we're using migrations now
-            if (!context.Products.Any())
-            {
-                logger.LogInformation("Seeding database with test data...");
-                
-                // Create categories
-                var categories = new List<Category>
-                {
-                    new Category { Name = "Hot Coffee", Description = "Hot coffee beverages" },
-                    new Category { Name = "Cold Coffee", Description = "Cold coffee beverages" },
-                    new Category { Name = "Specialty Drinks", Description = "Non-coffee specialty drinks" },
-                    new Category { Name = "Food", Description = "Food items" }
-                };
-                context.Categories.AddRange(categories);
-                context.SaveChanges();
-                
-                // Create sample products
-                var products = new List<Product>
-                {
-                    new Product {
-                        Name = "Traditional Vietnamese Coffee",
-                        Description = "Authentic Vietnamese coffee brewed with a traditional filter",
-                        Price = 38000,
-                        CategoryId = 1,
-                        ImageUrl = "/images/coffee/placeholder.jpg",
-                        IsAvailable = true,
-                        IsFeatured = true
-                    },
-                    new Product {
-                        Name = "Iced Coffee",
-                        Description = "Refreshing iced coffee",
-                        Price = 35000,
-                        CategoryId = 2,
-                        ImageUrl = "/images/coffee/placeholder.jpg",
-                        IsAvailable = true,
-                        IsFeatured = true
-                    },
-                    new Product {
-                        Name = "Matcha Latte",
-                        Description = "Green tea latte with a smooth taste",
-                        Price = 45000,
-                        CategoryId = 3,
-                        ImageUrl = "/images/coffee/placeholder.jpg",
-                        IsAvailable = true,
-                        IsFeatured = false
-                    }
-                };
-                context.Products.AddRange(products);
-                context.SaveChanges();
-                
-                logger.LogInformation("Test data seeded successfully.");
-            }
-        }
-        catch (Exception ex)
-        {
-            logger.LogError(ex, "An error occurred while seeding test data.");
-        }
-    }
+    // In development mode we'll use more detailed error pages
+    app.UseDeveloperExceptionPage();
 }
 
-// Seed cafe categories
-using (var scope = app.Services.CreateScope())
-{
-    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    
-    // Check if we need to seed cafe categories
-    if (!dbContext.Categories.Any(c => c.Name == "Hot Coffee" || c.Name == "Cold Coffee"))
-    {
-        var cafeCategories = new List<Category>
-        {
-            new Category { Name = "Hot Coffee" },
-            new Category { Name = "Cold Coffee" },
-            new Category { Name = "Tea" },
-            new Category { Name = "Pastries" },
-            new Category { Name = "Sandwiches" },
-            new Category { Name = "Desserts" }
-        };
-        
-        dbContext.Categories.AddRange(cafeCategories);
-        dbContext.SaveChanges();
-    }
-}
-
-app.UseSession();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 app.UseRouting();
+app.UseSession();
 
 app.UseAuthentication();
 app.UseAuthorization();

@@ -86,7 +86,7 @@ namespace Reina.MacCredy.Controllers
             order.OrderDate = DateTime.Now;
             
             // Set user ID if authenticated
-            if (User.Identity.IsAuthenticated)
+            if (User?.Identity != null && User.Identity.IsAuthenticated)
             {
                 order.UserId = await _userManager.GetUserIdAsync(await _userManager.GetUserAsync(User));
                 order.IsGuestOrder = false;
@@ -227,12 +227,9 @@ namespace Reina.MacCredy.Controllers
         {
             try
             {
-                Console.WriteLine($"AddToCart called - Product ID: {productId}, Quantity: {quantity}");
-                
                 var product = await _productRepository.GetByIdAsync(productId);
                 if (product == null)
                 {
-                    Console.WriteLine($"Product not found: {productId}");
                     if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
                     {
                         return Json(new { success = false, message = "Product not found" });
@@ -244,12 +241,7 @@ namespace Reina.MacCredy.Controllers
                 var cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart");
                 if (cart == null)
                 {
-                    Console.WriteLine("Creating new cart");
                     cart = new ShoppingCart();
-                }
-                else
-                {
-                    Console.WriteLine($"Existing cart found with {cart.Items.Count} items");
                 }
                 
                 // Use custom price if provided (for products with options)
@@ -268,12 +260,10 @@ namespace Reina.MacCredy.Controllers
                 
                 if (existingItem != null)
                 {
-                    Console.WriteLine($"Updating existing item: {product.Name}, new quantity: {existingItem.Quantity + quantity}");
                     existingItem.Quantity += quantity;
                 }
                 else
                 {
-                    Console.WriteLine($"Adding new item: {product.Name}, quantity: {quantity}");
                     cart.Items.Add(new CartItem
                     {
                         ProductId = product.Id,
@@ -287,11 +277,8 @@ namespace Reina.MacCredy.Controllers
                 // Save updated cart back to session
                 HttpContext.Session.SetObjectAsJson("Cart", cart);
                 
-                Console.WriteLine($"Cart updated - Items: {cart.Items.Count}, Total: {cart.TotalPrice}");
-                
                 if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
                 {
-                    Console.WriteLine("Returning AJAX response");
                     return Json(new { 
                         success = true, 
                         message = "Product added to order successfully",
@@ -304,19 +291,14 @@ namespace Reina.MacCredy.Controllers
                 // Check if user is authenticated before proceeding to cart
                 if (User?.Identity == null || !User.Identity.IsAuthenticated)
                 {
-                    Console.WriteLine("User not authenticated, redirecting to login prompt");
                     // Store return URL for after login
                     return RedirectToAction("LoginPrompt", new { returnUrl = Url.Action("Index", "ShoppingCart") });
                 }
                 
-                Console.WriteLine("Redirecting to cart");
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error adding to cart: {ex.Message}");
-                Console.WriteLine($"Stack trace: {ex.StackTrace}");
-                
                 if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
                 {
                     return Json(new { success = false, message = $"Error adding to cart: {ex.Message}", error = ex.Message });
@@ -338,17 +320,10 @@ namespace Reina.MacCredy.Controllers
             return RedirectToAction("Index", "ShoppingCart");
         }
 
-        // Thêm phương thức Index để hiển thị giỏ hàng (nếu chưa có)
+        // Display the shopping cart contents
         public IActionResult Index()
         {
             var cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart") ?? new ShoppingCart();
-
-            Console.WriteLine("Cart Items Count: " + cart.Items.Count);
-            foreach (var item in cart.Items)
-            {
-                Console.WriteLine($"Item: {item.Name}, Price: {item.Price}, Quantity: {item.Quantity}");
-            }
-
             return View(cart);
         }
 
@@ -359,13 +334,10 @@ namespace Reina.MacCredy.Controllers
             {
                 var cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart");
                 var cartCount = cart?.Items.Sum(item => item.Quantity) ?? 0;
-                Console.WriteLine($"GetCartCount called - Current count: {cartCount}");
                 return Json(cartCount);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error in GetCartCount: {ex.Message}");
-                Console.WriteLine($"Stack trace: {ex.StackTrace}");
                 return Json(0); // Return 0 as fallback on error
             }
         }

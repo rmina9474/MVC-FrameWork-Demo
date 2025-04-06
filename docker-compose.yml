@@ -12,7 +12,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
-      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=Webbanhang;User Id=sa;Password=NewPassword123!;TrustServerCertificate=True;
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=HomeBrew;User Id=sa;Password=NewPassword123!;TrustServerCertificate=True;
+      - DatabaseProvider=SqlServer
     networks:
       - reina-network
     healthcheck:
@@ -20,6 +21,8 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+    volumes:
+      - ./wwwroot/images:/app/wwwroot/images
 
   sqlserver:
     container_name: reina-sqlserver

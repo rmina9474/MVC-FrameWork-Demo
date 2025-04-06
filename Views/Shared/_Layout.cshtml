@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@(ViewData["Title"] != null ? ViewData["Title"] + " - " : "")Brew Haven Coffee</title>
+        <title>@(ViewData["Title"] != null ? ViewData["Title"] + " - " : "")Home Brew Coffee</title>
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,9 +22,9 @@
             <nav class="navbar navbar-expand-lg navbar-light coffee-navbar py-3">
                 <div class="container">
                     <a class="navbar-brand d-flex align-items-center" asp-area="" asp-controller="Home" asp-action="Index">
-                        <img src="~/images/coffee-logo.png" alt="Brew Haven Coffee Logo" height="40" class="me-2">
-                        <span class="fw-bold text-coffee">Brew</span>
-                        <span class="fw-bold ms-1 text-brown">Haven</span>
+                        <img src="~/images/coffee-logo.png" alt="Home Brew Coffee Logo" height="40" class="me-2">
+                        <span class="fw-bold text-coffee">Home</span>
+                        <span class="fw-bold ms-1 text-brown">Brew</span>
                     </a>
 
                     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
@@ -89,10 +89,12 @@
                                        asp-area="" asp-controller="Product" asp-action="Browse">Menu</a>
                                 </li>
                                 <li class="nav-item mx-2">
-                                    <a class="nav-link fw-semibold" href="#">About Us</a>
+                                    <a class="nav-link fw-semibold @(ViewContext?.RouteData?.Values["controller"]?.ToString() == "Home" && ViewContext?.RouteData?.Values["action"]?.ToString() == "About" ? "active" : "")"
+                                       asp-area="" asp-controller="Home" asp-action="About">About Us</a>
                                 </li>
                                 <li class="nav-item mx-2">
-                                    <a class="nav-link fw-semibold" href="#">Locations</a>
+                                    <a class="nav-link fw-semibold @(ViewContext?.RouteData?.Values["controller"]?.ToString() == "Home" && ViewContext?.RouteData?.Values["action"]?.ToString() == "Locations" ? "active" : "")"
+                                       asp-area="" asp-controller="Home" asp-action="Locations">Locations</a>
                                 </li>
                             </ul>
                         }
@@ -204,8 +206,8 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="footer-brand mb-4">
                             <div class="d-flex align-items-center">
-                                <img src="~/images/coffee-logo.png" alt="Brew Haven Coffee Logo" height="50" class="me-3">
-                                <h3 class="text-coffee">Brew Haven Coffee</h3>
+                                <img src="~/images/coffee-logo.png" alt="Home Brew Coffee Logo" height="50" class="me-3">
+                                <h3 class="text-coffee">Home Brew Coffee</h3>
                             </div>
                         </div>
                         <p class="mb-4">We serve premium coffee sourced from sustainable farms around the world. Every cup tells a story of quality and passion.</p>
@@ -293,7 +295,7 @@
                 <div class="container">
                     <div class="row align-items-center py-3">
                         <div class="col-md-6">
-                            <p class="mb-md-0">&copy; @DateTime.Now.Year - Brew Haven Coffee Shop - All rights reserved</p>
+                            <p class="mb-md-0">&copy; @DateTime.Now.Year - Home Brew Coffee Shop - All rights reserved</p>
                         </div>
                         <div class="col-md-6">
                             <div class="text-md-end">

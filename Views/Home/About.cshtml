@@ -1,0 +1,99 @@
+@{
+    ViewData["Title"] = "About Us";
+}
+
+<div class="container py-5">
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h1 class="display-4 fw-bold text-coffee mb-4">About <span class="text-brown">Home Brew</span></h1>
+            <p class="lead mb-0">Our story of passion, quality, and the perfect cup</p>
+        </div>
+    </div>
+
+    <div class="row align-items-center mb-5">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+            <img src="/images/about-coffee-shop.jpg" alt="Our Coffee Shop" class="img-fluid rounded-3 shadow">
+        </div>
+        <div class="col-lg-6">
+            <h2 class="h3 text-coffee mb-4">Our Story</h2>
+            <p>Founded in 2015, Home Brew began with a simple mission: to serve exceptional coffee in a warm, welcoming environment. What started as a small kiosk has grown into multiple locations across the city, each maintaining our commitment to quality and community.</p>
+            <p>Our founder, Sarah Chen, developed a passion for coffee during her travels through coffee-growing regions in South America and Africa. Inspired by the farmers and their dedication to the craft, she returned home determined to create a coffee experience that honored their work.</p>
+            <p>Today, Home Brew is known for its carefully sourced beans, expertly trained baristas, and commitment to sustainable practices.</p>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="coffee-values-section p-5 rounded-3">
+                <h2 class="h3 text-center text-white mb-5">Our Values</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="value-card text-center p-4">
+                            <div class="value-icon mb-3">
+                                <i class="bi bi-stars fs-1"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Quality</h3>
+                            <p>We source only the finest beans and ingredients, ensuring every cup meets our high standards.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="value-card text-center p-4">
+                            <div class="value-icon mb-3">
+                                <i class="bi bi-heart fs-1"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Community</h3>
+                            <p>We create spaces where people connect, collaborate, and feel at home.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="value-card text-center p-4">
+                            <div class="value-icon mb-3">
+                                <i class="bi bi-globe fs-1"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Sustainability</h3>
+                            <p>We work with fair trade partners and implement eco-friendly practices throughout our operations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row align-items-center mb-5 flex-column-reverse flex-lg-row">
+        <div class="col-lg-6">
+            <h2 class="h3 text-coffee mb-4">Our Coffee</h2>
+            <p>At Home Brew, we believe that great coffee starts with great sourcing. We work directly with farms and cooperatives to ensure fair prices for farmers and exceptional quality for our customers.</p>
+            <p>Our roasting process is carefully controlled to bring out the unique characteristics of each bean variety. From light, fruity Ethiopian beans to rich, chocolatey Brazilian varieties, we celebrate the diverse flavors that coffee has to offer.</p>
+            <p>Every barista undergoes extensive training to perfect their craft, from mastering extraction times to creating latte art that's as beautiful as it is delicious.</p>
+            <div class="mt-4">
+                <a asp-controller="Product" asp-action="Browse" class="btn btn-brown rounded-pill">Explore Our Menu</a>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-4 mb-lg-0">
+            <img src="/images/coffee-beans.jpg" alt="Coffee Beans" class="img-fluid rounded-3 shadow">
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .coffee-values-section {
+            background-color: #5D4037;
+        }
+        
+        .value-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            height: 100%;
+            transition: transform 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .value-icon {
+            color: #C77D53;
+        }
+    </style>
+} 

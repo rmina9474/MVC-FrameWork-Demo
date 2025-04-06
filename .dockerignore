@@ -15,7 +15,10 @@
 .DS_Store
 .git/
 .gitignore
-Dockerfile*
-docker-compose*
+.env
+**/WebStore.db
+**/cafe_shop.db
+**/*.db-shm
+**/*.db-wal
 README.md
 LICENSE

@@ -1,134 +1,263 @@
 # Product Context
 
-## Why This Project Exists
-The CoffeeShop Web Application was developed to create a modern, user-friendly online shopping experience focused primarily on specialty coffee products and related merchandise. The application serves both customers looking to purchase high-quality coffee products and administrators needing to manage the store efficiently.
+## Project Purpose
 
-## Problems It Solves
+The MVC Framework Demo project is designed to create a modern, feature-rich e-commerce web application demonstrating best practices in ASP.NET Core development. The primary purpose is to showcase a comprehensive online coffee shop implementation with both customer-facing features and administrative tools.
 
-### For Customers
-- **Discovery Problem**: Finding quality coffee products with detailed information about origin, roast level, and flavor profiles
-- **Shopping Experience**: Traditional e-commerce platforms often have poor user experience with complex navigation and checkout processes
-- **Product Information**: Lack of detailed, well-presented information about specialty products
-- **Order Management**: Difficulty tracking and reordering previous purchases
-- **Account Management**: Cumbersome profile management and settings controls
+### Business Need
 
-### For Administrators
-- **Inventory Management**: Challenges in tracking and updating product information efficiently
-- **Order Processing**: Difficulty managing the order fulfillment workflow
-- **User Management**: Complicated systems for managing customer accounts
-- **Store Analytics**: Limited visibility into store performance and customer behavior
-- **Content Management**: Cumbersome tools for updating product descriptions and images
+The application addresses the need for small to medium-sized coffee businesses to establish an online presence with:
 
-### For Developers
-- **Code Complexity**: Overly complex architectures that hinder maintenance
-- **Technical Debt**: Poor patterns that lead to ongoing maintenance issues
-- **Scalability**: Difficulty scaling traditional monolithic e-commerce platforms
-- **Modern Practices**: Need for examples of clean architecture in e-commerce applications
+1. A user-friendly website for browsing and purchasing coffee products
+2. Secure user account management
+3. Shopping cart and checkout functionality
+4. Payment processing integration
+5. Order management for customers and administrators
+6. Product and inventory management
+7. Consistent branding and visual identity
+8. Simplified deployment and operation management
 
-## How It Should Work
+## Target Users
 
-### Customer Experience Flow
-1. **Homepage Discovery**
-   - Featured products and categories prominently displayed
-   - Quick order section for popular items
-   - Visually appealing product cards with immediate "Order" functionality
-   - Intuitive navigation to product categories
+### Customers (Primary Users)
 
-2. **Product Browsing**
-   - Clean, filterable product listings
-   - Detailed product information with high-quality images
-   - Quick view options without leaving the catalog page
-   - Easy quantity adjustment and order placement
+- Coffee enthusiasts seeking specialty coffee products online
+- Tech-savvy consumers comfortable with online shopping
+- Return customers who want to quickly reorder favorite products
+- Mobile users browsing and shopping on smartphones and tablets
 
-3. **Shopping Cart**
-   - Clear summary of selected items
-   - Easy quantity adjustments
-   - Estimated totals and shipping information
-   - Simple progression to checkout
+### Administrators (Secondary Users)
 
-4. **Checkout Process**
-   - Streamlined, minimal-step checkout
-   - Clear order summary
-   - Address and shipping options
-   - Order confirmation with details
+- Business owners managing product offerings and inventory
+- Staff handling order fulfillment and customer service
+- Marketing team updating product features and promotions
 
-5. **User Account**
-   - Profile management with avatar customization
-   - Order history with reorder capability
-   - Address book management
-   - Account settings with service cards for different features
+## Problems Solved
 
-### Administrator Experience Flow
-1. **Dashboard Overview**
-   - Key metrics and recent activity
-   - Quick access to common tasks
-   - Notifications for new orders or issues
+### Customer Experience Problems
 
-2. **Product Management**
-   - Comprehensive product CRUD operations
-   - Bulk operations for efficiency
-   - Category and tag management
-   - Image upload and management
+1. **Difficult Product Discovery**
+   - Solution: Intuitive navigation, search, and filtering
+   - Solution: Well-organized categories and featured products
+   - Solution: Mobile-friendly browsing experience
 
-3. **Order Management**
-   - Order status tracking and updates
-   - Customer communication tools
-   - Fulfillment workflow
-   - Order history and search
+2. **Complicated Checkout Process**
+   - Solution: Streamlined cart and checkout flow
+   - Solution: Guest checkout option
+   - Solution: Multiple payment options
+   - Solution: Clear error messages and validation
 
-4. **User Management**
-   - Customer account viewing and assistance
-   - Role management
-   - Activity monitoring
-   - Account issue resolution
+3. **Trust and Security Concerns**
+   - Solution: Secure authentication
+   - Solution: Safe payment processing
+   - Solution: Clear order confirmation
+   - Solution: Transparent policies and information
+
+### Business Operations Problems
+
+1. **Product Management Complexity**
+   - Solution: User-friendly admin interface
+   - Solution: Bulk operations for products
+   - Solution: Image management tools
+
+2. **Order Processing Inefficiency**
+   - Solution: Centralized order management
+   - Solution: Order status tracking
+   - Solution: Automated notifications
+
+3. **Technical Management Complexity**
+   - Solution: Containerized deployment with Docker
+   - Solution: Easy setup with scripted deployment
+   - Solution: Health monitoring and error tracking
+   - Solution: Environment-specific configurations
 
 ## User Experience Goals
 
-### Core UX Principles
-1. **Simplicity First**: Clean, uncluttered interfaces that focus on content
-2. **Progressive Disclosure**: Reveal complexity only when needed
-3. **Responsive Design**: Consistent experience across all devices
-4. **Visual Feedback**: Clear indication of system status and user actions
-5. **Error Prevention**: Intuitive design that helps users avoid mistakes
-6. **Efficiency**: Minimize steps for common tasks
-7. **Consistency**: Predictable patterns throughout the application
-8. **Clear Terminology**: Using consistent terms like "Order" across the application
+### For Customers
 
-### Visual Design Goals
-1. **Modern Aesthetic**: Clean, contemporary design language
-2. **Brand Consistency**: Cohesive visual identity
-3. **Typography Hierarchy**: Clear content organization
-4. **Purposeful Animation**: Subtle animations that enhance understanding
-5. **Whitespace Utilization**: Breathing room for content
-6. **Color Psychology**: Strategic use of color for emphasis and branding
-7. **Accessible Contrast**: Ensuring readability for all users
+1. **Speed and Efficiency**
+   - Fast page loading
+   - Quick add-to-cart functionality
+   - Minimal steps to complete purchase
+   - Responsive design for all devices
 
-### Interaction Design Goals
-1. **Intuitive Navigation**: Self-explanatory information architecture
-2. **Minimal Friction**: Reducing steps in critical paths
-3. **Forgiving Interfaces**: Easy recovery from errors
-4. **Performance Focus**: Fast load times and responsive interactions
-5. **Helpful Feedback**: Toast notifications and status indicators
-6. **Gesture Support**: Touch-friendly interactions for mobile users
-7. **Keyboard Accessibility**: Full functionality without mouse dependence
+2. **Visual Appeal and Brand Identity**
+   - Attractive product presentation
+   - Consistent coffee-themed design system
+   - High-quality images and typography
+   - Professional and trustworthy appearance
 
-## Target Audience
+3. **Ease of Use**
+   - Intuitive navigation
+   - Self-explanatory UI components
+   - Helpful error messages
+   - Clear call-to-action buttons
 
-### Primary Customers
-- Coffee enthusiasts looking for specialty products
-- Gift shoppers seeking quality coffee merchandise
-- Regular coffee consumers looking for convenient reordering
-- Office managers purchasing for workplace consumption
+### For Administrators
 
-### Administrator Users
-- Store managers overseeing the entire operation
-- Inventory specialists managing product listings
-- Customer service representatives handling orders
-- Marketing personnel updating featured products
+1. **Productivity and Control**
+   - Dashboard with key metrics
+   - Efficient product management
+   - Quick order processing
+   - Bulk operations for common tasks
 
-## Product Roadmap Highlights
-1. **Phase 1**: Core e-commerce functionality (completed)
-2. **Phase 2**: UI modernization and user experience enhancements (in progress)
-3. **Phase 3**: Advanced search and product recommendation systems (planned)
-4. **Phase 4**: Customer review system and social features (planned)
-5. **Phase 5**: Analytics dashboard and reporting tools (planned) 
+2. **Reliability and Support**
+   - Stable and resilient system
+   - Comprehensive error logging
+   - Health checks and monitoring
+   - Clear deployment and update procedures
+
+## Technical Experience Goals
+
+### For Developers
+
+1. **Maintainability**
+   - Clean architecture with separation of concerns
+   - Consistent coding patterns
+   - Comprehensive documentation
+   - Modular design for feature extensions
+
+2. **Reliability**
+   - Robust error handling
+   - Comprehensive logging
+   - Data integrity protection
+   - Security best practices
+
+3. **Deployability**
+   - Docker containerization for consistent environments
+   - Environment-specific configurations
+   - Health checks for monitoring
+   - Simplified deployment scripts
+   - Multi-environment support (development, staging, production)
+
+4. **Testability**
+   - Clear component boundaries
+   - Dependency injection for unit testing
+   - Repository pattern for data access mocking
+   - Separation of business logic from UI
+
+## Key Features
+
+### Core Shopping Experience
+
+1. **Product Browsing**
+   - Category-based navigation
+   - Search functionality
+   - Filtering and sorting options
+   - Featured products section
+
+2. **Product Detail**
+   - Comprehensive product information
+   - High-quality images
+   - Customization options
+   - Related products
+   - Customer reviews
+
+3. **Shopping Cart**
+   - Add, update, and remove items
+   - Session persistence
+   - Quantity adjustment
+   - Price calculation
+   - Cart summary
+
+4. **Checkout Process**
+   - Shipping information collection
+   - Payment method selection
+   - Order summary and confirmation
+   - Order tracking and history
+
+### User Management
+
+1. **Authentication**
+   - Registration and login
+   - Password recovery
+   - Profile management
+   - Address management
+
+2. **Authorization**
+   - Role-based access control
+   - Admin vs. customer separation
+   - Secure areas protection
+
+### Administration
+
+1. **Dashboard**
+   - Sales overview
+   - Recent orders
+   - Low inventory alerts
+   - Performance metrics
+
+2. **Product Management**
+   - Add, edit, and delete products
+   - Manage categories
+   - Upload product images
+   - Set pricing and inventory
+
+3. **Order Management**
+   - View and process orders
+   - Update order status
+   - Cancel or modify orders
+   - Generate invoices
+
+### Operational Features
+
+1. **Deployment and Infrastructure**
+   - Docker containerization for application and database
+   - Multi-container orchestration with Docker Compose
+   - Persistent data storage with Docker volumes
+   - Health monitoring for system components
+   - Environment-specific configurations
+   - Automated container cleanup and management
+
+2. **Security and Compliance**
+   - HTTPS enforcement
+   - Secure authentication
+   - Anti-CSRF protection
+   - Input validation and sanitization
+   - Secure payment handling
+   - Data protection and privacy compliance
+
+3. **Analytics and Reporting**
+   - Sales reports
+   - Customer insights
+   - Product performance
+   - Order statistics
+
+## Non-functional Requirements
+
+1. **Performance**
+   - Page load time < 3 seconds
+   - Quick add-to-cart response
+   - Smooth checkout experience
+   - Efficient database queries
+
+2. **Security**
+   - PCI DSS compliance considerations
+   - Secure data storage
+   - Protection against common web vulnerabilities
+   - Regular security updates
+
+3. **Reliability**
+   - 99.9% uptime target
+   - Graceful error handling
+   - Data backup and recovery
+   - Container health monitoring and auto-recovery
+
+4. **Scalability**
+   - Support for growing product catalog
+   - Handling of traffic spikes
+   - Database performance optimization
+   - Container-based horizontal scaling capability
+
+5. **Usability**
+   - Mobile-first responsive design
+   - Accessibility compliance
+   - Intuitive user interface
+   - Minimal learning curve
+
+6. **Maintainability**
+   - Clean code practices
+   - Comprehensive documentation
+   - Modular architecture
+   - Continuous integration readiness
+   - Container-based deployment simplicity 

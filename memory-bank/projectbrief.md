@@ -1,7 +1,7 @@
-# Project Brief: CoffeeShop Web Application
+# Project Brief: Reina.MacCredy E-Commerce Platform
 
 ## Project Overview
-CoffeeShop Web Application is an e-commerce platform built using ASP.NET Core MVC architecture. The platform provides a modern shopping experience focused on a specialized coffee product catalog with additional merchandise offerings. The application follows a clean architecture approach, implementing repository pattern, dependency injection, and MVC design patterns.
+Reina.MacCredy is an e-commerce platform built using ASP.NET Core MVC architecture. The platform provides a modern shopping experience focused on a specialized coffee product catalog with additional merchandise offerings. The application follows a clean architecture approach, implementing repository pattern, dependency injection, and MVC design patterns.
 
 ## Core Requirements
 

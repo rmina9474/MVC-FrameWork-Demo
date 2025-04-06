@@ -339,4 +339,329 @@ The application relies on the following NuGet packages:
 - Docker-based deployment for consistent environments
 - CI/CD pipeline for automated testing and deployment
 - Health checks for monitoring application status
-- Database migrations applied automatically during deployment 
+- Database migrations applied automatically during deployment
+
+## Technologies Used
+
+This section outlines the technology stack and development tools used in the MVC Framework Demo project.
+
+### Core Technologies
+
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| ASP.NET Core | 9.0 | Web application framework |
+| Entity Framework Core | 9.0.3 | Object-relational mapping |
+| C# | 12 | Primary programming language |
+| Razor Views | - | View templating engine |
+| ASP.NET Core Identity | 9.0 | Authentication and authorization |
+| ASP.NET Core Data Protection | 9.0 | Secure session management |
+| SQL Server | 2022 | Primary database (production/Docker) |
+| SQLite | 3 | Development database |
+| Bootstrap | 5.1 | Front-end UI framework |
+| JavaScript | ES6+ | Client-side scripting |
+| jQuery | 3.6.0 | DOM manipulation and AJAX |
+| Docker | 27.5.1 | Containerization platform |
+| Docker Compose | 2.32.4 | Multi-container orchestration |
+
+### Development Tools
+
+| Tool | Version | Purpose |
+|------|---------|---------|
+| Visual Studio | 2022 | Primary IDE for Windows development |
+| Visual Studio Code | Latest | Cross-platform development |
+| .NET CLI | 9.0 | Command-line tools for .NET development |
+| Git | Latest | Version control |
+| GitHub | - | Source code repository |
+| NuGet | Latest | Package management |
+| npm | Latest | Front-end package management |
+| Postman | Latest | API testing |
+| Browser DevTools | - | Front-end debugging |
+| SQL Server Management Studio | 19 | Database management for SQL Server |
+| DB Browser for SQLite | Latest | Database management for SQLite |
+
+### Key NuGet Packages
+
+| Package | Version | Purpose |
+|---------|---------|---------|
+| Microsoft.AspNetCore.Identity.EntityFrameworkCore | 9.0.3 | Identity storage with EF Core |
+| Microsoft.EntityFrameworkCore.SqlServer | 9.0.3 | SQL Server provider for EF Core |
+| Microsoft.EntityFrameworkCore.Sqlite | 9.0.3 | SQLite provider for EF Core |
+| Microsoft.EntityFrameworkCore.Tools | 9.0.3 | Migrations and scaffolding for EF Core |
+| Microsoft.AspNetCore.Authentication.JwtBearer | 9.0.3 | JWT authentication |
+| Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation | 9.0.3 | Runtime compilation of Razor views |
+| Microsoft.Extensions.Logging | 9.0.3 | Logging infrastructure |
+| Newtonsoft.Json | 13.0.3 | JSON serialization/deserialization |
+| Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore | 9.0.3 | EF Core diagnostic pages |
+| Microsoft.AspNetCore.Diagnostics.HealthChecks | 9.0.3 | Health checks support |
+| System.Net.Http.Json | 9.0.0 | JSON support for HttpClient |
+| Microsoft.Extensions.Http | 9.0.3 | HTTP client factory |
+| Microsoft.AspNetCore.Session | 9.0.3 | Session state management |
+| Microsoft.Extensions.Caching.Memory | 9.0.3 | In-memory caching |
+
+### Front-End Libraries
+
+| Library | Version | Purpose |
+|---------|---------|---------|
+| Bootstrap | 5.1.3 | Responsive UI framework |
+| jQuery | 3.6.0 | DOM manipulation and AJAX |
+| popper.js | 2.11.5 | Tooltip and popover positioning |
+| FontAwesome | 6.0.0 | Icon library |
+| Bootstrap Icons | 1.8.0 | Icon library |
+| Toastr | 2.1.4 | Toast notifications |
+| SweetAlert2 | 11.4.0 | Modal dialogs |
+| Chart.js | 3.7.0 | Data visualization |
+
+## Development Environment
+
+### Local Development Setup
+
+1. **Required Software**
+   - .NET 9.0 SDK or later
+   - Visual Studio 2022 or Visual Studio Code
+   - Git
+   - SQL Server or SQLite
+   - Node.js and npm (for front-end asset management)
+
+2. **Configuration**
+   - Development environment uses SQLite by default for simplicity
+   - Identity configuration uses SQLite storage in development
+   - Environment variables stored in appsettings.Development.json
+   - User Secrets used for sensitive information
+
+3. **Connection Strings**
+   - Development (SQLite): `Data Source=homebrew.db`
+   - Production (SQL Server): `Server=sqlserver;Database=HomeBrew;User Id=sa;Password=NewPassword123!;TrustServerCertificate=True;`
+
+### Docker Development Setup
+
+1. **Required Software**
+   - Docker Desktop 27.5+ (with Docker Engine and Docker Compose)
+   - At least 4GB of RAM allocated to Docker (required for SQL Server)
+   - Free ports: 8080 (HTTP), 8443 (HTTPS), and 1499 (SQL Server)
+
+2. **Docker Configuration**
+   - Dockerfile uses multi-stage build for optimized image creation
+   - Docker Compose orchestrates web application and SQL Server containers
+   - Volume mounting for database persistence and image storage
+   - Environment variable configuration through .env file
+   - Health checks for application and database monitoring
+   - Automatic container cleanup with `--remove-orphans` flag
+
+3. **Startup Script**
+   - `docker-run.sh` provides a convenient way to start the containerized application
+   - Checks if Docker is running before attempting to start containers
+   - Handles cleanup of existing containers
+   - Builds and starts containers with proper configuration
+   - Displays status and access information for the running containers
+   - Includes `--remove-orphans` flag to clean up any orphaned containers
+
+## Deployment Architecture
+
+### Docker Containerization
+
+1. **Container Structure**
+   - Web Application Container: ASP.NET Core app running on Linux-based .NET 9.0 image
+   - SQL Server Container: Microsoft SQL Server 2022 for Linux
+   - Network: Isolated bridge network for secure communication between containers
+   - Volumes: Persistent storage for SQL Server data and uploaded images
+
+2. **Resource Requirements**
+   - Web Application: 1-2 CPU cores, 512MB-1GB RAM
+   - SQL Server: 2+ CPU cores, 2GB+ RAM (3GB recommended)
+   - Storage: 1GB for application, 5GB+ for database (depends on data volume)
+
+3. **Networking**
+   - Port 8080: Public HTTP access to the web application
+   - Port 8443: Public HTTPS access to the web application (when configured)
+   - Port 1499: SQL Server access (can be restricted to internal network in production)
+
+4. **Health Monitoring**
+   - Web Application: HTTP health check at `/health` endpoint
+   - SQL Server: TCP/connection health check
+   - Automatic container restart on failure
+   - Proper dependency handling between containers
+
+5. **Setup Commands**
+   ```bash
+   # Start the application
+   ./docker-run.sh
+   
+   # View logs
+   docker-compose logs -f
+   
+   # Stop the application
+   docker-compose down --remove-orphans
+   ```
+
+### Production Deployment Considerations
+
+1. **Cloud Deployment Options**
+   - AWS Elastic Container Service (ECS)
+   - Azure Container Instances (ACI)
+   - Google Cloud Run
+   - Kubernetes cluster (for more complex deployments)
+
+2. **Database Considerations**
+   - Use managed database service in production (AWS RDS, Azure SQL)
+   - Configure database backups and point-in-time recovery
+   - Implement database connection pooling
+   - Set up proper indexing for performance
+
+3. **Security Concerns**
+   - Use Docker secrets or environment variables for sensitive information
+   - Implement HTTPS with proper SSL/TLS certificates
+   - Restrict container access to necessary ports only
+   - Regular security scanning of container images
+   - Implement proper authentication and authorization
+   - Configure SQL Server with strong passwords and restricted access
+
+4. **Scaling Strategy**
+   - Horizontal scaling for web application containers
+   - Vertical scaling for database (or use managed service with read replicas)
+   - Load balancing for web application traffic
+   - Consider Redis for distributed caching and session storage
+
+## Security Architecture
+
+### Authentication & Authorization
+
+1. **ASP.NET Core Identity**
+   - Custom user model with extended profile properties
+   - Role-based authorization (Admin, User)
+   - Email confirmation for account verification
+   - Password policy enforcement
+
+2. **Data Protection**
+   - Application-specific data protection keys
+   - Key rotation policy (30 days)
+   - Secure cookie handling
+
+3. **Session Security**
+   - HttpOnly cookies
+   - Secure cookie policy (HTTPS)
+   - SameSite cookie restrictions
+   - Session timeout (30 minutes)
+
+### API Security
+
+1. **Payment Gateway Communication**
+   - HTTPS for all API communication
+   - Proper header management
+   - API key authentication
+   - Request signing for integrity verification
+   - Timeout configuration to prevent hanging requests
+   - Comprehensive error handling with logging
+
+2. **CSRF Protection**
+   - Anti-forgery tokens for form submissions
+   - Validation of tokens for all POST, PUT, DELETE requests
+
+### Database Security
+
+1. **Entity Framework Security**
+   - Parameterized queries to prevent SQL injection
+   - Sensitive data attributes for data protection
+   - EF Core query filters for data isolation
+
+2. **Production Database Recommendations**
+   - Use managed service with automated backups
+   - Enable encryption at rest
+   - Network isolation through VPC/private networks
+   - Strong authentication with minimal privilege accounts
+
+## Integrations
+
+### Payment Gateway Integrations
+
+1. **MoMo Payment Gateway**
+   - Integration with MoMo REST API
+   - HMAC-SHA256 signature generation
+   - Proper HTTP client configuration with headers and timeout
+   - QR code payment flow
+   - Callback URL handling for payment verification
+   - Error handling and recovery mechanisms
+
+2. **VNPay Payment Gateway**
+   - Integration with VNPay API
+   - Secure hash generation
+   - Proper parameter formatting
+   - Callback handling
+   - Order status tracking
+
+### External Services
+
+1. **Google Maps Integration**
+   - Embed API for store location maps
+   - Custom styling for map appearance
+   - Marker customization for store locations
+
+## Development Practices
+
+### Coding Standards
+
+1. **C# Coding Standards**
+   - Follow Microsoft's C# coding conventions
+   - Use C# 12 features where appropriate
+   - Async/await for asynchronous operations
+   - Proper exception handling
+   - Dependency injection for loose coupling
+   - Repository pattern for data access
+
+2. **Front-End Standards**
+   - Modular JavaScript with namespacing
+   - Progressive enhancement approach
+   - Mobile-first responsive design
+   - Accessible HTML (WCAG compliance)
+   - BEM methodology for CSS naming
+
+### Testing Practices
+
+1. **Manual Testing**
+   - Testing matrix for browser compatibility
+   - Mobile device testing
+   - Payment flow testing with sandbox environments
+   - User acceptance testing
+
+2. **Future Automated Testing**
+   - Unit tests for business logic
+   - Integration tests for data access
+   - UI tests for critical workflows
+   - API tests for payment gateway integrations
+
+### Error Handling & Logging
+
+1. **Centralized Error Handling**
+   - Global exception handling middleware
+   - Custom error pages for HTTP status codes
+   - Structured logging with semantic information
+   - Environment-specific error details
+
+2. **Logging Strategy**
+   - Development: Console and debug logging
+   - Production: File-based logging with rotation
+   - Critical errors: Email notifications
+   - Payment operations: Detailed audit logging
+
+## Technical Constraints
+
+1. **Browser Compatibility**
+   - Modern browsers (Chrome, Firefox, Safari, Edge)
+   - Minimum Internet Explorer 11 support (with polyfills)
+   - Mobile browsers (iOS Safari, Chrome for Android)
+
+2. **Performance Requirements**
+   - Page load time < 3 seconds on broadband
+   - First contentful paint < 1.5 seconds
+   - Time to interactive < 5 seconds on mobile
+
+3. **Security Requirements**
+   - PCI DSS compliance considerations for payment handling
+   - GDPR compliance for user data
+   - Regular security audits
+   - HTTPS enforcement
+
+4. **Accessibility Requirements**
+   - WCAG 2.1 AA compliance goal
+   - Keyboard navigation support
+   - Screen reader compatibility
+   - Sufficient color contrast 

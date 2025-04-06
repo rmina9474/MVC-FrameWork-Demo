@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
 # Copy csproj and restore dependencies
@@ -10,10 +10,10 @@ COPY . ./
 RUN dotnet publish -c Release -o /app/publish
 
 # Build runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+FROM mcr.microsoft.com/dotnet/aspnet:9.0
 WORKDIR /app
 
-# Install EF Core tools for migrations
+# Install curl for healthchecks
 RUN apt-get update && apt-get install -y curl
 
 # Create a non-root user
@@ -22,9 +22,15 @@ RUN adduser --disabled-password --gecos "" appuser
 # Copy published files from build stage
 COPY --from=build /app/publish .
 
-# Set ownership
-RUN chown -R appuser:appuser /app
+# Create directory for uploaded images
+RUN mkdir -p /app/wwwroot/images && \
+    chown -R appuser:appuser /app
 USER appuser
+
+# Environment variables - these can be overridden in docker-compose.yml
+ENV ASPNETCORE_ENVIRONMENT=Production \
+    DOTNET_RUNNING_IN_CONTAINER=true \
+    DatabaseProvider=SqlServer
 
 EXPOSE 80
 EXPOSE 443
